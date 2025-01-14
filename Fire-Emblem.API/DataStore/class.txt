@@ -1,0 +1,1095 @@
+[
+  {
+    "Id": 1,
+    "Name": "Archer",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 5,
+      "Mag": 0,
+      "Skl": 7,
+      "Spd": 5,
+      "Lck": 2,
+      "Def": 4,
+      "Res": 1,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 26,
+      "Mag": 20,
+      "Skl": 29,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 21,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 15,
+      "Mag": 0,
+      "Skl": 30,
+      "Spd": 15,
+      "Lck": 5,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 1,
+        "Name": "Skill +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+2 Skill, as the name implies.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 2,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 2,
+        "Name": "Prescience",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "When user triggers the battle, +15 Hit and Avoid.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 3,
+        "Name": "Prescient Victory",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "When user triggers the battle, damage +4.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 1,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Sniper",
+      "Bow Knight",
+      "Kinshi Knight"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Wyvern Knight"
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Apothecary",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 6,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 29,
+      "Mag": 20,
+      "Skl": 24,
+      "Spd": 24,
+      "Lck": 30,
+      "Def": 28,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 5,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 4,
+        "Name": "Potent Potion",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+        "StatBonus": null
+      },
+      {
+        "Id": 5,
+        "Name": "Quick Salve",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "After consuming an item that restores HP or a tonic user can perform another action.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 1,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Merchant",
+      "Mechanist"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Ninja"
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Cavalier",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 5,
+      "Lck": 3,
+      "Def": 5,
+      "Res": 3,
+      "Mov": 7
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 26,
+      "Mag": 20,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 26,
+      "Res": 26,
+      "Mov": 9
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 15,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 15,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      2,
+      4
+    ],
+    "Abilities": [
+      {
+        "Id": 6,
+        "Name": "Discipline",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Doubles the amount of Weapon EXP gained by the user.",
+        "StatBonus": null
+      },
+      {
+        "Id": 7,
+        "Name": "Shelter",
+        "LevelGained": 1,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Make an adjacent ally the user's support unit.",
+        "StatBonus": null
+      },
+      {
+        "Id": 8,
+        "Name": "Outdoor Fighter",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases Avoid and Accuracy by 10 when battling on outdoor maps.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 9,
+        "Name": "Elbow Room",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When user fights in terrain with no terrain effects, damage +3 during battle.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Paladin",
+      "Great Knight"
+    ],
+    "ReclassOptions": [
+      "Mercenary",
+      "Myrmidon"
+    ]
+  },
+  {
+    "Id": 4,
+    "Name": "Cleric",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 0,
+      "Mag": 4,
+      "Skl": 3,
+      "Spd": 6,
+      "Lck": 4,
+      "Def": 1,
+      "Res": 6,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 22,
+      "Mag": 25,
+      "Skl": 24,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 22,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 5,
+      "Mag": 15,
+      "Skl": 0,
+      "Spd": 15,
+      "Lck": 15,
+      "Def": 0,
+      "Res": 20
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": null
+    },
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 10,
+        "Name": "Miracle",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Allows the unit to survive with 1 HP when aattacked with a fatal strike. The chance is (Luck)% if HP>1.",
+        "StatBonus": null
+      },
+      {
+        "Id": 11,
+        "Name": "Healtouch",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When the user is healing an ally, an extra 5 HP will be restored for the unit.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 12,
+        "Name": "Rally Luck",
+        "LevelGained": 10,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the Luck of all allies within a 3 tile radius by 8 points for one turn.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 4,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "War Cleric",
+      "Sage",
+      "Great Master"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Troubadour"
+    ]
+  },
+  {
+    "Id": 5,
+    "Name": "Dark Mage",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 0,
+      "Mag": 6,
+      "Skl": 3,
+      "Spd": 3,
+      "Lck": 1,
+      "Def": 3,
+      "Res": 5,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 27,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 5,
+      "Mag": 15,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 13,
+        "Name": "Hex",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid -15 to all adjacent enemies.",
+        "StatBonus": null
+      },
+      {
+        "Id": 14,
+        "Name": "Heartseeker",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
+        "StatBonus": null
+      },
+      {
+        "Id": 15,
+        "Name": "Anathema",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
+        "StatBonus": null
+      },
+      {
+        "Id": 16,
+        "Name": "Malefic Aura",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 8,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Sorcerer",
+      "Dark Knight"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Thief"
+    ]
+  },
+  {
+    "Id": 6,
+    "Name": "Fighter",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 19,
+      "Str": 7,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 6,
+      "Lck": 2,
+      "Def": 4,
+      "Res": 1,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 29,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 23,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 25,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 17,
+        "Name": "HP +5",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the user's Max HP by 5.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 5,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 18,
+        "Name": "Despoil",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When the user defeats an enemy on their turn, they have a chance of obtaining a Gold Bar. The activation rate is based on the user's Luck (ie. 10 luck = 10% chance).",
+        "StatBonus": null
+      },
+      {
+        "Id": 19,
+        "Name": "Zeal",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the user's Critical by 5.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 5,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 20,
+        "Name": "Gamble",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Hit rate -10, Critical rate +10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": -10,
+            "Crit": 10,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Warrior",
+      "Hero",
+      "Berserker"
+    ],
+    "ReclassOptions": [
+      "Cavalier",
+      "Thief"
+    ]
+  },
+  {
+    "Id": 7,
+    "Name": "Kitsune",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 5,
+      "Mag": 1,
+      "Skl": 6,
+      "Spd": 8,
+      "Lck": 4,
+      "Def": 1,
+      "Res": 4,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 23,
+      "Skl": 28,
+      "Spd": 29,
+      "Lck": 30,
+      "Def": 23,
+      "Res": 28,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 20,
+      "Lck": 10,
+      "Def": 0,
+      "Res": 20
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      4
+    ],
+    "Abilities": [
+      {
+        "Id": 21,
+        "Name": "Evenhanded",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases user's damage output by 4 on even-numbered turns.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 4,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 22,
+        "Name": "Beastbane",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Deals effective damage to Beast and Horse Units. Only equippable when the user is a Taguel, Wolfskin, or Kitsune racial class.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 5,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Nine-Tails"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Ninja"
+    ]
+  },
+  {
+    "Id": 8,
+    "Name": "Knight",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 8,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 11,
+      "Res": 0,
+      "Mov": 4
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 30,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 23,
+      "Lck": 30,
+      "Def": 30,
+      "Res": 22,
+      "Mov": 6
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 25,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 10,
+      "Lck": 0,
+      "Def": 15,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      1
+    ],
+    "Abilities": [
+      {
+        "Id": 23,
+        "Name": "Defense +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the user's Defense by 2.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 2,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 24,
+        "Name": "Indoor Fighter",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Accuracy and Avoid +10 when battling indoors.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 25,
+        "Name": "Confined Defense",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When user fights in terrain with terrain effects, damage received -3 during battles.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": -3,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "General",
+      "Great Knight"
+    ],
+    "ReclassOptions": [
+      "Cavalier",
+      "Fighter"
+    ]
+  },
+  {
+    "Id": 9,
+    "Name": "Sword Lord",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 7,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 26,
+        "Name": "Dual Strike+",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
+        "StatBonus": null
+      },
+      {
+        "Id": 27,
+        "Name": "Charm",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Great Sword Lord with Lance",
+      "Great Sword Lord with Axe"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Cavalier"
+    ]
+  },
+  {
+    "Id": 10,
+    "Name": "Axe Lord",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 7,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 26,
+        "Name": "Dual Strike+",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
+        "StatBonus": null
+      },
+      {
+        "Id": 27,
+        "Name": "Charm",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Great Axe Lord with Sword",
+      "Great Axe Lord with Lance"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Cavalier"
+    ]
+  },
+  {
+    "Id": 11,
+    "Name": "Lance Lord",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 7,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 26,
+        "Name": "Dual Strike+",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
+        "StatBonus": null
+      },
+      {
+        "Id": 27,
+        "Name": "Charm",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
+        "StatBonus": null
+      }     
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Great Lance Lord with Sword",
+      "Great Lance Lord with Axe"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Cavalier"
+    ]
+  }
+]

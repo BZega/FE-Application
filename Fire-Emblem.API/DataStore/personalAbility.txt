@@ -1,0 +1,105 @@
+[
+  {
+    "Id": 1,
+    "Name": "Aching Blood",
+    "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 2,
+    "Name": "Bibliophile",
+    "Description": "When this unit is carrying 3 or more Tomes, Critical rate +10",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 3,
+    "Name": "Bloodthirst",
+    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill, and Speed +4 for one turn.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 4,
+        "Mag": 4,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 4,
+    "Name": "Bushido",
+    "Description": "When this unit is the lead unit, if their Internal Level is greater than or equal to their support unit's Internal Level, Critical rate +10, damage +2 and damage received -2",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 5,
+    "Name": "Calm",
+    "Description": "After choosing to wait, Skill and Resistance +4 for one Turn.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 4,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 4,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 6,
+    "Name": "Capture",
+    "Description": "This unit can capture an enemy upon defeating them with the Capture command. This unit cannot perform critical hits while attempting to capture.",
+    "StatBonus": null
+  }
+]

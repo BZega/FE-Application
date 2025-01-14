@@ -1,0 +1,932 @@
+[
+  {
+    "Id": 1,
+    "Name": "Skill +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+2 Skill, as the name implies.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 2,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 2,
+    "Name": "Prescience",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "When user triggers the battle, +15 Hit and Avoid.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 15,
+        "Crit": 0,
+        "Avoid": 15,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 3,
+    "Name": "Prescient Victory",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "When user triggers the battle, damage +4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 4,
+    "Name": "Potent Potion",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+    "StatBonus": null
+  },
+  {
+    "Id": 5,
+    "Name": "Quick Salve",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "After consuming an item that restores HP or a tonic user can perform another action.",
+    "StatBonus": null
+  },
+  {
+    "Id": 6,
+    "Name": "Discipline",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Doubles the amount of Weapon EXP gained by the user.",
+    "StatBonus": null
+  },
+  {
+    "Id": 7,
+    "Name": "Shelter",
+    "LevelGained": 1,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "Make an adjacent ally the user's support unit.",
+    "StatBonus": null
+  },
+  {
+    "Id": 8,
+    "Name": "Outdoor Fighter",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases Avoid and Accuracy by 10 when battling on outdoor maps.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 9,
+    "Name": "Elbow Room",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "When user fights in terrain with no terrain effects, damage +3 during battle.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 10,
+    "Name": "Miracle",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Allows the unit to survive with 1 HP when aattacked with a fatal strike. The chance is (Luck)% if HP>1.",
+    "StatBonus": null
+  },
+  {
+    "Id": 11,
+    "Name": "Healtouch",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "When the user is healing an ally, an extra 5 HP will be restored for the unit.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 5,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 12,
+    "Name": "Rally Luck",
+    "LevelGained": 10,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increase the Luck of all allies within a 3 tile radius by 8 points for one turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 13,
+    "Name": "Hex",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Avoid -15 to all adjacent enemies.",
+    "StatBonus": null
+  },
+  {
+    "Id": 14,
+    "Name": "Heartseeker",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
+    "StatBonus": null
+  },
+  {
+    "Id": 15,
+    "Name": "Anathema",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
+    "StatBonus": null
+  },
+  {
+    "Id": 16,
+    "Name": "Malefic Aura",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
+    "StatBonus": null
+  },
+  {
+    "Id": 17,
+    "Name": "HP +5",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the user's Max HP by 5.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 5,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 18,
+    "Name": "Despoil",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "When the user defeats an enemy on their turn, they have a chance of obtaining a Gold Bar. The activation rate is based on the user's Luck (ie. 10 luck = 10% chance).",
+    "StatBonus": null
+  },
+  {
+    "Id": 19,
+    "Name": "Zeal",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the user's Critical by 5.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 5,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 20,
+    "Name": "Gamble",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Hit rate -10, Critical rate +10.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": -10,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 21,
+    "Name": "Evenhanded",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases user's damage output by 4 on even-numbered turns.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 22,
+    "Name": "Beastbane",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Deals effective damage to Beast and Horse Units. Only equippable when the user is a Taguel, Wolfskin, or Kitsune racial class.",
+    "StatBonus": null
+  },
+  {
+    "Id": 23,
+    "Name": "Defense +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the user's Defense by 2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 2,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 24,
+    "Name": "Indoor Fighter",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Accuracy and Avoid +10 when battling indoors.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 25,
+    "Name": "Confined Defense",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "When user fights in terrain with terrain effects, damage received -3 during battles.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": -3,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 26,
+    "Name": "Dual Strike+",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increase the chance for a Dual Strike occurring by 10%",
+    "StatBonus": null
+  },
+  {
+    "Id": 27,
+    "Name": "Charm",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
+    "StatBonus": null
+  },
+  {
+    "Id": 28,
+    "Name": "Magic +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increase Magic by 2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 2,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 29,
+    "Name": "Focus",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Critical +10 when no allies are within a 3 tile radius",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 30,
+    "Name": "Future Sight",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "When user triggers the battle chance of gaining double experience when user defeats the enemy (Luck%)",
+    "StatBonus": null
+  },
+  {
+    "Id": 31,
+    "Name": "Nobility",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Grants this unit a 20% bonus to EXP",
+    "StatBonus": null
+  },
+  {
+    "Id": 32,
+    "Name": "Dragon Fang",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+    "StatBonus": null
+  },
+  {
+    "Id": 33,
+    "Name": "Grand Fortune",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Chance of recovering 20% HP at the start of the user's Turn (Luck%)",
+    "StatBonus": null
+  },
+  {
+    "Id": 34,
+    "Name": "Patience",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "Hit Rate/Avoid +10 when an enemy initiates battle",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 35,
+    "Name": "Patient Assurance",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "When enemy triggers the battle, damage +3",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 36,
+    "Name": "Avoid +10",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increase Avoid by 10.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 37,
+    "Name": "Duelist's Blow",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "Increases the unit's avoid by 30 whenever the user initiates a battle",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 30,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 38,
+    "Name": "Vantage",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 39,
+    "Name": "Locktouch",
+    "LevelGained": 1,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+    "StatBonus": null
+  },
+  {
+    "Id": 40,
+    "Name": "Poison Strike",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "If the user initiated the battle and the enemy survives, enemy loses 20% current HP after the battle.",
+    "StatBonus": null
+  },
+  {
+    "Id": 41,
+    "Name": "Speed +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Boosts the speed stat by 2 points.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 2,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 42,
+    "Name": "Darting Blow",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+5 to attack speed when user initiates battle",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 5
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 43,
+    "Name": "Relief",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Recovers 20% of the user's HP at the beginning of their turn if there are no other units in a 3-tile radius of the user.",
+    "StatBonus": null
+  },
+  {
+    "Id": 44,
+    "Name": "Camaraderie",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "If the user has allies within a two-square radius at the start of a turn, user recovers 10% maximum HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 45,
+    "Name": "Seal Resistance",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "After combat, reduces enemy Res by 6. (recovers 1/turn)",
+    "StatBonus": null
+  },
+  {
+    "Id": 46,
+    "Name": "Shove",
+    "LevelGained": 10,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "It allows the user to push another allied unit one square away.",
+    "StatBonus": null
+  },
+  {
+    "Id": 47,
+    "Name": "Seal Defense",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "-6 Defense to enemy at end of battle. Recovers by 1 each turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 48,
+    "Name": "Swap",
+    "LevelGained": 10,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "Switches places with an adjacent ally.",
+    "StatBonus": null
+  },
+  {
+    "Id": 49,
+    "Name": "Veteran",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Multiplies combat experience gained by 1.5 when Pair Up is in effect for the user. (If using th TTRPG method or the Hybrid method, only count this when the unit's Pair Up defeats the unit.)",
+    "StatBonus": null
+  },
+  {
+    "Id": 50,
+    "Name": "Tactical Advice",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "If the unit is the support unit in Guard Stance, the lead unit's hit rate increases by 10.",
+    "StatBonus": null
+  },
+  {
+    "Id": 51,
+    "Name": "Solidarity",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+10 to critical rate and dodge for all adjacent allied units.",
+    "StatBonus": null
+  },
+  {
+    "Id": 52,
+    "Name": "Movement +1",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+1 movement when equipped.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 1
+      }
+    }
+  },
+  {
+    "Id": 53,
+    "Name": "Resistance +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the unit's Resistance by 2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 2,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 54,
+    "Name": "Distinguished",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "All allied units of opposite gender with a 2-tile radius of the user take 2 less damage from attacks.",
+    "StatBonus": null
+  },
+  {
+    "Id": 55,
+    "Name": "Aptitude",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+20% to all growth rates",
+    "StatBonus": {
+      "Growths": {
+        "HP": 20,
+        "Str": 20,
+        "Mag": 20,
+        "Skl": 20,
+        "Spd": 20,
+        "Lck": 20,
+        "Def": 20,
+        "Res": 20
+      },
+      "Attributes": null,
+      "Stats": null
+    }
+  },
+  {
+    "Id": 56,
+    "Name": "Underdog",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Hit/ Avoid +15 when the enemy's level is higher than the user's level (promoted unit's count as Level +20).",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 15,
+        "Crit": 0,
+        "Avoid": 15,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 57,
+    "Name": "Odd Shaped",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases user's damage output by 4 on odd-numbered turns.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 58,
+    "Name": "Strength +2",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "It increases Strength by 2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 2,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 59,
+    "Name": "Odd Rhythm",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "+10 Hit rate and Avoid on odd-numbered turns",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 60,
+    "Name": "Wyrmsbane",
+    "LevelGained": 10,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Damage dealt by manaketes to dragon units is now effective damage. Only usable in the Manakete class.",
+    "StatBonus": null
+  },
+  {
+    "Id": 61,
+    "Name": "Better Odds",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Restores 40% maximum HP at the start of an odd-numbered turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 62,
+    "Name": "Grisly Wound",
+    "LevelGained": 35,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Prrovided the user didn't already defeat the enemy, the enemy loses 20% of their maximum HP at the end of the battle.",
+    "StatBonus": null
+  }
+]
