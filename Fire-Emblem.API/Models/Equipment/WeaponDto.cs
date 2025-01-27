@@ -12,7 +12,7 @@ namespace Fire_Emblem.API.Models.Equipment
         public int? Might { get; set; }
         public int? Hit { get; set; }
         public int? Crit { get; set; }
-        public int? Range { get; set; }
+        public string? Range { get; set; }
         public string Uses { get; set; }
         public string Worth { get; set; }
         public int? WeaponExp { get; set; }

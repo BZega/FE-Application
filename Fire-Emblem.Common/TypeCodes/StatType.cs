@@ -24,6 +24,8 @@ namespace Fire_Emblem.Common.TypeCodes
         [EnumMember(Value = "Def")]
         Def = 6,
         [EnumMember(Value = "Res")]
-        Res = 7
+        Res = 7,
+        [EnumMember(Value = "None")]
+        None = 8
     }
 }

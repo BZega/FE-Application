@@ -20,7 +20,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
                 }
                 else
                 {
-                    FileHelper.WriteToFile<UnitClass>(UnitClass, _filePath);
+                    FileHelper.WriteToFile(UnitClass, _filePath);
                     return true;
                 }
             }

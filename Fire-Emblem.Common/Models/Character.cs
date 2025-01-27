@@ -13,11 +13,18 @@ namespace Fire_Emblem.Common.Models
     public class Character
     {
         public int Id { get; set; }
+        public Biography Biography { get; set; }
+        public PersonalAbility PersonalAbility { get; set; }
+        public Stats CurrentStats => GetCurrentStats();
+        public Stats MaxStats => GetMaxStats();
+        public GrowthRate TotalGrowthRate => GetTotalGrowthRate();
+        public List<Ability> EquippedAbilities { get; set; }
+        public UnitClass CurrentClass { get; set; }
+        public int Exp { get; set; } = 0;
         public int Level { get; set; } = 1;
         public int InternalLevel { get; set; } = 1;
         public bool IsInCombat { get; set; } = false;
-        public bool IsAttacking { get; set; } = false;
-        public int Exp { get; set; } = 0;
+        public bool IsAttacking { get; set; } = false; 
         public int Gold { get; set; } = 1000;
         public int Attack => GetAttack();
         public int Heal => GetHeal();
@@ -25,29 +32,25 @@ namespace Fire_Emblem.Common.Models
         public int Crit => GetCrit();
         public int Avoid => GetAvoid();
         public int Dodge => GetDodge();
+        public int DualStrik => GetDualStrikeRate();
+        public int DualGuard { get; set; } = 0;
         public string StartingClass { get; set; }
-        public string HeartSealClass { get; set; }
-        public UnitClass CurrentClass { get; set; }
-        public Flaw Flaw { get; set; }
+        public string HeartSealClass { get; set; }        
         public Asset Asset { get; set; }
+        public Flaw Flaw { get; set; }
         public Condition Condition { get; set; }
-        public Terrain Terrain { get; set; }
-        public Biography Biography { get; set; }
-        public PersonalAbility PersonalAbility { get; set; }
+        public Terrain Terrain { get; set; }        
         public Inventory Inventory { get; set; }
-        public Equipment? EquippedWeapon { get; set; }
+        public Equipment EquippedWeapon { get; set; }
         public Stats BaseStats => GetBaseStats();
-        public Stats CurrentStats => GetCurrentStats();
         public Stats StatChangeAmount => GetStatChangeAmount();
-        public Stats MaxStats => GetMaxStats();
-        public List<Levelup>? LevelupStatIncreases { get; set; }
-        public GrowthRate PersonalGrowthRate { get; set; }
-        public GrowthRate TotalGrowthRate => GetTotalGrowthRate();
+        public List<LevelUp>? LevelupStatIncreases { get; set; }
+        public GrowthRate PersonalGrowthRate { get; set; }    
         public List<UnitType> UnitTypes => GetUnitTypes();
         public List<Weapon> WeaponRanks { get; set; }
         public List<Support>? Supports { get; set; }
         public List<Ability> AcquiredAbilities { get; set; }
-        public List<Ability> EquippedAbilities { get; set; }
+        public string ConvoyId { get; set; }
 
         public GrowthRate GetTotalGrowthRate()
         {
@@ -77,6 +80,8 @@ namespace Fire_Emblem.Common.Models
                 }
                 baseStats.MaximumCheck(MaxStats);
             }
+            baseStats.Add(Asset.BaseStatBonus);
+            baseStats.Add(Flaw.BaseStatBonus);
             return baseStats;
         }
 
@@ -96,7 +101,10 @@ namespace Fire_Emblem.Common.Models
             if (Terrain.TerrainType != TerrainType.None)
             {
                 int.TryParse(Terrain.DefBonus, out var defBonus);
-                currentStats.Def += defBonus;
+                if (UnitTypes.Any(type => type == UnitType.Flying))
+                {
+                    currentStats.Def += defBonus;
+                }
             }
             foreach (var ability in EquippedAbilities)
             {
@@ -113,16 +121,19 @@ namespace Fire_Emblem.Common.Models
             {
                 foreach (var support in Supports)
                 {
-                    if (support.IsPairedUp && support.PairedUpBonus?.Stats != null)
+                    if (support.IsPairedUp && support.PairedUpBonus != null)
                     {
-                        currentStats.Add(support.PairedUpBonus.Stats);
+                        currentStats.Add(support.PairedUpBonus);
                     }
                 }
             }
             currentStats.Add(Condition.StatChange);
-            if (EquippedWeapon != null && EquippedWeapon.StatBonus?.Stats != null)
+            foreach (var item in Inventory.Equipment)
             {
-                currentStats.Add(EquippedWeapon.StatBonus.Stats);
+                if (item.IsEquipped && item.StatBonus?.Stats != null)
+                {
+                    currentStats.Add(item.StatBonus.Stats);
+                }
             }
             return currentStats;
         }
@@ -357,6 +368,46 @@ namespace Fire_Emblem.Common.Models
             {
                 attack += CurrentClass.InnateBonus.Attributes.Hit;
             }
+            if (Supports != null && Supports.Count > 0)
+            {
+                var supportPoints = 0;
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp || support.IsClose)
+                    {
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                supportPoints += 1;
+                                break;
+                            case Rank.C:
+                                supportPoints += 2;
+                                break;
+                            case Rank.B:
+                                supportPoints += 3;
+                                break;
+                            case Rank.A:
+                                supportPoints += 4;
+                                break;
+                            case Rank.S:
+                                supportPoints += 5;
+                                break;
+                        }
+                    }
+                }
+                if (supportPoints > 0 && supportPoints < 5)
+                {
+                    attack += 10;
+                } 
+                else if (supportPoints > 4 && supportPoints < 9)
+                {
+                    attack += 15;
+                } 
+                else if (supportPoints > 8)
+                {
+                    attack += 20;
+                }
+            }
             return attack;
         }
         public int GetHeal()
@@ -387,7 +438,6 @@ namespace Fire_Emblem.Common.Models
                 if (EquippedWeapon.IsMagical)
                 {
                     damage += CurrentStats.Mag;
-
                 }
                 else 
                 {
@@ -431,7 +481,6 @@ namespace Fire_Emblem.Common.Models
                     }
                 }
             }
-
             return damage;
         }
         public int GetCrit()
@@ -475,6 +524,46 @@ namespace Fire_Emblem.Common.Models
             {
                 crit += CurrentClass.InnateBonus.Attributes.Crit;
             }
+            if (Supports != null && Supports.Count > 0)
+            {
+                var supportPoints = 0;
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp || support.IsClose)
+                    {
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                supportPoints += 1;
+                                break;
+                            case Rank.C:
+                                supportPoints += 2;
+                                break;
+                            case Rank.B:
+                                supportPoints += 3;
+                                break;
+                            case Rank.A:
+                                supportPoints += 4;
+                                break;
+                            case Rank.S:
+                                supportPoints += 5;
+                                break;
+                        }
+                    }
+                }
+                if (supportPoints > 3 && supportPoints < 8)
+                {
+                    crit += 10;
+                }
+                else if (supportPoints > 7 && supportPoints < 12)
+                {
+                    crit += 15;
+                }
+                else if (supportPoints > 11)
+                {
+                    crit += 20;
+                }
+            }
             return crit;
         }
         public int GetAvoid()
@@ -513,6 +602,57 @@ namespace Fire_Emblem.Common.Models
             if (CurrentClass.InnateBonus?.Attributes != null)
             {
                 avoid += CurrentClass.InnateBonus.Attributes.Avoid;
+            }
+            if (Terrain.TerrainType != TerrainType.None)
+            {
+                var hasBonus = int.TryParse(Terrain.AvoidBonus, out var avoidBonus);
+                if (hasBonus)
+                {
+                    if (UnitTypes.Any(type => type == UnitType.Flying))
+                    {
+                        avoid += avoidBonus;
+                    }
+                }
+            }
+            if (Supports != null && Supports.Count > 0)
+            {
+                var supportPoints = 0;
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp || support.IsClose)
+                    {
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                supportPoints += 1;
+                                break;
+                            case Rank.C:
+                                supportPoints += 2;
+                                break;
+                            case Rank.B:
+                                supportPoints += 3;
+                                break;
+                            case Rank.A:
+                                supportPoints += 4;
+                                break;
+                            case Rank.S:
+                                supportPoints += 5;
+                                break;
+                        }
+                    }
+                }
+                if (supportPoints > 1 && supportPoints < 6)
+                {
+                    avoid += 10;
+                }
+                else if (supportPoints > 5 && supportPoints < 10)
+                {
+                    avoid += 15;
+                }
+                else if (supportPoints > 9)
+                {
+                    avoid += 20;
+                }
             }
             return avoid;
         }
@@ -553,7 +693,121 @@ namespace Fire_Emblem.Common.Models
             {
                 dodge += CurrentClass.InnateBonus.Attributes.Dodge;
             }
+            if (Supports != null && Supports.Count > 0)
+            {
+                var supportPoints = 0;
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp || support.IsClose)
+                    {
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                supportPoints += 1;
+                                break;
+                            case Rank.C:
+                                supportPoints += 2;
+                                break;
+                            case Rank.B:
+                                supportPoints += 3;
+                                break;
+                            case Rank.A:
+                                supportPoints += 4;
+                                break;
+                            case Rank.S:
+                                supportPoints += 5;
+                                break;
+                        }
+                    }
+                }
+                if (supportPoints > 2 && supportPoints < 7)
+                {
+                    dodge += 10;
+                }
+                else if (supportPoints > 6 && supportPoints < 11)
+                {
+                    dodge += 15;
+                }
+                else if (supportPoints > 10)
+                {
+                    dodge += 20;
+                }
+            }
             return dodge;
+        }
+
+        public int GetDualStrikeRate()
+        {
+            var dualStrike = 0;
+            if (Supports != null && Supports.Count > 0)
+            {
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp)
+                    {
+                        dualStrike += (CurrentStats.Skl + support.CurrentStats.Skl) / 4;
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                dualStrike += 20;
+                                break;
+                            case Rank.C:
+                                dualStrike += 30;
+                                break;
+                            case Rank.B:
+                                dualStrike += 40;
+                                break;
+                            case Rank.A:
+                                dualStrike += 50;
+                                break;
+                            case Rank.S:
+                                dualStrike += 60;
+                                break;
+                        }
+                    }
+                }
+            }
+            return dualStrike;
+        }
+
+        public int GetDualGuardRate(string damageType)
+        {
+            var dualGuard = 0;
+            if (Supports != null && Supports.Count > 0)
+            {
+                foreach (var support in Supports)
+                {
+                    if (support.IsPairedUp)
+                    {
+                        if (damageType == "Physical")
+                        {
+                            dualGuard += (CurrentStats.Def + support.CurrentStats.Def) / 4;
+                        }
+                        if (damageType == "Magical")
+                        {
+                            dualGuard += (CurrentStats.Res + support.CurrentStats.Res) / 4;
+                        }
+                        switch (support.SupportRank)
+                        {
+                            case Rank.None:
+                                break;
+                            case Rank.C:
+                                dualGuard += 2;
+                                break;
+                            case Rank.B:
+                                dualGuard += 5;
+                                break;
+                            case Rank.A:
+                                dualGuard += 7;
+                                break;
+                            case Rank.S:
+                                dualGuard += 10;
+                                break;
+                        }
+                    }
+                }
+            }
+            return dualGuard;
         }
     }
 

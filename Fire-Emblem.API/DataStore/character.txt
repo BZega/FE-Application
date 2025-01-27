@@ -1,1586 +1,11 @@
 [
   {
     "Id": 1,
-    "Level": 20,
-    "InternalLevel": 20,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 108,
-    "Heal": 0,
-    "Damage": 17,
-    "Crit": 13,
-    "Avoid": 51,
-    "Dodge": 15,
-    "StartingClass": "Dark Mage",
-    "HeartSealClass": "Cavalier",
-    "CurrentClass": {
-      "Id": 5,
-      "Name": "Dark Mage",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 16,
-        "Str": 0,
-        "Mag": 6,
-        "Skl": 3,
-        "Spd": 3,
-        "Lck": 1,
-        "Def": 3,
-        "Res": 5,
-        "Mov": 5
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 20,
-        "Mag": 27,
-        "Skl": 25,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 25,
-        "Res": 27,
-        "Mov": 7
-      },
-      "GrowthRate": {
-        "HP": 50,
-        "Str": 5,
-        "Mag": 15,
-        "Skl": 15,
-        "Spd": 15,
-        "Lck": 0,
-        "Def": 10,
-        "Res": 10
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        0
-      ],
-      "Abilities": [
-        {
-          "Id": 13,
-          "Name": "Hex",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid -15 to all adjacent enemies.",
-          "StatBonus": null
-        },
-        {
-          "Id": 14,
-          "Name": "Heartseeker",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
-          "StatBonus": null
-        },
-        {
-          "Id": 15,
-          "Name": "Anathema",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
-          "StatBonus": null
-        },
-        {
-          "Id": 16,
-          "Name": "Malefic Aura",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
-          "StatBonus": null
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 8,
-          "MinRank": 0,
-          "MaxRank": 3
-        },
-        {
-          "WeaponType": 7,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Sorcerer",
-        "Dark Knight"
-      ],
-      "ReclassOptions": [
-        "Archer",
-        "Thief"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 5,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": -1,
-        "Mag": -1,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -3,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 2,
-        "Spd": 4,
-        "Lck": 2,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
     "Biography": {
-      "Name": "Seth",
-      "Background": "Insert text here",
+      "Name": "Rissa",
+      "Gender": "Female",
+      "Background": "Rissa is a beautiful lord",
       "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 0,
-        "HumanStatChoices": [
-          1,
-          4
-        ],
-        "RacialGrowth": {
-          "HP": 0,
-          "Str": 10,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 10,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0
-        },
-        "UnitType": 0
-      }
-    },
-    "PersonalAbility": {
-      "Id": 2,
-      "Name": "Bibliophile",
-      "Description": "When this unit is carrying 3 or more Tomes, Critical rate +10",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
-    },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": null,
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 1,
-      "EquuipOid": null,
-      "Name": "Bronze Axe",
-      "Rank": 0,
-      "WeaponType": 0,
-      "IsMagical": false,
-      "Might": 6,
-      "Hit": 80,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "500",
-      "WeaponExp": 2,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 49,
-      "Str": 15,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 15,
-      "Def": 14,
-      "Res": 22,
-      "Mov": 5
-    },
-    "CurrentStats": {
-      "HP": 49,
-      "Str": 15,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 15,
-      "Def": 14,
-      "Res": 22,
-      "Mov": 5
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 19,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 29,
-      "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "LevelupStatIncreases": [
-      {
-        "Level": 2,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 3,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 4,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 5,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 6,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 7,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 8,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 9,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 10,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 11,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 12,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 13,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 14,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 15,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 16,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 17,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 18,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 19,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 20,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 21,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 2,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 3,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 4,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 5,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 6,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 7,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 8,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 9,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 1,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 10,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 11,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 12,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 13,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 14,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 15,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 16,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 17,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 18,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 19,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 20,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 0,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      }
-    ],
-    "PersonalGrowthRate": {
-      "HP": 30,
-      "Str": 30,
-      "Mag": 60,
-      "Skl": 60,
-      "Spd": 60,
-      "Lck": 40,
-      "Def": 20,
-      "Res": 30
-    },
-    "TotalGrowthRate": {
-      "HP": 80,
-      "Str": 45,
-      "Mag": 75,
-      "Skl": 75,
-      "Spd": 85,
-      "Lck": 40,
-      "Def": 30,
-      "Res": 40
-    },
-    "UnitTypes": [
-      0
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ],
-    "EquippedAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ]
-  },
-  {
-    "Id": 2,
-    "Level": 1,
-    "InternalLevel": 1,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 130,
-    "Heal": 0,
-    "Damage": 19,
-    "Crit": 13,
-    "Avoid": 58,
-    "Dodge": 29,
-    "StartingClass": "Dark Mage",
-    "HeartSealClass": "Cavalier",
-    "CurrentClass": {
-      "Id": 5,
-      "Name": "Dark Mage",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 16,
-        "Str": 0,
-        "Mag": 6,
-        "Skl": 3,
-        "Spd": 3,
-        "Lck": 1,
-        "Def": 3,
-        "Res": 5,
-        "Mov": 5
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 20,
-        "Mag": 27,
-        "Skl": 25,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 25,
-        "Res": 27,
-        "Mov": 7
-      },
-      "GrowthRate": {
-        "HP": 50,
-        "Str": 5,
-        "Mag": 15,
-        "Skl": 15,
-        "Spd": 15,
-        "Lck": 0,
-        "Def": 10,
-        "Res": 10
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        0
-      ],
-      "Abilities": [
-        {
-          "Id": 13,
-          "Name": "Hex",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid -15 to all adjacent enemies.",
-          "StatBonus": null
-        },
-        {
-          "Id": 14,
-          "Name": "Heartseeker",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
-          "StatBonus": null
-        },
-        {
-          "Id": 15,
-          "Name": "Anathema",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
-          "StatBonus": null
-        },
-        {
-          "Id": 16,
-          "Name": "Malefic Aura",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
-          "StatBonus": null
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 8,
-          "MinRank": 0,
-          "MaxRank": 3
-        },
-        {
-          "WeaponType": 7,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Sorcerer",
-        "Dark Knight"
-      ],
-      "ReclassOptions": [
-        "Archer",
-        "Thief"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 5,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": -1,
-        "Mag": -1,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -3,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 2,
-        "Spd": 4,
-        "Lck": 2,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Seth",
-      "Background": "Insert text here",
-      "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 0,
-        "HumanStatChoices": [
-          1,
-          4
-        ],
-        "RacialGrowth": {
-          "HP": 0,
-          "Str": 10,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 10,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0
-        },
-        "UnitType": 0
-      }
-    },
-    "PersonalAbility": {
-      "Id": 2,
-      "Name": "Bibliophile",
-      "Description": "When this unit is carrying 3 or more Tomes, Critical rate +10",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
-    },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": null,
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 0,
-      "EquuipOid": null,
-      "Name": "Unarmed",
-      "Rank": 0,
-      "WeaponType": 10,
-      "IsMagical": false,
-      "Might": 0,
-      "Hit": 75,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "-",
-      "WeaponExp": 0,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 60,
-      "Str": 19,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 29,
-      "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "CurrentStats": {
-      "HP": 60,
-      "Str": 19,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 29,
-      "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 19,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 29,
-      "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "LevelupStatIncreases": [
-      {
-        "Level": 2,
-        "StatIncrease": {
-          "HP": 100,
-          "Str": 100,
-          "Mag": 100,
-          "Skl": 100,
-          "Spd": 100,
-          "Lck": 100,
-          "Def": 100,
-          "Res": 100,
-          "Mov": 100
-        }
-      }
-    ],
-    "PersonalGrowthRate": {
-      "HP": 30,
-      "Str": 30,
-      "Mag": 60,
-      "Skl": 60,
-      "Spd": 60,
-      "Lck": 40,
-      "Def": 20,
-      "Res": 30
-    },
-    "TotalGrowthRate": {
-      "HP": 80,
-      "Str": 45,
-      "Mag": 75,
-      "Skl": 75,
-      "Spd": 85,
-      "Lck": 40,
-      "Def": 30,
-      "Res": 40
-    },
-    "UnitTypes": [
-      0
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ],
-    "EquippedAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ]
-  },
-  {
-    "Id": 3,
-    "Level": 1,
-    "InternalLevel": 1,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 80,
-    "Heal": 0,
-    "Damage": 0,
-    "Crit": 1,
-    "Avoid": 5,
-    "Dodge": 1,
-    "StartingClass": "Dark Mage",
-    "HeartSealClass": "Cleric",
-    "CurrentClass": {
-      "Id": 5,
-      "Name": "Dark Mage",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 16,
-        "Str": 0,
-        "Mag": 6,
-        "Skl": 3,
-        "Spd": 3,
-        "Lck": 1,
-        "Def": 3,
-        "Res": 5,
-        "Mov": 5
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 20,
-        "Mag": 27,
-        "Skl": 25,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 25,
-        "Res": 27,
-        "Mov": 7
-      },
-      "GrowthRate": {
-        "HP": 50,
-        "Str": 5,
-        "Mag": 15,
-        "Skl": 15,
-        "Spd": 15,
-        "Lck": 0,
-        "Def": 10,
-        "Res": 10
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        0
-      ],
-      "Abilities": [
-        {
-          "Id": 13,
-          "Name": "Hex",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid -15 to all adjacent enemies.",
-          "StatBonus": null
-        },
-        {
-          "Id": 14,
-          "Name": "Heartseeker",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
-          "StatBonus": null
-        },
-        {
-          "Id": 15,
-          "Name": "Anathema",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
-          "StatBonus": null
-        },
-        {
-          "Id": 16,
-          "Name": "Malefic Aura",
-          "LevelGained": 10,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
-          "StatBonus": null
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 8,
-          "MinRank": 0,
-          "MaxRank": 3
-        },
-        {
-          "WeaponType": 7,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Sorcerer",
-        "Dark Knight"
-      ],
-      "ReclassOptions": [
-        "Archer",
-        "Thief"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 5,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": -1,
-        "Mag": -1,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -3,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 2,
-        "Spd": 4,
-        "Lck": 2,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Brandon",
-      "Background": "Wild Guy",
-      "IsNoble": false,
       "RaceChoice": {
         "RacialType": 0,
         "HumanStatChoices": [
@@ -1606,1636 +31,63 @@
       "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
       "StatBonus": {
         "Growths": null,
-        "Attributes": null,
+        "Attributes": {
+          "Hit": 0,
+          "Crit": 10,
+          "Avoid": 0,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 0,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
         "Stats": null
       }
     },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": null,
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 0,
-      "EquuipOid": null,
-      "Name": "Unarmed",
-      "Rank": 0,
-      "WeaponType": 10,
-      "IsMagical": false,
-      "Might": 0,
-      "Hit": 75,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "-",
-      "WeaponExp": 0,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 16,
-      "Str": 0,
-      "Mag": 6,
-      "Skl": 3,
-      "Spd": 3,
-      "Lck": 1,
-      "Def": 3,
-      "Res": 5,
-      "Mov": 5
-    },
     "CurrentStats": {
-      "HP": 16,
-      "Str": 0,
+      "HP": 37,
+      "Str": 25,
       "Mag": 6,
-      "Skl": 3,
-      "Spd": 3,
-      "Lck": 1,
-      "Def": 3,
-      "Res": 5,
+      "Skl": 16,
+      "Spd": 22,
+      "Lck": 5,
+      "Def": 20,
+      "Res": 12,
       "Mov": 5
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
     },
     "MaxStats": {
       "HP": 60,
-      "Str": 19,
-      "Mag": 26,
-      "Skl": 27,
-      "Spd": 29,
+      "Str": 24,
+      "Mag": 19,
+      "Skl": 28,
+      "Spd": 32,
       "Lck": 29,
       "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "LevelupStatIncreases": null,
-    "PersonalGrowthRate": {
-      "HP": 50,
-      "Str": 30,
-      "Mag": 50,
-      "Skl": 50,
-      "Spd": 50,
-      "Lck": 30,
-      "Def": 20,
-      "Res": 50
-    },
-    "TotalGrowthRate": {
-      "HP": 100,
-      "Str": 45,
-      "Mag": 65,
-      "Skl": 65,
-      "Spd": 75,
-      "Lck": 30,
-      "Def": 30,
-      "Res": 60
-    },
-    "UnitTypes": [
-      0
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ],
-    "EquippedAbilities": [
-      {
-        "Id": 13,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      }
-    ]
-  },
-  {
-    "Id": 4,
-    "Level": 1,
-    "InternalLevel": 1,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 44,
-    "Heal": 0,
-    "Damage": 4,
-    "Crit": 2,
-    "Avoid": 9,
-    "Dodge": 3,
-    "StartingClass": "Cavalier",
-    "HeartSealClass": "Cleric",
-    "CurrentClass": {
-      "Id": 3,
-      "Name": "Cavalier",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 17,
-        "Str": 6,
-        "Mag": 0,
-        "Skl": 5,
-        "Spd": 5,
-        "Lck": 3,
-        "Def": 5,
-        "Res": 3,
-        "Mov": 7
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 26,
-        "Mag": 20,
-        "Skl": 25,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 26,
-        "Res": 26,
-        "Mov": 9
-      },
-      "GrowthRate": {
-        "HP": 45,
-        "Str": 15,
-        "Mag": 0,
-        "Skl": 15,
-        "Spd": 15,
-        "Lck": 15,
-        "Def": 10,
-        "Res": 5
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        2,
-        4
-      ],
-      "Abilities": [
-        {
-          "Id": 6,
-          "Name": "Discipline",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Doubles the amount of Weapon EXP gained by the user.",
-          "StatBonus": null
-        },
-        {
-          "Id": 7,
-          "Name": "Shelter",
-          "LevelGained": 1,
-          "AbilityType": 1,
-          "NeedsToInitiateCombat": false,
-          "Description": "Make an adjacent ally the user's support unit.",
-          "StatBonus": null
-        },
-        {
-          "Id": 8,
-          "Name": "Outdoor Fighter",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": false,
-          "Description": "Increases Avoid and Accuracy by 10 when battling on outdoor maps.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": {
-              "HP": 0,
-              "Str": 0,
-              "Mag": 0,
-              "Skl": 0,
-              "Spd": 0,
-              "Lck": 0,
-              "Def": 0,
-              "Res": 0,
-              "Mov": 0
-            }
-          }
-        },
-        {
-          "Id": 9,
-          "Name": "Elbow Room",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": false,
-          "Description": "When user fights in terrain with no terrain effects, damage +3 during battle.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": {
-              "HP": 0,
-              "Str": 0,
-              "Mag": 0,
-              "Skl": 0,
-              "Spd": 0,
-              "Lck": 0,
-              "Def": 0,
-              "Res": 0,
-              "Mov": 0
-            }
-          }
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 3,
-          "MinRank": 0,
-          "MaxRank": 3
-        },
-        {
-          "WeaponType": 6,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Paladin",
-        "Great Knight"
-      ],
-      "ReclassOptions": [
-        "Mercenary",
-        "Myrmidon"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 6,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -1,
-        "Def": -3,
-        "Res": -1,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 2,
-        "Spd": 4,
-        "Lck": 2,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Zega",
-      "Background": "Insert some text here",
-      "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 2,
-        "HumanStatChoices": [
-          0,
-          0
-        ],
-        "RacialGrowth": {
-          "HP": 20,
-          "Str": 0,
-          "Mag": 0,
-          "Skl": -10,
-          "Spd": -10,
-          "Lck": 20,
-          "Def": 10,
-          "Res": 0
-        },
-        "UnitType": 5
-      }
-    },
-    "PersonalAbility": {
-      "Id": 1,
-      "Name": "Aching Blood",
-      "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
-    },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": null,
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 0,
-      "EquuipOid": null,
-      "Name": "Unarmed",
-      "Rank": 0,
-      "WeaponType": 8,
-      "IsMagical": false,
-      "Might": 0,
-      "Hit": 75,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "-",
-      "WeaponExp": 0,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 17,
-      "Str": 6,
-      "Mag": 0,
-      "Skl": 5,
-      "Spd": 5,
-      "Lck": 3,
-      "Def": 5,
-      "Res": 3,
-      "Mov": 7
-    },
-    "CurrentStats": {
-      "HP": 17,
-      "Str": 6,
-      "Mag": 0,
-      "Skl": 5,
-      "Spd": 5,
-      "Lck": 3,
-      "Def": 5,
-      "Res": 3,
-      "Mov": 7
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 26,
-      "Mag": 20,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 31,
-      "Def": 23,
       "Res": 25,
-      "Mov": 9
-    },
-    "LevelupStatIncreases": null,
-    "PersonalGrowthRate": {
-      "HP": 50,
-      "Str": 50,
-      "Mag": 30,
-      "Skl": 50,
-      "Spd": 50,
-      "Lck": 30,
-      "Def": 40,
-      "Res": 30
+      "Mov": 7
     },
     "TotalGrowthRate": {
-      "HP": 115,
-      "Str": 65,
-      "Mag": 30,
-      "Skl": 55,
-      "Spd": 55,
-      "Lck": 65,
+      "HP": 90,
+      "Str": 90,
+      "Mag": 20,
+      "Skl": 60,
+      "Spd": 80,
+      "Lck": 30,
       "Def": 60,
       "Res": 35
     },
-    "UnitTypes": [
-      2,
-      4,
-      5
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 4,
-        "WeaponExperience": 200,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": {
-            "Hit": 0,
-            "Crit": 0,
-            "Avoid": 0,
-            "Dodge": 0,
-            "Heal": 0,
-            "Damage": 0,
-            "DamageReceived": 0,
-            "AttackSpeed": 0
-          },
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 7,
-        "Name": "Shelter",
-        "LevelGained": 1,
-        "AbilityType": 1,
-        "NeedsToInitiateCombat": false,
-        "Description": "Make an adjacent ally the user's support unit.",
-        "StatBonus": null
-      }
-    ],
     "EquippedAbilities": [
       {
-        "Id": 7,
-        "Name": "Shelter",
+        "Id": 26,
+        "AbilityOid": "506574df-bc7d-48ac-a9cf-ad1d680ba97d",
+        "Name": "Dual Strike+",
         "LevelGained": 1,
-        "AbilityType": 1,
+        "AbilityType": 2,
         "NeedsToInitiateCombat": false,
-        "Description": "Make an adjacent ally the user's support unit.",
-        "StatBonus": null
-      }
-    ]
-  },
-  {
-    "Id": 5,
-    "Level": 1,
-    "InternalLevel": 1,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 69,
-    "Heal": 0,
-    "Damage": 10,
-    "Crit": 2,
-    "Avoid": 9,
-    "Dodge": 3,
-    "StartingClass": "Cavalier",
-    "HeartSealClass": "Dark Mage",
-    "CurrentClass": {
-      "Id": 3,
-      "Name": "Cavalier",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 17,
-        "Str": 6,
-        "Mag": 0,
-        "Skl": 5,
-        "Spd": 5,
-        "Lck": 3,
-        "Def": 5,
-        "Res": 3,
-        "Mov": 7
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 26,
-        "Mag": 20,
-        "Skl": 25,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 26,
-        "Res": 26,
-        "Mov": 9
-      },
-      "GrowthRate": {
-        "HP": 45,
-        "Str": 15,
-        "Mag": 0,
-        "Skl": 15,
-        "Spd": 15,
-        "Lck": 15,
-        "Def": 10,
-        "Res": 5
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        2,
-        4
-      ],
-      "Abilities": [
-        {
-          "Id": 6,
-          "Name": "Discipline",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "Doubles the amount of Weapon EXP gained by the user.",
-          "StatBonus": null
-        },
-        {
-          "Id": 7,
-          "Name": "Shelter",
-          "LevelGained": 1,
-          "AbilityType": 1,
-          "NeedsToInitiateCombat": false,
-          "Description": "Make an adjacent ally the user's support unit.",
-          "StatBonus": null
-        },
-        {
-          "Id": 8,
-          "Name": "Outdoor Fighter",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": false,
-          "Description": "Increases Avoid and Accuracy by 10 when battling on outdoor maps.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": {
-              "HP": 0,
-              "Str": 0,
-              "Mag": 0,
-              "Skl": 0,
-              "Spd": 0,
-              "Lck": 0,
-              "Def": 0,
-              "Res": 0,
-              "Mov": 0
-            }
-          }
-        },
-        {
-          "Id": 9,
-          "Name": "Elbow Room",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": false,
-          "Description": "When user fights in terrain with no terrain effects, damage +3 during battle.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": {
-              "HP": 0,
-              "Str": 0,
-              "Mag": 0,
-              "Skl": 0,
-              "Spd": 0,
-              "Lck": 0,
-              "Def": 0,
-              "Res": 0,
-              "Mov": 0
-            }
-          }
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 3,
-          "MinRank": 0,
-          "MaxRank": 3
-        },
-        {
-          "WeaponType": 6,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Paladin",
-        "Great Knight"
-      ],
-      "ReclassOptions": [
-        "Mercenary",
-        "Myrmidon"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 5,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": -1,
-        "Mag": -1,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -3,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 2,
-        "Spd": 4,
-        "Lck": 2,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Zega",
-      "Background": "Insert Background here",
-      "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 0,
-        "HumanStatChoices": [
-          1,
-          4
-        ],
-        "RacialGrowth": {
-          "HP": 0,
-          "Str": 10,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 10,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0
-        },
-        "UnitType": 0
-      }
-    },
-    "PersonalAbility": {
-      "Id": 1,
-      "Name": "Aching Blood",
-      "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
-    },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": null,
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 1,
-      "EquuipOid": null,
-      "Name": "Bronze Axe",
-      "Rank": 0,
-      "WeaponType": 0,
-      "IsMagical": false,
-      "Might": 6,
-      "Hit": 80,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "500",
-      "WeaponExp": 2,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 17,
-      "Str": 6,
-      "Mag": 0,
-      "Skl": 5,
-      "Spd": 5,
-      "Lck": 3,
-      "Def": 5,
-      "Res": 3,
-      "Mov": 7
-    },
-    "CurrentStats": {
-      "HP": 17,
-      "Str": 6,
-      "Mag": 0,
-      "Skl": 5,
-      "Spd": 5,
-      "Lck": 3,
-      "Def": 5,
-      "Res": 3,
-      "Mov": 7
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 25,
-      "Mag": 19,
-      "Skl": 27,
-      "Spd": 29,
-      "Lck": 29,
-      "Def": 26,
-      "Res": 26,
-      "Mov": 9
-    },
-    "LevelupStatIncreases": null,
-    "PersonalGrowthRate": {
-      "HP": 30,
-      "Str": 60,
-      "Mag": 20,
-      "Skl": 70,
-      "Spd": 70,
-      "Lck": 10,
-      "Def": 50,
-      "Res": 20
-    },
-    "TotalGrowthRate": {
-      "HP": 75,
-      "Str": 85,
-      "Mag": 20,
-      "Skl": 85,
-      "Spd": 95,
-      "Lck": 25,
-      "Def": 60,
-      "Res": 25
-    },
-    "UnitTypes": [
-      2,
-      4,
-      0
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 7,
-        "Name": "Shelter",
-        "LevelGained": 1,
-        "AbilityType": 1,
-        "NeedsToInitiateCombat": false,
-        "Description": "Make an adjacent ally the user's support unit.",
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
         "StatBonus": null
       }
     ],
-    "EquippedAbilities": [
-      {
-        "Id": 7,
-        "Name": "Shelter",
-        "LevelGained": 1,
-        "AbilityType": 1,
-        "NeedsToInitiateCombat": false,
-        "Description": "Make an adjacent ally the user's support unit.",
-        "StatBonus": null
-      }
-    ]
-  },
-  {
-    "Id": 6,
-    "Level": 1,
-    "InternalLevel": 1,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 500,
-    "Attack": 74,
-    "Heal": 0,
-    "Damage": 9,
-    "Crit": 4,
-    "Avoid": 8,
-    "Dodge": 2,
-    "StartingClass": "Archer",
-    "HeartSealClass": "Cleric",
-    "CurrentClass": {
-      "Id": 1,
-      "Name": "Archer",
-      "IsPromoted": false,
-      "IsSpecialClass": false,
-      "BaseStats": {
-        "HP": 17,
-        "Str": 5,
-        "Mag": 0,
-        "Skl": 7,
-        "Spd": 5,
-        "Lck": 2,
-        "Def": 4,
-        "Res": 1,
-        "Mov": 5
-      },
-      "MaxStats": {
-        "HP": 60,
-        "Str": 26,
-        "Mag": 20,
-        "Skl": 29,
-        "Spd": 25,
-        "Lck": 30,
-        "Def": 25,
-        "Res": 21,
-        "Mov": 7
-      },
-      "GrowthRate": {
-        "HP": 45,
-        "Str": 15,
-        "Mag": 0,
-        "Skl": 30,
-        "Spd": 15,
-        "Lck": 5,
-        "Def": 10,
-        "Res": 5
-      },
-      "InnateBonus": null,
-      "UnitTypes": [
-        0
-      ],
-      "Abilities": [
-        {
-          "Id": 1,
-          "Name": "Skill +2",
-          "LevelGained": 1,
-          "AbilityType": 0,
-          "NeedsToInitiateCombat": false,
-          "Description": "+2 Skill, as the name implies.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": {
-              "HP": 0,
-              "Str": 0,
-              "Mag": 0,
-              "Skl": 2,
-              "Spd": 0,
-              "Lck": 0,
-              "Def": 0,
-              "Res": 0,
-              "Mov": 0
-            }
-          }
-        },
-        {
-          "Id": 2,
-          "Name": "Prescience",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": true,
-          "Description": "When user triggers the battle, +15 Hit and Avoid.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": null
-          }
-        },
-        {
-          "Id": 3,
-          "Name": "Prescient Victory",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": true,
-          "Description": "When user triggers the battle, damage +4.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": null,
-            "Stats": null
-          }
-        }
-      ],
-      "UsableWeapons": [
-        {
-          "WeaponType": 1,
-          "MinRank": 0,
-          "MaxRank": 3
-        }
-      ],
-      "ClassPromotions": [
-        "Sniper",
-        "Bow Knight",
-        "Kinshi Knight"
-      ],
-      "ReclassOptions": [
-        "Mage",
-        "Wyvern Knight"
-      ]
-    },
-    "Flaw": {
-      "FlawChoice": 6,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": -1,
-        "Def": -3,
-        "Res": -1,
-        "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 5,
-      "MaxStatBonus": {
-        "HP": 0,
-        "Str": 2,
-        "Mag": 2,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 4,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Condition": {
-      "CurrentCondition": 0,
-      "StatChange": {
-        "HP": 0,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
-      "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Khari",
-      "Background": "Insert Bio Here",
-      "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 4,
-        "HumanStatChoices": [
-          0,
-          0
-        ],
-        "RacialGrowth": {
-          "HP": 25,
-          "Str": 20,
-          "Mag": -20,
-          "Skl": -5,
-          "Spd": 0,
-          "Lck": 25,
-          "Def": 10,
-          "Res": -5
-        },
-        "UnitType": 4
-      }
-    },
-    "PersonalAbility": {
-      "Id": 1,
-      "Name": "Aching Blood",
-      "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
-    },
-    "Inventory": {
-      "Equipment": [
-        {
-          "Id": 1,
-          "EquuipOid": "22d74410-3abf-4f92-bd1e-461233212073",
-          "Name": "Bronze Axe",
-          "Rank": 0,
-          "WeaponType": 0,
-          "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        }
-      ]
-    },
-    "EquippedWeapon": {
-      "Id": 1,
-      "EquuipOid": "22d74410-3abf-4f92-bd1e-461233212073",
-      "Name": "Bronze Axe",
-      "Rank": 0,
-      "WeaponType": 0,
-      "IsMagical": false,
-      "Might": 6,
-      "Hit": 80,
-      "Crit": 0,
-      "Range": 1,
-      "Uses": "Inf.",
-      "Worth": "500",
-      "WeaponExp": 2,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "",
-      "StatBonus": null
-    },
-    "BaseStats": {
-      "HP": 17,
-      "Str": 5,
-      "Mag": 0,
-      "Skl": 7,
-      "Spd": 5,
-      "Lck": 2,
-      "Def": 4,
-      "Res": 1,
-      "Mov": 5
-    },
-    "CurrentStats": {
-      "HP": 17,
-      "Str": 5,
-      "Mag": 0,
-      "Skl": 9,
-      "Spd": 5,
-      "Lck": 2,
-      "Def": 4,
-      "Res": 1,
-      "Mov": 5
-    },
-    "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 2,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
-      "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 28,
-      "Mag": 22,
-      "Skl": 29,
-      "Spd": 25,
-      "Lck": 33,
-      "Def": 22,
-      "Res": 20,
-      "Mov": 7
-    },
-    "LevelupStatIncreases": null,
-    "PersonalGrowthRate": {
-      "HP": 50,
-      "Str": 100,
-      "Mag": 0,
-      "Skl": 50,
-      "Spd": 100,
-      "Lck": 30,
-      "Def": 0,
-      "Res": 0
-    },
-    "TotalGrowthRate": {
-      "HP": 120,
-      "Str": 135,
-      "Mag": -20,
-      "Skl": 75,
-      "Spd": 115,
-      "Lck": 60,
-      "Def": 20,
-      "Res": 0
-    },
-    "UnitTypes": [
-      0,
-      4
-    ],
-    "WeaponRanks": [
-      {
-        "WeaponType": 0,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 1,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": true,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 2,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 3,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 4,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 6,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 7,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      },
-      {
-        "WeaponType": 8,
-        "WeaponRank": 0,
-        "WeaponExperience": 1,
-        "IsActive": false,
-        "WeaponRankBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
-      }
-    ],
-    "Supports": null,
-    "AcquiredAbilities": [
-      {
-        "Id": 1,
-        "Name": "Skill +2",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "+2 Skill, as the name implies.",
-        "StatBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": {
-            "HP": 0,
-            "Str": 0,
-            "Mag": 0,
-            "Skl": 2,
-            "Spd": 0,
-            "Lck": 0,
-            "Def": 0,
-            "Res": 0,
-            "Mov": 0
-          }
-        }
-      }
-    ],
-    "EquippedAbilities": [
-      {
-        "Id": 1,
-        "Name": "Skill +2",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "+2 Skill, as the name implies.",
-        "StatBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": {
-            "HP": 0,
-            "Str": 0,
-            "Mag": 0,
-            "Skl": 2,
-            "Spd": 0,
-            "Lck": 0,
-            "Def": 0,
-            "Res": 0,
-            "Mov": 0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "Id": 7,
-    "Level": 20,
-    "InternalLevel": 20,
-    "IsInCombat": false,
-    "IsAttacking": false,
-    "Exp": 0,
-    "Gold": 1500,
-    "Attack": 93,
-    "Heal": 0,
-    "Damage": 24,
-    "Crit": 9,
-    "Avoid": 42,
-    "Dodge": 9,
-    "StartingClass": "Sword Lord",
-    "HeartSealClass": "Knight",
     "CurrentClass": {
       "Id": 9,
       "Name": "Sword Lord",
@@ -3280,6 +132,7 @@
       "Abilities": [
         {
           "Id": 26,
+          "AbilityOid": null,
           "Name": "Dual Strike+",
           "LevelGained": 1,
           "AbilityType": 2,
@@ -3289,34 +142,13 @@
         },
         {
           "Id": 27,
+          "AbilityOid": null,
           "Name": "Charm",
           "LevelGained": 10,
           "AbilityType": 0,
           "NeedsToInitiateCombat": false,
           "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
           "StatBonus": null
-        },
-        {
-          "Id": 25,
-          "Name": "Confined Defense",
-          "LevelGained": 10,
-          "AbilityType": 2,
-          "NeedsToInitiateCombat": false,
-          "Description": "When user fights in terrain with terrain effects, damage received -3 during battles.",
-          "StatBonus": {
-            "Growths": null,
-            "Attributes": {
-              "Hit": 0,
-              "Crit": 0,
-              "Avoid": 0,
-              "Dodge": 0,
-              "Heal": 0,
-              "Damage": 0,
-              "DamageReceived": -3,
-              "AttackSpeed": 0
-            },
-            "Stats": null
-          }
         }
       ],
       "UsableWeapons": [
@@ -3327,29 +159,43 @@
         }
       ],
       "ClassPromotions": [
-        "Great Lord"
+        "Great Sword Lord with Lance",
+        "Great Sword Lord with Axe"
       ],
       "ReclassOptions": [
         "Archer",
         "Cavalier"
       ]
     },
-    "Flaw": {
-      "FlawChoice": 5,
-      "MaxStatBonus": {
+    "Exp": 0,
+    "Level": 20,
+    "InternalLevel": 20,
+    "IsInCombat": false,
+    "IsAttacking": false,
+    "Gold": 100,
+    "Attack": 101,
+    "Heal": 0,
+    "Damage": 25,
+    "Crit": 18,
+    "Avoid": 55,
+    "Dodge": 5,
+    "DualStrik": 0,
+    "DualGuard": 0,
+    "StartingClass": "Sword Lord",
+    "HeartSealClass": "Wyvern Lord",
+    "Asset": {
+      "AssetChoice": 4,
+      "BaseStatBonus": {
         "HP": 0,
-        "Str": -1,
-        "Mag": -1,
+        "Str": 0,
+        "Mag": 0,
         "Skl": 0,
-        "Spd": 0,
-        "Lck": -3,
+        "Spd": 2,
+        "Lck": 0,
         "Def": 0,
         "Res": 0,
         "Mov": 0
-      }
-    },
-    "Asset": {
-      "AssetChoice": 4,
+      },
       "MaxStatBonus": {
         "HP": 0,
         "Str": 0,
@@ -3357,6 +203,31 @@
         "Skl": 2,
         "Spd": 4,
         "Lck": 2,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    "Flaw": {
+      "FlawChoice": 5,
+      "BaseStatBonus": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": -2,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      },
+      "MaxStatBonus": {
+        "HP": 0,
+        "Str": -1,
+        "Mag": -1,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": -3,
         "Def": 0,
         "Res": 0,
         "Mov": 0
@@ -3377,84 +248,85 @@
       }
     },
     "Terrain": {
-      "TerrainType": 0,
-      "DefBonus": "-",
-      "AvoidBonus": "-",
+      "TerrainType": 8,
+      "DefBonus": "2",
+      "AvoidBonus": "20",
       "HealPercent": "-",
-      "MoveCost": "0",
-      "OtherData": "-"
-    },
-    "Biography": {
-      "Name": "Carissa",
-      "Background": "I'm a beautiful butteryfly",
-      "IsNoble": true,
-      "RaceChoice": {
-        "RacialType": 0,
-        "HumanStatChoices": [
-          1,
-          4
-        ],
-        "RacialGrowth": {
-          "HP": 0,
-          "Str": 10,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 10,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0
-        },
-        "UnitType": 0
-      }
-    },
-    "PersonalAbility": {
-      "Id": 1,
-      "Name": "Aching Blood",
-      "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": null
-      }
+      "MoveCost": "4",
+      "OtherData": "Only infantry (non-mounted, non-armored) units can cross this."
     },
     "Inventory": {
       "Equipment": [
         {
-          "Id": 1,
-          "EquuipOid": "448881ab-9658-456e-980c-36a380d55e30",
-          "Name": "Bronze Axe",
+          "Id": 277,
+          "EquipOid": "c7d8d24e-a5b6-4f09-8d79-d6c4264bd8cf",
+          "Name": "Master Emblem",
           "Rank": 0,
-          "WeaponType": 0,
+          "WeaponType": 9,
           "IsMagical": false,
-          "Might": 6,
-          "Hit": 80,
-          "Crit": 0,
-          "Range": 1,
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
+          "Might": null,
+          "Hit": null,
+          "Crit": null,
+          "Range": null,
+          "Uses": "-",
+          "Worth": "-",
+          "WeaponExp": null,
+          "BaseHP": null,
+          "Experience": null,
+          "IsEquipped": true,
+          "Description": "Increases all of the user's stats by 1 point each while in user's possession.",
+          "StatBonus": {
+            "Growths": null,
+            "Attributes": null,
+            "Stats": {
+              "HP": 1,
+              "Str": 1,
+              "Mag": 1,
+              "Skl": 1,
+              "Spd": 1,
+              "Lck": 1,
+              "Def": 1,
+              "Res": 1,
+              "Mov": 0
+            }
+          }
+        },
+        {
+          "Id": 262,
+          "EquipOid": "2b9f7a7e-fef8-4be0-9a99-7f74da0d2f36",
+          "Name": "Second Seal",
+          "Rank": 0,
+          "WeaponType": 9,
+          "IsMagical": false,
+          "Might": null,
+          "Hit": null,
+          "Crit": null,
+          "Range": null,
+          "Uses": "1",
+          "Worth": "2000",
+          "WeaponExp": null,
           "BaseHP": null,
           "Experience": null,
           "IsEquipped": false,
-          "Description": "",
+          "Description": "Initiates reclassing for the unit using it, dependent on their current level and class-tier status.",
           "StatBonus": null
         }
       ]
     },
     "EquippedWeapon": {
-      "Id": 1,
-      "EquuipOid": "448881ab-9658-456e-980c-36a380d55e30",
-      "Name": "Bronze Axe",
+      "Id": 0,
+      "EquipOid": null,
+      "Name": "Unarmed",
       "Rank": 0,
-      "WeaponType": 0,
+      "WeaponType": 10,
       "IsMagical": false,
-      "Might": 6,
-      "Hit": 80,
+      "Might": 0,
+      "Hit": 75,
       "Crit": 0,
-      "Range": 1,
+      "Range": "1",
       "Uses": "Inf.",
-      "Worth": "500",
-      "WeaponExp": 2,
+      "Worth": "-",
+      "WeaponExp": 0,
       "BaseHP": null,
       "Experience": null,
       "IsEquipped": false,
@@ -3462,197 +334,156 @@
       "StatBonus": null
     },
     "BaseStats": {
-      "HP": 30,
+      "HP": 36,
       "Str": 24,
-      "Mag": 3,
-      "Skl": 19,
-      "Spd": 25,
-      "Lck": 9,
-      "Def": 16,
-      "Res": 4,
-      "Mov": 5
-    },
-    "CurrentStats": {
-      "HP": 30,
-      "Str": 24,
-      "Mag": 3,
-      "Skl": 19,
-      "Spd": 25,
-      "Lck": 9,
-      "Def": 16,
-      "Res": 4,
+      "Mag": 5,
+      "Skl": 15,
+      "Spd": 21,
+      "Lck": 4,
+      "Def": 17,
+      "Res": 11,
       "Mov": 5
     },
     "StatChangeAmount": {
-      "HP": 0,
-      "Str": 0,
-      "Mag": 0,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 0,
-      "Res": 0,
+      "HP": 1,
+      "Str": 1,
+      "Mag": 1,
+      "Skl": 1,
+      "Spd": 1,
+      "Lck": 1,
+      "Def": 3,
+      "Res": 1,
       "Mov": 0
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 24,
-      "Mag": 19,
-      "Skl": 28,
-      "Spd": 32,
-      "Lck": 29,
-      "Def": 25,
-      "Res": 25,
-      "Mov": 7
     },
     "LevelupStatIncreases": [
       {
         "Level": 2,
+        "LevelUpType": null,
         "StatIncrease": {
-          "HP": 0,
+          "HP": 1,
           "Str": 1,
-          "Mag": 0,
+          "Mag": 1,
           "Skl": 1,
           "Spd": 1,
           "Lck": 0,
-          "Def": 1,
-          "Res": 0,
+          "Def": 0,
+          "Res": 1,
           "Mov": 0
         }
       },
       {
         "Level": 3,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
           "Mag": 0,
-          "Skl": 0,
+          "Skl": 1,
           "Spd": 1,
           "Lck": 1,
-          "Def": 1,
+          "Def": 0,
           "Res": 1,
           "Mov": 0
         }
       },
       {
         "Level": 4,
+        "LevelUpType": null,
         "StatIncrease": {
-          "HP": 0,
+          "HP": 1,
           "Str": 1,
           "Mag": 0,
           "Skl": 0,
           "Spd": 1,
           "Lck": 0,
-          "Def": 0,
+          "Def": 1,
           "Res": 0,
           "Mov": 0
         }
       },
       {
         "Level": 5,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 6,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 7,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
           "Mag": 1,
-          "Skl": 1,
+          "Skl": 0,
           "Spd": 1,
-          "Lck": 1,
+          "Lck": 0,
           "Def": 1,
           "Res": 1,
           "Mov": 0
         }
       },
       {
-        "Level": 8,
+        "Level": 6,
+        "LevelUpType": null,
         "StatIncrease": {
-          "HP": 0,
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 0,
+          "Spd": 0,
+          "Lck": 0,
+          "Def": 0,
+          "Res": 1,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 7,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
           "Str": 1,
           "Mag": 0,
           "Skl": 1,
           "Spd": 1,
           "Lck": 0,
           "Def": 0,
-          "Res": 0,
+          "Res": 1,
           "Mov": 0
         }
       },
       {
-        "Level": 9,
+        "Level": 8,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
-          "Str": 0,
+          "Str": 1,
           "Mag": 0,
           "Skl": 0,
           "Spd": 1,
           "Lck": 1,
           "Def": 0,
-          "Res": 0,
+          "Res": 1,
           "Mov": 0
         }
       },
       {
-        "Level": 10,
+        "Level": 9,
+        "LevelUpType": null,
         "StatIncrease": {
-          "HP": 0,
+          "HP": 1,
           "Str": 1,
-          "Mag": 0,
+          "Mag": 1,
           "Skl": 1,
           "Spd": 1,
-          "Lck": 1,
+          "Lck": 0,
           "Def": 1,
           "Res": 0,
           "Mov": 0
         }
       },
       {
-        "Level": 11,
+        "Level": 10,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
           "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 12,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 1,
-          "Skl": 1,
+          "Skl": 0,
           "Spd": 0,
           "Lck": 0,
           "Def": 0,
@@ -3661,35 +492,8 @@
         }
       },
       {
-        "Level": 13,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 0,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 1,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 14,
-        "StatIncrease": {
-          "HP": 1,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 0,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 15,
+        "Level": 11,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
@@ -3697,19 +501,50 @@
           "Skl": 1,
           "Spd": 1,
           "Lck": 1,
-          "Def": 0,
-          "Res": 0,
+          "Def": 1,
+          "Res": 1,
           "Mov": 0
         }
       },
       {
-        "Level": 16,
+        "Level": 12,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
           "Mag": 1,
           "Skl": 1,
           "Spd": 1,
+          "Lck": 1,
+          "Def": 0,
+          "Res": 1,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 13,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 1,
+          "Spd": 0,
+          "Lck": 1,
+          "Def": 0,
+          "Res": 0,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 14,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 1,
+          "Spd": 1,
           "Lck": 0,
           "Def": 1,
           "Res": 1,
@@ -3717,7 +552,68 @@
         }
       },
       {
+        "Level": 15,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 1,
+          "Skl": 0,
+          "Spd": 0,
+          "Lck": 0,
+          "Def": 1,
+          "Res": 0,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 16,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 0,
+          "Spd": 0,
+          "Lck": 1,
+          "Def": 1,
+          "Res": 0,
+          "Mov": 0
+        }
+      },
+      {
         "Level": 17,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 1,
+          "Spd": 0,
+          "Lck": 0,
+          "Def": 1,
+          "Res": 1,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 18,
+        "LevelUpType": null,
+        "StatIncrease": {
+          "HP": 1,
+          "Str": 1,
+          "Mag": 0,
+          "Skl": 0,
+          "Spd": 1,
+          "Lck": 0,
+          "Def": 1,
+          "Res": 0,
+          "Mov": 0
+        }
+      },
+      {
+        "Level": 19,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 1,
           "Str": 1,
@@ -3731,67 +627,30 @@
         }
       },
       {
-        "Level": 18,
+        "Level": 20,
+        "LevelUpType": null,
         "StatIncrease": {
           "HP": 0,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 0,
-          "Res": 0,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 19,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 1,
+          "Str": 0,
           "Mag": 0,
           "Skl": 0,
-          "Spd": 1,
-          "Lck": 1,
-          "Def": 1,
-          "Res": 1,
-          "Mov": 0
-        }
-      },
-      {
-        "Level": 20,
-        "StatIncrease": {
-          "HP": 0,
-          "Str": 1,
-          "Mag": 0,
-          "Skl": 1,
-          "Spd": 1,
+          "Spd": 0,
           "Lck": 0,
           "Def": 1,
-          "Res": 0,
+          "Res": 1,
           "Mov": 0
         }
       }
     ],
     "PersonalGrowthRate": {
-      "HP": 30,
+      "HP": 50,
       "Str": 60,
       "Mag": 20,
-      "Skl": 60,
-      "Spd": 60,
-      "Lck": 50,
-      "Def": 30,
-      "Res": 20
-    },
-    "TotalGrowthRate": {
-      "HP": 70,
-      "Str": 90,
-      "Mag": 20,
-      "Skl": 80,
-      "Spd": 90,
-      "Lck": 50,
-      "Def": 40,
-      "Res": 25
+      "Skl": 40,
+      "Spd": 50,
+      "Lck": 30,
+      "Def": 50,
+      "Res": 30
     },
     "UnitTypes": [
       0
@@ -3890,6 +749,7 @@
     "AcquiredAbilities": [
       {
         "Id": 26,
+        "AbilityOid": "506574df-bc7d-48ac-a9cf-ad1d680ba97d",
         "Name": "Dual Strike+",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -3898,16 +758,6 @@
         "StatBonus": null
       }
     ],
-    "EquippedAbilities": [
-      {
-        "Id": 26,
-        "Name": "Dual Strike+",
-        "LevelGained": 1,
-        "AbilityType": 2,
-        "NeedsToInitiateCombat": false,
-        "Description": "Increase the chance for a Dual Strike occurring by 10%",
-        "StatBonus": null
-      }
-    ]
+    "ConvoyId": "8cb17a50-e44e-44a9-8904-41f746b20fab"
   }
 ]

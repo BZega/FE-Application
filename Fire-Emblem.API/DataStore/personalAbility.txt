@@ -40,7 +40,7 @@
   {
     "Id": 3,
     "Name": "Bloodthirst",
-    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill, and Speed +4 for one turn.",
+    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill and Speed +4 for one turn.",
     "StatBonus": {
       "Growths": null,
       "Attributes": null,
@@ -79,7 +79,7 @@
   {
     "Id": 5,
     "Name": "Calm",
-    "Description": "After choosing to wait, Skill and Resistance +4 for one Turn.",
+    "Description": "After choosing to Wait, Skill and Resistance +4 for one Turn.",
     "StatBonus": {
       "Growths": null,
       "Attributes": null,
@@ -101,5 +101,596 @@
     "Name": "Capture",
     "Description": "This unit can capture an enemy upon defeating them with the Capture command. This unit cannot perform critical hits while attempting to capture.",
     "StatBonus": null
+  },
+  {
+    "Id": 7,
+    "Name": "Chivalry",
+    "Description": "When enemy's HP is at maximum, damage +2 and damage received -2 during the battle.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 8,
+    "Name": "Competitive",
+    "Description": "When this unit is the lead unit and his Internal Level is lower than or equal to their support unit's Internal Level, it gains Critical rate +10, damage +3 and damage received -1.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": -1,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 9,
+    "Name": "Countercurse",
+    "Description": "When this unit sustains damage from an enemy's magic attack, the enemy also receives half of the same damage.",
+    "StatBonus": null
+  },
+  {
+    "Id": 10,
+    "Name": "Daydream",
+    "Description": "When this unit is adjacent to two allies of opposite gender, damage +2 and damage received -2",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 11,
+    "Name": "Divine Retribution",
+    "Description": "When this unit has no weapon equipped, enemy attacks deal back half of all damage received in combat.",
+    "StatBonus": null
+  },
+  {
+    "Id": 12,
+    "Name": "Draconic Heir",
+    "Description": "When this unit is equipped with a Dragonstone, they recover 15% HP at the start of their Turn. (Manakete only)",
+    "StatBonus": null
+  },
+  {
+    "Id": 13,
+    "Name": "Fancy Footwork",
+    "Description": "When used as a command, Strength and Speed +1 to all allies within a 2 tile radius for one turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 14,
+    "Name": "Fearsome Blow",
+    "Description": "When this unit defeats an enemy, all adjacent enemies have their HP reduced by 20% of their max HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 15,
+    "Name": "Fierce Counter",
+    "Description": "When an enemy of the same gender initiates the battle, damage +2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 16,
+    "Name": "Fierce Mien",
+    "Description": "Avoid -10 to all enemy unit within a 2 tile radius of this unit.",
+    "StatBonus": null
+  },
+  {
+    "Id": 17,
+    "Name": "Fierce Rival",
+    "Description": "When this unit is the support unit, if the front unit triggers a critical hit, the user is guaranteed a critical hit (if their attack connects).",
+    "StatBonus": null
+  },
+  {
+    "Id": 18,
+    "Name": "Fiery Blood",
+    "Description": "When this unit's HP is not full, damage +4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 19,
+    "Name": "Forager",
+    "Description": "When standing on Mountain, Forest, Wasteland or Field terrain, this unit recovers 20% HP at the start of the Turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 20,
+    "Name": "Fortunate One",
+    "Description": "Allies within a 2 tile radius have their Critical Evade increased by 15, while this unit's Critical Evade is increased by 5.",
+    "StatBonus": null
+  },
+  {
+    "Id": 21,
+    "Name": "Gallant",
+    "Description": "When this unit is the support unit, if the lead unit is of the opposite gender, the lead unit's damage +2.",
+    "StatBonus": null
+  },
+  {
+    "Id": 22,
+    "Name": "Goody Basket",
+    "Description": "At the start of the Turn, Luck% chance of recovering 10% HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 23,
+    "Name": "Guarded Bravery",
+    "Description": "When this unit is the lead unit, damage received -2. If not in Pair Up, damage received +2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 24,
+    "Name": "Haiku",
+    "Description": "When this unit is between two allied units on each side opposite each other, this unit recovers 7 HP, while the two allies recover 5 HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 25,
+    "Name": "Healing Descant",
+    "Description": "Allies within a 2 tile radius recover 10% HP at the start of the user's Turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 26,
+    "Name": "Highwayman",
+    "Description": "When this unit triggers a battle, if the enemy cannot counter-attack, enemy's Strength and Speed -3 after the battle (recover by 1 each Turn).",
+    "StatBonus": null
+  },
+  {
+    "Id": 27,
+    "Name": "Icy Blood",
+    "Description": "When this unit's HP is not full and it sustains damage from a non-adjacent foe, the enemy receives half that same damage and the enemy's Skill and Speed is reduced by 3. Recovers 1/turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 28,
+    "Name": "In Extremis",
+    "Description": "When this unit's HP is under 25%, Critical rate +30.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 30,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 29,
+    "Name": "Lily's Poise",
+    "Description": "Adjacent allies deal 1 extra damage and receive 3 less damage.",
+    "StatBonus": null
+  },
+  {
+    "Id": 30,
+    "Name": "Lucky Charm",
+    "Description": "Abilities with an activation rate dependent on the Luck stat have their rate increased by 20%.",
+    "StatBonus": null
+  },
+  {
+    "Id": 31,
+    "Name": "Make a Killing",
+    "Description": "Luck% chance of obtaining a Gold Bar worth 300 gold after defeating an enemy.",
+    "StatBonus": null
+  },
+  {
+    "Id": 32,
+    "Name": "Miraculous Save",
+    "Description": "If this unit is acting as the support unit, the lead unit has a Luck% chance of surviving a fatal attack with 1 HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 33,
+    "Name": "Mischievous",
+    "Description": "When this unit triggers the battle and their attack connects with the enemy, enemy's Defence -3 after battle and enemy's clothes are torn apart.",
+    "StatBonus": null
+  },
+  {
+    "Id": 34,
+    "Name": "Misfortunate",
+    "Description": "Enemies within a 2 tile radius have their Critical Evade reduced by 15, while this unit's Critical Evade is reduced by 5.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": -5,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 35,
+    "Name": "Morbid Celebration",
+    "Description": "When this unit triggers a battle, recover 20% HP after defeating the enemy.",
+    "StatBonus": null
+  },
+  {
+    "Id": 36,
+    "Name": "Noble Cause",
+    "Description": "When this unit is the lead unit, if their support unit doesn't have full HP, damage +3 and damage received -1.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": -1,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 37,
+    "Name": "Opportunist",
+    "Description": "When this unit attacks an enemy who cannot counter-attack, damage increases by 4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 38,
+    "Name": "Optimist",
+    "Description": "After choosing to Wait, Speed +4 and Luck +8 for one Turn.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 4,
+        "Lck": 8,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 39,
+    "Name": "Optimistic",
+    "Description": "When a staff is used to heal this unit, Recovery x 1.5.",
+    "StatBonus": null
+  },
+  {
+    "Id": 40,
+    "Name": "Peacebringer",
+    "Description": "Allies and enemies within a 2 tile radius receive 2 less damage.",
+    "StatBonus": null
+  },
+  {
+    "Id": 41,
+    "Name": "Perfect Pitch",
+    "Description": "When used as a command, allies within 2 tiles who have HP lower than this unit will heal 10% of their max HP.",
+    "StatBonus": null
+  },
+  {
+    "Id": 42,
+    "Name": "Perfectionist",
+    "Description": "Hit rate and Avoid +15 when HP is full.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 15,
+        "Crit": 0,
+        "Avoid": 15,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 43,
+    "Name": "Perspicacious",
+    "Description": "Hit rate +5 for all allies.",
+    "StatBonus": null
+  },
+  {
+    "Id": 44,
+    "Name": "Playthings",
+    "Description": "After the start of the user's Turn, all enemies that are adjacent to this unit have their HP reduced by 5.",
+    "StatBonus": null
+  },
+  {
+    "Id": 45,
+    "Name": "Pragmatic",
+    "Description": "When enemy's HP is not full, damage +3 and damage received -1 during the battle.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": -1,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 46,
+    "Name": "Pride",
+    "Description": "If this unit's Internal Level is lower than or equal to the enemy's, damage increases by 4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 47,
+    "Name": "Prodigy",
+    "Description": "At the start of the battle, if this unit's Strength and Magic is lower than the enemy's, damage +4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 48,
+    "Name": "Puissance",
+    "Description": "When this unit's Strength is 5 or more points higher than the enemy's, damage increases by 3.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 3,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 49,
+    "Name": "Pyrotechnics",
+    "Description": "When this unit triggers a battle at under half HP, the user and enemies within a 2 tile radius have their HP reduced by 20%.",
+    "StatBonus": null
+  },
+  {
+    "Id": 50,
+    "Name": "Quiet Strength",
+    "Description": "All allies within a 2 tile radius receive 2 less damage from attacks.",
+    "StatBonus": null
+  },
+  {
+    "Id": 51,
+    "Name": "Rallying Cry",
+    "Description": "Allies within a 2 tile radius deal 2 extra damage.",
+    "StatBonus": null
+  },
+  {
+    "Id": 52,
+    "Name": "Reciprocity",
+    "Description": "When a unit uses a healing staff on this unit, that unit has their HP restored by half the same amount.",
+    "StatBonus": null
+  },
+  {
+    "Id": 53,
+    "Name": "Rose's Thorns",
+    "Description": "Adjacent allies deal 3 extra damage and receive 1 less damage.",
+    "StatBonus": null
+  },
+  {
+    "Id": 54,
+    "Name": "Shuriken Mastery",
+    "Description": "When this unit receives damage from a Shuriken attack, the enemy receives half the same damage and the Shuriken's stat reduction effect.",
+    "StatBonus": null
+  },
+  {
+    "Id": 55,
+    "Name": "Sisterhood/Brotherhood",
+    "Description": "When this unit is the lead unit, if their support unit is the same gender, damage +2 and damage received -2.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 56,
+    "Name": "Supportive",
+    "Description": "When this unit is acting as the support unit, if the front unit has a C or higher Support with this unit, the front unit's Hit Rate is boosted by 10, damage by 2, and damage received is reduced by 2.",
+    "StatBonus": null
+  },
+  {
+    "Id": 57,
+    "Name": "Sweet Tooth",
+    "Description": "After choosing to Wait, this unit recovers 4 HP by eating hidden treats.",
+    "StatBonus": null
+  },
+  {
+    "Id": 58,
+    "Name": "Triple Threat",
+    "Description": "When at half HP or lower, half the damage received by swords, lances and axes is also dealt to the enemy.",
+    "StatBonus": null
+  },
+  {
+    "Id": 59,
+    "Name": "Unmask",
+    "Description": "Damage +4 and Critical rate +20 in battle when facing a unit of the same gender.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 20,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 60,
+    "Name": "Vendetta",
+    "Description": "When this unit triggers a battle against an enemy it previously battled, damage +4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 4,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 61,
+    "Name": "Wind Disciple",
+    "Description": "When this unit's HP is not full, Hit rate and Avoid +10.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
   }
 ]

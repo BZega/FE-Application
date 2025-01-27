@@ -1,0 +1,29 @@
+[
+  {
+    "Id": "8cb17a50-e44e-44a9-8904-41f746b20fab",
+    "ConvoyItems": {
+      "Equipment": [
+        {
+          "Id": 159,
+          "EquipOid": "15d0ac06-aff6-4ec2-bc88-2924e96b1cd5",
+          "Name": "Rapier",
+          "Rank": 0,
+          "WeaponType": 6,
+          "IsMagical": false,
+          "Might": 5,
+          "Hit": 90,
+          "Crit": 10,
+          "Range": "1",
+          "Uses": "Inf.",
+          "Worth": "1600",
+          "WeaponExp": 2,
+          "BaseHP": null,
+          "Experience": null,
+          "IsEquipped": true,
+          "Description": "Effective against beast and armored units. Lords and Lodestars only.",
+          "StatBonus": null
+        }
+      ]
+    }
+  }
+]

@@ -10,7 +10,7 @@ namespace Fire_Emblem.API.Models.Equipment
         public WeaponType WeaponType { get; set; }
         public bool IsMagical { get; set; } = true;
         public int BaseHP { get; set; }
-        public int Range { get; set; }
+        public string Range { get; set; }
         public string Uses { get; set; }
         public string Worth { get; set; }
         public int WeaponExp { get; set; }

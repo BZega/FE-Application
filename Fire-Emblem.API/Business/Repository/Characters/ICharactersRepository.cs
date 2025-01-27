@@ -9,5 +9,10 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         Task<Character> GetCharacter(int id);
         Task<bool> RemoveCharacterById(int id);
         Task<bool> UpdateCharacter(Character character);
+        Task<bool> AddNewConvoy(Convoy convoy); 
+        Task<Inventory> GetConvoyInventory(string convoyId);
+        Task<List<Convoy>> GetAllConvoys();
+        Task<Convoy> GetConvoyById(string convoyId);
+        Task<bool> UpdateConvoy(Convoy convoy);
     }
 }

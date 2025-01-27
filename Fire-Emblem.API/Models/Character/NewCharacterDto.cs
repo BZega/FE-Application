@@ -8,6 +8,7 @@ namespace Fire_Emblem.API.Models.Character
         public string StartingClass { get; set; }
         public string HeartSealClass { get; set; }
         public string Biography { get; set; }
+        public string Gender { get; set; }
         public bool IsNoble { get; set; }
         public RacialType RaceChoice { get; set; }
         public StatType AssetChoice { get; set; }

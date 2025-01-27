@@ -10,13 +10,50 @@ namespace Fire_Emblem.Common.Models
     public class Asset
     {
         public StatType AssetChoice { get; set; }
+        public Stats BaseStatBonus => GetBaseStatBonus(AssetChoice);
         public Stats MaxStatBonus => GetMaxStatBonus(AssetChoice);
 
+        public Stats GetBaseStatBonus(StatType flawChoice)
+        {
+            Stats baseStatBonus = new Stats();
+            switch (flawChoice)
+            {
+                case StatType.None:
+                    break;
+                case StatType.HP:
+                    baseStatBonus.HP = 5;
+                    break;
+                case StatType.Str:
+                    baseStatBonus.Str = 2;
+                    break;
+                case StatType.Mag:
+                    baseStatBonus.Mag = 2;
+                    break;
+                case StatType.Skl:
+                    baseStatBonus.Skl = 2;
+                    break;
+                case StatType.Spd:
+                    baseStatBonus.Spd = 2;
+                    break;
+                case StatType.Lck:
+                    baseStatBonus.Lck = 4;
+                    break;
+                case StatType.Def:
+                    baseStatBonus.Def = 2;
+                    break;
+                case StatType.Res:
+                    baseStatBonus.Res = 2;
+                    break;
+            }
+            return baseStatBonus;
+        }
         public Stats GetMaxStatBonus(StatType assetChoice)
         {
             Stats maxStatBonus = new Stats();
             switch (assetChoice)
             {
+                case StatType.None:
+                    break;
                 case StatType.HP:
                     maxStatBonus.Str = 1;
                     maxStatBonus.Mag = 1;

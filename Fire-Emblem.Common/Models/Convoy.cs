@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Fire_Emblem.Common.Models
 {
-    public class LevelUp
+    public class Convoy
     {
-        public int Level { get; set; }
-        public string LevelUpType {  get; set; }
-        public Stats StatIncrease { get; set; }
+        public string Id { get; set; }
+        public Inventory ConvoyItems { get; set; }
     }
 }

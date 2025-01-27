@@ -18,19 +18,19 @@ namespace Fire_Emblem.Common.Models
 
         public Rank GetWeaponLetterRank()
         {
-            if (WeaponExperience > 30 && WeaponExperience < 70)
+            if (WeaponExperience > 30 && WeaponExperience < 71)
             {
                 return Rank.D;
             }
-            else if (WeaponExperience > 70 && WeaponExperience < 120)
+            else if (WeaponExperience > 70 && WeaponExperience < 121)
             {
                 return Rank.C;
             }
-            else if (WeaponExperience > 120 &&  WeaponExperience < 180)
+            else if (WeaponExperience > 120 &&  WeaponExperience < 181)
             {
                 return Rank.B;
             }
-            else if (WeaponExperience > 180 && WeaponExperience < 250)
+            else if (WeaponExperience > 180 && WeaponExperience < 251)
             {
                 return Rank.A;
             }

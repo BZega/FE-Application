@@ -10,13 +10,51 @@ namespace Fire_Emblem.Common.Models
     public class Flaw
     {
         public StatType FlawChoice { get; set; }
+        public Stats BaseStatBonus => GetBaseStatBonus(FlawChoice);
         public Stats MaxStatBonus => GetMaxStatBonus(FlawChoice);
+
+        public Stats GetBaseStatBonus(StatType flawChoice)
+        {
+            Stats baseStatBonus = new Stats();
+            switch (flawChoice)
+            {
+                case StatType.None:
+                    break;
+                case StatType.HP:
+                    baseStatBonus.HP = -3;
+                    break;
+                case StatType.Str: 
+                    baseStatBonus.Str = -1;
+                    break;
+                case StatType.Mag:
+                    baseStatBonus.Mag = -1;
+                    break;
+                case StatType.Skl:
+                    baseStatBonus.Skl = -1; 
+                    break;
+                case StatType.Spd:
+                    baseStatBonus.Spd = -1;
+                    break;
+                case StatType.Lck:
+                    baseStatBonus.Lck = -2;
+                    break;
+                case StatType.Def:
+                    baseStatBonus.Def = -1;
+                    break;
+                case StatType.Res:
+                    baseStatBonus.Res = -1;
+                    break;
+            }
+            return baseStatBonus;
+        }
 
         public Stats GetMaxStatBonus(StatType flawChoice)
         {
             Stats maxStatBonus = new Stats();
             switch (flawChoice)
             {
+                case StatType.None:
+                    break;
                 case StatType.HP:
                     maxStatBonus.Str = -1;
                     maxStatBonus.Mag = -1;

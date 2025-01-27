@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Fire_Emblem.Common.TypeCodes
 {
-    public enum Rank
+    public enum LocationType
     {
-        E = 0,
-        D = 1,
-        C = 2,
-        B = 3,
-        A = 4,
-        S = 5,
-        None = 6
+        NONE = 0,
+        INVENTORY = 1,
+        CONVOY = 2
     }
 }

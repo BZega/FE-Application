@@ -1,6 +1,7 @@
 [
   {
     "Id": 1,
+    "AbilityOid": null,
     "Name": "Skill +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -24,6 +25,7 @@
   },
   {
     "Id": 2,
+    "AbilityOid": null,
     "Name": "Prescience",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -46,6 +48,7 @@
   },
   {
     "Id": 3,
+    "AbilityOid": null,
     "Name": "Prescient Victory",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -68,6 +71,7 @@
   },
   {
     "Id": 4,
+    "AbilityOid": null,
     "Name": "Potent Potion",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -77,6 +81,7 @@
   },
   {
     "Id": 5,
+    "AbilityOid": null,
     "Name": "Quick Salve",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -86,6 +91,7 @@
   },
   {
     "Id": 6,
+    "AbilityOid": null,
     "Name": "Discipline",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -95,6 +101,7 @@
   },
   {
     "Id": 7,
+    "AbilityOid": null,
     "Name": "Shelter",
     "LevelGained": 1,
     "AbilityType": 1,
@@ -104,6 +111,7 @@
   },
   {
     "Id": 8,
+    "AbilityOid": null,
     "Name": "Outdoor Fighter",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -126,6 +134,7 @@
   },
   {
     "Id": 9,
+    "AbilityOid": null,
     "Name": "Elbow Room",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -148,6 +157,7 @@
   },
   {
     "Id": 10,
+    "AbilityOid": null,
     "Name": "Miracle",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -157,6 +167,7 @@
   },
   {
     "Id": 11,
+    "AbilityOid": null,
     "Name": "Healtouch",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -179,6 +190,7 @@
   },
   {
     "Id": 12,
+    "AbilityOid": null,
     "Name": "Rally Luck",
     "LevelGained": 10,
     "AbilityType": 1,
@@ -188,6 +200,7 @@
   },
   {
     "Id": 13,
+    "AbilityOid": null,
     "Name": "Hex",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -197,6 +210,7 @@
   },
   {
     "Id": 14,
+    "AbilityOid": null,
     "Name": "Heartseeker",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -206,6 +220,7 @@
   },
   {
     "Id": 15,
+    "AbilityOid": null,
     "Name": "Anathema",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -215,6 +230,7 @@
   },
   {
     "Id": 16,
+    "AbilityOid": null,
     "Name": "Malefic Aura",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -224,6 +240,7 @@
   },
   {
     "Id": 17,
+    "AbilityOid": null,
     "Name": "HP +5",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -247,6 +264,7 @@
   },
   {
     "Id": 18,
+    "AbilityOid": null,
     "Name": "Despoil",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -256,6 +274,7 @@
   },
   {
     "Id": 19,
+    "AbilityOid": null,
     "Name": "Zeal",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -278,6 +297,7 @@
   },
   {
     "Id": 20,
+    "AbilityOid": null,
     "Name": "Gamble",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -300,6 +320,7 @@
   },
   {
     "Id": 21,
+    "AbilityOid": null,
     "Name": "Evenhanded",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -322,6 +343,7 @@
   },
   {
     "Id": 22,
+    "AbilityOid": null,
     "Name": "Beastbane",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -331,6 +353,7 @@
   },
   {
     "Id": 23,
+    "AbilityOid": null,
     "Name": "Defense +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -354,6 +377,7 @@
   },
   {
     "Id": 24,
+    "AbilityOid": null,
     "Name": "Indoor Fighter",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -376,6 +400,7 @@
   },
   {
     "Id": 25,
+    "AbilityOid": null,
     "Name": "Confined Defense",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -398,6 +423,7 @@
   },
   {
     "Id": 26,
+    "AbilityOid": null,
     "Name": "Dual Strike+",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -407,6 +433,7 @@
   },
   {
     "Id": 27,
+    "AbilityOid": null,
     "Name": "Charm",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -416,6 +443,7 @@
   },
   {
     "Id": 28,
+    "AbilityOid": null,
     "Name": "Magic +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -439,6 +467,7 @@
   },
   {
     "Id": 29,
+    "AbilityOid": null,
     "Name": "Focus",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -461,6 +490,7 @@
   },
   {
     "Id": 30,
+    "AbilityOid": null,
     "Name": "Future Sight",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -470,6 +500,7 @@
   },
   {
     "Id": 31,
+    "AbilityOid": null,
     "Name": "Nobility",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -479,6 +510,7 @@
   },
   {
     "Id": 32,
+    "AbilityOid": null,
     "Name": "Dragon Fang",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -488,6 +520,7 @@
   },
   {
     "Id": 33,
+    "AbilityOid": null,
     "Name": "Grand Fortune",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -497,6 +530,7 @@
   },
   {
     "Id": 34,
+    "AbilityOid": null,
     "Name": "Patience",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -519,6 +553,7 @@
   },
   {
     "Id": 35,
+    "AbilityOid": null,
     "Name": "Patient Assurance",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -541,6 +576,7 @@
   },
   {
     "Id": 36,
+    "AbilityOid": null,
     "Name": "Avoid +10",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -563,6 +599,7 @@
   },
   {
     "Id": 37,
+    "AbilityOid": null,
     "Name": "Duelist's Blow",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -585,6 +622,7 @@
   },
   {
     "Id": 38,
+    "AbilityOid": null,
     "Name": "Vantage",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -594,6 +632,7 @@
   },
   {
     "Id": 39,
+    "AbilityOid": null,
     "Name": "Locktouch",
     "LevelGained": 1,
     "AbilityType": 1,
@@ -603,6 +642,7 @@
   },
   {
     "Id": 40,
+    "AbilityOid": null,
     "Name": "Poison Strike",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -612,6 +652,7 @@
   },
   {
     "Id": 41,
+    "AbilityOid": null,
     "Name": "Speed +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -635,6 +676,7 @@
   },
   {
     "Id": 42,
+    "AbilityOid": null,
     "Name": "Darting Blow",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -657,6 +699,7 @@
   },
   {
     "Id": 43,
+    "AbilityOid": null,
     "Name": "Relief",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -666,6 +709,7 @@
   },
   {
     "Id": 44,
+    "AbilityOid": null,
     "Name": "Camaraderie",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -675,6 +719,7 @@
   },
   {
     "Id": 45,
+    "AbilityOid": null,
     "Name": "Seal Resistance",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -684,6 +729,7 @@
   },
   {
     "Id": 46,
+    "AbilityOid": null,
     "Name": "Shove",
     "LevelGained": 10,
     "AbilityType": 1,
@@ -693,6 +739,7 @@
   },
   {
     "Id": 47,
+    "AbilityOid": null,
     "Name": "Seal Defense",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -702,6 +749,7 @@
   },
   {
     "Id": 48,
+    "AbilityOid": null,
     "Name": "Swap",
     "LevelGained": 10,
     "AbilityType": 1,
@@ -711,6 +759,7 @@
   },
   {
     "Id": 49,
+    "AbilityOid": null,
     "Name": "Veteran",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -720,6 +769,7 @@
   },
   {
     "Id": 50,
+    "AbilityOid": null,
     "Name": "Tactical Advice",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -729,6 +779,7 @@
   },
   {
     "Id": 51,
+    "AbilityOid": null,
     "Name": "Solidarity",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -738,6 +789,7 @@
   },
   {
     "Id": 52,
+    "AbilityOid": null,
     "Name": "Movement +1",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -761,6 +813,7 @@
   },
   {
     "Id": 53,
+    "AbilityOid": null,
     "Name": "Resistance +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -784,6 +837,7 @@
   },
   {
     "Id": 54,
+    "AbilityOid": null,
     "Name": "Distinguished",
     "LevelGained": 10,
     "AbilityType": 0,
@@ -793,6 +847,7 @@
   },
   {
     "Id": 55,
+    "AbilityOid": null,
     "Name": "Aptitude",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -815,6 +870,7 @@
   },
   {
     "Id": 56,
+    "AbilityOid": null,
     "Name": "Underdog",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -837,6 +893,7 @@
   },
   {
     "Id": 57,
+    "AbilityOid": null,
     "Name": "Odd Shaped",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -859,6 +916,7 @@
   },
   {
     "Id": 58,
+    "AbilityOid": null,
     "Name": "Strength +2",
     "LevelGained": 1,
     "AbilityType": 0,
@@ -882,6 +940,7 @@
   },
   {
     "Id": 59,
+    "AbilityOid": null,
     "Name": "Odd Rhythm",
     "LevelGained": 1,
     "AbilityType": 2,
@@ -904,6 +963,7 @@
   },
   {
     "Id": 60,
+    "AbilityOid": null,
     "Name": "Wyrmsbane",
     "LevelGained": 10,
     "AbilityType": 2,
@@ -913,6 +973,7 @@
   },
   {
     "Id": 61,
+    "AbilityOid": null,
     "Name": "Better Odds",
     "LevelGained": 25,
     "AbilityType": 0,
@@ -922,11 +983,358 @@
   },
   {
     "Id": 62,
+    "AbilityOid": null,
     "Name": "Grisly Wound",
     "LevelGained": 35,
     "AbilityType": 0,
     "NeedsToInitiateCombat": false,
     "Description": "Prrovided the user didn't already defeat the enemy, the enemy loses 20% of their maximum HP at the end of the battle.",
+    "StatBonus": null
+  },
+  {
+    "Id": 63,
+    "AbilityOid": null,
+    "Name": "Luck +4",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "It increases the unit's Luck by 4.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 4,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 64,
+    "AbilityOid": null,
+    "Name": "Inspiring Song",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Modifies the Perform action to also increase the targeted ally's Skill, Speed, and Luck by 3 points each for one turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 65,
+    "AbilityOid": null,
+    "Name": "Voice of Peace",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Reduces damage output by 2 to all enemies within a two-square radius of user.",
+    "StatBonus": null
+  },
+  {
+    "Id": 66,
+    "AbilityOid": null,
+    "Name": "Combat Inspiration",
+    "LevelGained": 35,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Reduces damage output by 2 and increases damage taken by 2 to all enemies associated with a foreign army within a two-square radius of user.",
+    "StatBonus": null
+  },
+  {
+    "Id": 67,
+    "AbilityOid": null,
+    "Name": "Even Rhythm",
+    "LevelGained": 1,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "+10 Hit rate and Avoid on even-numbered turns",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 0,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 68,
+    "AbilityOid": null,
+    "Name": "Even Better",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Restores 40% maximum HP at the start of an even-numbered turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 69,
+    "AbilityOid": null,
+    "Name": "Survey",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": true,
+    "Description": "Increases turret hit rate by 10 while using the Turret command",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": null
+    }
+  },
+  {
+    "Id": 70,
+    "AbilityOid": null,
+    "Name": "Opportunity Shot",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "May attack a random enemy within range at the start of the player's turn. (Skill)% if user is currently in the Ballistician class.",
+    "StatBonus": null
+  },
+  {
+    "Id": 71,
+    "AbilityOid": null,
+    "Name": "Rifled Barrel",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases the turret's range by 1, but reduces inner/outer range by 1, while using the Turret command.",
+    "StatBonus": null
+  },
+  {
+    "Id": 72,
+    "AbilityOid": null,
+    "Name": "Surefooted",
+    "LevelGained": 35,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases Movement by 1, and all terrain costs 1 movement point to cross. Only while in Ballistician class.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 1
+      }
+    }
+  },
+  {
+    "Id": 73,
+    "AbilityOid": null,
+    "Name": "Resistance +10",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Increases Resistance by 10.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 10,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 74,
+    "AbilityOid": null,
+    "Name": "Iron Will",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": true,
+    "Description": "Takes 4 less damage from a magical attack when the user initiates the battle.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": -4,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 75,
+    "AbilityOid": null,
+    "Name": "Clarity",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "User recovers from status reduction effects twice as fast as normal.",
+    "StatBonus": null
+  },
+  {
+    "Id": 76,
+    "AbilityOid": null,
+    "Name": "Aggressor",
+    "LevelGained": 35,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "+10 damage during the unit's phase.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 10,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 77,
+    "AbilityOid": null,
+    "Name": "Dancing Blade",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Speed +3, Defense -1",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 3,
+        "Lck": 0,
+        "Def": -1,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 78,
+    "AbilityOid": null,
+    "Name": "Charm (ver. 2)",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "All allied units within a 2 square radius receive +3 to damage dealt.",
+    "StatBonus": null
+  },
+  {
+    "Id": 79,
+    "AbilityOid": null,
+    "Name": "Dual Guard+",
+    "LevelGained": 25,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Adds 10% to the Dual Guard rate",
+    "StatBonus": null
+  },
+  {
+    "Id": 80,
+    "AbilityOid": null,
+    "Name": "Speedtaker",
+    "LevelGained": 35,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Every time the user defeats an enemy, they gain a +2 bonus to their speed up to a maximum of +10. The skill does not overlap over other Taker abilities and the bonuses wear off after the encounter is completed.",
+    "StatBonus": null
+  },
+  {
+    "Id": 81,
+    "AbilityOid": null,
+    "Name": "Heavy Blade",
+    "LevelGained": 1,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Strength +3, Speed -1",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 3,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": -1,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 82,
+    "AbilityOid": null,
+    "Name": "Veteran Intuition",
+    "LevelGained": 10,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Critical Evade +15 during battles.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 15,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 83,
+    "AbilityOid": null,
+    "Name": "Aether",
+    "LevelGained": 25,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": false,
+    "Description": "Use Sol and Luna in succession. (It unleashes two consecutive blows; the first restores HP equal to half the damage dealt, and the second halves the enemy's defense and resistance.(Skill/2)%",
+    "StatBonus": null
+  },
+  {
+    "Id": 84,
+    "AbilityOid": null,
+    "Name": "Strengthtaker",
+    "LevelGained": 35,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "When user defeats the enemy, Strength+2 (up to 10). The skill does not overlap over other Taker abilities and the bonuses wear off after the encounter is completed.",
     "StatBonus": null
   }
 ]

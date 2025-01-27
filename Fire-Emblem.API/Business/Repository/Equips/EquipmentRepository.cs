@@ -89,7 +89,7 @@ namespace Fire_Emblem.API.Business.Repository.Equips
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<Ability>(id, _filePath);
+                var result = FileHelper.DeleteFromFile<Equipment>(id, _filePath);
                 return result;
             }
             catch (Exception)

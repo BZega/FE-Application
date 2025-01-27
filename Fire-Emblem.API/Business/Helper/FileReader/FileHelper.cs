@@ -105,69 +105,35 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
             return false;
         }
 
-        public static bool UpdateFile<T>(T item, int id, string filePath)
+        public static bool UpdateFile<T>(T item, string id, string filePath)
         {
             var items = ReadFromFile<T>(filePath);
             Type itemType = typeof(T);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
-            if (items != null && itemType == typeof(Ability))
-            {
-                List<Ability> abilities = JsonSerializer.Deserialize<List<Ability>>(items);
-                var ability = abilities?.Find(item => item.Id == id);
-                if (ability != null)
-                {
-                    var delete = abilities?.Remove(ability);
-                    var jsonString = JsonSerializer.Serialize(abilities, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
-                    return true;
-                }
-            }
-            else if (items != null && itemType == typeof(UnitClass))
-            {
-                List<UnitClass> classes = JsonSerializer.Deserialize<List<UnitClass>>(items);
-                var unitClass = classes?.Find(item => item.Id == id);
-                if (unitClass != null)
-                {
-                    var delete = classes?.Remove(unitClass);
-                    var jsonString = JsonSerializer.Serialize(classes, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
-                    return true;
-                }
-            }
-            else if (items != null && itemType == typeof(Equipment))
-            {
-                List<Equipment> equipmentList = JsonSerializer.Deserialize<List<Equipment>>(items);
-                var equipment = equipmentList?.Find(item => item.Id == id);
-                if (equipment != null)
-                {
-                    var delete = equipmentList?.Remove(equipment);
-                    var jsonString = JsonSerializer.Serialize(equipmentList, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
-                    return true;
-                }
-            }
-            else if (items != null && itemType == typeof(PersonalAbility))
-            {
-                List<PersonalAbility> personalAbilities = JsonSerializer.Deserialize<List<PersonalAbility>>(items);
-                var personalAbility = personalAbilities?.Find(item => item.Id == id);
-                if (personalAbility != null)
-                {
-                    var delete = personalAbilities?.Remove(personalAbility);
-                    var jsonString = JsonSerializer.Serialize(personalAbilities, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
-                    return true;
-                }
-            }
-            else if (items != null && itemType == typeof(Character))
+            if (items != null && itemType == typeof(Character))
             {
                 List<Character> characters = JsonSerializer.Deserialize<List<Character>>(items);
-                var character = characters?.Find(c => c.Id == id);          
+                var character = characters?.Find(c => c.Id == int.Parse(id));          
                 if (character != null)
                 {
                     int i = characters.IndexOf(character);
                     character = item as Character;
                     characters[i] = character;
                     var jsonString = JsonSerializer.Serialize(characters, options);
+                    System.IO.File.WriteAllText(filePath, jsonString);
+                    return true;
+                }
+            }
+            else if (items != null && itemType == typeof(Convoy))
+            {
+                List<Convoy> convoys = JsonSerializer.Deserialize<List<Convoy>>(items);
+                var convoy = convoys?.Find(c => c.Id == id);
+                if (convoy != null)
+                {
+                    int i = convoys.IndexOf(convoy);
+                    convoy = item as Convoy;
+                    convoys[i] = convoy;
+                    var jsonString = JsonSerializer.Serialize(convoys, options);
                     System.IO.File.WriteAllText(filePath, jsonString);
                     return true;
                 }
