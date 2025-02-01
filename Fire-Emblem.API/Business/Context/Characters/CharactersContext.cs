@@ -7,6 +7,10 @@ using Fire_Emblem.API.Business.Repository.Characters;
 using Fire_Emblem.API.Models.Character;
 using Fire_Emblem.Common.Models;
 using Fire_Emblem.Common.TypeCodes;
+using System.Text.RegularExpressions;
+using System;
+using System.Xml.Linq;
+using System.Reflection.PortableExecutable;
 
 namespace Fire_Emblem.API.Business.Context.Characters
 {
@@ -76,7 +80,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     RaceChoice = new Race()
                     {
                         RacialType = newCharacter.RaceChoice,
-                        HumanStatChoices = humanChoices
+                        HumanStatChoices = humanChoice1 != StatType.None && humanChoice2 != StatType.None ? humanChoices : null
                     }
 
                 };
@@ -84,14 +88,21 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     maxId = characters.Max(id => id.Id);
                 }
-                if (newCharacter.IsNoble && (newCharacter.StartingClass == "Sword Lord"|| newCharacter.StartingClass == "Axe Lord" || newCharacter.StartingClass == "Lance Lord"))
+                if (newCharacter.IsNoble && 
+                   (newCharacter.StartingClass == ClassTypeCode.SwordLord || 
+                    newCharacter.StartingClass == ClassTypeCode.AxeLord || 
+                    newCharacter.StartingClass == ClassTypeCode.LanceLord))
                 {
                     gold += 1000;
                 }
-                if (newCharacter.StartingWeapons != null && (((newCharacter.StartingClass == "Taguel" ||  newCharacter.StartingClass == "Wolfskin" || newCharacter.StartingClass == "Kitsune") && newCharacter.StartingWeapons.Contains("Beaststone")) ||
-                      newCharacter.StartingClass == "Manakete" && newCharacter.StartingWeapons.Contains("Dragonstone"))) 
-                { 
-                    gold += 1000; 
+                if (newCharacter.StartingWeapons != null && 
+                   (((newCharacter.StartingClass == ClassTypeCode.Taguel || 
+                      newCharacter.StartingClass == ClassTypeCode.Wolfskin || 
+                      newCharacter.StartingClass == ClassTypeCode.Kitsune) && 
+                      newCharacter.StartingWeapons.Contains("Beaststone")) ||
+                      newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.StartingWeapons.Contains("Dragonstone")))
+                {
+                    gold += 1000;
                 }
                 if (newCharacter.StartingWeapons != null && newCharacter.StartingWeapons.Count > 0)
                 {
@@ -143,12 +154,12 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     return new Tuple<bool, string>(false, "Not enough gold");
                 }
-                if ((newCharacter.StartingClass == "Taguel" && newCharacter.RaceChoice != RacialType.Taguel) || 
-                    (newCharacter.StartingClass == "Kitsune" && newCharacter.RaceChoice != RacialType.Kitsune) ||
-                    (newCharacter.StartingClass == "Wolfskin" && newCharacter.RaceChoice != RacialType.Wolfskin) ||
-                    (newCharacter.StartingClass == "Manakete" && newCharacter.RaceChoice != RacialType.Manakete) ||
-                    ((newCharacter.StartingClass == "Sword Lord" || newCharacter.StartingClass == "Axe Lord" || newCharacter.StartingClass == "Lance Lord") && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Human)) ||
-                    (newCharacter.StartingClass == "Manakete Heir" && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Manakete)))
+                if ((newCharacter.StartingClass == ClassTypeCode.Taguel && newCharacter.RaceChoice != RacialType.Taguel) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Kitsune && newCharacter.RaceChoice != RacialType.Kitsune) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Wolfskin && newCharacter.RaceChoice != RacialType.Wolfskin) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.RaceChoice != RacialType.Manakete) ||
+                    ((newCharacter.StartingClass == ClassTypeCode.SwordLord || newCharacter.StartingClass == ClassTypeCode.AxeLord || newCharacter.StartingClass == ClassTypeCode.LanceLord) && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Human)) ||
+                    (newCharacter.StartingClass == ClassTypeCode.ManaketeHeir && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Manakete)))
                 {
                     return new Tuple<bool, string>(false, "Class choice does not match Racial Choice/Nobility");
                 }
@@ -177,6 +188,8 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     },
                     PersonalGrowthRate = newCharacter.PersonalGrowthRate,
                     WeaponRanks = new List<Weapon>(),
+                    ReclassOptions = new List<string>(),
+                    Skills = new List<Skill>(),
                     ConvoyId = Guid.NewGuid().ToString(),
                 };
                 var ability = await _abilitiesContext.GetAbility(null, newCharacter.FirstAquiredAbility);
@@ -186,32 +199,165 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     character.EquippedAbilities.Add(ability);
                 }
-                List<WeaponType> weapons = [WeaponType.Axe, WeaponType.Bow, WeaponType.Dagger, WeaponType.Lance, WeaponType.Staff, WeaponType.Sword, WeaponType.Tome, WeaponType.DarkTome];
-                if ((newCharacter.StartingClass == "Taguel" && newCharacter.RaceChoice == RacialType.Taguel) ||
-                    (newCharacter.StartingClass == "Kitsune" && newCharacter.RaceChoice == RacialType.Kitsune) ||
-                    (newCharacter.StartingClass == "Wolfskin" && newCharacter.RaceChoice == RacialType.Wolfskin) ||
-                    (newCharacter.StartingClass == "Manakete" && newCharacter.RaceChoice == RacialType.Manakete) ||
-                    (newCharacter.StartingClass == "Manakete Heir" && !newCharacter.IsNoble && newCharacter.RaceChoice == RacialType.Manakete))
+                List<WeaponType> weapons = [WeaponType.Axe, WeaponType.Bow, WeaponType.Dagger, WeaponType.Lance, WeaponType.Staff,
+                                            WeaponType.Sword, WeaponType.Tome, WeaponType.DarkTome];
+                List<SkillType> skillTypes = [SkillType.Athletics, SkillType.Arcana, SkillType.History, SkillType.Investigation,
+                                              SkillType.Nature, SkillType.Religion, SkillType.Deception, SkillType.Intimidation,
+                                              SkillType.Performance, SkillType.Persuasion,  SkillType.Acrobatics, SkillType.SleightofHand,
+                                              SkillType.Stealth, SkillType.AnimalHandling, SkillType.Insight, SkillType.Medicine,
+                                              SkillType.Perception, SkillType.Survival, SkillType.Strength, SkillType.Magic, SkillType.Skill,
+                                              SkillType.Speed, SkillType.Defense, SkillType.Resistance];
+                if ((newCharacter.StartingClass == ClassTypeCode.Taguel && newCharacter.RaceChoice == RacialType.Taguel) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Kitsune && newCharacter.RaceChoice == RacialType.Kitsune) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Wolfskin && newCharacter.RaceChoice == RacialType.Wolfskin) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.RaceChoice == RacialType.Manakete) ||
+                    (newCharacter.StartingClass == ClassTypeCode.ManaketeHeir && newCharacter.IsNoble && newCharacter.RaceChoice == RacialType.Manakete))
                 {
                     weapons.Add(WeaponType.Stone);
                 }
                 foreach (var weapon in weapons)
                 {
                     var weaponRank = new Weapon() { WeaponType = weapon };
-                    if (character.CurrentClass.UsableWeapons.Any(weaponType => weaponType.WeaponType == weapon)) 
-                    { 
+                    if (character.CurrentClass.UsableWeapons.Any(weaponType => weaponType.WeaponType == weapon))
+                    {
                         weaponRank.IsActive = true;
                     }
                     character.WeaponRanks.Add(weaponRank);
                 }
+                foreach (var skillType in skillTypes)
+                {
+                    var skill = new Skill() { SkillType = skillType };
+                    foreach (var skillChoice in newCharacter.SkillTypeChoices)
+                    {
+                        if (skillType == skillChoice)
+                        {
+                            skill.IsProfecient = true;
+                        }
+                    }
+                    switch (skillType)
+                    {
+                        case SkillType.Athletics:
+                        case SkillType.Strength:
+                            skill.StatType = StatType.Str;
+                            break;
+                        case SkillType.Arcana:
+                        case SkillType.History:
+                        case SkillType.Investigation:
+                        case SkillType.Nature:
+                        case SkillType.Religion:
+                        case SkillType.Magic:
+                            skill.StatType = StatType.Mag;
+                            break;
+                        case SkillType.Deception:
+                        case SkillType.Intimidation:
+                        case SkillType.Performance:
+                        case SkillType.Persuasion:
+                        case SkillType.Skill:
+                            skill.StatType = StatType.Skl;
+                            break;
+                        case SkillType.Acrobatics:
+                        case SkillType.SleightofHand:
+                        case SkillType.Stealth:
+                        case SkillType.Speed:
+                            skill.StatType = StatType.Spd;
+                            break;
+                        case SkillType.Defense:
+                            skill.StatType = StatType.Def;
+                            break;
+                        case SkillType.AnimalHandling:
+                        case SkillType.Insight:
+                        case SkillType.Medicine:
+                        case SkillType.Perception:
+                        case SkillType.Survival:
+                        case SkillType.Resistance:
+                            skill.StatType = StatType.Res;
+                            break;
+                    }
+                    switch (skill.StatType)
+                    {
+                        case StatType.Str:
+                            skill.Attribute = character.CurrentStats.Str;
+                            break;
+                        case StatType.Mag:
+                            skill.Attribute = character.CurrentStats.Mag;
+                            break;
+                        case StatType.Skl:
+                            skill.Attribute = character.CurrentStats.Skl;
+                            break;
+                        case StatType.Spd:
+                            skill.Attribute = character.CurrentStats.Spd;
+                            break;
+                        case StatType.Def:
+                            skill.Attribute = character.CurrentStats.Def;
+                            break;
+                        case StatType.Res:
+                            skill.Attribute = character.CurrentStats.Res;
+                            break;
+                    }
+                    skill.Bonus = skill.GetBonus(character.InternalLevel);
+                    skill.Score = skill.GetScore(character.CurrentStats.Lck);
+                    character.Skills.Add(skill);
+                }
                 if (newCharacter.EquippedWeapon != null)
                 {
                     var equip = character.Inventory.Equipment.Find(equipment => equipment.Name == newCharacter.EquippedWeapon);
-                    if (equip != null && !(((newCharacter.RaceChoice == RacialType.Manakete || newCharacter.RaceChoice == RacialType.Human) && equip.Name == "Beaststone") || 
+                    if (equip != null && !(((newCharacter.RaceChoice == RacialType.Manakete || newCharacter.RaceChoice == RacialType.Human) && equip.Name == "Beaststone") ||
                        (newCharacter.RaceChoice != RacialType.Manakete && equip.Name == "Dragonstone")))
                     {
                         character.EquippedWeapon = equip;
                         character.EquippedWeapon.IsEquipped = true;
+                    }
+                }
+                character.ReclassOptions.Add(newCharacter.StartingClass);
+                if (newCharacter.RaceChoice == RacialType.Taguel && !character.ReclassOptions.Contains(ClassTypeCode.Taguel))
+                {
+                    character.ReclassOptions.Add(ClassTypeCode.Taguel);
+                }
+                else if (newCharacter.RaceChoice == RacialType.Kitsune && !character.ReclassOptions.Contains(ClassTypeCode.Kitsune))
+                {
+                    character.ReclassOptions.Add(ClassTypeCode.Kitsune);
+                }
+                else if (newCharacter.RaceChoice == RacialType.Wolfskin && !character.ReclassOptions.Contains(ClassTypeCode.Wolfskin))
+                {
+                    character.ReclassOptions.Add(ClassTypeCode.Wolfskin);
+                }
+                else if (newCharacter.RaceChoice == RacialType.Manakete && !character.ReclassOptions.Contains(ClassTypeCode.Manakete))
+                {
+                    character.ReclassOptions.Add(ClassTypeCode.Manakete);
+                    if (newCharacter.IsNoble && !character.ReclassOptions.Contains(ClassTypeCode.ManaketeHeir))
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.ManaketeHeir);
+                    }
+                }
+                else if (newCharacter.RaceChoice == RacialType.Human && newCharacter.IsNoble)
+                {
+                    if (newCharacter.StartingClass == ClassTypeCode.SwordLord && !character.ReclassOptions.Contains(ClassTypeCode.SwordLord))
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.SwordLord);
+                    }
+                    else if (newCharacter.StartingClass != ClassTypeCode.AxeLord && !character.ReclassOptions.Contains(ClassTypeCode.AxeLord))
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.AxeLord);
+                    }
+                    else if (newCharacter.StartingClass == ClassTypeCode.LanceLord && !character.ReclassOptions.Contains(ClassTypeCode.LanceLord)) 
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.LanceLord);
+                    } 
+                    else
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.SwordLord);
+                        character.ReclassOptions.Add(ClassTypeCode.AxeLord);
+                        character.ReclassOptions.Add(ClassTypeCode.LanceLord);
+                    }
+                }
+                if (character.CurrentClass.ReclassOptions != null && character.CurrentClass.ReclassOptions.Count > 0)
+                {
+                    foreach (var reclassOption in character.CurrentClass.ReclassOptions) 
+                    {
+                        if (!character.ReclassOptions.Contains(reclassOption))
+                        {
+                            character.ReclassOptions.Add(reclassOption);
+                        }
                     }
                 }
                 var convoy = new Convoy()
@@ -294,6 +440,10 @@ namespace Fire_Emblem.API.Business.Context.Characters
                         StatIncrease = statIncrease
                     };           
                     level.StatIncrease.MaxLevelCheck(character.BaseStats, character.MaxStats);
+                    if (character.CurrentStats.Mag > 10 && character.WeaponRanks.Find(weapon => weapon.WeaponType == WeaponType.Sword).WeaponExperience > 70)
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.Tactician);
+                    }
                     var result = await _charactersRepository.UpdateCharacter(character);
                     return new Tuple<bool, LevelUp>(result, level);
                 }
@@ -383,6 +533,217 @@ namespace Fire_Emblem.API.Business.Context.Characters
             }
         }
 
+        public async Task<bool> CreateSupportCharacter(int characterId, string name, SupportCharacterDto support)
+        {
+            try
+            {
+                var result = false;
+                var character = await GetCharacter(characterId);
+                var className = ClassTypeCode.ClassTypeConverter(support.CurrentClass);
+                var unitClass = await _unitClassesContext.GetClass(null, className);
+                if (support.CurrentClass == ClassType.SwordLord || support.CurrentClass == ClassType.AxeLord || support.CurrentClass == ClassType.LanceLord)
+                {
+                    support.CurrentClass = ClassType.Lord;
+                }
+                else if (support.CurrentClass == ClassType.GreatSwordLordwithLance || support.CurrentClass == ClassType.GreatSwordLordwithAxe ||
+                         support.CurrentClass == ClassType.GreatAxeLordwithSword || support.CurrentClass == ClassType.GreatAxeLordwithLance ||
+                         support.CurrentClass == ClassType.GreatLanceLordwithSword || support.CurrentClass == ClassType.GreatLanceLordwithAxe)
+                {
+                    support.CurrentClass = ClassType.GreatLord;
+                }
+                else if (support.CurrentClass == ClassType.SwordThief || support.CurrentClass == ClassType.BowThief)
+                {
+                    support.CurrentClass = ClassType.Thief;
+                }
+                else if (support.CurrentClass == ClassType.SwordAssassin || support.CurrentClass == ClassType.BowAssassin)
+                {
+                    support.CurrentClass = ClassType.Assassin;
+                }
+                else if (support.CurrentClass == ClassType.SwordTrickster || support.CurrentClass == ClassType.BowTrickster)
+                {
+                    support.CurrentClass = ClassType.Trickster;
+                }
+                else if (support.CurrentClass == ClassType.SwordPerformer || support.CurrentClass == ClassType.LancePerformer)
+                {
+                    support.CurrentClass = ClassType.Performer;
+                }
+                else if (support.CurrentClass == ClassType.TomeDreadFighter || support.CurrentClass == ClassType.ShurikenDreadFighter)
+                {
+                    support.CurrentClass = ClassType.DreadFighter;
+                }
+                Support supportChar = new Support()
+                {
+                    SupportId = Guid.NewGuid().ToString(),
+                    Name = name,
+                    Gender = support.Gender,
+                    Level = support.Level,
+                    InternalLevel = support.InternalLevel,
+                    CurrentClassType = support.CurrentClass,
+                    CurrentClassBaseStats = unitClass.BaseStats,
+                    CurrentClassMaxStats = unitClass.MaxStats,
+                    EquippedWeapon = await _equipmentContext.GetEquipment(null, support.EquippedWeaponName),
+                    LevelUpStats = support.LevelUpStats,
+                    StartingClass = ClassTypeCode.ClassTypeConverter(support.StartingClass)
+                };
+                if (character.Supports == null)
+                {
+                    character.Supports = new List<Support>() { supportChar };
+                }
+                else
+                {
+                    character.Supports.Add(supportChar);
+                }
+                var newSupport = await _charactersRepository.AddNewSupport(supportChar);
+                if (newSupport)
+                {
+                    result = await _charactersRepository.UpdateCharacter(character);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Support>> GetAllSupports()
+        {
+            try
+            {
+                List<Support> supports = await _charactersRepository.GetAllSupports();
+                return supports;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Support> GetSupportById(string supportId)
+        {
+            try
+            {
+                var result = await _charactersRepository.GetSupportById(supportId);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> UpdateSupport(int characterId, string supportId, int supportPoints = 0, Stats levelUpStats = null, ClassType currentClass = ClassType.None, int level = 0, int internalLevel = 0, string equippedWeapon = null)
+        {
+            try
+            {
+                var result = false;
+                var character = await GetCharacter(characterId);
+                var supportCharacter = await GetSupportById(supportId);
+                var unitClass = await _unitClassesContext.GetClass(null, ClassTypeCode.ClassTypeConverter(currentClass));
+                if (character.Supports != null)
+                {
+                    var supportToDelete = character.Supports.FirstOrDefault(support => support.SupportId == supportId);
+                    if (supportToDelete != null)
+                    {
+                        character.Supports.Remove(supportToDelete);
+                    }
+                }
+                else
+                {
+                    return result;
+                }
+                if (supportPoints > 0)
+                {                    
+                    supportCharacter.SupportPoints += supportPoints;         
+                }
+                if (level > 0 && internalLevel > 0)
+                {
+                    supportCharacter.Level = level;
+                    supportCharacter.InternalLevel = internalLevel;
+                }
+                if (levelUpStats != null)
+                {
+                    supportCharacter.LevelUpStats.Add(levelUpStats);
+                }
+                if (currentClass != ClassType.None)
+                {
+                    supportCharacter.CurrentClassBaseStats = unitClass.BaseStats;
+                    supportCharacter.CurrentClassMaxStats = unitClass.MaxStats;
+                    supportCharacter.CurrentClassType = currentClass;
+                }
+                if (equippedWeapon != null)
+                {
+                    supportCharacter.EquippedWeapon = await _equipmentContext.GetEquipment(null, equippedWeapon);
+                }
+                character.Supports.Add(supportCharacter);
+                var supportUpdated = await _charactersRepository.UpdateSupport(supportCharacter);
+                if (supportUpdated)
+                {
+                    result = await _charactersRepository.UpdateCharacter(character);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> TogglePairedAndCloseToggle(int characterId, string supportId, bool isPaired, bool isClose)
+        {
+            try
+            {
+                var result = false;
+                var character = await GetCharacter(characterId);
+                var supportCharacter = await GetSupportById(supportId);
+                if (isPaired && isClose)
+                {
+                    return result;
+                }
+                if (character.Supports != null)
+                {
+                    var supportToDelete = character.Supports.FirstOrDefault(support => support.SupportId == supportId);
+                    if (supportToDelete != null)
+                    {
+                        character.Supports.Remove(supportToDelete);
+                    }
+                }
+                else
+                {
+                    return result;
+                }
+                if (isPaired)
+                {
+                    supportCharacter.IsPairedUp = true;
+                    supportCharacter.IsClose = false;
+                }
+                else
+                {
+                    supportCharacter.IsPairedUp = false;
+                }
+                if (isClose)
+                {
+                    supportCharacter.IsClose = true;
+                    supportCharacter.IsPairedUp = false;
+                }
+                else
+                {
+                    supportCharacter.IsClose = false;
+                }
+                character.Supports.Add(supportCharacter);
+                var supportUpdated = await _charactersRepository.UpdateSupport(supportCharacter);
+                if (supportUpdated)
+                {
+                    result = await _charactersRepository.UpdateCharacter(character);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public async Task<bool> UpdateConvoyItems(int characterId, string updateType, string location = null, string equipOid = null, int equipId = 0,  int sellPrice = 0, string unitChoice = null)
         {
             try
@@ -392,6 +753,32 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 var convoyItems = await GetConvoyInventory(character.ConvoyId);
                 var result = false;
                 var equipment = character.Inventory.Equipment.Find(equip => equip.EquipOid == equipOid);
+                List<string> permanentItems = new List<string>
+                {
+                    ConsumableTypeCode.Boots,
+                    ConsumableTypeCode.Dracoshield,
+                    ConsumableTypeCode.EnergyDrop,
+                    ConsumableTypeCode.GoddessIcon,
+                    ConsumableTypeCode.SecretBook,
+                    ConsumableTypeCode.SeraphRope,
+                    ConsumableTypeCode.Speedwing,
+                    ConsumableTypeCode.SpiritDust,
+                    ConsumableTypeCode.Talisman,
+                    ConsumableTypeCode.NagasTear,
+                    ConsumableTypeCode.DefenseTonic
+                };
+                List<string> temporaryItems = new List<string>
+                {
+                    ConsumableTypeCode.HPTonic,
+                    ConsumableTypeCode.LuckTonic,
+                    ConsumableTypeCode.MagicTonic,
+                    ConsumableTypeCode.ResistanceTonic,
+                    ConsumableTypeCode.SkillTonic,
+                    ConsumableTypeCode.SpeedTonic,
+                    ConsumableTypeCode.StrengthTonic,
+                    ConsumableTypeCode.PureWater,
+                    ConsumableTypeCode.RainbowTonic
+                };
                 if (equipment == null)
                 {
                     equipment = convoyItems.Equipment.Find(equip => equip.EquipOid == equipOid);
@@ -461,6 +848,39 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                     var unitClass = await _unitClassesContext.GetClass(null, unitChoice);
                                     character.CurrentClass = unitClass;
                                 }
+                                if (equipment.StatBonus?.Stats != null)
+                                {
+                                    var statIncrease = equipment.StatBonus.Stats;
+                                    LevelUp level = new LevelUp()
+                                    {
+                                        Level = character.Level,
+                                        LevelUpType = "NONE",
+                                        StatIncrease = statIncrease
+                                    };
+                                    if (temporaryItems.Contains(equipment.Name))
+                                    {
+                                        level.LevelUpType = "TEMPORARY";
+                                    }
+                                    else if (permanentItems.Contains(equipment.Name))
+                                    {
+                                        level.LevelUpType = "STAT ITEM";
+                                    }
+                                    if (level.LevelUpType != "NONE")
+                                    {
+                                        if (character.LevelupStatIncreases == null)
+                                        {
+                                            character.LevelupStatIncreases = new List<LevelUp>();
+                                        }
+                                        character.LevelupStatIncreases.Add(level);
+                                    }
+                                }
+                                else if (equipment.Name == "Arms Scroll")
+                                {
+                                    foreach (var weapon in character.WeaponRanks)
+                                    {
+                                        weapon.WeaponExperience = Weapon.IncreaseRank(weapon);
+                                    }
+                                }
                                 usesLeft -= 1;
                                 if (usesLeft > 0)
                                 {
@@ -485,8 +905,97 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             }
                         }
                     }
-                    else
+                    else if (location == LocationTypeCode.CONVOY)
                     {
+                        if (updateType == UpdateTypeCode.BUY)
+                        { 
+                            if (cost > 0 && character.Gold > 0)
+                            {
+                                if (convoy.ConvoyItems.Equipment.Count < 501)
+                                {
+                                    convoy.ConvoyItems.Equipment.Add(equipment);
+                                    result = await _charactersRepository.UpdateConvoy(convoy);
+                                }
+                            }
+                        }
+                        else if (updateType == UpdateTypeCode.SELL)
+                        {
+                            convoy.ConvoyItems.Equipment.Remove(equipment);
+                            character.Gold += sellPrice;
+                            result = await _charactersRepository.UpdateConvoy(convoy);
+                            if (result)
+                            {
+                                result = await _charactersRepository.UpdateCharacter(character);
+                            }
+                        }
+                        else if (updateType == UpdateTypeCode.USE)
+                        {
+                            if (hasUses)
+                            {       
+                                convoy.ConvoyItems.Equipment.Remove(equipment);
+                                if (unitChoice != null)
+                                {
+                                    var unitClass = await _unitClassesContext.GetClass(null, unitChoice);
+                                    character.CurrentClass = unitClass;
+                                }
+                                if (equipment.StatBonus?.Stats != null)
+                                {
+                                    var statIncrease = equipment.StatBonus.Stats;
+                                    LevelUp level = new LevelUp()
+                                    {
+                                        Level = character.Level,
+                                        LevelUpType = "NONE",
+                                        StatIncrease = statIncrease
+                                    };
+                                    if (temporaryItems.Contains(equipment.Name))
+                                    {
+                                        level.LevelUpType = "TEMPORARY";
+                                    }
+                                    else if (permanentItems.Contains(equipment.Name))
+                                    {
+                                            level.LevelUpType = "STAT ITEM"; 
+                                    }
+                                    if (level.LevelUpType != "NONE")
+                                    {
+                                        if (character.LevelupStatIncreases == null)
+                                        {
+                                            character.LevelupStatIncreases = new List<LevelUp>();
+                                        }
+                                        character.LevelupStatIncreases.Add(level);
+                                    }
+                                }
+                                else if (equipment.Name == "Arms Scroll")
+                                {
+                                    foreach (var weapon in character.WeaponRanks)
+                                    {
+                                        weapon.WeaponExperience = Weapon.IncreaseRank(weapon);
+                                    }
+                                }
+                                usesLeft -= 1;
+                                if (usesLeft > 0)
+                                {
+                                    equipment.Uses = usesLeft.ToString();
+                                    convoy.ConvoyItems.Equipment.Add(equipment);
+                                }
+                                result = await _charactersRepository.UpdateConvoy(convoy);
+                                if (result)
+                                {
+                                    result = await _charactersRepository.UpdateCharacter(character);
+                                }
+                            }
+                        }
+                        else if (updateType == UpdateTypeCode.ACQUIRE)
+                        {
+                            equipment.EquipOid = Guid.NewGuid().ToString();
+                            if (convoy.ConvoyItems.Equipment.Count < 501)
+                            {
+                                convoy.ConvoyItems.Equipment.Add(equipment);
+                                result = await _charactersRepository.UpdateConvoy(convoy);
+                            }
+                        }
+                    }
+                    else 
+                    { 
                         if (updateType == UpdateTypeCode.WITHDRAW)
                         {
                             if (character.Inventory.Equipment.Count < 4)
@@ -537,52 +1046,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             character.EquippedWeapon = equipment;
                             character.EquippedWeapon.IsEquipped = true;
                             result = await _charactersRepository.UpdateCharacter(character);
-                        }
-                        else if (cost > 0 && character.Gold > 0)
-                        {
-                            if (convoy.ConvoyItems.Equipment.Count < 501)
-                            {
-                                convoy.ConvoyItems.Equipment.Add(equipment);
-                                result = await _charactersRepository.UpdateConvoy(convoy);
-                            }
-                        }
-                        else if (updateType == UpdateTypeCode.SELL)
-                        {
-                            convoy.ConvoyItems.Equipment.Remove(equipment);
-                            result = await _charactersRepository.UpdateConvoy(convoy);
-                        }
-                        else if (updateType == UpdateTypeCode.USE)
-                        {
-                            if (hasUses)
-                            {
-                                convoy.ConvoyItems.Equipment.Remove(equipment);
-                                if (unitChoice != null)
-                                {
-                                    var unitClass = await _unitClassesContext.GetClass(null, unitChoice);
-                                    character.CurrentClass = unitClass;
-                                }
-                                usesLeft -= 1;
-                                if (usesLeft > 0)
-                                {
-                                    equipment.Uses = usesLeft.ToString();
-                                    convoy.ConvoyItems.Equipment.Add(equipment);
-                                }
-                                result = await _charactersRepository.UpdateConvoy(convoy);
-                            }
-                        }
-                        else if (updateType == UpdateTypeCode.ACQUIRE)
-                        {
-                            equipment.EquipOid = Guid.NewGuid().ToString();
-                            if (character.Inventory.Equipment.Count < 4)
-                            {
-                                character.Inventory.Equipment.Add(equipment);
-                                result = await _charactersRepository.UpdateCharacter(character);
-                            }
-                            else if (convoy.ConvoyItems.Equipment.Count < 501)
-                            {
-                                convoy.ConvoyItems.Equipment.Add(equipment);
-                                result = await _charactersRepository.UpdateConvoy(convoy);
-                            }
                         }
                     }
                 }
@@ -706,7 +1169,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
             }
         }
 
-
         public async Task<bool> RemoveCharacterById(int id)
         {
             try
@@ -717,6 +1179,27 @@ namespace Fire_Emblem.API.Business.Context.Characters
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public async Task<Stats> GetTotalLevelUpStats(int characterId)
+        {
+            try
+            {
+                var character = await _charactersRepository.GetCharacter(characterId);
+                Stats stats = new Stats();
+                if (character.LevelupStatIncreases != null)
+                {
+                    foreach (var levelUp in character.LevelupStatIncreases)
+                    {
+                        stats.Add(levelUp.StatIncrease);
+                    }
+                }
+                return stats;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

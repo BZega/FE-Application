@@ -51,6 +51,36 @@ namespace Fire_Emblem.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("remove-character/{id}")]
+        public async Task<ActionResult<bool>> RemoveCharacterById(int id)
+        {
+            try
+            {
+                var result = await _charactersContext.RemoveCharacterById(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-all-convoys")]
+        public async Task<ActionResult<List<Convoy>>> GetAllConvoys()
+        {
+            try
+            {
+                List<Convoy> result = await _charactersContext.GetAllConvoys();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
         [Route("get-convoy/{id}")]
         public async Task<ActionResult<Convoy>> GetConvoyById(string id)
@@ -68,7 +98,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("add-new-character/{name}")]
-        public async Task<ActionResult<Tuple<bool, string>>> AddNewCharacter([FromBody] NewCharacterDto character, string name, StatType humanStat1 = StatType.HP, StatType humanStat2 = StatType.HP)
+        public async Task<ActionResult<Tuple<bool, string>>> AddNewCharacter([FromBody] NewCharacterDto character, string name, StatType humanStat1 = StatType.None, StatType humanStat2 = StatType.None)
         {
             try
             {
@@ -150,12 +180,12 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpPost]
-        [Route("equip-ability/{abilityOid}")]
-        public async Task<ActionResult<bool>> EquipAbility(int characterId, string abilityOid)
+        [Route("update-equipped-abilities/{abilityOid}")]
+        public async Task<ActionResult<bool>> UpdateEquippedAbilities(int characterId, UpdateType updateType, string abilityOid)
         {
             try
             {
-                var result = await _charactersContext.UpdateAbilities(characterId, "EQUIP", abilityOid);
+                var result = await _charactersContext.UpdateAbilities(characterId, updateType.ToString(), abilityOid);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -165,12 +195,42 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpPost]
-        [Route("unequip-ability/{abilityOid}")]
-        public async Task<ActionResult<bool>> UnequipAbility(int characterId, string abilityOid)
+        [Route("create-support-character/{characterId}/{name}")]
+        public async Task<ActionResult<bool>> CreateSupportCharacter(int characterId, string name, SupportCharacterDto support)
         {
             try
             {
-                var result = await _charactersContext.UpdateAbilities(characterId, "UNEQUIP", abilityOid);
+                var result = await _charactersContext.CreateSupportCharacter(characterId, name, support);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-all-supports")]
+        public async Task<ActionResult<List<Support>>> GetAllSupports()
+        {
+            try
+            {
+                List<Support> result = await _charactersContext.GetAllSupports();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-support/{id}")]
+        public async Task<ActionResult<Support>> GetSupportById(string id)
+        {
+            try
+            {
+                var result = await _charactersContext.GetSupportById(id);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -180,12 +240,42 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpPost]
-        [Route("remove-character/{id}")]
-        public async Task<ActionResult<bool>> RemoveCharacterById(int id)
+        [Route("update-support-character{characterId}/{supportId}")]
+        public async Task<ActionResult<bool>> UpdateSupportCharacter(int characterId, string supportId, int supportPoints = 0, Stats levelUpStats = null, ClassType currentClass = ClassType.None, int level = 0, int internalLevel = 0, string equippedWeapon = null)
         {
             try
             {
-                var result = await _charactersContext.RemoveCharacterById(id);
+                var result = await _charactersContext.UpdateSupport(characterId, supportId, supportPoints, levelUpStats, currentClass, level, internalLevel, equippedWeapon);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("toggle-paired-and-close-status/{characterId}/{supportId}")]
+        public async Task<ActionResult<bool>> TogglePairedAndCloseToggle(int characterId, string supportId, bool isPaired, bool isClose)
+        {
+            try
+            {
+                var result = await _charactersContext.TogglePairedAndCloseToggle(characterId, supportId, isPaired, isClose);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-total-level-up{characterId}")]
+        public async Task<ActionResult<Stats>> GetTotalLevelUpStats(int characterId)
+        {
+            try
+            {
+                var result = await _charactersContext.GetTotalLevelUpStats(characterId);
                 return Ok(result);
             }
             catch (Exception ex)

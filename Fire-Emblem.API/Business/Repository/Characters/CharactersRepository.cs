@@ -10,6 +10,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
     {
         private readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/character.txt");
         private readonly string _convoyFilePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/convoy.txt");
+        private readonly string _supportFilePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/support.txt");
         private readonly IEquipmentRepository _equipmentRepository;
         public CharactersRepository(IEquipmentRepository equipmentRepository) 
         { 
@@ -178,6 +179,74 @@ namespace Fire_Emblem.API.Business.Repository.Characters
             try
             {
                 var result = FileHelper.UpdateFile(convoy, convoy.Id.ToString(), _convoyFilePath);
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> AddNewSupport(Support support)
+        {
+            try
+            {
+                if (support == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    FileHelper.WriteToFile(support, _supportFilePath);
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Support>> GetAllSupports()
+        {
+            try
+            {
+                var supportFile = FileHelper.ReadFromFile<Support>(_supportFilePath);
+                var supports = JsonSerializer.Deserialize<List<Support>>(supportFile);
+                return supports;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Support> GetSupportById(string id)
+        {
+            try
+            {
+                var supports = await GetAllSupports();
+                var support = supports.Find(support => support.SupportId == id);
+                if (support != null)
+                {
+                    return support;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> UpdateSupport(Support support)
+        {
+            try
+            {
+                var result = FileHelper.UpdateFile(support, support.SupportId, _supportFilePath);
                 return result;
             }
             catch (Exception)

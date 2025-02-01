@@ -44,6 +44,33 @@ namespace Fire_Emblem.Common.Models
             }
         }
 
+        public static int IncreaseRank(Weapon weapon)
+        {
+            int newExperience = weapon.WeaponExperience;
+            if (weapon.IsActive)
+            {
+                switch (weapon.WeaponRank)
+                {
+                    case Rank.E:
+                        newExperience = 31;
+                        break;
+                    case Rank.D:
+                        newExperience = 71;
+                        break;
+                    case Rank.C:
+                        newExperience = 121;
+                        break;
+                    case Rank.B:
+                        newExperience = 180;
+                        break;
+                    case Rank.A:
+                        newExperience = 250;
+                        break;
+                }
+            }
+            return newExperience;
+        }
+
         public StatBonus GetWeaponRankBonus()
         {
             var attributes = new Attributes();

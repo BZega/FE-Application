@@ -43,6 +43,7 @@
     "Abilities": [
       {
         "Id": 1,
+        "AbilityOid": null,
         "Name": "Skill +2",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -66,6 +67,7 @@
       },
       {
         "Id": 2,
+        "AbilityOid": null,
         "Name": "Prescience",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -79,6 +81,7 @@
       },
       {
         "Id": 3,
+        "AbilityOid": null,
         "Name": "Prescient Victory",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -106,6 +109,16 @@
     "ReclassOptions": [
       "Mage",
       "Wyvern Knight"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      4,
+      16,
+      11,
+      12,
+      17
     ]
   },
   {
@@ -152,6 +165,7 @@
     "Abilities": [
       {
         "Id": 4,
+        "AbilityOid": null,
         "Name": "Potent Potion",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -161,6 +175,7 @@
       },
       {
         "Id": 5,
+        "AbilityOid": null,
         "Name": "Quick Salve",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -183,6 +198,16 @@
     "ReclassOptions": [
       "Archer",
       "Ninja"
+    ],
+    "SkillTypeOptions": [
+      0,
+      14,
+      15,
+      4,
+      16,
+      9,
+      5,
+      17
     ]
   },
   {
@@ -230,6 +255,7 @@
     "Abilities": [
       {
         "Id": 6,
+        "AbilityOid": null,
         "Name": "Discipline",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -239,6 +265,7 @@
       },
       {
         "Id": 7,
+        "AbilityOid": null,
         "Name": "Shelter",
         "LevelGained": 1,
         "AbilityType": 1,
@@ -248,6 +275,7 @@
       },
       {
         "Id": 8,
+        "AbilityOid": null,
         "Name": "Outdoor Fighter",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -271,6 +299,7 @@
       },
       {
         "Id": 9,
+        "AbilityOid": null,
         "Name": "Elbow Room",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -312,6 +341,16 @@
     "ReclassOptions": [
       "Mercenary",
       "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      13,
+      0,
+      6,
+      2,
+      14,
+      7,
+      4,
+      9
     ]
   },
   {
@@ -362,6 +401,7 @@
     "Abilities": [
       {
         "Id": 10,
+        "AbilityOid": null,
         "Name": "Miracle",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -371,6 +411,7 @@
       },
       {
         "Id": 11,
+        "AbilityOid": null,
         "Name": "Healtouch",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -384,6 +425,7 @@
       },
       {
         "Id": 12,
+        "AbilityOid": null,
         "Name": "Rally Luck",
         "LevelGained": 10,
         "AbilityType": 1,
@@ -407,6 +449,16 @@
     "ReclassOptions": [
       "Mage",
       "Troubadour"
+    ],
+    "SkillTypeOptions": [
+      0,
+      1,
+      2,
+      14,
+      15,
+      8,
+      9,
+      5
     ]
   },
   {
@@ -453,6 +505,7 @@
     "Abilities": [
       {
         "Id": 13,
+        "AbilityOid": null,
         "Name": "Hex",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -462,6 +515,7 @@
       },
       {
         "Id": 14,
+        "AbilityOid": null,
         "Name": "Heartseeker",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -471,6 +525,7 @@
       },
       {
         "Id": 15,
+        "AbilityOid": null,
         "Name": "Anathema",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -480,6 +535,7 @@
       },
       {
         "Id": 16,
+        "AbilityOid": null,
         "Name": "Malefic Aura",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -507,6 +563,16 @@
     "ReclassOptions": [
       "Archer",
       "Thief"
+    ],
+    "SkillTypeOptions": [
+      1,
+      6,
+      2,
+      14,
+      7,
+      15,
+      9,
+      5
     ]
   },
   {
@@ -553,6 +619,7 @@
     "Abilities": [
       {
         "Id": 17,
+        "AbilityOid": null,
         "Name": "HP +5",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -576,6 +643,7 @@
       },
       {
         "Id": 18,
+        "AbilityOid": null,
         "Name": "Despoil",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -585,6 +653,7 @@
       },
       {
         "Id": 19,
+        "AbilityOid": null,
         "Name": "Zeal",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -607,6 +676,7 @@
       },
       {
         "Id": 20,
+        "AbilityOid": null,
         "Name": "Gamble",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -643,6 +713,16 @@
     "ReclassOptions": [
       "Cavalier",
       "Thief"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      2,
+      14,
+      7,
+      16,
+      17
     ]
   },
   {
@@ -690,6 +770,7 @@
     "Abilities": [
       {
         "Id": 21,
+        "AbilityOid": null,
         "Name": "Evenhanded",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -712,6 +793,7 @@
       },
       {
         "Id": 22,
+        "AbilityOid": null,
         "Name": "Beastbane",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -733,6 +815,16 @@
     "ReclassOptions": [
       "Mage",
       "Ninja"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      14,
+      9,
+      4,
+      12,
+      17
     ]
   },
   {
@@ -779,6 +871,7 @@
     "Abilities": [
       {
         "Id": 23,
+        "AbilityOid": null,
         "Name": "Defense +2",
         "LevelGained": 1,
         "AbilityType": 0,
@@ -802,6 +895,7 @@
       },
       {
         "Id": 24,
+        "AbilityOid": null,
         "Name": "Indoor Fighter",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -824,6 +918,7 @@
       },
       {
         "Id": 25,
+        "AbilityOid": null,
         "Name": "Confined Defense",
         "LevelGained": 10,
         "AbilityType": 2,
@@ -859,6 +954,16 @@
     "ReclassOptions": [
       "Cavalier",
       "Fighter"
+    ],
+    "SkillTypeOptions": [
+      13,
+      0,
+      2,
+      14,
+      7,
+      16,
+      9,
+      17
     ]
   },
   {
@@ -905,6 +1010,7 @@
     "Abilities": [
       {
         "Id": 26,
+        "AbilityOid": null,
         "Name": "Dual Strike+",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -914,6 +1020,7 @@
       },
       {
         "Id": 27,
+        "AbilityOid": null,
         "Name": "Charm",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -936,6 +1043,16 @@
     "ReclassOptions": [
       "Archer",
       "Cavalier"
+    ],
+    "SkillTypeOptions": [
+      0,
+      10,
+      6,
+      2,
+      7,
+      8,
+      9,
+      5
     ]
   },
   {
@@ -982,6 +1099,7 @@
     "Abilities": [
       {
         "Id": 26,
+        "AbilityOid": null,
         "Name": "Dual Strike+",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -991,6 +1109,7 @@
       },
       {
         "Id": 27,
+        "AbilityOid": null,
         "Name": "Charm",
         "LevelGained": 10,
         "AbilityType": 0,
@@ -1013,6 +1132,16 @@
     "ReclassOptions": [
       "Archer",
       "Cavalier"
+    ],
+    "SkillTypeOptions": [
+      0,
+      10,
+      6,
+      2,
+      7,
+      8,
+      9,
+      5
     ]
   },
   {
@@ -1059,6 +1188,7 @@
     "Abilities": [
       {
         "Id": 26,
+        "AbilityOid": null,
         "Name": "Dual Strike+",
         "LevelGained": 1,
         "AbilityType": 2,
@@ -1068,13 +1198,14 @@
       },
       {
         "Id": 27,
+        "AbilityOid": null,
         "Name": "Charm",
         "LevelGained": 10,
         "AbilityType": 0,
         "NeedsToInitiateCombat": false,
         "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
         "StatBonus": null
-      }     
+      }
     ],
     "UsableWeapons": [
       {
@@ -1090,6 +1221,2972 @@
     "ReclassOptions": [
       "Archer",
       "Cavalier"
+    ],
+    "SkillTypeOptions": [
+      0,
+      10,
+      6,
+      2,
+      7,
+      8,
+      9,
+      5
+    ]
+  },
+  {
+    "Id": 12,
+    "Name": "Mage",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 15,
+      "Str": 0,
+      "Mag": 4,
+      "Skl": 5,
+      "Spd": 6,
+      "Lck": 1,
+      "Def": 1,
+      "Res": 3,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 28,
+      "Skl": 27,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 21,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 0,
+      "Mag": 20,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 5,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 28,
+        "AbilityOid": null,
+        "Name": "Magic +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase Magic by 2.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 2,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 29,
+        "AbilityOid": null,
+        "Name": "Focus",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Critical +10 when no allies are within a 3 tile radius",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 10,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 30,
+        "AbilityOid": null,
+        "Name": "Future Sight",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When user triggers the battle chance of gaining double experience when user defeats the enemy (Luck%)",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 7,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Sage",
+      "Dark Knight",
+      "Basara"
+    ],
+    "ReclassOptions": [
+      "Dark Mage",
+      "Troubadour"
+    ],
+    "SkillTypeOptions": [
+      1,
+      2,
+      14,
+      3,
+      15,
+      4,
+      5,
+      11
+    ]
+  },
+  {
+    "Id": 13,
+    "Name": "Manakete Heir",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 7,
+      "Mag": 3,
+      "Skl": 4,
+      "Spd": 5,
+      "Lck": 2,
+      "Def": 5,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 28,
+      "Mag": 23,
+      "Skl": 24,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 26,
+      "Res": 24,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 15,
+      "Mag": 10,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 10,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      5
+    ],
+    "Abilities": [
+      {
+        "Id": 31,
+        "AbilityOid": null,
+        "Name": "Nobility",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Grants this unit a 20% bonus to EXP",
+        "StatBonus": null
+      },
+      {
+        "Id": 32,
+        "AbilityOid": null,
+        "Name": "Dragon Fang",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 5,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Dawn Noble",
+      "Dusk Noble"
+    ],
+    "ReclassOptions": [
+      "Myrmidon",
+      "Manakete"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      2,
+      7,
+      8,
+      9,
+      5
+    ]
+  },
+  {
+    "Id": 14,
+    "Name": "Mercenary",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 5,
+      "Mag": 0,
+      "Skl": 7,
+      "Spd": 6,
+      "Lck": 2,
+      "Def": 5,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 26,
+      "Mag": 20,
+      "Skl": 28,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 23,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 25,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 33,
+        "AbilityOid": null,
+        "Name": "Good Fortune",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Chance of recovering 20% HP at the start of the user's Turn (Luck%)",
+        "StatBonus": null
+      },
+      {
+        "Id": 34,
+        "AbilityOid": null,
+        "Name": "Patience",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "Hit Rate/Avoid +10 when an enemy initiates battle",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 35,
+        "AbilityOid": null,
+        "Name": "Patient Assurance",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "When enemy triggers the battle, damage +3",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 3,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Hero",
+      "Bow Knight"
+    ],
+    "ReclassOptions": [
+      "Fighter",
+      "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      6,
+      2,
+      14,
+      7,
+      16
+    ]
+  },
+  {
+    "Id": 15,
+    "Name": "Myrmidon",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 4,
+      "Mag": 1,
+      "Skl": 9,
+      "Spd": 10,
+      "Lck": 0,
+      "Def": 4,
+      "Res": 1,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 24,
+      "Mag": 22,
+      "Skl": 27,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 22,
+      "Res": 24,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 25,
+      "Lck": 15,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 36,
+        "AbilityOid": null,
+        "Name": "Avoid +10",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase Avoid by 10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 37,
+        "AbilityOid": null,
+        "Name": "Duelist's Blow",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "Increases the unit's avoid by 30 whenever the user initiates a battle",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 30,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 38,
+        "AbilityOid": null,
+        "Name": "Vantage",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Swordmaster",
+      "Sword Assassin",
+      "Master of Arms"
+    ],
+    "ReclassOptions": [
+      "Thief",
+      "Oni Savage"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      6,
+      2,
+      14,
+      7,
+      9
+    ]
+  },
+  {
+    "Id": 16,
+    "Name": "Ninja",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 3,
+      "Mag": 0,
+      "Skl": 8,
+      "Spd": 8,
+      "Lck": 1,
+      "Def": 3,
+      "Res": 3,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 22,
+      "Mag": 20,
+      "Skl": 30,
+      "Spd": 30,
+      "Lck": 30,
+      "Def": 24,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 5,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 5,
+      "Res": 15
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 39,
+        "AbilityOid": null,
+        "Name": "Locktouch",
+        "LevelGained": 1,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+        "StatBonus": null
+      },
+      {
+        "Id": 40,
+        "AbilityOid": null,
+        "Name": "Poison Strike",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "If the user initiated the battle and the enemy survives, enemy loses 20% current HP after the battle.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 2,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Mechanists",
+      "Master Ninja"
+    ],
+    "ReclassOptions": [
+      "Myrmidon",
+      "Mage"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      14,
+      7,
+      3,
+      16,
+      12
+    ]
+  },
+  {
+    "Id": 17,
+    "Name": "Pegasus Knight",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 1,
+      "Skl": 7,
+      "Spd": 10,
+      "Lck": 5,
+      "Def": 4,
+      "Res": 9,
+      "Mov": 7
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 24,
+      "Mag": 23,
+      "Skl": 28,
+      "Spd": 27,
+      "Lck": 30,
+      "Def": 22,
+      "Res": 25,
+      "Mov": 9
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 20,
+      "Lck": 20,
+      "Def": 0,
+      "Res": 20
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 5,
+        "Avoid": 10,
+        "Dodge": 10,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    },
+    "UnitTypes": [
+      3,
+      4,
+      2
+    ],
+    "Abilities": [
+      {
+        "Id": 41,
+        "AbilityOid": null,
+        "Name": "Speed +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Boosts the speed stat by 2 points.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 2,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 42,
+        "AbilityOid": null,
+        "Name": "Darting Blow",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+5 to attack speed when user initiates battle",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 5
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 43,
+        "AbilityOid": null,
+        "Name": "Relief",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Recovers 20% of the user's HP at the beginning of their turn if there are no other units in a 3-tile radius of the user.",
+        "StatBonus": null
+      },
+      {
+        "Id": 44,
+        "AbilityOid": null,
+        "Name": "Camaraderie",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "If the user has allies within a two-square radius at the start of a turn, user recovers 10% maximum HP.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Flacon Knight",
+      "Dark Flier",
+      "Kinshi Knight"
+    ],
+    "ReclassOptions": [
+      "Dark Mage",
+      "Knight"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      2,
+      14,
+      4,
+      16,
+      9
+    ]
+  },
+  {
+    "Id": 18,
+    "Name": "Oni Savage",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 1,
+      "Skl": 2,
+      "Spd": 5,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 1,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 29,
+      "Mag": 24,
+      "Skl": 21,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 28,
+      "Res": 23,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 10,
+      "Skl": 0,
+      "Spd": 10,
+      "Lck": 0,
+      "Def": 20,
+      "Res": 0
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 45,
+        "AbilityOid": null,
+        "Name": "Seal Resistance",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "After combat, reduces enemy Res by 6. (recovers 1/turn)",
+        "StatBonus": null
+      },
+      {
+        "Id": 46,
+        "AbilityOid": null,
+        "Name": "Shove",
+        "LevelGained": 10,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "It allows the user to push another allied unit one square away.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Oni Chieftain",
+      "Blacksmith"
+    ],
+    "ReclassOptions": [
+      "Ninja",
+      "Fighter"
+    ],
+    "SkillTypeOptions": [
+      0,
+      7,
+      4,
+      16,
+      8,
+      5,
+      12,
+      17
+    ]
+  },
+  {
+    "Id": 19,
+    "Name": "Spear Fighter",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 6,
+      "Lck": 2,
+      "Def": 5,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 27,
+      "Mag": 20,
+      "Skl": 28,
+      "Spd": 27,
+      "Lck": 30,
+      "Def": 28,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 15,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 5,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 47,
+        "AbilityOid": null,
+        "Name": "Seal Defense",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "-6 Defense to enemy at end of battle. Recovers by 1 each turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 48,
+        "AbilityOid": null,
+        "Name": "Swap",
+        "LevelGained": 10,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Switches places with an adjacent ally.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Spear Master",
+      "Basara"
+    ],
+    "ReclassOptions": [
+      "Apothecary",
+      "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      2,
+      14,
+      7,
+      16,
+      17
+    ]
+  },
+  {
+    "Id": 20,
+    "Name": "Tactician",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 4,
+      "Mag": 3,
+      "Skl": 5,
+      "Spd": 5,
+      "Lck": 0,
+      "Def": 5,
+      "Res": 3,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 25,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 15,
+      "Mag": 15,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 49,
+        "AbilityOid": null,
+        "Name": "Veteran",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Multiplies combat experience gained by 1.5 when Pair Up is in effect for the user. (If using th TTRPG method or the Hybrid method, only count this when the unit's Pair Up defeats the unit.)",
+        "StatBonus": null
+      },
+      {
+        "Id": 50,
+        "AbilityOid": null,
+        "Name": "Tactical Advice",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "If the unit is the support unit in Guard Stance, the lead unit's hit rate increases by 10.",
+        "StatBonus": null
+      },
+      {
+        "Id": 51,
+        "AbilityOid": null,
+        "Name": "Solidarity",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+10 to critical rate and dodge for all adjacent allied units.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Grandmaster"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      1,
+      6,
+      2,
+      3,
+      14,
+      7,
+      16,
+      9
+    ]
+  },
+  {
+    "Id": 21,
+    "Name": "Sword Thief",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 3,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 8,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 22,
+      "Mag": 20,
+      "Skl": 30,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 21,
+      "Res": 20,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 15,
+      "Mag": 5,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 0,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 39,
+        "AbilityOid": null,
+        "Name": "Locktouch",
+        "LevelGained": 1,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+        "StatBonus": null
+      },
+      {
+        "Id": 52,
+        "AbilityOid": null,
+        "Name": "Movement +1",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+1 movement when equipped.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 1
+          }
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Sword Assassin",
+      "Sword Trickster",
+      "Bow Knight"
+    ],
+    "ReclassOptions": [
+      "Apothecary",
+      "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      14,
+      16,
+      9,
+      11,
+      12
+    ]
+  },
+  {
+    "Id": 22,
+    "Name": "Bow Thief",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 3,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 8,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 22,
+      "Mag": 20,
+      "Skl": 30,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 21,
+      "Res": 20,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 15,
+      "Mag": 5,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 0,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 39,
+        "AbilityOid": null,
+        "Name": "Locktouch",
+        "LevelGained": 1,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+        "StatBonus": null
+      },
+      {
+        "Id": 52,
+        "AbilityOid": null,
+        "Name": "Movement +1",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+1 movement when equipped.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 1
+          }
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 1,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Bow Assassin",
+      "Bow Trickster",
+      "Bow Knight"
+    ],
+    "ReclassOptions": [
+      "Apothecary",
+      "Myrmidon"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      14,
+      16,
+      9,
+      11,
+      12
+    ]
+  },
+  {
+    "Id": 23,
+    "Name": "Troubadour",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 15,
+      "Str": 0,
+      "Mag": 3,
+      "Skl": 7,
+      "Spd": 5,
+      "Lck": 4,
+      "Def": 1,
+      "Res": 4,
+      "Mov": 7
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 26,
+      "Skl": 24,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 20,
+      "Res": 28,
+      "Mov": 9
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 0,
+      "Mag": 10,
+      "Skl": 20,
+      "Spd": 10,
+      "Lck": 15,
+      "Def": 0,
+      "Res": 15
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 10,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    },
+    "UnitTypes": [
+      2,
+      4
+    ],
+    "Abilities": [
+      {
+        "Id": 53,
+        "AbilityOid": null,
+        "Name": "Resistance +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the unit's Resistance by 2.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 2,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 54,
+        "AbilityOid": null,
+        "Name": "Distinguished",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All allied units of opposite gender with a 2-tile radius of the user take 2 less damage from attacks.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 4,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Strategist",
+      "War Cleric",
+      "Maid",
+      "Butler"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Pegasus Knight"
+    ],
+    "SkillTypeOptions": [
+      13,
+      1,
+      2,
+      14,
+      15,
+      8,
+      9,
+      5
+    ]
+  },
+  {
+    "Id": 24,
+    "Name": "Villager",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 5,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 5,
+      "Lck": 3,
+      "Def": 4,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 20,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 30,
+      "Def": 20,
+      "Res": 20,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 20,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 55,
+        "AbilityOid": null,
+        "Name": "Aptitude",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "+20% to all growth rates",
+        "StatBonus": {
+          "Growths": {
+            "HP": 20,
+            "Str": 20,
+            "Mag": 20,
+            "Skl": 20,
+            "Spd": 20,
+            "Lck": 20,
+            "Def": 20,
+            "Res": 20
+          },
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 56,
+        "AbilityOid": null,
+        "Name": "Underdog",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Hit/ Avoid +15 when the enemy's level is higher than the user's level (promoted unit's count as Level +20).",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 15,
+            "Crit": 0,
+            "Avoid": 15,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Master of Arms",
+      "Merchant"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Fighter"
+    ],
+    "SkillTypeOptions": [
+      13,
+      0,
+      2,
+      14,
+      4,
+      16,
+      5,
+      17
+    ]
+  },
+  {
+    "Id": 25,
+    "Name": "Wolfskin",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 19,
+      "Str": 8,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 6,
+      "Lck": 0,
+      "Def": 4,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 29,
+      "Mag": 20,
+      "Skl": 23,
+      "Spd": 27,
+      "Lck": 30,
+      "Def": 26,
+      "Res": 21,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 15,
+      "Lck": 5,
+      "Def": 10,
+      "Res": 0
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      4
+    ],
+    "Abilities": [
+      {
+        "Id": 57,
+        "AbilityOid": null,
+        "Name": "Odd Shaped",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases user's damage output by 4 on odd-numbered turns.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 4,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 22,
+        "AbilityOid": null,
+        "Name": "Beastbane",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Deals effective damage to Beast and Horse Units. Only equippable when the user is a Taguel, Wolfskin, or Kitsune racial class.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 5,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Wolfssegner"
+    ],
+    "ReclassOptions": [
+      "Fighter",
+      "Mercanary"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      14,
+      7,
+      9,
+      4,
+      17
+    ]
+  },
+  {
+    "Id": 26,
+    "Name": "Wyvern Rider",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 19,
+      "Str": 7,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 5,
+      "Lck": 0,
+      "Def": 8,
+      "Res": 0,
+      "Mov": 7
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 28,
+      "Mag": 20,
+      "Skl": 24,
+      "Spd": 24,
+      "Lck": 30,
+      "Def": 28,
+      "Res": 20,
+      "Mov": 9
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 30,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      3,
+      5,
+      2
+    ],
+    "Abilities": [
+      {
+        "Id": 58,
+        "AbilityOid": null,
+        "Name": "Strength +2",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "It increases Strength by 2.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 2,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 85,
+        "AbilityOid": null,
+        "Name": "Tantivy",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase Hit Rate and Evade by 10 if no allies within a 3 tile radius.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 86,
+        "AbilityOid": null,
+        "Name": "Lunge",
+        "LevelGained": 10,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Swap places with an enemy after an attack",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": [
+      "Wyvern Lord",
+      "Griffon Rider",
+      "Malig Knight"
+    ],
+    "ReclassOptions": [
+      "Fighter",
+      "Troubadour"
+    ],
+    "SkillTypeOptions": [
+      13,
+      0,
+      2,
+      7,
+      14,
+      4,
+      16,
+      9
+    ]
+  },
+  {
+    "Id": 27,
+    "Name": "Manakete",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 1,
+      "Spd": 1,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 2,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 35,
+      "Mag": 40,
+      "Skl": 35,
+      "Spd": 35,
+      "Lck": 45,
+      "Def": 40,
+      "Res": 40,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 5,
+      "Mag": 20,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 15,
+      "Res": 15
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      5,
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 59,
+        "AbilityOid": null,
+        "Name": "Odd Rhythm",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "+10 Hit rate and Avoid on odd-numbered turns",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 60,
+        "AbilityOid": null,
+        "Name": "Wyrmsbane",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Damage dealt by manaketes to dragon units is now effective damage. Only usable in the Manakete class.",
+        "StatBonus": null
+      },
+      {
+        "Id": 61,
+        "AbilityOid": null,
+        "Name": "Better Odds",
+        "LevelGained": 5,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Restores 40% maximum HP at the start of an odd-numbered turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 62,
+        "AbilityOid": null,
+        "Name": "Grisly Wound",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Prrovided the user didn't already defeat the enemy, the enemy loses 20% of their maximum HP at the end of the battle.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 5,
+        "MinRank": 0,
+        "MaxRank": 5
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": [
+      "Mage",
+      "Wyvern Rider"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      2,
+      7,
+      4,
+      9,
+      5,
+      17
+    ]
+  },
+  {
+    "Id": 28,
+    "Name": "Sword Performer",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 3,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 5,
+      "Lck": 3,
+      "Def": 2,
+      "Res": 3,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 30,
+      "Mag": 30,
+      "Skl": 40,
+      "Spd": 40,
+      "Lck": 45,
+      "Def": 30,
+      "Res": 30,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 20,
+      "Def": 0,
+      "Res": 0
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 63,
+        "AbilityOid": null,
+        "Name": "Luck +4",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "It increases the unit's Luck by 4.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 4,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 64,
+        "AbilityOid": null,
+        "Name": "Inspiring Song",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Modifies the Perform action to also increase the targeted ally's Skill, Speed, and Luck by 3 points each for one turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 65,
+        "AbilityOid": null,
+        "Name": "Voice of Peace",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Reduces damage output by 2 to all enemies within a two-square radius of user.",
+        "StatBonus": null
+      },
+      {
+        "Id": 66,
+        "AbilityOid": null,
+        "Name": "Combat Inspiration",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Reduces damage output by 2 and increases damage taken by 2 to all enemies associated with a foreign army within a two-square radius of user.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": [
+      "Myrmidon",
+      "Pegasus Knight"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      2,
+      14,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "Id": 29,
+    "Name": "Lance Performer",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 3,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 5,
+      "Lck": 3,
+      "Def": 2,
+      "Res": 3,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 30,
+      "Mag": 30,
+      "Skl": 40,
+      "Spd": 40,
+      "Lck": 45,
+      "Def": 30,
+      "Res": 30,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 20,
+      "Def": 0,
+      "Res": 0
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 63,
+        "AbilityOid": null,
+        "Name": "Luck +4",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "It increases the unit's Luck by 4.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 4,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 64,
+        "AbilityOid": null,
+        "Name": "Inspiring Song",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Modifies the Perform action to also increase the targeted ally's Skill, Speed, and Luck by 3 points each for one turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 65,
+        "AbilityOid": null,
+        "Name": "Voice of Peace",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Reduces damage output by 2 to all enemies within a two-square radius of user.",
+        "StatBonus": null
+      },
+      {
+        "Id": 66,
+        "AbilityOid": null,
+        "Name": "Combat Inspiration",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Reduces damage output by 2 and increases damage taken by 2 to all enemies associated with a foreign army within a two-square radius of user.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 3,
+        "MinRank": 0,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": [
+      "Myrmidon",
+      "Pegasus Knight"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      6,
+      2,
+      14,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "Id": 30,
+    "Name": "Taguel",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 2,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 5,
+      "Lck": 0,
+      "Def": 3,
+      "Res": 2,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 35,
+      "Mag": 30,
+      "Skl": 40,
+      "Spd": 40,
+      "Lck": 45,
+      "Def": 35,
+      "Res": 30,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 15,
+      "Res": 15
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      4
+    ],
+    "Abilities": [
+      {
+        "Id": 67,
+        "AbilityOid": null,
+        "Name": "Even Rhythm",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "+10 Hit rate and Avoid on even-numbered turns",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 22,
+        "AbilityOid": null,
+        "Name": "Beastbane",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Deals effective damage to Beast and Horse Units. Only equippable when the user is a Taguel, Wolfskin, or Kitsune racial class.",
+        "StatBonus": null
+      },
+      {
+        "Id": 68,
+        "AbilityOid": null,
+        "Name": "Even Better",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Restores 40% maximum HP at the start of an even-numbered turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 62,
+        "AbilityOid": null,
+        "Name": "Grisly Wound",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Prrovided the user didn't already defeat the enemy, the enemy loses 20% of their maximum HP at the end of the battle.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 5,
+        "MinRank": 0,
+        "MaxRank": 5
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": [
+      "Thief",
+      "Wyvern Rider"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      2,
+      14,
+      7,
+      4,
+      12,
+      17
+    ]
+  },
+  {
+    "Id": 31,
+    "Name": "Ballistician",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 7,
+      "Spd": 2,
+      "Lck": 4,
+      "Def": 3,
+      "Res": 1,
+      "Mov": 4
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 44,
+      "Mag": 30,
+      "Skl": 36,
+      "Spd": 30,
+      "Lck": 45,
+      "Def": 32,
+      "Res": 31,
+      "Mov": 5
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 25,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 0,
+      "Lck": 10,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 69,
+        "AbilityOid": null,
+        "Name": "Survey",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": true,
+        "Description": "Increases turret hit rate by 10 while using the Turret command",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 70,
+        "AbilityOid": null,
+        "Name": "Opportunity Shot",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "May attack a random enemy within range at the start of the player's turn. (Skill)% if user is currently in the Ballistician class.",
+        "StatBonus": null
+      },
+      {
+        "Id": 71,
+        "AbilityOid": null,
+        "Name": "Rifled Barrel",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the turret's range by 1, but reduces inner/outer range by 1, while using the Turret command.",
+        "StatBonus": null
+      },
+      {
+        "Id": 72,
+        "AbilityOid": null,
+        "Name": "Surefooted",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases Movement by 1, and all terrain costs 1 movement point to cross. Only while in Ballistician class.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 1
+          }
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 1,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      0,
+      7,
+      2,
+      4,
+      16,
+      8,
+      11,
+      17
+    ]
+  },
+  {
+    "Id": 32,
+    "Name": "Tome Dread Fighter",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 22,
+      "Str": 8,
+      "Mag": 4,
+      "Skl": 7,
+      "Spd": 9,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 10,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 42,
+      "Mag": 38,
+      "Skl": 40,
+      "Spd": 41,
+      "Lck": 45,
+      "Def": 39,
+      "Res": 43,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 10,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 73,
+        "AbilityOid": null,
+        "Name": "Resistance +10",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases Resistance by 10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 10,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 74,
+        "AbilityOid": null,
+        "Name": "Iron Will",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": true,
+        "Description": "Takes 4 less damage from a magical attack when the user initiates the battle.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": -4,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 75,
+        "AbilityOid": null,
+        "Name": "Clarity",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "User recovers from status reduction effects twice as fast as normal.",
+        "StatBonus": null
+      },
+      {
+        "Id": 76,
+        "AbilityOid": null,
+        "Name": "Aggressor",
+        "LevelGained": 15,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "+10 damage during the unit's phase.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 10,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      10,
+      1,
+      0,
+      6,
+      14,
+      7,
+      16,
+      12
+    ]
+  },
+  {
+    "Id": 33,
+    "Name": "Shuriken Dread Fighter",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 22,
+      "Str": 8,
+      "Mag": 4,
+      "Skl": 7,
+      "Spd": 9,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 10,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 42,
+      "Mag": 38,
+      "Skl": 40,
+      "Spd": 41,
+      "Lck": 45,
+      "Def": 39,
+      "Res": 43,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 10,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 73,
+        "AbilityOid": null,
+        "Name": "Resistance +10",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases Resistance by 10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 10,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 74,
+        "AbilityOid": null,
+        "Name": "Iron Will",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": true,
+        "Description": "Takes 4 less damage from a magical attack when the user initiates the battle.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": -4,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 75,
+        "AbilityOid": null,
+        "Name": "Clarity",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "User recovers from status reduction effects twice as fast as normal.",
+        "StatBonus": null
+      },
+      {
+        "Id": 76,
+        "AbilityOid": null,
+        "Name": "Aggressor",
+        "LevelGained": 15,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "+10 damage during the unit's phase.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 10,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      },
+      {
+        "WeaponType": 2,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      10,
+      1,
+      0,
+      6,
+      14,
+      7,
+      16,
+      12
+    ]
+  },
+  {
+    "Id": 34,
+    "Name": "Lodestar",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 19,
+      "Str": 7,
+      "Mag": 0,
+      "Skl": 10,
+      "Spd": 9,
+      "Lck": 7,
+      "Def": 7,
+      "Res": 2,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 41,
+      "Mag": 30,
+      "Skl": 43,
+      "Spd": 43,
+      "Lck": 45,
+      "Def": 41,
+      "Res": 40,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 10,
+      "Lck": 25,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 10,
+        "Crit": 5,
+        "Avoid": 10,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    },
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 77,
+        "AbilityOid": null,
+        "Name": "Dancing Blade",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Speed +3, Defense -1",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 3,
+            "Lck": 0,
+            "Def": -1,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 78,
+        "AbilityOid": null,
+        "Name": "Charm (ver. 2)",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All allied units within a 2 square radius receive +3 to damage dealt.",
+        "StatBonus": null
+      },
+      {
+        "Id": 79,
+        "AbilityOid": null,
+        "Name": "Dual Guard+",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Adds 10% to the Dual Guard rate",
+        "StatBonus": null
+      },
+      {
+        "Id": 80,
+        "AbilityOid": null,
+        "Name": "Speedtaker",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Every time the user defeats an enemy, they gain a +2 bonus to their speed up to a maximum of +10. The skill does not overlap over other Taker abilities and the bonuses wear off after the encounter is completed.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 5
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      10,
+      0,
+      2,
+      14,
+      3,
+      8,
+      9,
+      5
+    ]
+  },
+  {
+    "Id": 35,
+    "Name": "Vanguard",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 21,
+      "Str": 10,
+      "Mag": 0,
+      "Skl": 6,
+      "Spd": 7,
+      "Lck": 3,
+      "Def": 9,
+      "Res": 1,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 50,
+      "Mag": 30,
+      "Skl": 36,
+      "Spd": 37,
+      "Lck": 45,
+      "Def": 44,
+      "Res": 32,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 5,
+      "Lck": 10,
+      "Def": 15,
+      "Res": 0
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 81,
+        "AbilityOid": null,
+        "Name": "Heavy Blade",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Strength +3, Speed -1",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 3,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": -1,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 82,
+        "AbilityOid": null,
+        "Name": "Veteran Intuition",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Critical Evade +15 during battles.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 15,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 83,
+        "AbilityOid": null,
+        "Name": "Aether",
+        "LevelGained": 15,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Use Sol and Luna in succession. (It unleashes two consecutive blows; the first restores HP equal to half the damage dealt, and the second halves the enemy's defense and resistance.(Skill/2)%",
+        "StatBonus": null
+      },
+      {
+        "Id": 84,
+        "AbilityOid": null,
+        "Name": "Strengthtaker",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When user defeats the enemy, Strength+2 (up to 10). The skill does not overlap over other Taker abilities and the bonuses wear off after the encounter is completed.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 0,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 0,
+        "MinRank": 0,
+        "MaxRank": 3
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      0,
+      2,
+      14,
+      7,
+      4,
+      16,
+      9,
+      17
+    ]
+  },
+  {
+    "Id": 36,
+    "Name": "Witch",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 0,
+      "Mag": 10,
+      "Skl": 5,
+      "Spd": 9,
+      "Lck": 3,
+      "Def": 4,
+      "Res": 5,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 30,
+      "Mag": 41,
+      "Skl": 32,
+      "Spd": 39,
+      "Lck": 45,
+      "Def": 31,
+      "Res": 34,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 0,
+      "Mag": 25,
+      "Skl": 5,
+      "Spd": 20,
+      "Lck": 5,
+      "Def": 0,
+      "Res": 10
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 10,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    },
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 87,
+        "AbilityOid": null,
+        "Name": "Shadowgift",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Allows the unit to equip and use dark magic, if they can use tomes or scrolls.",
+        "StatBonus": null
+      },
+      {
+        "Id": 88,
+        "AbilityOid": null,
+        "Name": "Witch's Brew",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Obtain a potion item (e.g. Vulerary) after moving during the first seven turns (Luck %)",
+        "StatBonus": null
+      },
+      {
+        "Id": 89,
+        "AbilityOid": null,
+        "Name": "Warp",
+        "LevelGained": 5,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Allows the user to warp next to any ally and take another action. The user is the allowed to move again.",
+        "StatBonus": null
+      },
+      {
+        "Id": 90,
+        "AbilityOid": null,
+        "Name": "Toxic Brew",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When user triggers the battle, Skill x 1.5% chance of reducing the enemy's Movement to 0 and Avoid by 20 after the battle (until the next turn).",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 7,
+        "MinRank": 0,
+        "MaxRank": 5
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      1,
+      6,
+      2,
+      14,
+      7,
+      15,
+      9,
+      5
     ]
   }
 ]

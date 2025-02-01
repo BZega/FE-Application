@@ -14,5 +14,9 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         Task<List<Convoy>> GetAllConvoys();
         Task<Convoy> GetConvoyById(string convoyId);
         Task<bool> UpdateConvoy(Convoy convoy);
+        Task<bool> AddNewSupport(Support support);
+        Task<List<Support>> GetAllSupports();
+        Task<Support> GetSupportById(string id);
+        Task<bool> UpdateSupport(Support support);
     }
 }

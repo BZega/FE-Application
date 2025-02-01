@@ -78,7 +78,8 @@ namespace Fire_Emblem.API.Business.Context.UnitClasses
                     ClassPromotions = unitClassDto.ClassPromotions,
                     ReclassOptions = unitClassDto.ReclassOptions,
                     Abilities = new List<Ability>(),
-                    UsableWeapons = new List<ClassWeapon>()
+                    UsableWeapons = new List<ClassWeapon>(),
+                    SkillTypeOptions = unitClassDto.SkillTypeOptions.Count > 0 ? unitClassDto.SkillTypeOptions : new List<SkillType>(),
                 };
 
                 foreach (var usableWeapon in unitClassDto.UsableWeapons)
@@ -111,6 +112,26 @@ namespace Fire_Emblem.API.Business.Context.UnitClasses
                 {
                     return false;
                 }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateClassSkills(int classId, List<SkillType> skillTypes)
+        {
+            try
+            {
+                var unitClass = await _unitClassesRepository.GetClassById(classId);
+                if (unitClass == null)
+                {
+                    return false;
+                }
+                unitClass.SkillTypeOptions = skillTypes;
+                var result = await _unitClassesRepository.UpdateClassSkills(unitClass);
+                return result;
+                
             }
             catch (Exception)
             {

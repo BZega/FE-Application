@@ -16,6 +16,7 @@ namespace Fire_Emblem.API.Models.UnitClass
         public List<string> Abilities { get; set; }
         public List<ClassWeapon> UsableWeapons { get; set; }
         public List<string>? ClassPromotions { get; set; }
-        public List<string> ReclassOptions { get; set; }
+        public List<string>? ReclassOptions { get; set; }
+        public List<SkillType> SkillTypeOptions { get; set; }
     }
 }

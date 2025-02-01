@@ -11,19 +11,23 @@ namespace Fire_Emblem.Common.Models
 {
     public class Support
     {
-        public int SupportId { get; set; }
+        public string SupportId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
-        public int Level { get; set; }
-        public int InternalLevel { get; set; }
-        public ClassType CurrentClass { get; set; }
+        public int Level { get; set; } = 1;
+        public int InternalLevel { get; set; } = 1;
+        public ClassType CurrentClassType { get; set; }
+        public Stats CurrentClassBaseStats { get; set; }
+        public Stats CurrentClassMaxStats { get; set; }
+        public Equipment EquippedWeapon { get; set; }
         public string StartingClass { get; set; }
-        public bool IsPairedUp { get; set; }
-        public bool IsClose { get; set; }
-        public Stats CurrentStats { get; set; }
+        public bool IsPairedUp { get; set; } = false;
+        public bool IsClose { get; set; } = false;
+        public Stats LevelUpStats { get; set; }
+        public Stats CurrentStats => GetCurrentStats();
         public Stats PairedUpBonus => GetPairedUpBonus();
         public Rank SupportRank => GetSupportRank();
-        public int SupportPoints { get; set; }
+        public int SupportPoints { get; set; } = 0;
 
         public Rank GetSupportRank()
         {
@@ -47,6 +51,19 @@ namespace Fire_Emblem.Common.Models
             {
                 return Rank.None;
             }
+        }
+
+        public Stats GetCurrentStats()
+        {
+            Stats currentStats = new Stats();
+            currentStats.Add(CurrentClassBaseStats);
+            currentStats.Add(LevelUpStats);
+            currentStats.MaximumCheck(CurrentClassMaxStats);
+            if (EquippedWeapon.StatBonus?.Stats != null)
+            {
+                currentStats.Add(EquippedWeapon.StatBonus.Stats);
+            }
+            return currentStats;
         }
 
         public Stats GetPairedUpBonus()
@@ -137,7 +154,7 @@ namespace Fire_Emblem.Common.Models
                 statBonus.Res += 1;
             }
 
-            switch (CurrentClass)
+            switch (CurrentClassType)
             {
                 case ClassType.Apothecary:
                 case ClassType.SpearFighter:
@@ -1235,6 +1252,20 @@ namespace Fire_Emblem.Common.Models
                 case ClassType.WyvernLord:
                     statBonus.Str += 4;
                     statBonus.Def += 4;
+                    if (SupportRank == Rank.C || SupportRank == Rank.B)
+                    {
+                        statBonus.Str += 1;
+                        statBonus.Def += 1;
+                    }
+                    if (SupportRank == Rank.A || SupportRank == Rank.S)
+                    {
+                        statBonus.Str += 2;
+                        statBonus.Def += 2;
+                    }
+                    break;
+                case ClassType.WyvernRider:
+                    statBonus.Str += 3;
+                    statBonus.Def += 3;
                     if (SupportRank == Rank.C || SupportRank == Rank.B)
                     {
                         statBonus.Str += 1;

@@ -138,6 +138,34 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
                     return true;
                 }
             }
+            else if (items != null && itemType == typeof(Support))
+            {
+                List<Support> supports = JsonSerializer.Deserialize<List<Support>>(items);
+                var support = supports?.Find(s => s.SupportId == id);
+                if (support != null)
+                {
+                    int i = supports.IndexOf(support);
+                    support = item as Support;
+                    supports[i] = support;
+                    var jsonString = JsonSerializer.Serialize(supports, options);
+                    System.IO.File.WriteAllText(filePath, jsonString);
+                    return true;
+                }
+            }
+            else if (items != null && itemType == typeof(UnitClass))
+            {
+                List<UnitClass> classes = JsonSerializer.Deserialize<List<UnitClass>>(items);
+                var unitClass = classes?.Find(c => c.Id == int.Parse(id));
+                if (unitClass != null)
+                {
+                    int i = classes.IndexOf(unitClass);
+                    unitClass = item as UnitClass;
+                    classes[i] = unitClass;
+                    var jsonString = JsonSerializer.Serialize(classes, options);
+                    System.IO.File.WriteAllText(filePath, jsonString);
+                    return true;
+                }
+            }
             return false;
         }
     }

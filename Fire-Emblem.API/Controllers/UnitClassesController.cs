@@ -77,6 +77,21 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpPost]
+        [Route("update-class-skills")]
+        public async Task<ActionResult<bool>> UpdateClassSkills(int classId, List<SkillType> skillTypes)
+        {
+            try
+            {
+                var result = await _unitClassesContext.UpdateClassSkills(classId, skillTypes);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
         [Route("remove-class/{id}")]
         public async Task<ActionResult<bool>> RemoveAbilityById(int id)
         {

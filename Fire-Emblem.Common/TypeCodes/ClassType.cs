@@ -75,6 +75,27 @@ namespace Fire_Emblem.Common.TypeCodes
         Witch,
         Wolfskin,
         Wolfssegner,
-        WyvernLord
+        WyvernLord,
+        WyvernRider,
+        SwordLord,
+        AxeLord,
+        LanceLord,
+        GreatSwordLordwithLance,
+        GreatSwordLordwithAxe,
+        GreatAxeLordwithSword,
+        GreatAxeLordwithLance,
+        GreatLanceLordwithSword,
+        GreatLanceLordwithAxe,
+        SwordThief,
+        BowThief,
+        SwordAssassin,
+        BowAssassin,
+        SwordTrickster,
+        BowTrickster,
+        SwordPerformer,
+        LancePerformer,
+        TomeDreadFighter,
+        ShurikenDreadFighter,
+        None
     }
 }

@@ -22,6 +22,7 @@ namespace Fire_Emblem.Common.Models
         public List<ClassWeapon> UsableWeapons { get; set; }
         public List<string>? ClassPromotions { get; set; }
         public List<string>? ReclassOptions { get; set; }
+        public List<SkillType> SkillTypeOptions { get; set; }
 
     }
 }

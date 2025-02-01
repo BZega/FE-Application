@@ -25,6 +25,8 @@ namespace Fire_Emblem.Common.Models
         public int InternalLevel { get; set; } = 1;
         public bool IsInCombat { get; set; } = false;
         public bool IsAttacking { get; set; } = false; 
+        public bool IsWeaponTriangleAdvantage { get; set; } = false;
+        public bool IsWeaponTriangleDisadvantage { get; set; } = false;
         public int Gold { get; set; } = 1000;
         public int Attack => GetAttack();
         public int Heal => GetHeal();
@@ -32,7 +34,7 @@ namespace Fire_Emblem.Common.Models
         public int Crit => GetCrit();
         public int Avoid => GetAvoid();
         public int Dodge => GetDodge();
-        public int DualStrik => GetDualStrikeRate();
+        public int DualStrike => GetDualStrikeRate();
         public int DualGuard { get; set; } = 0;
         public string StartingClass { get; set; }
         public string HeartSealClass { get; set; }        
@@ -47,9 +49,11 @@ namespace Fire_Emblem.Common.Models
         public List<LevelUp>? LevelupStatIncreases { get; set; }
         public GrowthRate PersonalGrowthRate { get; set; }    
         public List<UnitType> UnitTypes => GetUnitTypes();
+        public List<string> ReclassOptions { get; set; }
         public List<Weapon> WeaponRanks { get; set; }
         public List<Support>? Supports { get; set; }
         public List<Ability> AcquiredAbilities { get; set; }
+        public List<Skill> Skills { get; set; }
         public string ConvoyId { get; set; }
 
         public GrowthRate GetTotalGrowthRate()
@@ -368,7 +372,7 @@ namespace Fire_Emblem.Common.Models
             {
                 attack += CurrentClass.InnateBonus.Attributes.Hit;
             }
-            if (Supports != null && Supports.Count > 0)
+            if (Supports != null && Supports.Count > 0 && Supports.Any(support => support.IsPairedUp))
             {
                 var supportPoints = 0;
                 foreach (var support in Supports)
@@ -406,6 +410,28 @@ namespace Fire_Emblem.Common.Models
                 else if (supportPoints > 8)
                 {
                     attack += 20;
+                }
+                if (IsWeaponTriangleAdvantage)
+                {
+                    var weapon = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon?.WeaponType);
+                    if (weapon != null)
+                    {
+                        switch (weapon.WeaponRank)
+                        {
+                            case Rank.E:
+                            case Rank.D: 
+                                attack += 5; 
+                                break;
+                            case Rank.C:
+                            case Rank.B:
+                                attack += 10;
+                                break;
+                            case Rank.A:
+                            case Rank.S:
+                                attack += 15;
+                                break;
+                        }
+                    }
                 }
             }
             return attack;
@@ -478,6 +504,23 @@ namespace Fire_Emblem.Common.Models
                         {
                             damage += ability.StatBonus.Attributes.Damage;
                         }
+                    }
+                }
+            }
+            if (IsWeaponTriangleAdvantage)
+            {
+                var weapon = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon?.WeaponType);
+                if (weapon != null)
+                {
+                    switch (weapon.WeaponRank)
+                    {
+                        case Rank.B:
+                            damage += 1;
+                            break;
+                        case Rank.A:
+                        case Rank.S:
+                            damage += 2;
+                            break;
                     }
                 }
             }
@@ -746,6 +789,10 @@ namespace Fire_Emblem.Common.Models
                     if (support.IsPairedUp)
                     {
                         dualStrike += (CurrentStats.Skl + support.CurrentStats.Skl) / 4;
+                        if (EquippedAbilities.Any(ability => ability.Name == "Dual Strike+"))
+                        {
+                            dualStrike += 10;
+                        }
                         switch (support.SupportRank)
                         {
                             case Rank.None:
@@ -779,6 +826,10 @@ namespace Fire_Emblem.Common.Models
                 {
                     if (support.IsPairedUp)
                     {
+                        if (EquippedAbilities.Any(ability => ability.Name == "Dual Guard+"))
+                        {
+                            dualGuard += 10;
+                        }
                         if (damageType == "Physical")
                         {
                             dualGuard += (CurrentStats.Def + support.CurrentStats.Def) / 4;

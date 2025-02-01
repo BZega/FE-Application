@@ -1,5 +1,6 @@
 ﻿using Fire_Emblem.API.Business.Helper.FileReader;
 using Fire_Emblem.Common.Models;
+using Fire_Emblem.Common.TypeCodes;
 using System.Text.Json;
 
 namespace Fire_Emblem.API.Business.Repository.UnitClasses
@@ -83,6 +84,19 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public async Task<bool> UpdateClassSkills(UnitClass unitClass)
+        {
+            try
+            {
+                var result = FileHelper.UpdateFile(unitClass, unitClass.Id.ToString(), _filePath);
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 

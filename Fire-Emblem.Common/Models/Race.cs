@@ -20,6 +20,10 @@ namespace Fire_Emblem.Common.Models
             switch (race)
             {
                 case RacialType.Human:
+                    if (HumanStatChoices == null)
+                    {
+                        break;
+                    }
                     foreach (var choice in HumanStatChoices)
                     {
                         switch (choice)

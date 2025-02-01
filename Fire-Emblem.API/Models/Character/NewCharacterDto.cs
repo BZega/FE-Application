@@ -20,6 +20,7 @@ namespace Fire_Emblem.API.Models.Character
         public List<string>? StartingWeapons { get; set; }
         public List<string>? StartingStaves { get; set; }
         public List<string>? StartingItems { get; set; }
+        public List<SkillType> SkillTypeChoices { get; set; }
         public GrowthRate PersonalGrowthRate { get; set; }
 
         public static bool ValidateGrowthRate(GrowthRate growthRate)
