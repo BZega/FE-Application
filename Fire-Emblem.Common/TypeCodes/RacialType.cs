@@ -14,6 +14,9 @@ namespace Fire_Emblem.Common.TypeCodes
         Manakete = 2,
         Taguel = 3,
         Wolfskin = 4,
-        HalfHuman = 5,
+        HalfHumanKitsune = 5,
+        HalfHumanManakete = 6,
+        HalfHumanTaguel = 7,
+        HalfHumanWolfskin = 8
     }
 }

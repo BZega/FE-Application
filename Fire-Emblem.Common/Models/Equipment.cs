@@ -15,6 +15,9 @@ namespace Fire_Emblem.Common.Models
         public Rank? Rank { get; set; }
         public WeaponType WeaponType { get; set; }
         public bool IsMagical { get; set; } = false;
+        public bool IsBrave { get; set; } = false;
+        public bool DoesEffectiveDamage { get; set; } = false;
+        public List<UnitType> EffectiveUnitTypes { get; set; } = new List<UnitType>();
         public int? Might { get; set; }
         public int? Hit { get; set; }
         public int? Crit { get; set; }

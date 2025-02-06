@@ -56,6 +56,7 @@ namespace Fire_Emblem.Common.Models
                     }
                     break;
                 case RacialType.Kitsune:
+                case RacialType.HalfHumanKitsune:
                     growth.Str = 10;
                     growth.Mag = -10;
                     growth.Spd = 10;
@@ -64,6 +65,7 @@ namespace Fire_Emblem.Common.Models
                     growth.Res = 10;
                     break;
                 case RacialType.Manakete:
+                case RacialType.HalfHumanManakete:
                     growth.HP = 20;
                     growth.Skl = -10;
                     growth.Spd = -10;
@@ -71,6 +73,7 @@ namespace Fire_Emblem.Common.Models
                     growth.Def = 10;
                     break;
                 case RacialType.Taguel:
+                case RacialType.HalfHumanTaguel:
                     growth.HP = 15;
                     growth.Str = 10;
                     growth.Mag = -10;
@@ -79,6 +82,7 @@ namespace Fire_Emblem.Common.Models
                     growth.Res = -10;
                     break;
                 case RacialType.Wolfskin:
+                case RacialType.HalfHumanWolfskin:
                     growth.HP = 25;
                     growth.Str = 20;
                     growth.Mag = -20;
@@ -99,11 +103,15 @@ namespace Fire_Emblem.Common.Models
                 switch (race)
                 {
                     case RacialType.Manakete:
+                    case RacialType.HalfHumanManakete:
                         type = TypeCodes.UnitType.Dragon;
                         break;
                     case RacialType.Kitsune:
                     case RacialType.Taguel:
                     case RacialType.Wolfskin:
+                    case RacialType.HalfHumanKitsune:
+                    case RacialType.HalfHumanTaguel:
+                    case RacialType.HalfHumanWolfskin:
                         type = TypeCodes.UnitType.Beast;
                         break;
                 }

@@ -89,7 +89,7 @@ namespace Fire_Emblem.API.Business.Repository.PersonalAbilities
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<PersonalAbility>(id, _filePath);
+                var result = FileHelper.DeleteFromFile<PersonalAbility>(id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)

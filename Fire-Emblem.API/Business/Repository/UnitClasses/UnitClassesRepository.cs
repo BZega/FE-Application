@@ -104,7 +104,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<UnitClass>(id, _filePath);
+                var result = FileHelper.DeleteFromFile<UnitClass>(id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)

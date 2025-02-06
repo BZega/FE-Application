@@ -11,7 +11,7 @@ namespace Fire_Emblem.Common.Models
 {
     public class Support
     {
-        public string SupportId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public int Level { get; set; } = 1;

@@ -11,6 +11,11 @@ using System.Text.RegularExpressions;
 using System;
 using System.Xml.Linq;
 using System.Reflection.PortableExecutable;
+using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static Fire_Emblem.API.Models.Character.BattleResultDto;
+using Microsoft.AspNetCore.Identity.Data;
+using Fire_Emblem.API.Business.Helper.Combat;
 
 namespace Fire_Emblem.API.Business.Context.Characters
 {
@@ -21,18 +26,22 @@ namespace Fire_Emblem.API.Business.Context.Characters
         private readonly IUnitClassesContext _unitClassesContext;
         private readonly IEquipmentContext _equipmentContext;
         private readonly ICharactersRepository _charactersRepository;
+        private readonly ILogger<CharactersContext> _logger;
+        private static readonly Random _random = new Random();
 
         public CharactersContext(IAbilitiesContext abilitiesContext, 
                                  IPersonalAbilitiesContext personalAbilitiesContext, 
                                  IUnitClassesContext unitClassesContext, 
                                  IEquipmentContext equipmentContext,
-                                 ICharactersRepository charactersRepository)
+                                 ICharactersRepository charactersRepository,
+                                 ILogger<CharactersContext> logger)
         {
             _abilitiesContext = abilitiesContext;
             _personalAbilitiesContext = personalAbilitiesContext;
             _unitClassesContext = unitClassesContext;
             _equipmentContext = equipmentContext;
             _charactersRepository = charactersRepository;
+            _logger = logger;
         }
 
         public async Task<List<Character>> GetAllCharacters()
@@ -66,7 +75,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
             try
             {
                 var characters = await GetAllCharacters();
-                var convoys = await GetAllConvoys();
+                //var convoys = await GetAllConvoys();
                 var maxId = 0;
                 var gold = 1000;
                 List<StatType> humanChoices = [humanChoice1, humanChoice2];
@@ -80,7 +89,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     RaceChoice = new Race()
                     {
                         RacialType = newCharacter.RaceChoice,
-                        HumanStatChoices = humanChoice1 != StatType.None && humanChoice2 != StatType.None ? humanChoices : null
+                        HumanStatChoices = newCharacter.RaceChoice == RacialType.Human ? humanChoices : null
                     }
 
                 };
@@ -100,7 +109,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                       newCharacter.StartingClass == ClassTypeCode.Wolfskin || 
                       newCharacter.StartingClass == ClassTypeCode.Kitsune) && 
                       newCharacter.StartingWeapons.Contains("Beaststone")) ||
-                      newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.StartingWeapons.Contains("Dragonstone")))
+                      newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.StartingWeapons.Contains("Dragonstone (manakete)")))
                 {
                     gold += 1000;
                 }
@@ -154,12 +163,12 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     return new Tuple<bool, string>(false, "Not enough gold");
                 }
-                if ((newCharacter.StartingClass == ClassTypeCode.Taguel && newCharacter.RaceChoice != RacialType.Taguel) ||
-                    (newCharacter.StartingClass == ClassTypeCode.Kitsune && newCharacter.RaceChoice != RacialType.Kitsune) ||
-                    (newCharacter.StartingClass == ClassTypeCode.Wolfskin && newCharacter.RaceChoice != RacialType.Wolfskin) ||
-                    (newCharacter.StartingClass == ClassTypeCode.Manakete && newCharacter.RaceChoice != RacialType.Manakete) ||
+                if ((newCharacter.StartingClass == ClassTypeCode.Taguel && !(newCharacter.RaceChoice == RacialType.Taguel || newCharacter.RaceChoice == RacialType.HalfHumanTaguel)) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Kitsune && !(newCharacter.RaceChoice == RacialType.Kitsune || newCharacter.RaceChoice == RacialType.HalfHumanKitsune)) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Wolfskin && !(newCharacter.RaceChoice == RacialType.Wolfskin || newCharacter.RaceChoice == RacialType.HalfHumanWolfskin)) ||
+                    (newCharacter.StartingClass == ClassTypeCode.Manakete && !(newCharacter.RaceChoice == RacialType.Manakete || newCharacter.RaceChoice == RacialType.HalfHumanManakete)) ||
                     ((newCharacter.StartingClass == ClassTypeCode.SwordLord || newCharacter.StartingClass == ClassTypeCode.AxeLord || newCharacter.StartingClass == ClassTypeCode.LanceLord) && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Human)) ||
-                    (newCharacter.StartingClass == ClassTypeCode.ManaketeHeir && (!newCharacter.IsNoble || newCharacter.RaceChoice != RacialType.Manakete)))
+                    (newCharacter.StartingClass == ClassTypeCode.ManaketeHeir && (!newCharacter.IsNoble || !(newCharacter.RaceChoice == RacialType.Manakete || newCharacter.RaceChoice == RacialType.HalfHumanManakete))))
                 {
                     return new Tuple<bool, string>(false, "Class choice does not match Racial Choice/Nobility");
                 }
@@ -199,6 +208,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     character.EquippedAbilities.Add(ability);
                 }
+                character.CurrentHP = character.CurrentStats.HP;
                 List<WeaponType> weapons = [WeaponType.Axe, WeaponType.Bow, WeaponType.Dagger, WeaponType.Lance, WeaponType.Staff,
                                             WeaponType.Sword, WeaponType.Tome, WeaponType.DarkTome];
                 List<SkillType> skillTypes = [SkillType.Athletics, SkillType.Arcana, SkillType.History, SkillType.Investigation,
@@ -309,21 +319,24 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     }
                 }
                 character.ReclassOptions.Add(newCharacter.StartingClass);
-                if (newCharacter.RaceChoice == RacialType.Taguel && !character.ReclassOptions.Contains(ClassTypeCode.Taguel))
+                if ((newCharacter.RaceChoice == RacialType.Taguel || newCharacter.RaceChoice == RacialType.HalfHumanTaguel) && !character.ReclassOptions.Contains(ClassTypeCode.Taguel))
                 {
                     character.ReclassOptions.Add(ClassTypeCode.Taguel);
                 }
-                else if (newCharacter.RaceChoice == RacialType.Kitsune && !character.ReclassOptions.Contains(ClassTypeCode.Kitsune))
+                else if ((newCharacter.RaceChoice == RacialType.Kitsune || newCharacter.RaceChoice == RacialType.HalfHumanKitsune) && !character.ReclassOptions.Contains(ClassTypeCode.Kitsune))
                 {
                     character.ReclassOptions.Add(ClassTypeCode.Kitsune);
                 }
-                else if (newCharacter.RaceChoice == RacialType.Wolfskin && !character.ReclassOptions.Contains(ClassTypeCode.Wolfskin))
+                else if ((newCharacter.RaceChoice == RacialType.Wolfskin || newCharacter.RaceChoice == RacialType.HalfHumanWolfskin) && !character.ReclassOptions.Contains(ClassTypeCode.Wolfskin))
                 {
                     character.ReclassOptions.Add(ClassTypeCode.Wolfskin);
                 }
-                else if (newCharacter.RaceChoice == RacialType.Manakete && !character.ReclassOptions.Contains(ClassTypeCode.Manakete))
+                else if (newCharacter.RaceChoice == RacialType.Manakete || newCharacter.RaceChoice == RacialType.HalfHumanManakete)
                 {
-                    character.ReclassOptions.Add(ClassTypeCode.Manakete);
+                    if (!character.ReclassOptions.Contains(ClassTypeCode.Manakete))
+                    {
+                        character.ReclassOptions.Add(ClassTypeCode.Manakete);
+                    }
                     if (newCharacter.IsNoble && !character.ReclassOptions.Contains(ClassTypeCode.ManaketeHeir))
                     {
                         character.ReclassOptions.Add(ClassTypeCode.ManaketeHeir);
@@ -480,6 +493,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     level.StatIncrease.RandomizeStatIncrease(character.TotalGrowthRate);
                     level.StatIncrease.MaxLevelCheck(character.BaseStats, character.MaxStats);
                     character.LevelupStatIncreases.Add(level);
+                    character.Skills = UpdateSkills(character.Skills, character.CurrentStats, character.InternalLevel);
                     var result = await _charactersRepository.UpdateCharacter(character);
                     return new Tuple<bool, LevelUp>(result, level);
                 }
@@ -573,7 +587,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 }
                 Support supportChar = new Support()
                 {
-                    SupportId = Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     Name = name,
                     Gender = support.Gender,
                     Level = support.Level,
@@ -642,7 +656,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 var unitClass = await _unitClassesContext.GetClass(null, ClassTypeCode.ClassTypeConverter(currentClass));
                 if (character.Supports != null)
                 {
-                    var supportToDelete = character.Supports.FirstOrDefault(support => support.SupportId == supportId);
+                    var supportToDelete = character.Supports.FirstOrDefault(support => support.Id == supportId);
                     if (supportToDelete != null)
                     {
                         character.Supports.Remove(supportToDelete);
@@ -702,7 +716,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 }
                 if (character.Supports != null)
                 {
-                    var supportToDelete = character.Supports.FirstOrDefault(support => support.SupportId == supportId);
+                    var supportToDelete = character.Supports.FirstOrDefault(support => support.Id == supportId);
                     if (supportToDelete != null)
                     {
                         character.Supports.Remove(supportToDelete);
@@ -872,6 +886,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                             character.LevelupStatIncreases = new List<LevelUp>();
                                         }
                                         character.LevelupStatIncreases.Add(level);
+                                        character.Skills = UpdateSkills(character.Skills, character.CurrentStats, character.InternalLevel);
                                     }
                                 }
                                 else if (equipment.Name == "Arms Scroll")
@@ -962,6 +977,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                             character.LevelupStatIncreases = new List<LevelUp>();
                                         }
                                         character.LevelupStatIncreases.Add(level);
+                                        character.Skills = UpdateSkills(character.Skills, character.CurrentStats, character.InternalLevel);
                                     }
                                 }
                                 else if (equipment.Name == "Arms Scroll")
@@ -1169,11 +1185,11 @@ namespace Fire_Emblem.API.Business.Context.Characters
             }
         }
 
-        public async Task<bool> RemoveCharacterById(int id)
+        public async Task<bool> RemoveCharacterById(int id, bool shouldDeteleConvoy)
         {
             try
             {
-                var result = await _charactersRepository.RemoveCharacterById(id);
+                var result = await _charactersRepository.RemoveCharacterById(id, shouldDeteleConvoy);
                 return result;
             }
             catch (Exception)
@@ -1201,6 +1217,915 @@ namespace Fire_Emblem.API.Business.Context.Characters
             {
                 return null;
             }
+        }
+
+        public async Task<bool> ChangeCondition(int characterId, int trackerChange)
+        {
+            try
+            {
+                var character = await GetCharacter(characterId);
+                if (character == null)
+                {
+                    return false;
+                }
+                switch (character.Condition.CurrentCondition)
+                {
+                    case ConditionType.Normal:
+                        if (trackerChange == 0)
+                        {
+                            return false;
+                        }
+                        else if (trackerChange == 1)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.Serious;
+                        }
+                        else if (trackerChange == 2)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.Critical;
+                        }
+                        break;
+                    case ConditionType.Serious:
+                        if (trackerChange == 0)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.Normal;
+                        }
+                        else if (trackerChange == 1)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.Critical;
+                        }
+                        else if (trackerChange == 2)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.DEAD;
+                        }
+                        break;
+                    case ConditionType.Critical:
+                        if (trackerChange == 0)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.Serious;
+                        }
+                        else if (trackerChange > 0)
+                        {
+                            character.Condition.CurrentCondition = ConditionType.DEAD;
+                        }
+                        break;
+                    case ConditionType.DEAD:
+                        break;
+                }
+                character.CurrentHP = character.CurrentStats.HP;
+                var result = await _charactersRepository.UpdateCharacter(character);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> ReviveFallenCharacter(int characterId)
+        {
+            try
+            {
+                var result = false;
+                var character = await GetCharacter(characterId);
+                if (character == null)
+                {
+                    return false;
+                }
+                if (character.Condition.CurrentCondition == ConditionType.DEAD)
+                {
+                    character.Condition.CurrentCondition = ConditionType.Normal;
+                    result = await _charactersRepository.UpdateCharacter(character);
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private List<Skill> UpdateSkills(List<Skill> skills, Stats currentStats, int level)
+        {
+            try
+            {
+                var updatedSkills = new List<Skill>();
+                foreach (var skill in skills)
+                {
+                    switch (skill.StatType)
+                    {
+                        case StatType.Str:
+                            skill.Attribute = currentStats.Str;
+                            break;
+                        case StatType.Mag:
+                            skill.Attribute = currentStats.Mag;
+                            break;
+                        case StatType.Skl:
+                            skill.Attribute = currentStats.Skl;
+                            break;
+                        case StatType.Spd:
+                            skill.Attribute = currentStats.Spd;
+                            break;
+                        case StatType.Def:
+                            skill.Attribute = currentStats.Def;
+                            break;
+                        case StatType.Res:
+                            skill.Attribute = currentStats.Res;
+                            break;
+                    }
+                    skill.Bonus = skill.GetBonus(level);
+                    skill.Score = skill.GetScore(currentStats.Lck);
+                    updatedSkills.Add(skill);
+                }
+                return updatedSkills;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> GainWeaponExp(int characterId, bool isDoubleAttack)
+        {
+            try
+            {
+                var character = await GetCharacter(characterId);
+                if (character == null)
+                {
+                    return false;
+                }
+                if (character.EquippedWeapon.WeaponType == WeaponType.None)
+                {
+                    return false;
+                }
+                if (character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType) != null)
+                {
+                    var bonus = 2;
+                    if (character.EquippedAbilities?.Any(ability => ability.Name == "Discipline") == true)
+                    {
+                        bonus *= 2;
+                    }
+                    character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType).WeaponExperience += bonus;
+                    if (isDoubleAttack)
+                    {
+                        character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType).WeaponExperience += bonus;
+                    }
+                }
+                var result = await _charactersRepository.UpdateCharacter(character);
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<Enemy> CreateNewEnemy(EnemyDto enemyDto)
+        {
+            try
+            {
+                var maxId = 0;
+                var enemies = await GetAllEnemies();
+                if (enemies != null && enemies.Count > 0)
+                {
+                    maxId = enemies.Max(id => id.Id);
+                }
+                var enemy = new Enemy()
+                {
+                    Id = maxId + 1,
+                    Level = enemyDto.Level,
+                    InternalLevel = enemyDto.Level,
+                    CurrentClass = await _unitClassesContext.GetClass(null, enemyDto.CurrentClass),
+                    EquippedWeapon = await _equipmentContext.GetEquipment(null, enemyDto.EquippedWeapon),
+                    DifficultySetting = enemyDto.Difficulty,
+                    ManualStatGrowth = enemyDto.ManualStatGrowth ?? null,
+                    Terrain = new Terrain() { TerrainType = TerrainType.None },
+                    UnitTypes = new List<UnitType>(),
+                    EquippedAbilities = new List<Ability>(),
+                    WeaponRank = new Weapon()
+                };
+
+                foreach (var abilityName in enemyDto.EquippedAbilites)
+                {
+                    var ability = await _abilitiesContext.GetAbility(null, abilityName);
+                    if (ability == null) continue;
+                    enemy.EquippedAbilities.Add(ability);
+                }
+                var race = new Race()
+                {
+                    RacialType = enemyDto.Race
+                };
+
+                foreach (var unitType in enemy.CurrentClass.UnitTypes)
+                {
+                    if (!race.UnitType.Equals(unitType))
+                    {
+                        enemy.UnitTypes.Add(unitType);
+                    }
+                }
+                enemy.UnitTypes.Add(race.UnitType);
+                enemy.WeaponRank.WeaponType = enemy.EquippedWeapon.WeaponType;
+                switch (enemy.EquippedWeapon.Rank)
+                {
+                    case Rank.D:
+                        enemy.WeaponRank.WeaponExperience = 31;
+                        break;
+                    case Rank.C:
+                        enemy.WeaponRank.WeaponExperience = 71;
+                        break;
+                    case Rank.B:
+                        enemy.WeaponRank.WeaponExperience = 121;
+                        break;
+                    case Rank.A:
+                        enemy.WeaponRank.WeaponExperience = 180;
+                        break;
+                    case Rank.S:
+                        enemy.WeaponRank.WeaponExperience = 250;
+                        break;
+                }
+                enemy.CurrentHP = enemy.CurrentStats.HP;
+                var result = await _charactersRepository.AddNewEnemy(enemy);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Enemy>> GetAllEnemies()
+        {
+            try
+            {
+                var result = await _charactersRepository.GetAllEnemies();
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Enemy> GetEnemy(int enemyId)
+        {
+            try
+            {
+                var enemies = await _charactersRepository.GetAllEnemies();
+                var result = enemies.FirstOrDefault(enemy => enemy.Id == enemyId);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<BattleResultDto> AutomaticBattleOpponent(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
+        {
+            try
+            {
+                var character = await GetCharacter(characterId);
+                var enemy = await GetEnemy(enemyId);
+                var charHitDecrease = 0;
+                var charDamageDecrease = 0;
+                var enemyHitDecrease = 0;
+                var enemyDamageDecrease = 0;
+                CombatHelper.CheckWeaponTriangle(character, enemy);
+                CombatHelper.ApplyWeaponTriangleDisadvantage(character, enemy, ref charHitDecrease, ref charDamageDecrease, ref enemyHitDecrease, ref enemyDamageDecrease);
+                if (character.DealsEffectiveDamage)
+                {
+                    foreach (var effectiveUnit in character.EffectiveDamageUnitTypes)
+                    {
+                        if (enemy.UnitTypes.Contains(effectiveUnit))
+                        {
+                            character.EquippedWeapon.Might *= 3;
+                        }
+                    }
+                }
+                if (enemy.DealsEffectiveDamage)
+                {
+                    foreach (var effectiveUnit in enemy.EffectiveDamageUnitTypes)
+                    {
+                        if (character.UnitTypes.Contains(effectiveUnit))
+                        {
+                            enemy.EquippedWeapon.Might *= 3;
+                        }
+                    }
+                }
+                BattleResultDto battleResults = new BattleResultDto()
+                {
+                    CharacterBaseHitChance = character.Attack - charHitDecrease,
+                    EnemyAvoid = enemy.Avoid,
+                    CharacterBaseDamage = character.Damage - charDamageDecrease,
+                    CharacterBaseCritChance = character.Crit,
+                    EnemyDodge = enemy.Dodge,
+                    CharacterBaseeAttackSpeed = character.CurrentStats.Spd,
+                    EnemyBaseHitChance = enemy.Attack - enemyHitDecrease,
+                    CharacterAvoid = character.Avoid,
+                    EnemyBaseDamage = enemy.Damage - enemyDamageDecrease,
+                    EnemyBaseCritChance = enemy.Crit,
+                    CharacterDodge = enemy.Dodge,
+                    EnemyBaseAttackSpeed = enemy.CurrentStats.Spd,
+                    IsCharacterWeaponTriangleAdvantage = character.IsWeaponTriangleAdvantage,
+                    IsEnemyWeaponTriangleAdvantage = enemy.IsWeaponTriangleAdvantage,
+                    AttackRollResults = new List<AttackRoll>()
+                };
+                AttackRoll characterAttacker = new AttackRoll() { Attacker = CombatTypeCode.Character };
+                AttackRoll enemyAttacker = new AttackRoll() { Attacker = CombatTypeCode.Enemy };
+                
+                character.IsInCombat = true;
+                enemy.IsInCombat = true;
+
+                var charHitChance = Math.Max(character.Attack + charHitDecrease - enemy.Avoid, 0);
+                battleResults.CharacterHitCHance = charHitChance;
+
+                var enemyHitChance = Math.Max(enemy.Attack + enemyHitDecrease - character.Avoid, 0);
+                battleResults.EnemyHitChance = enemyHitChance;
+
+                var charCritChance = Math.Max(character.Crit - enemy.Dodge, 0);
+                battleResults.CharacterCritChance = charCritChance;
+
+                var enemyCritChance = Math.Max(enemy.Crit - character.Dodge, 0);
+                battleResults.EnemyCritChance = enemyCritChance;
+
+                var charDamage = Math.Max(character.EquippedWeapon.IsMagical ? character.Damage + charDamageDecrease + enemy.DamageReceived - enemy.CurrentStats.Res : character.Damage + charDamageDecrease + enemy.DamageReceived - enemy.CurrentStats.Def, 0);
+                battleResults.CharacterDamageOutput = charDamage;
+                battleResults.EnemyDamageNegation = Math.Max(enemy.EquippedWeapon.IsMagical ? -enemy.DamageReceived + enemy.CurrentStats.Res : - enemy.DamageReceived + enemy.CurrentStats.Def , 0);
+
+                var enemyDamage = Math.Max(enemy.EquippedWeapon.IsMagical ? enemy.Damage + enemyDamageDecrease + character.DamageReceived - character.CurrentStats.Res : enemy.Damage + enemyDamageDecrease + character.DamageReceived - character.CurrentStats.Def, 0);
+                battleResults.EnemyDamageOutput = enemyDamage;
+                battleResults.CharacterDamageNegation = Math.Max(character.EquippedWeapon.IsMagical ? -character.DamageReceived + character.CurrentStats.Res : -character.DamageReceived + character.CurrentStats.Def, 0);
+               
+                var charAttackSpeed = character.CurrentStats.Spd + character.AttackSpeed;
+                var enemyAttackSpeed = enemy.CurrentStats.Spd + enemy.AttackSpeed;
+
+                var characterAttackCount = character.EquippedWeapon.IsBrave ? 2 : 1;
+                var enemyAttackCount = enemy.EquippedWeapon.IsBrave ? 2 : 1;
+                
+                var characterAttackSpeedAdvCount = character.EquippedWeapon.IsBrave ? 2 : 1;
+                var enemyAttackSpeedAdvCount = enemy.EquippedWeapon.IsBrave ? 2 : 1;
+
+                bool characterAttackSpeedAdv = charAttackSpeed >= enemyAttackSpeed + 5;
+                battleResults.CharacterAttackSpeed = charAttackSpeed;
+
+                bool enemyAttackSpeedAdv = enemyAttackSpeed >= charAttackSpeed + 5;
+                battleResults.EnemyAttackSpeed = enemyAttackSpeed;
+                
+                var characterDamageDealt = 0;
+                var enemyDamageDealt = 0;
+                var maxId = 1;
+                if (isCharacterAttacking)
+                {
+                    character.IsAttacking = true;
+                    enemy.IsAttacking = false;
+                    for (int i = 0; i < characterAttackCount; i++)
+                    {
+                        //TODO: PAIRED UP
+                        if (character.Supports?.FirstOrDefault(support => support.IsPairedUp)?.IsPairedUp == true)
+                        {
+
+                        }
+                        characterAttacker = RollAttackRoll(characterAttacker.Attacker, character, enemy, charHitChance, charDamage, charCritChance, battleResults.EnemyDamageNegation - enemy.DamageReceived);
+                        characterAttacker.Id = maxId;
+                        maxId++;
+                        enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                        if (characterAttacker.DamageHealed > 0)
+                        {
+                            character.CurrentHP += character.CurrentHP + characterAttacker.DamageHealed <= character.CurrentStats.HP
+                                ? characterAttacker.DamageHealed
+                                : character.CurrentStats.HP - character.CurrentHP;
+                        }
+
+                        characterDamageDealt += characterAttacker.DamageDealt;
+                        battleResults.AttackRollResults.Add(characterAttacker);
+                        _ = await GainWeaponExp(characterId, false);
+
+                        if (enemy.CurrentHP == 0)
+                        {
+                            battleResults.EnemyDamageTaken = characterDamageDealt;
+                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                            _ = await _charactersRepository.RemoveEnemy(enemyId);
+                            return battleResults;
+                        }
+                    }
+                    if (canOpponentCounter)
+                    {
+                        if (enemyAttackSpeedAdv)
+                        {
+                            enemyAttackCount *= 2;
+                        }
+                        for (int i = 0; i < enemyAttackCount; i++)
+                        {
+                            enemyAttacker = RollAttackRoll(enemyAttacker.Attacker, character, enemy, enemyHitChance, enemyDamage, enemyCritChance, battleResults.CharacterDamageNegation - character.DamageReceived);
+                            enemyAttacker.Id = maxId;
+                            maxId++;
+                            character.CurrentHP -= Math.Min(enemyAttacker.DamageDealt, character.CurrentHP);
+                            if (enemyAttacker.DamageHealed > 0)
+                            {
+                                enemy.CurrentHP += enemy.CurrentHP + enemyAttacker.DamageHealed <= enemy.CurrentStats.HP
+                                    ? enemyAttacker.DamageHealed
+                                    : enemy.CurrentStats.HP - enemy.CurrentHP;
+                            }
+                            enemyDamageDealt += enemyAttacker.DamageDealt;
+                            battleResults.AttackRollResults.Add(enemyAttacker);
+                            if (character.CurrentHP == 0)
+                            {
+                                battleResults.EnemyDamageTaken = characterDamageDealt;
+                                battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                character.IsInCombat = false;
+                                character.IsAttacking = false;
+                                character.IsWeaponTriangleAdvantage = false;
+                                character.IsWeaponTriangleDisadvantage = false;
+                                enemy.IsInCombat = false;
+                                enemy.IsAttacking = false;
+                                enemy.IsWeaponTriangleAdvantage = false;
+                                enemy.IsWeaponTriangleDisadvantage = false;
+                                _ = await _charactersRepository.UpdateCharacter(character);
+                                _ = await _charactersRepository.UpdateEnemy(enemy);
+                                _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                                return battleResults;
+                            }
+                        }
+                    }
+                    if (characterAttackSpeedAdv)
+                    {
+                        for (int i = 0; i < characterAttackSpeedAdvCount; i++)
+                        {
+                            characterAttacker = RollAttackRoll(characterAttacker.Attacker, character, enemy, charHitChance, charDamage, charCritChance, battleResults.EnemyDamageNegation - enemy.DamageReceived);
+                            characterAttacker.Id = maxId;
+                            maxId++;
+                            enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                            if (characterAttacker.AbilityCheck != null)
+                            {
+                                character.CurrentHP += character.CurrentHP + characterAttacker.DamageHealed <= character.CurrentStats.HP
+                                    ? characterAttacker.DamageHealed
+                                    : character.CurrentStats.HP - character.CurrentHP;
+                            }
+
+                            characterDamageDealt += characterAttacker.DamageDealt;
+                            battleResults.AttackRollResults.Add(characterAttacker);
+                            _ = await GainWeaponExp(characterId, false);
+                            if (enemy.CurrentHP == 0)
+                            {
+                                battleResults.EnemyDamageTaken = characterDamageDealt;
+                                battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                character.IsInCombat = false;
+                                character.IsAttacking = false;
+                                character.IsWeaponTriangleAdvantage = false;
+                                character.IsWeaponTriangleDisadvantage = false;
+                                _ = await _charactersRepository.UpdateCharacter(character);
+                                _ = await _charactersRepository.RemoveEnemy(enemyId);
+                                return battleResults;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    enemy.IsAttacking = true;
+                    character.IsAttacking = false;
+                    for (int i = 0; i < enemyAttackCount; i++)
+                    {
+                        enemyAttacker = RollAttackRoll(enemyAttacker.Attacker, character, enemy, enemyHitChance, enemyDamage, enemyCritChance, battleResults.CharacterDamageNegation - character.DamageReceived);
+                        enemyAttacker.Id = maxId;
+                        maxId++;
+                        character.CurrentHP -= Math.Min(enemyAttacker.DamageDealt, character.CurrentHP);
+                        if (enemyAttacker.DamageHealed > 0)
+                        {
+                            enemy.CurrentHP += enemy.CurrentHP + enemyAttacker.DamageHealed <= enemy.CurrentStats.HP
+                                ? enemyAttacker.DamageHealed
+                                : enemy.CurrentStats.HP - enemy.CurrentHP;
+                        }
+                        enemyDamageDealt += enemyAttacker.DamageDealt;
+                        battleResults.AttackRollResults.Add(enemyAttacker);
+                        if (character.CurrentHP == 0)
+                        {
+                            battleResults.EnemyDamageTaken = characterDamageDealt;
+                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                            character.IsInCombat = false;
+                            character.IsAttacking = false;
+                            character.IsWeaponTriangleAdvantage = false;
+                            character.IsWeaponTriangleDisadvantage = false;
+                            enemy.IsInCombat = false;
+                            enemy.IsAttacking = false;
+                            enemy.IsWeaponTriangleAdvantage = false;
+                            enemy.IsWeaponTriangleDisadvantage = false;
+                            _ = await _charactersRepository.UpdateCharacter(character);
+                            _ = await _charactersRepository.UpdateEnemy(enemy);
+                            _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                            return battleResults;
+                        }
+                    }
+                    if (canOpponentCounter)
+                    {
+                        if (characterAttackSpeedAdv)
+                        {
+                            characterAttackCount *= 2;
+                        }
+                        for (int i = 0; i < characterAttackCount; i++)
+                        {
+                            characterAttacker = RollAttackRoll(characterAttacker.Attacker, character, enemy, charHitChance, charDamage, charCritChance, battleResults.EnemyDamageNegation - enemy.DamageReceived);
+                            characterAttacker.Id = maxId;
+                            maxId++;
+                            enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                            if (characterAttacker.DamageHealed > 0)
+                            {
+                                character.CurrentHP += character.CurrentHP + characterAttacker.DamageHealed <= character.CurrentStats.HP
+                                    ? characterAttacker.DamageHealed
+                                    : character.CurrentStats.HP - character.CurrentHP;
+                            }
+
+                            characterDamageDealt += characterAttacker.DamageDealt;
+                            battleResults.AttackRollResults.Add(characterAttacker);
+                            _ = await GainWeaponExp(characterId, false);
+                            if (enemy.CurrentHP == 0)
+                            {
+                                battleResults.EnemyDamageTaken = characterDamageDealt;
+                                battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                character.IsInCombat = false;
+                                character.IsAttacking = false;
+                                character.IsWeaponTriangleAdvantage = false;
+                                character.IsWeaponTriangleDisadvantage = false;
+                                _ = await _charactersRepository.UpdateCharacter(character);
+                                _ = await _charactersRepository.RemoveEnemy(enemyId);
+                                return battleResults;
+                            }
+                        }
+                    }
+                    if (enemyAttackSpeedAdv)
+                    {
+                        for (int i = 0; i < enemyAttackSpeedAdvCount; i++)
+                        {
+                            enemyAttacker = RollAttackRoll(enemyAttacker.Attacker, character, enemy, enemyHitChance, enemyDamage, enemyCritChance, battleResults.CharacterDamageNegation - character.DamageReceived);
+                            enemyAttacker.Id = maxId;
+                            maxId++;
+                            character.CurrentHP -= Math.Min(enemyAttacker.DamageDealt, character.CurrentHP);
+                            if (enemyAttacker.DamageHealed > 0)
+                            {
+                                enemy.CurrentHP += enemy.CurrentHP + enemyAttacker.DamageHealed <= enemy.CurrentStats.HP
+                                    ? enemyAttacker.DamageHealed
+                                    : enemy.CurrentStats.HP - enemy.CurrentHP;
+                            }
+                            battleResults.AttackRollResults.Add(enemyAttacker);
+                            if (character.CurrentHP == 0)
+                            {
+                                battleResults.EnemyDamageTaken = characterDamageDealt;
+                                battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                character.IsInCombat = false;
+                                character.IsAttacking = false;
+                                character.IsWeaponTriangleAdvantage = false;
+                                character.IsWeaponTriangleDisadvantage = false;
+                                enemy.IsInCombat = false;
+                                enemy.IsAttacking = false;
+                                enemy.IsWeaponTriangleAdvantage = false;
+                                enemy.IsWeaponTriangleDisadvantage = false;
+                                _ = await _charactersRepository.UpdateCharacter(character);
+                                _ = await _charactersRepository.UpdateEnemy(enemy);
+                                _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                                return battleResults;
+                            }
+                        }
+                    }
+                }
+                character.IsInCombat = false;
+                character.IsAttacking = false;
+                character.IsWeaponTriangleAdvantage = false;
+                character.IsWeaponTriangleDisadvantage = false;
+                enemy.IsInCombat = false;
+                enemy.IsAttacking = false;
+                enemy.IsWeaponTriangleAdvantage = false;
+                enemy.IsWeaponTriangleDisadvantage = false;
+                _ = await _charactersRepository.UpdateCharacter(character);
+                _ = await _charactersRepository.UpdateEnemy(enemy);
+                battleResults.EnemyDamageTaken = characterDamageDealt;
+                battleResults.CharacterDamageTaken = enemyDamageDealt;
+                return battleResults;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private static AttackRoll RollAttackRoll(string attacker, Character character, Enemy enemy, int hitChance, int damage, int critChance, int damageNegation)
+        {
+            AttackRoll currentAttacker = new AttackRoll() { Attacker = attacker };
+            AbilityCheck abilityCheck = new AbilityCheck();
+            List<string> combatAbilities = [CombatTypeCode.Lethality, CombatTypeCode.Aether, CombatTypeCode.Astra, CombatTypeCode.DragonFang, CombatTypeCode.Sol, CombatTypeCode.Luna, CombatTypeCode.Ignis, CombatTypeCode.RendHeaven, CombatTypeCode.Vengeance];
+            List<string> equippedAbilities = attacker == CombatTypeCode.Character
+                ? character.EquippedAbilities
+                .Where(ability => combatAbilities.Contains(ability.Name))
+                .Select(ability => ability.Name)
+                .ToList()
+                : enemy.EquippedAbilities
+                .Where(ability => combatAbilities.Contains(ability.Name))
+                .Select(ability => ability.Name)
+                .ToList();
+            var randomNumber = 0;
+            
+            var hit = false;
+            var crit = false;
+            var lethality = false;
+            var aether = false;
+            var astra = false;
+            var dragonFang = false;
+            var sol = false;
+            var luna = false;
+            var ignis = false;
+            var rendHeaven = false;
+            var vengeance = false;
+            int lethalityChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl / 4 : enemy.CurrentStats.Skl / 4;
+            int aetherChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl / 2 : enemy.CurrentStats.Skl / 2;
+            int astraChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl / 2 : enemy.CurrentStats.Skl / 2;
+            int dragonFangChance = attacker == CombatTypeCode.Character ? (int)(character.CurrentStats.Skl * .75) : (int)(enemy.CurrentStats.Skl * .75);
+            int solChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl : enemy.CurrentStats.Skl; 
+            int lunaChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl : enemy.CurrentStats.Skl;
+            int ignisChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl : enemy.CurrentStats.Skl; 
+            int rendHeavenChance = attacker == CombatTypeCode.Character ? (int)(character.CurrentStats.Skl * 1.5) : (int)(enemy.CurrentStats.Skl * 1.5); 
+            int vengeanceChance = attacker == CombatTypeCode.Character ? character.CurrentStats.Skl * 2 : enemy.CurrentStats.Skl * 2;
+
+            randomNumber = _random.Next(0, 101);
+            hit = randomNumber < hitChance ? true : false;
+            currentAttacker.AttackRollResult = randomNumber;
+            currentAttacker.AttackHit = hit;
+            if (hit)
+            {
+                if (equippedAbilities.Contains(CombatTypeCode.Lethality))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    lethality = randomNumber < lethalityChance ? true : false;
+                    var lethalityRoll = randomNumber;
+                        if (lethality)
+                    {
+                        damage = enemy.CurrentHP;
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.Lethality, lethalityChance, lethalityRoll, lethality);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Aether) && !lethality)
+                {
+                    var damageDealt = damage;
+                    randomNumber = _random.Next(0, 101);
+                    aether = randomNumber < aetherChance ? true : false;
+                    var aetherRoll = randomNumber;
+                    if (aether)
+                    {
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                            damageDealt = damage;
+                        }
+                        currentAttacker.DamageDealt = damage;
+                        currentAttacker.DamageHealed = damage / 2;
+                        if (crit)
+                        {
+                            damage /= 3;
+                        }
+                        var aetherAttacks = new List<AttackRoll>();
+                        var aetherAttack = new AttackRoll();
+                        aetherAttack.Id = 1;
+                        randomNumber = _random.Next(0, 101);
+                        hit = randomNumber < hitChance ? true : false;
+                        aetherAttack.AttackRollResult = randomNumber;
+                        aetherAttack.AttackHit = hit;
+                        if (hit)
+                        {
+                            randomNumber = _random.Next(0, 101);
+                            crit = randomNumber < critChance ? true : false;
+                            aetherAttack.CritRollResult = randomNumber;
+                            aetherAttack.CritHit = crit;
+                            damage += damageNegation / 2;
+                            if (crit)
+                            {
+                                damage *= 3;
+                            }
+                            damageDealt += damage;
+                            aetherAttack.DamageDealt += damage;
+                        }
+                        aetherAttacks.Add(aetherAttack);
+                        abilityCheck.AddAbilityCheck(CombatTypeCode.Aether, aetherChance, aetherRoll, aether, currentAttacker.DamageHealed, aetherAttacks);
+                        currentAttacker.AbilityCheck = abilityCheck;
+                    }
+                    currentAttacker.DamageDealt = damageDealt;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Astra) && !(aether || lethality))
+                {
+                    var damageDealt = damage;
+                    randomNumber = _random.Next(0, 101);
+                    astra = randomNumber < astraChance ? true : false;
+                    var astraRoll = randomNumber;
+                    if (astra)
+                    {
+                        damage /= 2;
+                        damageDealt = damage;
+
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        int critDamage = crit ? damage * 3 : damage;
+                        damageDealt = critDamage;
+
+                        var astraAttacks = new List<AttackRoll>();
+                        var astraAttackTimes = 1;
+
+                        while (astraAttackTimes < 4)
+                        {
+                            var astraAttack = new AttackRoll();
+                            randomNumber = _random.Next(0, 101);
+                            hit = randomNumber < hitChance ? true : false;
+                            astraAttack.AttackRollResult = randomNumber;
+                            astraAttack.AttackHit = hit;
+                            if (hit)
+                            {
+                                randomNumber = _random.Next(0, 101);
+                                crit = randomNumber < critChance ? true : false;
+                                astraAttack.CritRollResult = randomNumber;
+                                astraAttack.CritHit = crit;
+                                int finalDamage = crit ? damage * 3 : damage;
+
+                                damageDealt += finalDamage;
+                                astraAttack.DamageDealt += finalDamage;
+                            }
+                            astraAttack.Id = astraAttackTimes;
+                            astraAttacks.Add(astraAttack);
+                            astraAttackTimes++;
+                        }
+                        abilityCheck.AddAbilityCheck(CombatTypeCode.Astra, astraChance, astraRoll, astra, 0, astraAttacks);
+                        currentAttacker.AbilityCheck = abilityCheck;
+                    }
+                    currentAttacker.DamageDealt = damageDealt;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.DragonFang) && !(lethality || aether || astra))
+                    {
+                    randomNumber = _random.Next(0, 101);
+                    dragonFang = randomNumber < dragonFangChance ? true : false;
+                    var dragonFangRoll = randomNumber;
+                    if (dragonFang)
+                    {
+                        var bonusDamage = character.CurrentStats.Str / 2;
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        damage += bonusDamage;
+                        if (crit)
+                        {
+                          damage *= 3;
+                        }
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.DragonFang, dragonFangChance, dragonFangRoll, dragonFang);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Sol) && !(lethality || aether || astra || dragonFang))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    sol = randomNumber < solChance ? true : false;
+                    var solRoll = randomNumber;
+                    if (sol)
+                    {
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                        }
+                        currentAttacker.DamageHealed = damage / 2;
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.Sol, solChance, solRoll, sol, currentAttacker.DamageHealed);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Luna) && !(lethality || aether || astra || dragonFang || sol))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    luna = randomNumber < lunaChance ? true : false;
+                    var lunaRoll = randomNumber;
+                    if (luna)
+                    {
+                        damage += damageNegation / 2;
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                        }
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.Luna, lunaChance, lunaRoll, luna);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Ignis) && !(lethality || aether || astra || dragonFang || sol || luna))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    ignis = randomNumber < ignisChance ? true : false;
+                    var ignisRoll = randomNumber;
+                    if (ignis)
+                    {
+                        if (character.EquippedWeapon.IsMagical)
+                        {
+                            damage += character.CurrentStats.Str / 2;
+                        }
+                        else
+                        {
+                            damage += character.CurrentStats.Mag / 2;
+                        }
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                        }
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.Ignis, ignisChance, ignisRoll, ignis);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.RendHeaven) && !(lethality || aether || astra || dragonFang || sol || luna || ignis))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    rendHeaven = randomNumber < rendHeavenChance ? true : false;
+                    var rendHeavenRoll = randomNumber;
+                    if (rendHeaven)
+                    {
+                        if (character.EquippedWeapon.IsMagical)
+                        {
+                            damage += enemy.CurrentStats.Mag / 2;
+                        }
+                        else
+                        {
+                            damage += enemy.CurrentStats.Str / 2;
+                        }
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                        }
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.RendHeaven, rendHeavenChance, rendHeavenRoll, rendHeaven);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (equippedAbilities.Contains(CombatTypeCode.Vengeance) && !(lethality || aether || astra || dragonFang || sol || luna || ignis || rendHeaven))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    vengeance = randomNumber < vengeanceChance ? true : false;
+                    var vengeanceRoll = randomNumber;
+                    if (vengeance)
+                    {
+                        var bonusDamage = character.CurrentStats.HP - character.CurrentHP;
+                        if (bonusDamage > 0)
+                        {
+                            damage += bonusDamage;
+                        }
+                        randomNumber = _random.Next(0, 101);
+                        crit = randomNumber < critChance ? true : false;
+                        currentAttacker.CritRollResult = randomNumber;
+                        currentAttacker.CritHit = crit;
+                        if (crit)
+                        {
+                            damage *= 3;
+                        }
+                    }
+                    currentAttacker.DamageDealt = damage;
+                    abilityCheck.AddAbilityCheck(CombatTypeCode.Vengeance, vengeanceChance, vengeanceRoll, vengeance);
+                    currentAttacker.AbilityCheck = abilityCheck;
+                }
+                if (!(lethality || aether || astra || dragonFang || sol || luna || ignis || rendHeaven || vengeance))
+                {
+                    randomNumber = _random.Next(0, 101);
+                    crit = randomNumber < critChance ? true : false;
+                    currentAttacker.CritRollResult = randomNumber;
+                    currentAttacker.CritHit = crit;
+                    if (crit)
+                    {
+                        damage *= 3;
+                    }
+                    currentAttacker.DamageDealt = damage;
+                }
+            }
+            if (currentAttacker.DamageDealt < 0)
+            {
+                currentAttacker.DamageDealt = 0;
+            }
+            return currentAttacker;
         }
     }
 }

@@ -11,9 +11,10 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         private readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/character.txt");
         private readonly string _convoyFilePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/convoy.txt");
         private readonly string _supportFilePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/support.txt");
+        private readonly string _enemyFilePath = Path.Combine(Directory.GetCurrentDirectory(), "DataStore/enemy.txt");
         private readonly IEquipmentRepository _equipmentRepository;
-        public CharactersRepository(IEquipmentRepository equipmentRepository) 
-        { 
+        public CharactersRepository(IEquipmentRepository equipmentRepository)
+        {
             _equipmentRepository = equipmentRepository;
         }
 
@@ -85,11 +86,26 @@ namespace Fire_Emblem.API.Business.Repository.Characters
             }
         }
 
-        public async Task<bool> RemoveCharacterById(int id)
+        public async Task<bool> RemoveCharacterById(int id, bool shouldDeleteConvoy)
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<Character>(id, _filePath);
+                var character = await GetCharacter(id);
+                var result = FileHelper.DeleteFromFile<Character>(id.ToString(), _filePath);
+                if (result)
+                {
+                    if (shouldDeleteConvoy)
+                    {
+                        result = FileHelper.DeleteFromFile<Convoy>(character.ConvoyId, _convoyFilePath);
+                    } 
+                    if (character.Supports != null)
+                    {
+                        foreach (var support in character.Supports)
+                        {
+                            result = FileHelper.DeleteFromFile<Support>(support.Id, _supportFilePath);
+                        }
+                    }
+                }
                 return result;
             }
             catch (Exception)
@@ -226,7 +242,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
             try
             {
                 var supports = await GetAllSupports();
-                var support = supports.Find(support => support.SupportId == id);
+                var support = supports.Find(support => support.Id == id);
                 if (support != null)
                 {
                     return support;
@@ -246,7 +262,88 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.UpdateFile(support, support.SupportId, _supportFilePath);
+                var result = FileHelper.UpdateFile(support, support.Id, _supportFilePath);
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<Enemy> AddNewEnemy(Enemy enemy)
+        {
+            try
+            {
+                if (enemy == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    FileHelper.WriteToFile(enemy, _enemyFilePath);
+                    return enemy;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Enemy>> GetAllEnemies()
+        {
+            try
+            {
+                var enemyFile = FileHelper.ReadFromFile<Enemy>(_enemyFilePath);
+                var enemies = JsonSerializer.Deserialize<List<Enemy>>(enemyFile);
+                return enemies;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Enemy> GetEnemyById(int id)
+        {
+            try
+            {
+                var enemies = await GetAllEnemies();
+                var enemy = enemies.Find(enemy => enemy.Id == id);
+                if (enemy != null)
+                {
+                    return enemy;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> UpdateEnemy(Enemy enemy)
+        {
+            try
+            {
+                var result = FileHelper.UpdateFile(enemy, enemy.Id.ToString(), _enemyFilePath);
+                return result;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> RemoveEnemy(int enemyId)
+        {
+            try
+            {
+                var result = FileHelper.DeleteFromFile<Enemy>(enemyId.ToString(), _enemyFilePath); 
                 return result;
             }
             catch (Exception)

@@ -14,6 +14,14 @@ namespace Fire_Emblem.Common.TypeCodes
         Mounted = 2,
         Flying = 3,
         Beast = 4,
-        Dragon = 5
+        Dragon = 5,
+        Monster = 6,
+        SwordWielder = 7,
+        AxeWielder = 8,
+        LanceWielder = 9,
+        TomeWielder = 10,
+        Mechanists = 11,
+        Puppets = 12,
+        Golems = 13
     }
 }

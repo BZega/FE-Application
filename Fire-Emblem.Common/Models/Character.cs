@@ -20,6 +20,7 @@ namespace Fire_Emblem.Common.Models
         public GrowthRate TotalGrowthRate => GetTotalGrowthRate();
         public List<Ability> EquippedAbilities { get; set; }
         public UnitClass CurrentClass { get; set; }
+        public int CurrentHP { get; set; } = 0;
         public int Exp { get; set; } = 0;
         public int Level { get; set; } = 1;
         public int InternalLevel { get; set; } = 1;
@@ -27,6 +28,8 @@ namespace Fire_Emblem.Common.Models
         public bool IsAttacking { get; set; } = false; 
         public bool IsWeaponTriangleAdvantage { get; set; } = false;
         public bool IsWeaponTriangleDisadvantage { get; set; } = false;
+        public bool DealsEffectiveDamage => CheckForEffectiveDamage();
+        public List<UnitType> EffectiveDamageUnitTypes => CheckEffectiveType(); 
         public int Gold { get; set; } = 1000;
         public int Attack => GetAttack();
         public int Heal => GetHeal();
@@ -34,6 +37,8 @@ namespace Fire_Emblem.Common.Models
         public int Crit => GetCrit();
         public int Avoid => GetAvoid();
         public int Dodge => GetDodge();
+        public int DamageReceived => GetDamageReceived();
+        public int AttackSpeed => GetAttackSpeed();
         public int DualStrike => GetDualStrikeRate();
         public int DualGuard { get; set; } = 0;
         public string StartingClass { get; set; }
@@ -402,35 +407,35 @@ namespace Fire_Emblem.Common.Models
                 if (supportPoints > 0 && supportPoints < 5)
                 {
                     attack += 10;
-                } 
+                }
                 else if (supportPoints > 4 && supportPoints < 9)
                 {
                     attack += 15;
-                } 
+                }
                 else if (supportPoints > 8)
                 {
                     attack += 20;
                 }
-                if (IsWeaponTriangleAdvantage)
+            }
+            if (IsWeaponTriangleAdvantage)
+            {
+                var weapon = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon?.WeaponType);
+                if (weapon != null)
                 {
-                    var weapon = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon?.WeaponType);
-                    if (weapon != null)
+                    switch (weapon.WeaponRank)
                     {
-                        switch (weapon.WeaponRank)
-                        {
-                            case Rank.E:
-                            case Rank.D: 
-                                attack += 5; 
-                                break;
-                            case Rank.C:
-                            case Rank.B:
-                                attack += 10;
-                                break;
-                            case Rank.A:
-                            case Rank.S:
-                                attack += 15;
-                                break;
-                        }
+                        case Rank.E:
+                        case Rank.D: 
+                            attack += 5; 
+                            break;
+                        case Rank.C:
+                        case Rank.B:
+                            attack += 10;
+                            break;
+                        case Rank.A:
+                        case Rank.S:
+                            attack += 15;
+                            break;
                     }
                 }
             }
@@ -515,11 +520,9 @@ namespace Fire_Emblem.Common.Models
                     switch (weapon.WeaponRank)
                     {
                         case Rank.B:
-                            damage += 1;
-                            break;
                         case Rank.A:
                         case Rank.S:
-                            damage += 2;
+                            damage += 1;
                             break;
                     }
                 }
@@ -859,6 +862,133 @@ namespace Fire_Emblem.Common.Models
                 }
             }
             return dualGuard;
+        }
+        public int GetDamageReceived()
+        {
+            var damageReceived = 0;
+            if (EquippedAbilities != null)
+            {
+                foreach (var ability in EquippedAbilities)
+                {
+                    if (ability.StatBonus != null && ability.StatBonus.Attributes != null && ability.StatBonus.Attributes.AttackSpeed != 0)
+                    {
+                        damageReceived += ability.StatBonus.Attributes.AttackSpeed;
+                    }
+                }
+            }
+            if (EquippedWeapon.StatBonus != null && EquippedWeapon.StatBonus.Attributes != null && EquippedWeapon.StatBonus.Attributes.AttackSpeed != 0)
+            {
+                damageReceived += EquippedWeapon.StatBonus.Attributes.AttackSpeed;
+            }
+            return damageReceived;
+        }
+
+        public int GetAttackSpeed()
+        {
+            var attackSpeed = 0;
+            if (EquippedAbilities != null)
+            {
+                foreach (var ability in EquippedAbilities)
+                {
+                    if (ability.StatBonus != null && ability.StatBonus.Attributes != null && ability.StatBonus.Attributes.AttackSpeed != 0)
+                    {
+                        attackSpeed += ability.StatBonus.Attributes.AttackSpeed; 
+                    }
+                }
+            }
+            if (EquippedWeapon.StatBonus != null && EquippedWeapon.StatBonus.Attributes != null && EquippedWeapon.StatBonus.Attributes.AttackSpeed != 0)
+            {
+                attackSpeed += EquippedWeapon.StatBonus.Attributes.AttackSpeed;
+            }
+            return attackSpeed;
+        }
+
+        public StatBonus GetHitWeaponTriangleDisadvantage(Rank advantageWeaponRank)
+        {
+            var attribute = new StatBonus() { Attributes = new Attributes() };
+            var hit = 0;
+            var damage = 0;
+            switch (advantageWeaponRank)
+            {
+                case Rank.E:
+                case Rank.D:
+                    hit += 5;
+                    break;
+                case Rank.C:
+                case Rank.B:
+                    hit += 10;
+                    break;
+                case Rank.A:
+                case Rank.S:
+                    hit += 15;
+                    break;
+            }
+            switch (advantageWeaponRank)
+            {
+                case Rank.B:
+                case Rank.A:
+                case Rank.S:
+                    damage -= 1;
+                    break;
+            }
+            attribute.Attributes.Hit = hit;
+            attribute.Attributes.Damage = damage;
+            return attribute;
+        }
+
+        public bool CheckForEffectiveDamage()
+        {
+            var effective = false;
+            if (EquippedAbilities != null && EquippedAbilities.Count > 0)
+            {
+                foreach (var ability in EquippedAbilities)
+                {
+                    if (ability.Name == "Beastbane" || ability.Name == "Wyrmsbane" || ability.Name == "Golembane")
+                    {
+                        effective = true;
+                    }
+                }
+            }
+            if (EquippedWeapon.DoesEffectiveDamage)
+            {
+                effective = true;
+            }
+            return effective;
+        }
+
+        public List<UnitType> CheckEffectiveType()
+        {
+            var units = new HashSet<UnitType>();
+            if (EquippedAbilities != null && EquippedAbilities.Count > 0)
+            {
+                foreach (var ability in EquippedAbilities)
+                {
+                    switch (ability.Name)
+                    {
+                        case "Beastbane":
+                            units.Add(UnitType.Beast);
+                            break;
+
+                        case "Wyrmsbane":
+                            units.Add(UnitType.Dragon);
+                            break;
+
+                        case "Golembane":
+                            units.Add(UnitType.Mechanists);
+                            units.Add(UnitType.Puppets);
+                            units.Add(UnitType.Golems);
+                            break;
+                    }
+                }
+            }
+            if (EquippedWeapon != null && EquippedWeapon.DoesEffectiveDamage && EquippedWeapon.EffectiveUnitTypes.Any())
+            {
+                foreach (var unitType in EquippedWeapon.EffectiveUnitTypes)
+                {
+                    units.Add(unitType);
+                }
+            }
+            return units.ToList();
         }
     }
 

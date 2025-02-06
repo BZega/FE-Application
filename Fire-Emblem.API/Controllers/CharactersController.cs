@@ -15,10 +15,12 @@ namespace Fire_Emblem.API.Controllers
     public class CharactersController : ControllerBase
     {
         private readonly ICharactersContext _charactersContext;
+        private readonly ILogger<CharactersController> _logger;
 
-        public CharactersController(ICharactersContext charactersContext)
+        public CharactersController(ICharactersContext charactersContext, ILogger<CharactersController> logger)
         {
             _charactersContext = charactersContext;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -27,7 +29,9 @@ namespace Fire_Emblem.API.Controllers
         {
             try
             {
+                _logger.LogInformation("Attempting to get all characters");
                 List<Character> result = await _charactersContext.GetAllCharacters();
+                _logger.LogInformation($"{result.Count} characters");
                 return Ok(result);
             }
             catch (Exception ex)
@@ -53,11 +57,11 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("remove-character/{id}")]
-        public async Task<ActionResult<bool>> RemoveCharacterById(int id)
+        public async Task<ActionResult<bool>> RemoveCharacterById(int id, bool shouldDeleteConvoy)
         {
             try
             {
-                var result = await _charactersContext.RemoveCharacterById(id);
+                var result = await _charactersContext.RemoveCharacterById(id, shouldDeleteConvoy);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -270,12 +274,87 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpGet]
-        [Route("get-total-level-up{characterId}")]
+        [Route("get-total-level-up/{characterId}")]
         public async Task<ActionResult<Stats>> GetTotalLevelUpStats(int characterId)
         {
             try
             {
                 var result = await _charactersContext.GetTotalLevelUpStats(characterId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("change-condition/{characterId}")]
+        public async Task<ActionResult<bool>> ChangeCondition(int characterId, int trackerChange)
+        {
+            try
+            {
+                var result = await _charactersContext.ChangeCondition(characterId, trackerChange);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("revive-fallen-character")]
+        public async Task<ActionResult<bool>> ReviveFallenCharacter(int characterId)
+        {
+            try
+            {
+                var result = await _charactersContext.ReviveFallenCharacter(characterId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("gain-weapon-exp/{characterId}")]
+        public async Task<ActionResult<bool>> GainWeaponExp(int characterId, bool isDoubleAttack)
+        {
+            try
+            {
+                var result = await _charactersContext.GainWeaponExp(characterId, isDoubleAttack);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("create-enemy")]
+        public async Task<ActionResult<Enemy>> CreateEnemy(EnemyDto enemy)
+        {
+            try
+            {
+                var result = await _charactersContext.CreateNewEnemy(enemy);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("auto-battle/{characterId}/{enemyId}")]
+        public async Task<ActionResult<BattleResultDto>> AutomaticBattleOpponent(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
+        {
+            try
+            {
+                var result = await _charactersContext.AutomaticBattleOpponent(characterId, enemyId, canOpponentCounter, isCharacterAttacking, gainExp);
                 return Ok(result);
             }
             catch (Exception ex)

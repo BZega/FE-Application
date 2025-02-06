@@ -1,0 +1,104 @@
+[
+  {
+    "SupportId": "b6cdbf2f-82a0-4a6f-80d4-e23e2023a930",
+    "Name": "Isolde",
+    "Gender": "Female",
+    "Level": 2,
+    "InternalLevel": 2,
+    "CurrentClassType": 33,
+    "CurrentClassBaseStats": {
+      "HP": 18,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 1,
+      "Spd": 1,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 2,
+      "Mov": 6
+    },
+    "CurrentClassMaxStats": {
+      "HP": 80,
+      "Str": 35,
+      "Mag": 40,
+      "Skl": 35,
+      "Spd": 35,
+      "Lck": 45,
+      "Def": 40,
+      "Res": 40,
+      "Mov": 8
+    },
+    "EquippedWeapon": {
+      "Id": 148,
+      "EquipOid": null,
+      "Name": "Dragonstone (manakete)",
+      "Rank": 1,
+      "WeaponType": 5,
+      "IsMagical": true,
+      "Might": 8,
+      "Hit": 80,
+      "Crit": 0,
+      "Range": "1-2",
+      "Uses": "Inf.",
+      "Worth": "2000",
+      "WeaponExp": 2,
+      "BaseHP": null,
+      "Experience": null,
+      "IsEquipped": false,
+      "Description": "+5 Strength, +8 Magic, +3 Skill, +2 Speed, +10 Defense and +7 Resistance when equipped.",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": {
+          "HP": 0,
+          "Str": 5,
+          "Mag": 8,
+          "Skl": 3,
+          "Spd": 2,
+          "Lck": 0,
+          "Def": 10,
+          "Res": 7,
+          "Mov": 0
+        }
+      }
+    },
+    "StartingClass": "Manakete",
+    "IsPairedUp": false,
+    "IsClose": false,
+    "LevelUpStats": {
+      "HP": 1,
+      "Str": 0,
+      "Mag": 1,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 1,
+      "Def": 1,
+      "Res": 0,
+      "Mov": 0
+    },
+    "CurrentStats": {
+      "HP": 19,
+      "Str": 5,
+      "Mag": 11,
+      "Skl": 4,
+      "Spd": 3,
+      "Lck": 1,
+      "Def": 13,
+      "Res": 9,
+      "Mov": 6
+    },
+    "PairedUpBonus": {
+      "HP": 0,
+      "Str": 2,
+      "Mag": 3,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 3,
+      "Res": 2,
+      "Mov": 0
+    },
+    "SupportRank": 6,
+    "SupportPoints": 9
+  }
+]
