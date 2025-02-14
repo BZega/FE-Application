@@ -1,0 +1,94 @@
+﻿# DOTNET Projects
+
+# Packages
+*.nupkg
+nupkg/
+
+# Sonarqube
+.sonarqube/
+.scannerwork/
+
+# Resharper
+_ReSharper.*
+*.resharper
+*.resharper.user
+
+# Visual Studio
+.vscode
+/.vs
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Node Projects
+
+# compiled output
+/dist
+/dist-server
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+/.vs/slnx.sqlite
+/UpgradeLog2.htm
+
+TMS.LocationProfile.Api.Tests/coverage.opencover.xml
+TMS.Common.DataAccess.Tests/TMS.Common.DataAccess.Tests/coverage.opencover.xml
+Tms.Common.Tests/coverage.opencover.xml
+TMS.MessageTransportLibrary.Tests/coverage.opencover.xml
+/TMS.CarrierContacts.Api.Tests/coverage.opencover.xml
+/UpgradeLog.htm
+TMS.GCP.Consumer/Authorization/*.json
