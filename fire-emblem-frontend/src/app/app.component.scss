@@ -1,0 +1,17 @@
+.theme-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--card-bg);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  select {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid var(--input-border);
+  }

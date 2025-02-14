@@ -1,0 +1,30 @@
+.page-navigation-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    // padding-bottom: 30px;
+    // margin-bottom: 80px;
+}
+
+.nav-list {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    padding-top: 20px;
+    background: #282829;
+    margin-top: 0px;
+}
+
+.nav-list-item {
+    margin: 0 1em;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list-item.active {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}

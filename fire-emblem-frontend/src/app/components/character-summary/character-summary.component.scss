@@ -1,0 +1,109 @@
+.character-summary-container {
+    margin: 0px 1px;
+    min-height: 92px;
+    box-sizing: border-box;
+    display: flex;
+    border: 3px #979797 solid !important;
+    border-bottom: 1px #ccc solid !important;
+    padding: 4px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .character-link-wrapper {
+    display: flex;
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+  
+  .character-summary-wrapper {
+    margin: 0 10px;
+    width: 255px;
+    min-width: 255px;
+    min-height: 70px;
+    height: 70px;
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    margin-top: -5px;
+  }
+  
+  .character-selected {
+    border: 3px #979797 solid !important;
+    border-bottom: 1px var(--text-color) solid !important;
+
+  }
+  
+  .detail-row-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1 auto;
+  }
+  
+  .detail-wrapper {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 13px;
+    flex: 1 25%;
+    max-width: 49%;
+  }
+  
+  .detail-grid {
+    display: grid;
+    font-size: 13px;
+    grid-template-columns: 130px 150px 20px 70px 70px;
+    grid-template-rows: repeat(3, 23px);
+  
+    .detail-item-a {
+      grid-column-start: 1;
+    }
+  
+    .detail-item-b {
+      grid-column-start: 2;
+    }
+  
+    .detail-item-d {
+      grid-column-start: 4;
+    }
+  
+    .detail-item-e {
+      grid-column-start: 5;
+    }
+  
+    .detail-item-1 {
+      grid-row-start: 1;
+      line-height: 23px;
+    }
+  
+    .detail-item-2 {
+      grid-row-start: 2;
+      line-height: 23px;
+    }
+  
+    .detail-item-3 {
+      grid-row-start: 3;
+      line-height: 23px;
+    }
+  
+    .detail-item-4 {
+      grid-row-start: 4;
+      line-height: 23px;
+    }
+  }
+  
+  .detail-text {
+    white-space: nowrap;
+  }
+  
+  .detail-text:hover {
+    white-space: pre-wrap;
+    overflow: visible;
+  }

@@ -1,0 +1,4089 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fire-Emblem.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Abilities/get-all-abilities": {
+      "get": {
+        "tags": [
+          "Abilities"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ability"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ability"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ability"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Abilities/get-ability-by-id/{id}": {
+      "get": {
+        "tags": [
+          "Abilities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Abilities/get-ability-by-name/{name}": {
+      "get": {
+        "tags": [
+          "Abilities"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ability"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Abilities/add-new-ability/{name}": {
+      "post": {
+        "tags": [
+          "Abilities"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "levelAcquired",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/AbilityType"
+            }
+          },
+          {
+            "name": "combatCheck",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Abilities/remove-ability/{id}": {
+      "post": {
+        "tags": [
+          "Abilities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-all-characters": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-character/{id}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/remove-character/{id}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "shouldDeleteConvoy",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-all-convoys": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Convoy"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Convoy"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Convoy"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-convoy/{id}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Convoy"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Convoy"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Convoy"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/add-new-character/{name}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "humanStat1",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/StatType"
+            }
+          },
+          {
+            "name": "humanStat2",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/StatType"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCharacterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCharacterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCharacterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanStringTuple"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanStringTuple"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanStringTuple"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/level-up-character/{characterId}/{manual}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "manual",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Characters/modify-character-equipment/{characterId}/{updateType}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "updateType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UpdateType"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/LocationType"
+            }
+          },
+          {
+            "name": "equipOid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "equipId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "sellPrice",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "unitChoice",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/switch-terrain": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/TerrainType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/acquire-ability/{abilityId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "abilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "equip",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/update-equipped-abilities/{abilityOid}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "updateType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/UpdateType"
+            }
+          },
+          {
+            "name": "abilityOid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/create-support-character/{characterId}/{name}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupportCharacterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupportCharacterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupportCharacterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-all-supports": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Support"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Support"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Support"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-support/{id}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Support"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Support"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Support"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/update-support-character{characterId}/{supportId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "supportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supportPoints",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "currentClass",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ClassType"
+            }
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "internalLevel",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "equippedWeapon",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stats"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/toggle-paired-and-close-status/{characterId}/{supportId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "supportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isPaired",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isClose",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-total-level-up/{characterId}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stats"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stats"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stats"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/change-condition/{characterId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "trackerChange",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/revive-fallen-character": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/gain-weapon-exp/{characterId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "isDoubleAttack",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/create-enemy": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnemyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnemyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnemyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-all-enemies": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enemy"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enemy"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enemy"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/get-enemy/{enemyId}": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "enemyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enemy"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Characters/auto-battle/{characterId}/{enemyId}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "enemyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "canOpponentCounter",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isCharacterAttacking",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "gainExp",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BattleResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BattleResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BattleResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/get-all-equipment": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Equipment"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Equipment"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Equipment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/get-equipment-by-id/{id}": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/get-equipment-by-name/{name}": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/add-new-weapon": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeaponDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeaponDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeaponDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/add-new-staff": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/add-new-item": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Equipment/remove-Equipment/{id}": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PersonalAbilities/get-all-personal-abilities": {
+      "get": {
+        "tags": [
+          "PersonalAbilities"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonalAbility"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonalAbility"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonalAbility"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PersonalAbilities/get-personal-ability-by-id/{id}": {
+      "get": {
+        "tags": [
+          "PersonalAbilities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PersonalAbilities/get-personal-ability-by-name/{name}": {
+      "get": {
+        "tags": [
+          "PersonalAbilities"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAbility"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PersonalAbilities/add-new-personal-ability/{name}": {
+      "post": {
+        "tags": [
+          "PersonalAbilities"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatBonus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PersonalAbilities/remove-personal-ability/{id}": {
+      "post": {
+        "tags": [
+          "PersonalAbilities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/get-all-unit-classes": {
+      "get": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UnitClass"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UnitClass"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UnitClass"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/get-class-by-id/{id}": {
+      "get": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/get-class-by-name/{name}": {
+      "get": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitClass"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/add-new-class": {
+      "post": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitClassDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitClassDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitClassDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/update-class-skills": {
+      "post": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "parameters": [
+          {
+            "name": "classId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SkillType"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SkillType"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SkillType"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UnitClasses/remove-class/{id}": {
+      "post": {
+        "tags": [
+          "UnitClasses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Ability": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "abilityOid": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "levelGained": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "abilityType": {
+            "$ref": "#/components/schemas/AbilityType"
+          },
+          "needsToInitiateCombat": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AbilityCheck": {
+        "type": "object",
+        "properties": {
+          "abilityData": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AbilityType": {
+        "enum": [
+          "Passive",
+          "Command",
+          "Combat"
+        ],
+        "type": "string"
+      },
+      "Asset": {
+        "type": "object",
+        "properties": {
+          "assetChoice": {
+            "$ref": "#/components/schemas/StatType"
+          },
+          "baseStatBonus": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "maxStatBonus": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttackRoll": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attacker": {
+            "type": "string",
+            "nullable": true
+          },
+          "attackRollResult": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attackHit": {
+            "type": "boolean"
+          },
+          "critRollResult": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "critHit": {
+            "type": "boolean"
+          },
+          "damageDealt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "damageHealed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "abilityCheck": {
+            "$ref": "#/components/schemas/AbilityCheck"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Attributes": {
+        "type": "object",
+        "properties": {
+          "hit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "avoid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dodge": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "heal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "damage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "damageReceived": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attackSpeed": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BattleResultDto": {
+        "type": "object",
+        "properties": {
+          "characterHitCHance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterDamageOutput": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterCritChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterAttackSpeed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyHitChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyDamageOutput": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyCritChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyAttackSpeed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterBaseHitChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyAvoid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterBaseDamage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyDamageNegation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterBaseCritChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyDodge": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterBaseeAttackSpeed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyBaseHitChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterAvoid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyBaseCritChance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterDodge": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyBaseDamage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "characterDamageNegation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyBaseAttackSpeed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isCharacterWeaponTriangleAdvantage": {
+            "type": "boolean"
+          },
+          "isEnemyWeaponTriangleAdvantage": {
+            "type": "boolean"
+          },
+          "characterDamageTaken": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enemyDamageTaken": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attackRollResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttackRoll"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Biography": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "background": {
+            "type": "string",
+            "nullable": true
+          },
+          "isNoble": {
+            "type": "boolean"
+          },
+          "raceChoice": {
+            "$ref": "#/components/schemas/Race"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BooleanStringTuple": {
+        "type": "object",
+        "properties": {
+          "item1": {
+            "type": "boolean"
+          },
+          "item2": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "biography": {
+            "$ref": "#/components/schemas/Biography"
+          },
+          "currentHP": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "personalAbility": {
+            "$ref": "#/components/schemas/PersonalAbility"
+          },
+          "currentStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "totalGrowthRate": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "equippedWeapon": {
+            "$ref": "#/components/schemas/Equipment"
+          },
+          "equippedAbilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "currentClass": {
+            "$ref": "#/components/schemas/UnitClass"
+          },
+          "exp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "gold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attack": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "heal": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "damage": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "avoid": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dodge": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "damageReceived": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "attackSpeed": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dualStrike": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dualGuard": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startingClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "heartSealClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "internalLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isInCombat": {
+            "type": "boolean"
+          },
+          "isAttacking": {
+            "type": "boolean"
+          },
+          "isWeaponTriangleAdvantage": {
+            "type": "boolean"
+          },
+          "isWeaponTriangleDisadvantage": {
+            "type": "boolean"
+          },
+          "dealsEffectiveDamage": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "effectiveDamageUnitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "asset": {
+            "$ref": "#/components/schemas/Asset"
+          },
+          "flaw": {
+            "$ref": "#/components/schemas/Flaw"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/Condition"
+          },
+          "terrain": {
+            "$ref": "#/components/schemas/Terrain"
+          },
+          "inventory": {
+            "$ref": "#/components/schemas/Inventory"
+          },
+          "baseStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "statChangeAmount": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "maxStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "personalGrowthRate": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "reclassOptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "weaponRanks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Weapon"
+            },
+            "nullable": true
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Support"
+            },
+            "nullable": true
+          },
+          "acquiredAbilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Skill"
+            },
+            "nullable": true
+          },
+          "levelupStatIncreases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LevelUp"
+            },
+            "nullable": true
+          },
+          "convoyId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClassType": {
+        "enum": [
+          "Apothecary",
+          "Archer",
+          "Assassin",
+          "Ballistician",
+          "Basara",
+          "Berserker",
+          "Blacksmith",
+          "BowKnight",
+          "Cavalier",
+          "Cleric",
+          "DarkFlier",
+          "DarkKnight",
+          "DarkMage",
+          "DawnNoble",
+          "DreadFighter",
+          "DuskNoble",
+          "FalconKnight",
+          "Fighter",
+          "General",
+          "Grandmaster",
+          "GreatKnight",
+          "GreatLord",
+          "GreatMaster",
+          "GriffonRider",
+          "Hero",
+          "KinshiKnight",
+          "Kitsune",
+          "Knight",
+          "Lodestar",
+          "Lord",
+          "Mage",
+          "Maid",
+          "MaligKnight",
+          "Manakete",
+          "ManaketeHeir",
+          "MasterNinja",
+          "MasterOfArms",
+          "Mechanist",
+          "Mercenary",
+          "Merchant",
+          "Myrmidon",
+          "NineTails",
+          "Ninja",
+          "OniChieftain",
+          "OniSavage",
+          "Paladin",
+          "PegasusKnight",
+          "Performer",
+          "Sage",
+          "Sniper",
+          "Sorcerer",
+          "SpearFighter",
+          "SpearMaster",
+          "Strategist",
+          "Swordmaster",
+          "Tactician",
+          "Taguel",
+          "Thief",
+          "Trickster",
+          "Troubadour",
+          "Vanguard",
+          "Villager",
+          "WarCleric",
+          "Warrior",
+          "Witch",
+          "Wolfskin",
+          "Wolfssegner",
+          "WyvernLord",
+          "WyvernRider",
+          "SwordLord",
+          "AxeLord",
+          "LanceLord",
+          "GreatSwordLordwithLance",
+          "GreatSwordLordwithAxe",
+          "GreatAxeLordwithSword",
+          "GreatAxeLordwithLance",
+          "GreatLanceLordwithSword",
+          "GreatLanceLordwithAxe",
+          "SwordThief",
+          "BowThief",
+          "SwordAssassin",
+          "BowAssassin",
+          "SwordTrickster",
+          "BowTrickster",
+          "SwordPerformer",
+          "LancePerformer",
+          "TomeDreadFighter",
+          "ShurikenDreadFighter",
+          "None"
+        ],
+        "type": "string"
+      },
+      "ClassWeapon": {
+        "type": "object",
+        "properties": {
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "minRank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "maxRank": {
+            "$ref": "#/components/schemas/Rank"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Condition": {
+        "type": "object",
+        "properties": {
+          "currentCondition": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "statChange": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConditionType": {
+        "enum": [
+          "Normal",
+          "Serious",
+          "Critical",
+          "DEAD"
+        ],
+        "type": "string"
+      },
+      "Convoy": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "convoyItems": {
+            "$ref": "#/components/schemas/Inventory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DifficultyType": {
+        "enum": [
+          "Normal",
+          "Elite",
+          "Boss",
+          "Lunatic"
+        ],
+        "type": "string"
+      },
+      "Enemy": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "internalLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentHP": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "difficultySetting": {
+            "$ref": "#/components/schemas/DifficultyType"
+          },
+          "manualStatGrowth": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "currentStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "equippedWeapon": {
+            "$ref": "#/components/schemas/Equipment"
+          },
+          "currentClass": {
+            "$ref": "#/components/schemas/UnitClass"
+          },
+          "weaponRank": {
+            "$ref": "#/components/schemas/Weapon"
+          },
+          "equippedAbilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "terrain": {
+            "$ref": "#/components/schemas/Terrain"
+          },
+          "unitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true
+          },
+          "isAttacking": {
+            "type": "boolean"
+          },
+          "isInCombat": {
+            "type": "boolean"
+          },
+          "isWeaponTriangleAdvantage": {
+            "type": "boolean"
+          },
+          "isWeaponTriangleDisadvantage": {
+            "type": "boolean"
+          },
+          "dealsEffectiveDamage": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "effectiveDamageUnitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "attack": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "damage": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "avoid": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dodge": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "attackSpeed": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "damageReceived": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnemyDto": {
+        "type": "object",
+        "properties": {
+          "currentClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "equippedWeapon": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "internalLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manualStatGrowth": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "difficulty": {
+            "$ref": "#/components/schemas/DifficultyType"
+          },
+          "race": {
+            "$ref": "#/components/schemas/RacialType"
+          },
+          "equippedAbilites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Equipment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "equipOid": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "isMagical": {
+            "type": "boolean"
+          },
+          "isBrave": {
+            "type": "boolean"
+          },
+          "doesEffectiveDamage": {
+            "type": "boolean"
+          },
+          "effectiveUnitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true
+          },
+          "might": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "range": {
+            "type": "string",
+            "nullable": true
+          },
+          "uses": {
+            "type": "string",
+            "nullable": true
+          },
+          "worth": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaponExp": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "baseHP": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isEquipped": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Flaw": {
+        "type": "object",
+        "properties": {
+          "flawChoice": {
+            "$ref": "#/components/schemas/StatType"
+          },
+          "baseStatBonus": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "maxStatBonus": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrowthRate": {
+        "type": "object",
+        "properties": {
+          "hp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "str": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mag": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skl": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "spd": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lck": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "def": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "res": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Inventory": {
+        "type": "object",
+        "properties": {
+          "equipment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Equipment"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "uses": {
+            "type": "string",
+            "nullable": true
+          },
+          "worth": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LevelUp": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelUpType": {
+            "type": "string",
+            "nullable": true
+          },
+          "statIncrease": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationType": {
+        "enum": [
+          "NONE",
+          "INVENTORY",
+          "CONVOY"
+        ],
+        "type": "string"
+      },
+      "NewCharacterDto": {
+        "type": "object",
+        "properties": {
+          "startingClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "heartSealClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "biography": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "isNoble": {
+            "type": "boolean"
+          },
+          "raceChoice": {
+            "$ref": "#/components/schemas/RacialType"
+          },
+          "assetChoice": {
+            "$ref": "#/components/schemas/StatType"
+          },
+          "flawChoice": {
+            "$ref": "#/components/schemas/StatType"
+          },
+          "personalAbility": {
+            "type": "string",
+            "nullable": true
+          },
+          "equippedWeapon": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstAquiredAbility": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAquiredAbilityEquipped": {
+            "type": "boolean"
+          },
+          "startingWeapons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "startingStaves": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "startingItems": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "skillTypeChoices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkillType"
+            },
+            "nullable": true
+          },
+          "personalGrowthRate": {
+            "$ref": "#/components/schemas/GrowthRate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonalAbility": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Race": {
+        "type": "object",
+        "properties": {
+          "racialType": {
+            "$ref": "#/components/schemas/RacialType"
+          },
+          "humanStatChoices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatType"
+            },
+            "nullable": true
+          },
+          "racialGrowth": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "unitType": {
+            "$ref": "#/components/schemas/UnitType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RacialType": {
+        "enum": [
+          "Human",
+          "Kitsune",
+          "Manakete",
+          "Taguel",
+          "Wolfskin",
+          "HalfHumanKitsune",
+          "HalfHumanManakete",
+          "HalfHumanTaguel",
+          "HalfHumanWolfskin"
+        ],
+        "type": "string"
+      },
+      "Rank": {
+        "enum": [
+          "None",
+          "E",
+          "D",
+          "C",
+          "B",
+          "A",
+          "S"
+        ],
+        "type": "string"
+      },
+      "Skill": {
+        "type": "object",
+        "properties": {
+          "skillType": {
+            "$ref": "#/components/schemas/SkillType"
+          },
+          "statType": {
+            "$ref": "#/components/schemas/StatType"
+          },
+          "isProfecient": {
+            "type": "boolean"
+          },
+          "attribute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bonus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SkillType": {
+        "enum": [
+          "Athletics",
+          "Arcana",
+          "History",
+          "Investigation",
+          "Nature",
+          "Religion",
+          "Deception",
+          "Intimidation",
+          "Performance",
+          "Persuasion",
+          "Acrobatics",
+          "SleightofHand",
+          "Stealth",
+          "AnimalHandling",
+          "Insight",
+          "Medicine",
+          "Perception",
+          "Survival",
+          "Strength",
+          "Magic",
+          "Skill",
+          "Speed",
+          "Defense",
+          "Resistance"
+        ],
+        "type": "string"
+      },
+      "StaffDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "isMagical": {
+            "type": "boolean"
+          },
+          "baseHP": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "range": {
+            "type": "string",
+            "nullable": true
+          },
+          "uses": {
+            "type": "string",
+            "nullable": true
+          },
+          "worth": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaponExp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatBonus": {
+        "type": "object",
+        "properties": {
+          "growths": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "stats": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatType": {
+        "enum": [
+          "HP",
+          "Str",
+          "Mag",
+          "Skl",
+          "Spd",
+          "Lck",
+          "Def",
+          "Res",
+          "None"
+        ],
+        "type": "string"
+      },
+      "Stats": {
+        "type": "object",
+        "properties": {
+          "hp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "str": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mag": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skl": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "spd": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lck": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "def": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "res": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mov": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Support": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "internalLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentClassType": {
+            "$ref": "#/components/schemas/ClassType"
+          },
+          "currentClass": {
+            "$ref": "#/components/schemas/UnitClass"
+          },
+          "equippedWeapon": {
+            "$ref": "#/components/schemas/Equipment"
+          },
+          "startingClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPairedUp": {
+            "type": "boolean"
+          },
+          "isClose": {
+            "type": "boolean"
+          },
+          "levelUpStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "currentStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "pairedUpBonus": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "supportRank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "supportPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "personalAbility": {
+            "$ref": "#/components/schemas/PersonalAbility"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupportCharacterDto": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "internalLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentClass": {
+            "$ref": "#/components/schemas/ClassType"
+          },
+          "startingClass": {
+            "$ref": "#/components/schemas/ClassType"
+          },
+          "equippedWeaponName": {
+            "type": "string",
+            "nullable": true
+          },
+          "levelUpStats": {
+            "$ref": "#/components/schemas/Stats"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Terrain": {
+        "type": "object",
+        "properties": {
+          "terrainType": {
+            "$ref": "#/components/schemas/TerrainType"
+          },
+          "defBonus": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "avoidBonus": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "healPercent": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "moveCost": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "otherData": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TerrainType": {
+        "enum": [
+          "None",
+          "Bridge",
+          "Cliff",
+          "Dessert",
+          "Forest",
+          "Fort",
+          "GateThone",
+          "Lava",
+          "Mountain",
+          "Peak",
+          "Pillar",
+          "River",
+          "Sea",
+          "Stairway",
+          "Thicket",
+          "ClosedGate"
+        ],
+        "type": "string"
+      },
+      "UnitClass": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPromoted": {
+            "type": "boolean"
+          },
+          "isSpecialClass": {
+            "type": "boolean"
+          },
+          "baseStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "maxStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "growthRate": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "innateBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          },
+          "unitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true
+          },
+          "abilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ability"
+            },
+            "nullable": true
+          },
+          "usableWeapons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassWeapon"
+            },
+            "nullable": true
+          },
+          "classPromotions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "reclassOptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "skillTypeOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkillType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UnitClassDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPromoted": {
+            "type": "boolean"
+          },
+          "isSpecialClass": {
+            "type": "boolean"
+          },
+          "baseStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "maxStats": {
+            "$ref": "#/components/schemas/Stats"
+          },
+          "growthRate": {
+            "$ref": "#/components/schemas/GrowthRate"
+          },
+          "innateBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          },
+          "unitTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitType"
+            },
+            "nullable": true
+          },
+          "abilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "usableWeapons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassWeapon"
+            },
+            "nullable": true
+          },
+          "classPromotions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "reclassOptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "skillTypeOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkillType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UnitType": {
+        "enum": [
+          "Infantry",
+          "Armor",
+          "Mounted",
+          "Flying",
+          "Beast",
+          "Dragon",
+          "Monster",
+          "SwordWielder",
+          "AxeWielder",
+          "LanceWielder",
+          "TomeWielder",
+          "Mechanists",
+          "Puppets",
+          "Golems"
+        ],
+        "type": "string"
+      },
+      "UpdateType": {
+        "enum": [
+          "NONE",
+          "EQUIP",
+          "UNEQUIP",
+          "BUY",
+          "SELL",
+          "WITHDRAW",
+          "DEPOSIT",
+          "USE",
+          "ACQUIRE"
+        ],
+        "type": "string"
+      },
+      "Weapon": {
+        "type": "object",
+        "properties": {
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "weaponRank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "weaponExperience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "weaponRankBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeaponDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "$ref": "#/components/schemas/Rank"
+          },
+          "weaponType": {
+            "$ref": "#/components/schemas/WeaponType"
+          },
+          "isMagical": {
+            "type": "boolean"
+          },
+          "might": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "crit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "range": {
+            "type": "string",
+            "nullable": true
+          },
+          "uses": {
+            "type": "string",
+            "nullable": true
+          },
+          "worth": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaponExp": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statBonus": {
+            "$ref": "#/components/schemas/StatBonus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeaponType": {
+        "enum": [
+          "Axe",
+          "Bow",
+          "Dagger",
+          "Lance",
+          "Staff",
+          "Stone",
+          "Sword",
+          "Tome",
+          "DarkTome",
+          "Cosumable",
+          "None"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}
