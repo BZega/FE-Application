@@ -21,7 +21,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
                 }
                 else
                 {
-                    FileHelper.WriteToFile(UnitClass, _filePath);
+                    FileHelper.WriteToFileAsync(UnitClass, _filePath);
                     return true;
                 }
             }
@@ -35,7 +35,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
         {
             try
             {
-                var classesFile = FileHelper.ReadFromFile<UnitClass>(_filePath);
+                var classesFile = await FileHelper.ReadFromFileAsync<UnitClass>(_filePath);
                 var classes = JsonSerializer.Deserialize<List<UnitClass>>(classesFile);
                 return classes;
             }
@@ -91,7 +91,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
         {
             try
             {
-                var result = FileHelper.UpdateFile(unitClass, unitClass.Id.ToString(), _filePath);
+                var result = await FileHelper.UpdateFileAsync(unitClass, unitClass.Id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)
@@ -104,7 +104,7 @@ namespace Fire_Emblem.API.Business.Repository.UnitClasses
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<UnitClass>(id.ToString(), _filePath);
+                var result = await FileHelper.DeleteFromFileAsync<UnitClass>(id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)

@@ -593,8 +593,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     Level = support.Level,
                     InternalLevel = support.InternalLevel,
                     CurrentClassType = support.CurrentClass,
-                    CurrentClassBaseStats = unitClass.BaseStats,
-                    CurrentClassMaxStats = unitClass.MaxStats,
+                    CurrentClass = await _unitClassesContext.GetClass(null, ClassTypeCode.ClassTypeConverter(support.CurrentClass)),
                     EquippedWeapon = await _equipmentContext.GetEquipment(null, support.EquippedWeaponName),
                     LevelUpStats = support.LevelUpStats,
                     StartingClass = ClassTypeCode.ClassTypeConverter(support.StartingClass)
@@ -681,8 +680,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 }
                 if (currentClass != ClassType.None)
                 {
-                    supportCharacter.CurrentClassBaseStats = unitClass.BaseStats;
-                    supportCharacter.CurrentClassMaxStats = unitClass.MaxStats;
                     supportCharacter.CurrentClassType = currentClass;
                 }
                 if (equippedWeapon != null)
@@ -793,6 +790,26 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     ConsumableTypeCode.PureWater,
                     ConsumableTypeCode.RainbowTonic
                 };
+                List<string> healingItems = new List<string>
+                {
+                    ConsumableTypeCode.Vulnerary,
+                    ConsumableTypeCode.Concoction,
+                    ConsumableTypeCode.Elixir,
+                    ConsumableTypeCode.SweetTincture
+                };
+                List<string> promotionItems = new List<string>
+                {
+                    ConsumableTypeCode.MasterSeal,
+                    ConsumableTypeCode.SecondSeal,
+                    ConsumableTypeCode.HeartSeal,
+                    ConsumableTypeCode.FriendshipSeal,
+                    ConsumableTypeCode.PartnerSeal,
+                    ConsumableTypeCode.DreadScroll,
+                    ConsumableTypeCode.HerosBrand,
+                    ConsumableTypeCode.SightingLens,
+                    ConsumableTypeCode.VanguardBrand,
+                    ConsumableTypeCode.WitchsMark
+                };
                 if (equipment == null)
                 {
                     equipment = convoyItems.Equipment.Find(equip => equip.EquipOid == equipOid);
@@ -896,6 +913,34 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                         weapon.WeaponExperience = Weapon.IncreaseRank(weapon);
                                     }
                                 }
+                                else if (healingItems.Contains(equipment.Name))
+                                {
+                                    var healingAmount = 0;
+                                    switch (equipment.Name)
+                                    {
+                                        case ConsumableTypeCode.Vulnerary:
+                                            healingAmount = 10;
+                                            break;
+                                        case ConsumableTypeCode.Concoction:
+                                            healingAmount = 20;
+                                            break;
+                                        case ConsumableTypeCode.Elixir:
+                                            healingAmount = 40;
+                                            break;
+                                        case ConsumableTypeCode.SweetTincture:
+                                            healingAmount = 5;
+                                            break;
+                                    }
+                                    var healthRecovered = Math.Min(healingAmount, character.CurrentStats.HP - character.CurrentHP);
+                                    if (healthRecovered > 0)
+                                    {
+                                        character.CurrentHP += healthRecovered;
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
                                 usesLeft -= 1;
                                 if (usesLeft > 0)
                                 {
@@ -968,7 +1013,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                     }
                                     else if (permanentItems.Contains(equipment.Name))
                                     {
-                                            level.LevelUpType = "STAT ITEM"; 
+                                        level.LevelUpType = "STAT ITEM";
                                     }
                                     if (level.LevelUpType != "NONE")
                                     {
@@ -986,6 +1031,42 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                     {
                                         weapon.WeaponExperience = Weapon.IncreaseRank(weapon);
                                     }
+                                }
+                                else if (healingItems.Contains(equipment.Name))
+                                {
+                                    var healingAmount = 0;
+                                    switch (equipment.Name)
+                                    {
+                                        case ConsumableTypeCode.Vulnerary:
+                                            healingAmount = 10;
+                                            break;
+                                        case ConsumableTypeCode.Concoction:
+                                            healingAmount = 20;
+                                            break;
+                                        case ConsumableTypeCode.Elixir:
+                                            healingAmount = 40;
+                                            break;
+                                        case ConsumableTypeCode.SweetTincture:
+                                            healingAmount = 5;
+                                            break;
+                                    }
+                                    var healthRecovered = Math.Min(healingAmount, character.CurrentStats.HP - character.CurrentHP);
+                                    if (healthRecovered > 0)
+                                    {
+                                        character.CurrentHP += healthRecovered;
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else if (promotionItems.Contains(equipment.Name))
+                                {
+                                    //var unitClass = ClassType.None;
+                                    //switch (equipment.Name)
+                                    //{
+                                    //    
+                                    //}
                                 }
                                 usesLeft -= 1;
                                 if (usesLeft > 0)
@@ -1344,38 +1425,44 @@ namespace Fire_Emblem.API.Business.Context.Characters
             }
         }
 
-        public async Task<bool> GainWeaponExp(int characterId, bool isDoubleAttack)
+        public async Task<Character> GainWeaponExp(int characterId, bool isDoubleAttack)
         {
             try
             {
                 var character = await GetCharacter(characterId);
                 if (character == null)
                 {
-                    return false;
+                    return null;
                 }
                 if (character.EquippedWeapon.WeaponType == WeaponType.None)
                 {
-                    return false;
+                    return character;
                 }
                 if (character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType) != null)
                 {
-                    var bonus = 2;
-                    if (character.EquippedAbilities?.Any(ability => ability.Name == "Discipline") == true)
+                    var bonus = character.EquippedWeapon.WeaponExp != null ? character.EquippedWeapon.WeaponExp.Value : 0;
+                    if (bonus > 0)
                     {
-                        bonus *= 2;
-                    }
-                    character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType).WeaponExperience += bonus;
-                    if (isDoubleAttack)
-                    {
+                        if (character.EquippedAbilities?.Any(ability => ability.Name == "Discipline") == true)
+                        {
+                            bonus *= 2;
+                        }
                         character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType).WeaponExperience += bonus;
+                        _logger.LogInformation($"Character: {character.Biography.Name} gained {bonus} weapon exp");
+                        if (isDoubleAttack)
+                        {
+                            character.WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == character.EquippedWeapon.WeaponType).WeaponExperience += bonus;
+                            _logger.LogInformation($"Character: {character.Biography.Name} gained {bonus} weapon exp");
+                        }
                     }
                 }
                 var result = await _charactersRepository.UpdateCharacter(character);
-                return result;
+                _logger.LogInformation($"Character update result: {result}");
+                return character;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 
@@ -1479,10 +1566,11 @@ namespace Fire_Emblem.API.Business.Context.Characters
             }
         }
 
-        public async Task<BattleResultDto> AutomaticBattleOpponent(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
+        public async Task<BattleResultDto> AutomaticBattleSimulator(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
         {
             try
             {
+                #region DATA PREP
                 var character = await GetCharacter(characterId);
                 var enemy = await GetEnemy(enemyId);
                 var charHitDecrease = 0;
@@ -1490,24 +1578,30 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 var enemyHitDecrease = 0;
                 var enemyDamageDecrease = 0;
                 CombatHelper.CheckWeaponTriangle(character, enemy);
+                _logger.LogInformation($"character weapon triangle advantage is {character.IsWeaponTriangleAdvantage} and enemy weapon triangle advantage is {enemy.IsWeaponTriangleAdvantage}");
+                _logger.LogInformation($"character weapon triangle disadvantage is {character.IsWeaponTriangleDisadvantage} and enemy weapon triangle disadvantage is {enemy.IsWeaponTriangleDisadvantage}");
                 CombatHelper.ApplyWeaponTriangleDisadvantage(character, enemy, ref charHitDecrease, ref charDamageDecrease, ref enemyHitDecrease, ref enemyDamageDecrease);
                 if (character.DealsEffectiveDamage)
                 {
+                    bool appliedMultiplier = false;
                     foreach (var effectiveUnit in character.EffectiveDamageUnitTypes)
                     {
-                        if (enemy.UnitTypes.Contains(effectiveUnit))
+                        if (enemy.UnitTypes.Contains(effectiveUnit) && !appliedMultiplier)
                         {
                             character.EquippedWeapon.Might *= 3;
+                            _logger.LogInformation($"character deals effective damage to {effectiveUnit}");
                         }
                     }
                 }
                 if (enemy.DealsEffectiveDamage)
                 {
+                    bool appliedMultiplier = false;
                     foreach (var effectiveUnit in enemy.EffectiveDamageUnitTypes)
                     {
-                        if (character.UnitTypes.Contains(effectiveUnit))
+                        if (character.UnitTypes.Contains(effectiveUnit) && !appliedMultiplier)
                         {
                             enemy.EquippedWeapon.Might *= 3;
+                            _logger.LogInformation($"enemy deals effective damage to {effectiveUnit}");
                         }
                     }
                 }
@@ -1531,6 +1625,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 };
                 AttackRoll characterAttacker = new AttackRoll() { Attacker = CombatTypeCode.Character };
                 AttackRoll enemyAttacker = new AttackRoll() { Attacker = CombatTypeCode.Enemy };
+                AttackRoll supportAttacker = new AttackRoll();
                 
                 character.IsInCombat = true;
                 enemy.IsInCombat = true;
@@ -1557,6 +1652,16 @@ namespace Fire_Emblem.API.Business.Context.Characters
                
                 var charAttackSpeed = character.CurrentStats.Spd + character.AttackSpeed;
                 var enemyAttackSpeed = enemy.CurrentStats.Spd + enemy.AttackSpeed;
+                var pairedUpSupport = character.Supports?.FirstOrDefault(support => support.IsPairedUp);
+                var adjacentSupports = character.Supports?.FindAll(support => support.IsClose);
+                Support highestRankSupport = null;
+                if (adjacentSupports != null)
+                {
+                    highestRankSupport = adjacentSupports
+                                    .Where(support => support.SupportRank != Rank.None)
+                                    .OrderByDescending(support => support.SupportRank)
+                                    .FirstOrDefault();
+                }
 
                 var characterAttackCount = character.EquippedWeapon.IsBrave ? 2 : 1;
                 var enemyAttackCount = enemy.EquippedWeapon.IsBrave ? 2 : 1;
@@ -1573,39 +1678,91 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 var characterDamageDealt = 0;
                 var enemyDamageDealt = 0;
                 var maxId = 1;
+                #endregion
+
                 if (isCharacterAttacking)
                 {
                     character.IsAttacking = true;
                     enemy.IsAttacking = false;
                     for (int i = 0; i < characterAttackCount; i++)
                     {
-                        //TODO: PAIRED UP
-                        if (character.Supports?.FirstOrDefault(support => support.IsPairedUp)?.IsPairedUp == true)
-                        {
-
-                        }
                         characterAttacker = RollAttackRoll(characterAttacker.Attacker, character, enemy, charHitChance, charDamage, charCritChance, battleResults.EnemyDamageNegation - enemy.DamageReceived);
                         characterAttacker.Id = maxId;
                         maxId++;
                         enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+                        _logger.LogInformation($"Character dealt {characterAttacker.DamageDealt} to enemy");
 
                         if (characterAttacker.DamageHealed > 0)
                         {
                             character.CurrentHP += character.CurrentHP + characterAttacker.DamageHealed <= character.CurrentStats.HP
                                 ? characterAttacker.DamageHealed
                                 : character.CurrentStats.HP - character.CurrentHP;
+                            _logger.LogInformation($"Character healed {characterAttacker.DamageHealed}");
                         }
 
                         characterDamageDealt += characterAttacker.DamageDealt;
                         battleResults.AttackRollResults.Add(characterAttacker);
-                        _ = await GainWeaponExp(characterId, false);
+                        character = await GainWeaponExp(characterId, false);
 
                         if (enemy.CurrentHP == 0)
                         {
                             battleResults.EnemyDamageTaken = characterDamageDealt;
-                            battleResults.CharacterDamageTaken = enemyDamageDealt;
-                            _ = await _charactersRepository.RemoveEnemy(enemyId);
+                            await HandleEnemyDefeat(character, enemy);
                             return battleResults;
+                        }
+
+                        if (pairedUpSupport != null)
+                        {
+                            var supportAttackCount = pairedUpSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                            character.DualStrike = character.GetDualStrikeRate(pairedUpSupport);
+                            var randomNumber = _random.Next(0, 101);
+                            var supportAttack = randomNumber < character.DualStrike ? true : false;
+                            _logger.LogInformation($"Pair up Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
+                            if (supportAttack)
+                            {
+                                for (int s = 0; s < supportAttackCount; s++)
+                                {
+                                    supportAttacker = HandleSupportAttack(character, enemy, pairedUpSupport);
+                                    supportAttacker.Id = maxId;
+                                    maxId++;
+                                    enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                                    characterDamageDealt += supportAttacker.DamageDealt;
+                                    battleResults.AttackRollResults.Add(supportAttacker);
+
+                                    if (enemy.CurrentHP == 0)
+                                    {
+                                        battleResults.EnemyDamageTaken += characterDamageDealt;
+                                        await HandleEnemyDefeat(character, enemy);
+                                        return battleResults;
+                                    }
+                                }
+                            }
+
+                        }
+                        else if (highestRankSupport != null)
+                        {
+                            var supportAttackCount = highestRankSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                            character.DualStrike = character.GetDualStrikeRate(highestRankSupport);
+                            var randomNumber = _random.Next(0, 101);
+                            var supportAttack = randomNumber < character.DualStrike ? true : false;
+                            _logger.LogInformation($"Adjacent Support Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
+                            if (supportAttack)
+                            {
+                                for (int s = 0; s < supportAttackCount; s++)
+                                {
+                                    supportAttacker = HandleSupportAttack(character, enemy, highestRankSupport);
+                                    supportAttacker.Id = maxId;
+                                    maxId++;
+                                    enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+                                    if (enemy.CurrentHP == 0)
+                                    {
+                                        battleResults.EnemyDamageTaken = characterDamageDealt;
+                                        await HandleEnemyDefeat(character, enemy);
+                                        return battleResults;
+                                    }
+                                }
+                            }
                         }
                     }
                     if (canOpponentCounter)
@@ -1632,17 +1789,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             {
                                 battleResults.EnemyDamageTaken = characterDamageDealt;
                                 battleResults.CharacterDamageTaken = enemyDamageDealt;
-                                character.IsInCombat = false;
-                                character.IsAttacking = false;
-                                character.IsWeaponTriangleAdvantage = false;
-                                character.IsWeaponTriangleDisadvantage = false;
-                                enemy.IsInCombat = false;
-                                enemy.IsAttacking = false;
-                                enemy.IsWeaponTriangleAdvantage = false;
-                                enemy.IsWeaponTriangleDisadvantage = false;
-                                _ = await _charactersRepository.UpdateCharacter(character);
-                                _ = await _charactersRepository.UpdateEnemy(enemy);
-                                _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                                await HandleCharacterDefeat(character, enemy, enemyAttacker);
                                 return battleResults;
                             }
                         }
@@ -1665,18 +1812,69 @@ namespace Fire_Emblem.API.Business.Context.Characters
 
                             characterDamageDealt += characterAttacker.DamageDealt;
                             battleResults.AttackRollResults.Add(characterAttacker);
-                            _ = await GainWeaponExp(characterId, false);
+                            character = await GainWeaponExp(characterId, false);
                             if (enemy.CurrentHP == 0)
                             {
                                 battleResults.EnemyDamageTaken = characterDamageDealt;
                                 battleResults.CharacterDamageTaken = enemyDamageDealt;
-                                character.IsInCombat = false;
-                                character.IsAttacking = false;
-                                character.IsWeaponTriangleAdvantage = false;
-                                character.IsWeaponTriangleDisadvantage = false;
-                                _ = await _charactersRepository.UpdateCharacter(character);
-                                _ = await _charactersRepository.RemoveEnemy(enemyId);
+                                await HandleEnemyDefeat(character, enemy);
                                 return battleResults;
+                            }
+
+                            if (pairedUpSupport != null)
+                            {
+                                var supportAttackCount = pairedUpSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                                character.DualStrike = character.GetDualStrikeRate(pairedUpSupport);
+                                var randomNumber = _random.Next(0, 101);
+                                var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                _logger.LogInformation($"Pair up Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
+                                if (supportAttack)
+                                {
+                                    for (int s = 0; s < supportAttackCount; s++)
+                                    {
+                                        supportAttacker = HandleSupportAttack(character, enemy, pairedUpSupport);
+                                        supportAttacker.Id = maxId;
+                                        maxId++;
+                                        enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                                        characterDamageDealt += supportAttacker.DamageDealt;
+                                        battleResults.AttackRollResults.Add(supportAttacker);
+
+                                        if (enemy.CurrentHP == 0)
+                                        {
+                                            battleResults.EnemyDamageTaken += characterDamageDealt;
+                                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                            await HandleEnemyDefeat(character, enemy);
+                                            return battleResults;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else if (highestRankSupport != null)
+                            {
+                                var supportAttackCount = highestRankSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                                character.DualStrike = character.GetDualStrikeRate(highestRankSupport);
+                                var randomNumber = _random.Next(0, 101);
+                                var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                _logger.LogInformation($"Adjacent Support Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
+                                if (supportAttack)
+                                {
+                                    for (int s = 0; s < supportAttackCount; s++)
+                                    {
+                                        supportAttacker = HandleSupportAttack(character, enemy, highestRankSupport);
+                                        supportAttacker.Id = maxId;
+                                        maxId++;
+                                        enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+                                        if (enemy.CurrentHP == 0)
+                                        {
+                                            battleResults.EnemyDamageTaken = characterDamageDealt;
+                                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                            await HandleEnemyDefeat(character, enemy);
+                                            return battleResults;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -1701,19 +1899,8 @@ namespace Fire_Emblem.API.Business.Context.Characters
                         battleResults.AttackRollResults.Add(enemyAttacker);
                         if (character.CurrentHP == 0)
                         {
-                            battleResults.EnemyDamageTaken = characterDamageDealt;
                             battleResults.CharacterDamageTaken = enemyDamageDealt;
-                            character.IsInCombat = false;
-                            character.IsAttacking = false;
-                            character.IsWeaponTriangleAdvantage = false;
-                            character.IsWeaponTriangleDisadvantage = false;
-                            enemy.IsInCombat = false;
-                            enemy.IsAttacking = false;
-                            enemy.IsWeaponTriangleAdvantage = false;
-                            enemy.IsWeaponTriangleDisadvantage = false;
-                            _ = await _charactersRepository.UpdateCharacter(character);
-                            _ = await _charactersRepository.UpdateEnemy(enemy);
-                            _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                            await HandleCharacterDefeat(character, enemy, enemyAttacker);
                             return battleResults;
                         }
                     }
@@ -1739,18 +1926,67 @@ namespace Fire_Emblem.API.Business.Context.Characters
 
                             characterDamageDealt += characterAttacker.DamageDealt;
                             battleResults.AttackRollResults.Add(characterAttacker);
-                            _ = await GainWeaponExp(characterId, false);
+                            character = await GainWeaponExp(characterId, false);
                             if (enemy.CurrentHP == 0)
                             {
                                 battleResults.EnemyDamageTaken = characterDamageDealt;
                                 battleResults.CharacterDamageTaken = enemyDamageDealt;
-                                character.IsInCombat = false;
-                                character.IsAttacking = false;
-                                character.IsWeaponTriangleAdvantage = false;
-                                character.IsWeaponTriangleDisadvantage = false;
-                                _ = await _charactersRepository.UpdateCharacter(character);
-                                _ = await _charactersRepository.RemoveEnemy(enemyId);
+                                await HandleEnemyDefeat(character, enemy);
                                 return battleResults;
+                            }
+
+                            if (pairedUpSupport != null)
+                            {
+                                var supportAttackCount = pairedUpSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                                character.DualStrike = character.GetDualStrikeRate(pairedUpSupport);
+                                var randomNumber = _random.Next(0, 101);
+                                var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                if (supportAttack)
+                                {
+                                    for (int s = 0; s < supportAttackCount; s++)
+                                    {
+                                        supportAttacker = HandleSupportAttack(character, enemy, pairedUpSupport);
+                                        supportAttacker.Id = maxId;
+                                        maxId++;
+                                        enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+
+                                        characterDamageDealt += supportAttacker.DamageDealt;
+                                        battleResults.AttackRollResults.Add(supportAttacker);
+
+                                        if (enemy.CurrentHP == 0)
+                                        {
+                                            battleResults.EnemyDamageTaken += characterDamageDealt;
+                                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                            await HandleEnemyDefeat(character, enemy);
+                                            return battleResults;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else if (highestRankSupport != null)
+                            {
+                                var supportAttackCount = highestRankSupport.EquippedWeapon.IsBrave ? 2 : 1;
+                                character.DualStrike = character.GetDualStrikeRate(highestRankSupport);
+                                var randomNumber = _random.Next(0, 101);
+                                var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                if (supportAttack)
+                                {
+                                    for (int s = 0; s < supportAttackCount; s++)
+                                    {
+                                        supportAttacker = HandleSupportAttack(character, enemy, highestRankSupport);
+                                        supportAttacker.Id = maxId;
+                                        maxId++;
+                                        enemy.CurrentHP -= Math.Min(characterAttacker.DamageDealt, enemy.CurrentHP);
+                                        if (enemy.CurrentHP == 0)
+                                        {
+                                            battleResults.EnemyDamageTaken = characterDamageDealt;
+                                            battleResults.CharacterDamageTaken = enemyDamageDealt;
+                                            await HandleEnemyDefeat(character, enemy);
+                                            return battleResults;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -1773,30 +2009,14 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             {
                                 battleResults.EnemyDamageTaken = characterDamageDealt;
                                 battleResults.CharacterDamageTaken = enemyDamageDealt;
-                                character.IsInCombat = false;
-                                character.IsAttacking = false;
-                                character.IsWeaponTriangleAdvantage = false;
-                                character.IsWeaponTriangleDisadvantage = false;
-                                enemy.IsInCombat = false;
-                                enemy.IsAttacking = false;
-                                enemy.IsWeaponTriangleAdvantage = false;
-                                enemy.IsWeaponTriangleDisadvantage = false;
-                                _ = await _charactersRepository.UpdateCharacter(character);
-                                _ = await _charactersRepository.UpdateEnemy(enemy);
-                                _ = await ChangeCondition(characterId, enemyAttacker.CritHit ? 2 : 1);
+                                await HandleCharacterDefeat(character, enemy, enemyAttacker);
                                 return battleResults;
                             }
                         }
                     }
                 }
-                character.IsInCombat = false;
-                character.IsAttacking = false;
-                character.IsWeaponTriangleAdvantage = false;
-                character.IsWeaponTriangleDisadvantage = false;
-                enemy.IsInCombat = false;
-                enemy.IsAttacking = false;
-                enemy.IsWeaponTriangleAdvantage = false;
-                enemy.IsWeaponTriangleDisadvantage = false;
+                character.IsInCombat = character.IsAttacking = character.IsWeaponTriangleAdvantage = character.IsWeaponTriangleDisadvantage = false;
+                enemy.IsInCombat = enemy.IsAttacking = enemy.IsWeaponTriangleAdvantage = enemy.IsWeaponTriangleDisadvantage = false;
                 _ = await _charactersRepository.UpdateCharacter(character);
                 _ = await _charactersRepository.UpdateEnemy(enemy);
                 battleResults.EnemyDamageTaken = characterDamageDealt;
@@ -2126,6 +2346,45 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 currentAttacker.DamageDealt = 0;
             }
             return currentAttacker;
+        }
+
+        private static AttackRoll HandleSupportAttack(Character character, Enemy enemy, Support support)
+        {
+            AttackRoll supportAttacker = new AttackRoll() { Attacker = CombatTypeCode.Support };
+            supportAttacker.AttackHit = true;
+            supportAttacker.AttackRollResult = 1;
+            var randomNumber = 0;
+            var crit = false;
+            var critChance = Math.Max(support.Crit - enemy.Dodge, 0);
+            var damage = support.EquippedWeapon.IsMagical ? Math.Max((support.CurrentStats.Mag + support.EquippedWeapon.Might.Value) - enemy.CurrentStats.Res, 0) : Math.Max((support.CurrentStats.Str + support.EquippedWeapon.Might.Value) - enemy.CurrentStats.Def, 0); 
+            randomNumber = _random.Next(0, 101);
+            crit = randomNumber < critChance ? true : false;
+            supportAttacker.CritHit = crit;
+            supportAttacker.CritRollResult = randomNumber;
+            if (crit)
+            {
+                damage *= 3;
+            }
+            supportAttacker.DamageDealt += damage;
+            return supportAttacker;
+        }
+
+        private async Task HandleEnemyDefeat(Character character, Enemy enemy)
+        {
+            _logger.LogInformation("Enemy was defeated");
+            character.IsInCombat = character.IsAttacking = character.IsWeaponTriangleAdvantage = character.IsWeaponTriangleDisadvantage = false;
+            _ = await _charactersRepository.UpdateCharacter(character);
+            _ = await _charactersRepository.RemoveEnemy(enemy.Id);
+        }
+
+        private async Task HandleCharacterDefeat(Character character, Enemy enemy, AttackRoll enemyAttacker)
+        {
+            _logger.LogInformation("Character was defeated ");
+            character.IsInCombat = character.IsAttacking = character.IsWeaponTriangleAdvantage = character.IsWeaponTriangleDisadvantage = false;
+            enemy.IsInCombat = enemy.IsAttacking = enemy.IsWeaponTriangleAdvantage = enemy.IsWeaponTriangleDisadvantage = false;
+            _ = await _charactersRepository.UpdateCharacter(character);
+            _ = await _charactersRepository.UpdateEnemy(enemy);
+            _ = await ChangeCondition(character.Id, enemyAttacker.CritHit ? 2 : 1);
         }
     }
 }

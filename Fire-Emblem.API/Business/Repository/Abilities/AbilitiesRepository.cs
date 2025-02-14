@@ -20,7 +20,7 @@ namespace Fire_Emblem.API.Business.Repository.Abilities
                 }
                 else
                 {
-                    FileHelper.WriteToFile<Ability>(ability, _filePath);
+                    FileHelper.WriteToFileAsync<Ability>(ability, _filePath);
                     return true;
                 }
             }
@@ -34,7 +34,7 @@ namespace Fire_Emblem.API.Business.Repository.Abilities
         {
             try
             {
-                var abilitiesFile = FileHelper.ReadFromFile<Ability>(_filePath);
+                var abilitiesFile = await FileHelper.ReadFromFileAsync<Ability>(_filePath);
                 var abilities = JsonSerializer.Deserialize<List<Ability>>(abilitiesFile);
                 return abilities;
             }
@@ -90,7 +90,7 @@ namespace Fire_Emblem.API.Business.Repository.Abilities
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<Ability>(id.ToString(), _filePath);
+                var result = await FileHelper.DeleteFromFileAsync<Ability>(id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)

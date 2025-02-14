@@ -348,13 +348,43 @@ namespace Fire_Emblem.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("get-all-enemies")]
+        public async Task<ActionResult<List<Enemy>>> GetAllEnemies()
+        {
+            try
+            {
+                var result = await _charactersContext.GetAllEnemies();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-enemy/{enemyId}")]
+        public async Task<ActionResult<Enemy>> GetEnemy(int enemyId)
+        {
+            try
+            {
+                var result = await _charactersContext.GetEnemy(enemyId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("auto-battle/{characterId}/{enemyId}")]
         public async Task<ActionResult<BattleResultDto>> AutomaticBattleOpponent(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
         {
             try
             {
-                var result = await _charactersContext.AutomaticBattleOpponent(characterId, enemyId, canOpponentCounter, isCharacterAttacking, gainExp);
+                var result = await _charactersContext.AutomaticBattleSimulator(characterId, enemyId, canOpponentCounter, isCharacterAttacking, gainExp);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -7,7 +7,7 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
 {
     public class FileHelper
     {
-        public static string ReadFromFile<T>(string filePath)
+        public static async Task<string> ReadFromFileAsync<T>(string filePath)
         {
             if (!System.IO.File.Exists(filePath))
             {
@@ -15,7 +15,7 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
             }
             try
             {
-                var jsonString = System.IO.File.ReadAllText(filePath);
+                var jsonString = await System.IO.File.ReadAllTextAsync(filePath);
                 var jsonList = JsonSerializer.Deserialize<List<T>>(jsonString) ?? new List<T>();
                 return jsonString;
             }
@@ -25,9 +25,9 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
             }
         }
 
-        public static void WriteToFile<T>(T item, string filePath)
+        public static async Task WriteToFileAsync<T>(T item, string filePath)
         {
-            var existingJson = ReadFromFile<T>(filePath);
+            var existingJson = await ReadFromFileAsync<T>(filePath);
             var jsonList = new List<T>();
             if (existingJson != null)
             {
@@ -35,12 +35,12 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
             }
             jsonList?.Add(item);
             var jsonString = JsonSerializer.Serialize(jsonList, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
-            System.IO.File.WriteAllText(filePath, jsonString);
+            await System.IO.File.WriteAllTextAsync(filePath, jsonString);
         }
 
-        public static bool DeleteFromFile<T>(string id, string filePath)
+        public static async Task<bool> DeleteFromFileAsync<T>(string id, string filePath)
         {
-            var items = ReadFromFile<T>(filePath);
+            var items = await ReadFromFileAsync<T>(filePath);
             Type type = typeof(T);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
             List<T> itemsList = JsonSerializer.Deserialize<List<T>>(items);
@@ -64,19 +64,19 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
                 {
                     var delete = itemsList.Remove(item);
                     var jsonString = JsonSerializer.Serialize(itemsList, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
+                    await System.IO.File.WriteAllTextAsync(filePath, jsonString);
                     return true;
                 }
             }
             return false;
         }
 
-        public static bool UpdateFile<T>(T item, string id, string filePath)
+        public static async Task<bool> UpdateFileAsync<T>(T item, string id, string filePath)
         {
-            var items = ReadFromFile<T>(filePath);
+            var items = await ReadFromFileAsync<T>(filePath);
             Type itemType = typeof(T);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
-            List<T> itemsList = JsonSerializer.Deserialize<List<T>>(items);
+            List<T> itemsList = string.IsNullOrWhiteSpace(items) ? new List<T>() : JsonSerializer.Deserialize<List<T>>(items);
             PropertyInfo idProperty = typeof(T).GetProperty("Id");
             if (itemsList != null && idProperty != null)
             {
@@ -100,7 +100,7 @@ namespace Fire_Emblem.API.Business.Helper.FileReader
                     updateItem = item;
                     itemsList[i] = updateItem;
                     var jsonString = JsonSerializer.Serialize(itemsList, options);
-                    System.IO.File.WriteAllText(filePath, jsonString);
+                    await System.IO.File.WriteAllTextAsync(filePath, jsonString);
                     return true;
                 }
             }

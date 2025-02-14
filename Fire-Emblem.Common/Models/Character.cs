@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -14,22 +15,16 @@ namespace Fire_Emblem.Common.Models
     {
         public int Id { get; set; }
         public Biography Biography { get; set; }
+        public int CurrentHP { get; set; } = 0;
         public PersonalAbility PersonalAbility { get; set; }
         public Stats CurrentStats => GetCurrentStats();
-        public Stats MaxStats => GetMaxStats();
         public GrowthRate TotalGrowthRate => GetTotalGrowthRate();
+        public Equipment EquippedWeapon { get; set; }
         public List<Ability> EquippedAbilities { get; set; }
         public UnitClass CurrentClass { get; set; }
-        public int CurrentHP { get; set; } = 0;
         public int Exp { get; set; } = 0;
         public int Level { get; set; } = 1;
-        public int InternalLevel { get; set; } = 1;
-        public bool IsInCombat { get; set; } = false;
-        public bool IsAttacking { get; set; } = false; 
-        public bool IsWeaponTriangleAdvantage { get; set; } = false;
-        public bool IsWeaponTriangleDisadvantage { get; set; } = false;
-        public bool DealsEffectiveDamage => CheckForEffectiveDamage();
-        public List<UnitType> EffectiveDamageUnitTypes => CheckEffectiveType(); 
+        public List<UnitType> UnitTypes => GetUnitTypes();
         public int Gold { get; set; } = 1000;
         public int Attack => GetAttack();
         public int Heal => GetHeal();
@@ -39,26 +34,32 @@ namespace Fire_Emblem.Common.Models
         public int Dodge => GetDodge();
         public int DamageReceived => GetDamageReceived();
         public int AttackSpeed => GetAttackSpeed();
-        public int DualStrike => GetDualStrikeRate();
+        public int DualStrike { get; set; } = 0;
         public int DualGuard { get; set; } = 0;
         public string StartingClass { get; set; }
         public string HeartSealClass { get; set; }        
+        public int InternalLevel { get; set; } = 1;
+        public bool IsInCombat { get; set; } = false;
+        public bool IsAttacking { get; set; } = false; 
+        public bool IsWeaponTriangleAdvantage { get; set; } = false;
+        public bool IsWeaponTriangleDisadvantage { get; set; } = false;
+        public bool DealsEffectiveDamage => CheckForEffectiveDamage();
+        public List<UnitType> EffectiveDamageUnitTypes => CheckEffectiveType(); 
         public Asset Asset { get; set; }
         public Flaw Flaw { get; set; }
         public Condition Condition { get; set; }
         public Terrain Terrain { get; set; }        
         public Inventory Inventory { get; set; }
-        public Equipment EquippedWeapon { get; set; }
         public Stats BaseStats => GetBaseStats();
         public Stats StatChangeAmount => GetStatChangeAmount();
-        public List<LevelUp>? LevelupStatIncreases { get; set; }
+        public Stats MaxStats => GetMaxStats();
         public GrowthRate PersonalGrowthRate { get; set; }    
-        public List<UnitType> UnitTypes => GetUnitTypes();
         public List<string> ReclassOptions { get; set; }
         public List<Weapon> WeaponRanks { get; set; }
         public List<Support>? Supports { get; set; }
         public List<Ability> AcquiredAbilities { get; set; }
         public List<Skill> Skills { get; set; }
+        public List<LevelUp>? LevelupStatIncreases { get; set; }
         public string ConvoyId { get; set; }
 
         public GrowthRate GetTotalGrowthRate()
@@ -189,163 +190,170 @@ namespace Fire_Emblem.Common.Models
                 }
                 if (WeaponRanks.Any(weapon => weapon.WeaponType == EquippedWeapon.WeaponType && weapon.WeaponRank != EquippedWeapon.Rank && weapon.IsActive))
                 {
-                    var weaponRank = WeaponRanks.Where(weapon => weapon.WeaponType == EquippedWeapon.WeaponType).FirstOrDefault();
-                    switch (weaponRank.WeaponRank)
+                    var weaponRank = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon.WeaponType);
+                    if (weaponRank != null)
                     {
-                        case Rank.S:
-                            break;
-                        case Rank.A:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.B:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 20;
-                                    break;
-                                case Rank.A:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.C:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 30;
-                                    break;
-                                case Rank.A:
-                                    attack -= 20;
-                                    break;
-                                case Rank.B:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.D:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 40;
-                                    break;
-                                case Rank.A:
-                                    attack -= 30;
-                                    break;
-                                case Rank.B:
-                                    attack -= 20;
-                                    break;
-                                case Rank.C:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.E:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 50;
-                                    break;
-                                case Rank.A:
-                                    attack -= 40;
-                                    break;
-                                case Rank.B:
-                                    attack -= 30;
-                                    break;
-                                case Rank.C:
-                                    attack -= 20;
-                                    break;
-                                case Rank.D:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
+                        switch (weaponRank.WeaponRank)
+                        {
+                            case Rank.S:
+                                break;
+                            case Rank.A:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.B:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.C:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.D:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 40;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.C:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.E:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 50;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 40;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.C:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.D:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                        }
                     }
-                } 
+                }
                 else if (WeaponRanks.Any(weapon => weapon.WeaponType == EquippedWeapon.WeaponType && weapon.WeaponRank != EquippedWeapon.Rank && !weapon.IsActive))
                 {
-                    var weaponRank = WeaponRanks.Where(weapon => weapon.WeaponType == EquippedWeapon.WeaponType).FirstOrDefault();
-                    weaponRank.WeaponExperience = weaponRank.WeaponExperience / 2;
-                    switch (weaponRank.WeaponRank)
+                    var weaponRank = WeaponRanks.FirstOrDefault(weapon => weapon.WeaponType == EquippedWeapon.WeaponType);
+                    if (weaponRank != null)
                     {
-                        case Rank.S:
-                            break;
-                        case Rank.A:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.B:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 20;
-                                    break;
-                                case Rank.A:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.C:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 30;
-                                    break;
-                                case Rank.A:
-                                    attack -= 20;
-                                    break;
-                                case Rank.B:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.D:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 40;
-                                    break;
-                                case Rank.A:
-                                    attack -= 30;
-                                    break;
-                                case Rank.B:
-                                    attack -= 20;
-                                    break;
-                                case Rank.C:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
-                        case Rank.E:
-                            switch (EquippedWeapon.Rank)
-                            {
-                                case Rank.S:
-                                    attack -= 50;
-                                    break;
-                                case Rank.A:
-                                    attack -= 40;
-                                    break;
-                                case Rank.B:
-                                    attack -= 30;
-                                    break;
-                                case Rank.C:
-                                    attack -= 20;
-                                    break;
-                                case Rank.D:
-                                    attack -= 10;
-                                    break;
-                            }
-                            break;
+                        var originalWeaponExp = weaponRank.WeaponExperience;
+                        weaponRank.WeaponExperience = weaponRank.WeaponExperience / 2;
+                        switch (weaponRank.WeaponRank)
+                        {
+                            case Rank.S:
+                                break;
+                            case Rank.A:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.B:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.C:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.D:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 40;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.C:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                            case Rank.E:
+                                switch (EquippedWeapon.Rank)
+                                {
+                                    case Rank.S:
+                                        attack -= 50;
+                                        break;
+                                    case Rank.A:
+                                        attack -= 40;
+                                        break;
+                                    case Rank.B:
+                                        attack -= 30;
+                                        break;
+                                    case Rank.C:
+                                        attack -= 20;
+                                        break;
+                                    case Rank.D:
+                                        attack -= 10;
+                                        break;
+                                }
+                                break;
+                        }
+                        weaponRank.WeaponExperience = originalWeaponExp;
                     }
-                    weaponRank.WeaponExperience = weaponRank.WeaponExperience * 2;
                 }
             }
             if (EquippedAbilities != null)
@@ -456,7 +464,7 @@ namespace Fire_Emblem.Common.Models
                 }
                 if (WeaponRanks.Any(weaponRank => weaponRank.WeaponType == WeaponType.Staff && weaponRank.WeaponRankBonus?.Attributes != null))
                 {
-                    heal += WeaponRanks.Where(weaponRank => weaponRank.WeaponType == WeaponType.Staff).FirstOrDefault().WeaponRankBonus.Attributes.Heal;
+                    heal += WeaponRanks.FirstOrDefault(weaponRank => weaponRank.WeaponType == WeaponType.Staff).WeaponRankBonus.Attributes.Heal;
                 }
             }
             return heal;
@@ -782,40 +790,31 @@ namespace Fire_Emblem.Common.Models
             return dodge;
         }
 
-        public int GetDualStrikeRate()
+        public int GetDualStrikeRate(Support support)
         {
             var dualStrike = 0;
-            if (Supports != null && Supports.Count > 0)
+            dualStrike += (CurrentStats.Skl + support.CurrentStats.Skl) / 4;
+            if (EquippedAbilities.Any(ability => ability.Name == "Dual Strike+"))
             {
-                foreach (var support in Supports)
-                {
-                    if (support.IsPairedUp)
-                    {
-                        dualStrike += (CurrentStats.Skl + support.CurrentStats.Skl) / 4;
-                        if (EquippedAbilities.Any(ability => ability.Name == "Dual Strike+"))
-                        {
-                            dualStrike += 10;
-                        }
-                        switch (support.SupportRank)
-                        {
-                            case Rank.None:
-                                dualStrike += 20;
-                                break;
-                            case Rank.C:
-                                dualStrike += 30;
-                                break;
-                            case Rank.B:
-                                dualStrike += 40;
-                                break;
-                            case Rank.A:
-                                dualStrike += 50;
-                                break;
-                            case Rank.S:
-                                dualStrike += 60;
-                                break;
-                        }
-                    }
-                }
+                dualStrike += 10;
+            }
+            switch (support.SupportRank)
+            {
+                case Rank.None:
+                    dualStrike += 20;
+                    break;
+                case Rank.C:
+                    dualStrike += 30;
+                    break;
+                case Rank.B:
+                    dualStrike += 40;
+                    break;
+                case Rank.A:
+                    dualStrike += 50;
+                    break;
+                case Rank.S:
+                    dualStrike += 60;
+                    break;
             }
             return dualStrike;
         }

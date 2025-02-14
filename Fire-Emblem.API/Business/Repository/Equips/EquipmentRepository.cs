@@ -19,7 +19,7 @@ namespace Fire_Emblem.API.Business.Repository.Equips
                 }
                 else
                 {
-                    FileHelper.WriteToFile(equipment, _filePath);
+                    FileHelper.WriteToFileAsync(equipment, _filePath);
                     return true;
                 }
             }
@@ -33,7 +33,7 @@ namespace Fire_Emblem.API.Business.Repository.Equips
         {
             try
             {
-                var equipmentFile = FileHelper.ReadFromFile<Equipment>(_filePath);
+                var equipmentFile = await FileHelper.ReadFromFileAsync<Equipment>(_filePath);
                 var equipment = JsonSerializer.Deserialize<List<Equipment>>(equipmentFile);
                 return equipment;
             }
@@ -89,7 +89,7 @@ namespace Fire_Emblem.API.Business.Repository.Equips
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<Equipment>(id.ToString(), _filePath);
+                var result = await FileHelper.DeleteFromFileAsync<Equipment>(id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)

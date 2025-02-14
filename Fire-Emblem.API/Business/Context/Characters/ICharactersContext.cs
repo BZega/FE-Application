@@ -28,8 +28,10 @@ namespace Fire_Emblem.API.Business.Context.Characters
         Task<bool> TogglePairedAndCloseToggle(int characterId, string supportId, bool isPaired, bool isClose);
         Task<bool> ChangeCondition(int characterId, int trackerChange);
         Task<bool> ReviveFallenCharacter(int characterId);
-        Task<bool> GainWeaponExp(int characterId, bool isDoubleAttack);
+        Task<Character> GainWeaponExp(int characterId, bool isDoubleAttack);
         Task<Enemy> CreateNewEnemy(EnemyDto enemyDto);
-        Task<BattleResultDto> AutomaticBattleOpponent(int characterId, int enemyId, bool canOppenentCounter, bool isCharacterAttacking, bool gainExp);
+        Task<List<Enemy>> GetAllEnemies();
+        Task<Enemy> GetEnemy(int enemyId);
+        Task<BattleResultDto> AutomaticBattleSimulator(int characterId, int enemyId, bool canOppenentCounter, bool isCharacterAttacking, bool gainExp);
     }
 }

@@ -26,20 +26,20 @@
         public int EnemyBaseAttackSpeed { get; set; }
         public bool IsCharacterWeaponTriangleAdvantage { get; set; }
         public bool IsEnemyWeaponTriangleAdvantage { get; set; }
-        public int CharacterDamageTaken { get; set; }
-        public int EnemyDamageTaken { get; set; }
+        public int CharacterDamageTaken { get; set; } = 0;
+        public int EnemyDamageTaken { get; set; } = 0;
         public List<AttackRoll> AttackRollResults { get; set; }
 
         public class AttackRoll
         {
             public int Id { get; set; } = 0;
             public string Attacker { get; set; }
-            public int AttackRollResult { get; set; }
-            public bool AttackHit { get; set; }
-            public int CritRollResult { get; set; }
-            public bool CritHit { get; set; }
-            public int DamageDealt { get; set; }
-            public int DamageHealed { get; set; }
+            public int AttackRollResult { get; set; } = 0;
+            public bool AttackHit { get; set; } = false;
+            public int CritRollResult { get; set; } = 0;
+            public bool CritHit { get; set; } = false;
+            public int DamageDealt { get; set; } = 0;
+            public int DamageHealed { get; set; } = 0;
 
             public AbilityCheck? AbilityCheck { get; set; }
         }

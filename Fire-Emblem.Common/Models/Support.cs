@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Fire_Emblem.Common.Models
 {
-    public class Support
+    public class Support 
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -17,8 +17,7 @@ namespace Fire_Emblem.Common.Models
         public int Level { get; set; } = 1;
         public int InternalLevel { get; set; } = 1;
         public ClassType CurrentClassType { get; set; }
-        public Stats CurrentClassBaseStats { get; set; }
-        public Stats CurrentClassMaxStats { get; set; }
+        public UnitClass CurrentClass { get; set; }
         public Equipment EquippedWeapon { get; set; }
         public string StartingClass { get; set; }
         public bool IsPairedUp { get; set; } = false;
@@ -27,7 +26,9 @@ namespace Fire_Emblem.Common.Models
         public Stats CurrentStats => GetCurrentStats();
         public Stats PairedUpBonus => GetPairedUpBonus();
         public Rank SupportRank => GetSupportRank();
+        public int Crit => GetCrit();
         public int SupportPoints { get; set; } = 0;
+        public PersonalAbility PersonalAbility { get; set; }
 
         public Rank GetSupportRank()
         {
@@ -56,9 +57,9 @@ namespace Fire_Emblem.Common.Models
         public Stats GetCurrentStats()
         {
             Stats currentStats = new Stats();
-            currentStats.Add(CurrentClassBaseStats);
+            currentStats.Add(CurrentClass.BaseStats);
             currentStats.Add(LevelUpStats);
-            currentStats.MaximumCheck(CurrentClassMaxStats);
+            currentStats.MaximumCheck(CurrentClass.MaxStats);
             if (EquippedWeapon.StatBonus?.Stats != null)
             {
                 currentStats.Add(EquippedWeapon.StatBonus.Stats);
@@ -1279,6 +1280,29 @@ namespace Fire_Emblem.Common.Models
                     break;
             }
             return statBonus;
+        }
+
+        public int GetCrit()
+        {
+            var crit = 0;
+            crit += CurrentStats.Skl / 2;
+            if (EquippedWeapon != null && EquippedWeapon.Crit != null)
+            {
+                crit += EquippedWeapon.Crit.Value;
+                if (EquippedWeapon.StatBonus?.Attributes != null)
+                {
+                    crit += EquippedWeapon.StatBonus.Attributes.Crit;
+                }
+            }
+            //if (PersonalAbility.StatBonus?.Attributes != null)
+            //{
+            //    crit += PersonalAbility.StatBonus.Attributes.Crit;
+            //}
+            //if (CurrentClass.InnateBonus?.Attributes != null)
+            //{
+            //    crit += CurrentClass.InnateBonus.Attributes.Crit;
+            //}
+            return crit;
         }
     }
 }

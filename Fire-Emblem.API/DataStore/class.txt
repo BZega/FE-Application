@@ -97,8 +97,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 1,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -187,8 +187,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 1,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -325,13 +325,13 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -437,8 +437,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 4,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -547,13 +547,13 @@
     "UsableWeapons": [
       {
         "WeaponType": 8,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 7,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -701,8 +701,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -805,8 +805,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 5,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -943,8 +943,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1032,8 +1032,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1121,8 +1121,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1210,8 +1210,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1336,8 +1336,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 7,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1427,13 +1427,13 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 5,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1557,8 +1557,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1682,8 +1682,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1772,8 +1772,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 2,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -1923,8 +1923,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2013,8 +2013,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2102,8 +2102,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2201,13 +2201,13 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 7,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2308,8 +2308,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2412,8 +2412,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 1,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2530,8 +2530,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 4,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2647,8 +2647,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2750,8 +2750,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 5,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -2877,8 +2877,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": [
@@ -3001,8 +3001,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 5,
-        "MinRank": 0,
-        "MaxRank": 5
+        "MinRank": 1,
+        "MaxRank": 6
       }
     ],
     "ClassPromotions": null,
@@ -3121,8 +3121,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 4
+        "MinRank": 1,
+        "MaxRank": 5
       }
     ],
     "ClassPromotions": null,
@@ -3241,8 +3241,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 3,
-        "MinRank": 0,
-        "MaxRank": 4
+        "MinRank": 1,
+        "MaxRank": 5
       }
     ],
     "ClassPromotions": null,
@@ -3361,8 +3361,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 5,
-        "MinRank": 0,
-        "MaxRank": 5
+        "MinRank": 1,
+        "MaxRank": 6
       }
     ],
     "ClassPromotions": null,
@@ -3485,8 +3485,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 1,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": null,
@@ -3628,18 +3628,18 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 4
+        "MinRank": 1,
+        "MaxRank": 5
       },
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 7,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": null,
@@ -3781,18 +3781,18 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 4
+        "MinRank": 1,
+        "MaxRank": 5
       },
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       },
       {
         "WeaponType": 2,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": null,
@@ -3921,8 +3921,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 5
+        "MinRank": 1,
+        "MaxRank": 6
       }
     ],
     "ClassPromotions": null,
@@ -4051,13 +4051,13 @@
     "UsableWeapons": [
       {
         "WeaponType": 6,
-        "MinRank": 0,
-        "MaxRank": 4
+        "MinRank": 1,
+        "MaxRank": 5
       },
       {
         "WeaponType": 0,
-        "MinRank": 0,
-        "MaxRank": 3
+        "MinRank": 1,
+        "MaxRank": 4
       }
     ],
     "ClassPromotions": null,
@@ -4172,8 +4172,8 @@
     "UsableWeapons": [
       {
         "WeaponType": 7,
-        "MinRank": 0,
-        "MaxRank": 5
+        "MinRank": 1,
+        "MaxRank": 6
       }
     ],
     "ClassPromotions": null,

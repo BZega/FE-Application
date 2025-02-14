@@ -1,6 +1,6 @@
 [
   {
-    "SupportId": "b6cdbf2f-82a0-4a6f-80d4-e23e2023a930",
+    "Id": null,
     "Name": "Isolde",
     "Gender": "Female",
     "Level": 2,
@@ -32,9 +32,12 @@
       "Id": 148,
       "EquipOid": null,
       "Name": "Dragonstone (manakete)",
-      "Rank": 1,
+      "Rank": 2,
       "WeaponType": 5,
       "IsMagical": true,
+      "IsBrave": false,
+      "DoesEffectiveDamage": false,
+      "EffectiveUnitTypes": [],
       "Might": 8,
       "Hit": 80,
       "Crit": 0,
@@ -98,7 +101,112 @@
       "Res": 2,
       "Mov": 0
     },
-    "SupportRank": 6,
+    "SupportRank": 0,
     "SupportPoints": 9
+  },
+  {
+    "Id": "de7cd9f9-d376-4422-b518-dd9f0362cbdc",
+    "Name": "Isolde",
+    "Gender": "Female",
+    "Level": 1,
+    "InternalLevel": 1,
+    "CurrentClassType": 33,
+    "CurrentClassBaseStats": {
+      "HP": 18,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 1,
+      "Spd": 1,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 2,
+      "Mov": 6
+    },
+    "CurrentClassMaxStats": {
+      "HP": 80,
+      "Str": 35,
+      "Mag": 40,
+      "Skl": 35,
+      "Spd": 35,
+      "Lck": 45,
+      "Def": 40,
+      "Res": 40,
+      "Mov": 8
+    },
+    "EquippedWeapon": {
+      "Id": 150,
+      "EquipOid": null,
+      "Name": "Dragonstone+ (manakete)",
+      "Rank": 3,
+      "WeaponType": 5,
+      "IsMagical": true,
+      "IsBrave": false,
+      "DoesEffectiveDamage": false,
+      "EffectiveUnitTypes": [],
+      "Might": 12,
+      "Hit": 70,
+      "Crit": 0,
+      "Range": "1-2",
+      "Uses": "Inf.",
+      "Worth": "8000",
+      "WeaponExp": 2,
+      "BaseHP": null,
+      "Experience": null,
+      "IsEquipped": false,
+      "Description": "+6 Strength, +11 Magic, +5 Skill, +4 Speed, +13 Defense, +9 Resistance when equipped.",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": {
+          "HP": 0,
+          "Str": 6,
+          "Mag": 11,
+          "Skl": 5,
+          "Spd": 4,
+          "Lck": 0,
+          "Def": 13,
+          "Res": 9,
+          "Mov": 0
+        }
+      }
+    },
+    "StartingClass": "Manakete",
+    "IsPairedUp": true,
+    "IsClose": false,
+    "LevelUpStats": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "CurrentStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 13,
+      "Skl": 6,
+      "Spd": 5,
+      "Lck": 0,
+      "Def": 15,
+      "Res": 11,
+      "Mov": 6
+    },
+    "PairedUpBonus": {
+      "HP": 0,
+      "Str": 2,
+      "Mag": 3,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 3,
+      "Res": 3,
+      "Mov": 0
+    },
+    "SupportRank": 0,
+    "SupportPoints": 0
   }
 ]

@@ -28,7 +28,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
                 }
                 else
                 {
-                    FileHelper.WriteToFile(character, _filePath);
+                    FileHelper.WriteToFileAsync(character, _filePath);
                     return true;
                 }
             }
@@ -42,7 +42,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var charactersFile = FileHelper.ReadFromFile<Character>(_filePath);
+                var charactersFile = await FileHelper.ReadFromFileAsync<Character>(_filePath);
                 var characters = JsonSerializer.Deserialize<List<Character>>(charactersFile);
                 return characters;
             }
@@ -77,7 +77,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.UpdateFile(character, character.Id.ToString(), _filePath);
+                var result = await FileHelper.UpdateFileAsync(character, character.Id.ToString(), _filePath);
                 return result;
             }
             catch (Exception)
@@ -91,18 +91,18 @@ namespace Fire_Emblem.API.Business.Repository.Characters
             try
             {
                 var character = await GetCharacter(id);
-                var result = FileHelper.DeleteFromFile<Character>(id.ToString(), _filePath);
+                var result = await FileHelper.DeleteFromFileAsync<Character>(id.ToString(), _filePath);
                 if (result)
                 {
                     if (shouldDeleteConvoy)
                     {
-                        result = FileHelper.DeleteFromFile<Convoy>(character.ConvoyId, _convoyFilePath);
+                        result = await FileHelper.DeleteFromFileAsync<Convoy>(character.ConvoyId, _convoyFilePath);
                     } 
                     if (character.Supports != null)
                     {
                         foreach (var support in character.Supports)
                         {
-                            result = FileHelper.DeleteFromFile<Support>(support.Id, _supportFilePath);
+                            result = await FileHelper.DeleteFromFileAsync<Support>(support.Id, _supportFilePath);
                         }
                     }
                 }
@@ -124,7 +124,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
                 }
                 else
                 {
-                    FileHelper.WriteToFile(convoy, _convoyFilePath);
+                    FileHelper.WriteToFileAsync(convoy, _convoyFilePath);
                     return true;
                 }
             }
@@ -138,7 +138,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var convoyFile = FileHelper.ReadFromFile<Convoy>(_convoyFilePath);
+                var convoyFile = await FileHelper.ReadFromFileAsync<Convoy>(_convoyFilePath);
                 var convoys = JsonSerializer.Deserialize<List<Convoy>>(convoyFile);
                 return convoys;
             }
@@ -194,7 +194,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.UpdateFile(convoy, convoy.Id.ToString(), _convoyFilePath);
+                var result = await FileHelper.UpdateFileAsync(convoy, convoy.Id.ToString(), _convoyFilePath);
                 return result;
             }
             catch (Exception)
@@ -213,7 +213,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
                 }
                 else
                 {
-                    FileHelper.WriteToFile(support, _supportFilePath);
+                    await FileHelper.WriteToFileAsync(support, _supportFilePath);
                     return true;
                 }
             }
@@ -227,7 +227,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var supportFile = FileHelper.ReadFromFile<Support>(_supportFilePath);
+                var supportFile = await FileHelper.ReadFromFileAsync<Support>(_supportFilePath);
                 var supports = JsonSerializer.Deserialize<List<Support>>(supportFile);
                 return supports;
             }
@@ -262,7 +262,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.UpdateFile(support, support.Id, _supportFilePath);
+                var result = await FileHelper.UpdateFileAsync(support, support.Id, _supportFilePath);
                 return result;
             }
             catch (Exception)
@@ -281,7 +281,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
                 }
                 else
                 {
-                    FileHelper.WriteToFile(enemy, _enemyFilePath);
+                    await FileHelper.WriteToFileAsync(enemy, _enemyFilePath);
                     return enemy;
                 }
             }
@@ -295,7 +295,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var enemyFile = FileHelper.ReadFromFile<Enemy>(_enemyFilePath);
+                var enemyFile = await FileHelper.ReadFromFileAsync<Enemy>(_enemyFilePath);
                 var enemies = JsonSerializer.Deserialize<List<Enemy>>(enemyFile);
                 return enemies;
             }
@@ -330,7 +330,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.UpdateFile(enemy, enemy.Id.ToString(), _enemyFilePath);
+                var result = await FileHelper.UpdateFileAsync(enemy, enemy.Id.ToString(), _enemyFilePath);
                 return result;
             }
             catch (Exception)
@@ -343,7 +343,7 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         {
             try
             {
-                var result = FileHelper.DeleteFromFile<Enemy>(enemyId.ToString(), _enemyFilePath); 
+                var result = await FileHelper.DeleteFromFileAsync<Enemy>(enemyId.ToString(), _enemyFilePath); 
                 return result;
             }
             catch (Exception)

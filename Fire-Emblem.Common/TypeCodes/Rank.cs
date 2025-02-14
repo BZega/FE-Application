@@ -9,12 +9,12 @@ namespace Fire_Emblem.Common.TypeCodes
 {
     public enum Rank
     {
-        E = 0,
-        D = 1,
-        C = 2,
-        B = 3,
-        A = 4,
-        S = 5,
-        None = 6
+        None = 0,
+        E = 1,
+        D = 2,
+        C = 3,
+        B = 4,
+        A = 5,
+        S = 6
     }
 }
