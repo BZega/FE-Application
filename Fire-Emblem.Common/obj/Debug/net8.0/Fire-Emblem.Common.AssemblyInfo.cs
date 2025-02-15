@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fire-Emblem.Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3a3352c1d39f9d3f58d3ab6480e0e95088fe7f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5e2415983474eacccc7c40d2dd485bb9f8cfc84")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fire-Emblem.Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fire-Emblem.Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
