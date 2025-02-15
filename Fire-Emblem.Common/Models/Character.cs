@@ -172,7 +172,7 @@ namespace Fire_Emblem.Common.Models
         public int GetAttack()
         {
             var attack = 0;
-            attack += (CurrentStats.Skl * 3 + CurrentStats.Lck) / 2;
+            attack += (int)Math.Ceiling((CurrentStats.Skl * 3 + CurrentStats.Res) / 2.0);
             if (EquippedWeapon != null && EquippedWeapon.Hit != null)
             {
                 attack += EquippedWeapon.Hit.Value;
@@ -540,7 +540,7 @@ namespace Fire_Emblem.Common.Models
         public int GetCrit()
         {
             var crit = 0;
-            crit += CurrentStats.Skl / 2;
+            crit += (int)Math.Ceiling(CurrentStats.Skl / 2.0);
             if (EquippedWeapon != null && EquippedWeapon.Crit != null)
             {
                 crit += EquippedWeapon.Crit.Value;
@@ -623,7 +623,7 @@ namespace Fire_Emblem.Common.Models
         public int GetAvoid()
         {
             var avoid = 0;
-            avoid += (CurrentStats.Spd * 3 + CurrentStats.Lck) / 2;
+            avoid += (int)Math.Ceiling((CurrentStats.Spd * 3 + CurrentStats.Lck) / 2.0);
             if (EquippedWeapon != null && EquippedWeapon.StatBonus?.Attributes != null)
             {
                 avoid += EquippedWeapon.StatBonus.Attributes.Avoid;
@@ -793,7 +793,7 @@ namespace Fire_Emblem.Common.Models
         public int GetDualStrikeRate(Support support)
         {
             var dualStrike = 0;
-            dualStrike += (CurrentStats.Skl + support.CurrentStats.Skl) / 4;
+            dualStrike += (int)Math.Ceiling((CurrentStats.Skl + support.CurrentStats.Skl) / 4.0);
             if (EquippedAbilities.Any(ability => ability.Name == "Dual Strike+"))
             {
                 dualStrike += 10;
@@ -819,46 +819,31 @@ namespace Fire_Emblem.Common.Models
             return dualStrike;
         }
 
-        public int GetDualGuardRate(string damageType)
+        public int GetDualGuardRate(string damageType, Support support)
         {
             var dualGuard = 0;
-            if (Supports != null && Supports.Count > 0)
+            if (EquippedAbilities.Any(ability => ability.Name == "Dual Guard+"))
             {
-                foreach (var support in Supports)
-                {
-                    if (support.IsPairedUp)
-                    {
-                        if (EquippedAbilities.Any(ability => ability.Name == "Dual Guard+"))
-                        {
-                            dualGuard += 10;
-                        }
-                        if (damageType == "Physical")
-                        {
-                            dualGuard += (CurrentStats.Def + support.CurrentStats.Def) / 4;
-                        }
-                        if (damageType == "Magical")
-                        {
-                            dualGuard += (CurrentStats.Res + support.CurrentStats.Res) / 4;
-                        }
-                        switch (support.SupportRank)
-                        {
-                            case Rank.None:
-                                break;
-                            case Rank.C:
-                                dualGuard += 2;
-                                break;
-                            case Rank.B:
-                                dualGuard += 5;
-                                break;
-                            case Rank.A:
-                                dualGuard += 7;
-                                break;
-                            case Rank.S:
-                                dualGuard += 10;
-                                break;
-                        }
-                    }
-                }
+                dualGuard += 10;
+            }
+            dualGuard += damageType == CombatTypeCode.Physical ? (int)Math.Ceiling((CurrentStats.Def + support.CurrentStats.Def) / 4.0) : (int)Math.Ceiling((CurrentStats.Res + support.CurrentStats.Res) / 4.0);
+
+            switch (support.SupportRank)
+            {
+                case Rank.None:
+                    break;
+                case Rank.C:
+                    dualGuard += 2;
+                    break;
+                case Rank.B:
+                    dualGuard += 5;
+                    break;
+                case Rank.A:
+                    dualGuard += 7;
+                    break;
+                case Rank.S:
+                    dualGuard += 10;
+                    break;
             }
             return dualGuard;
         }

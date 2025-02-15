@@ -75,7 +75,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
             try
             {
                 var characters = await GetAllCharacters();
-                //var convoys = await GetAllConvoys();
                 var maxId = 0;
                 var gold = 1000;
                 List<StatType> humanChoices = [humanChoice1, humanChoice2];
