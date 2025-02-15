@@ -11,6 +11,8 @@ namespace Fire_Emblem.Common.TypeCodes
         public const string Character = "CHARACTER";
         public const string Enemy = "ENEMY";
         public const string Support = "SUPPORT";
+        public const string Physical = "PHYSICAL";
+        public const string Magical = "MAGICAL";
         public const string Lethality = "Lethality"; 
         public const string Aether = "Aether";
         public const string Astra = "Astra";
