@@ -3,6 +3,7 @@ dist/
 .out/
 node_modules/
 *.log
+*.tsbuildinfo
 
 # Ignore .NET build and dependency files
 bin/
