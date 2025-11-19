@@ -5,5 +5,5 @@ export class Biography {
     gender: string;
     background: string;
     isNoble: boolean;
-    RaceChoice: Race;
+    raceChoice: Race;
 }

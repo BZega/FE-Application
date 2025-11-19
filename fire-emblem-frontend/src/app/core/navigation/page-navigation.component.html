@@ -1,8 +1,48 @@
-<div class="page-navigation-container">
-    <nav class="nav">
-        <ul class="nav-list">
-            <li><a routerLink="/character-summary-container" class="nav-list-item" routerLinkActive="active">Character Summary Page</a></li>
-            <li><a routerLink="/character-creator" class="nav-list-item" routerLinkActive="active">Character Creator</a></li>
-        </ul>
-    </nav>
-</div>
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand">
+      <span class="brand-icon">⚔️</span>
+      <span class="brand-text">Fire Emblem TTRPG Character Manager</span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li class="nav-item">
+        <a routerLink="/character-summary-container" 
+           class="nav-link" 
+           routerLinkActive="active"
+           (click)="closeMenu()">
+          <span class="nav-icon">👥</span>
+          Character Summary
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/character-creator" 
+           class="nav-link" 
+           routerLinkActive="active"
+           (click)="closeMenu()">
+          <span class="nav-icon">✨</span>
+          Character Creator
+        </a>
+      </li>
+      
+      <!-- Theme Toggle -->
+      <li class="nav-item theme-toggle-item">
+        <button class="theme-toggle" (click)="toggleTheme()" [title]="(isDarkMode$ | async) ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+          <span class="theme-icon" *ngIf="!(isDarkMode$ | async)">🌙</span>
+          <span class="theme-icon" *ngIf="isDarkMode$ | async">☀️</span>
+          <span class="theme-text">{{ (isDarkMode$ | async) ? 'Light Mode' : 'Dark Mode' }}</span>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</nav>
+

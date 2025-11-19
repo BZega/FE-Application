@@ -1,0 +1,515 @@
+<div class="character-detail-container" *ngIf="character$ | async as character">
+  <!-- Header with Back Button -->
+  <div class="detail-header">
+    <button class="back-button" (click)="goBack()">
+      <span class="back-icon">←</span> Back to Characters
+    </button>
+    <div class="title-row">
+      <h1 class="character-title">{{ character?.biography?.name }}</h1>
+      <button class="actions-button" (click)="openActionsDialog()" title="Character Actions">
+        <span class="actions-icon">⚙️</span>
+        Actions
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="detail-content">
+    
+    <!-- Left Column - Basic Info & Stats -->
+    <div class="detail-section">
+      <div class="section-card">
+        <h2 class="section-title">Basic Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Name:</span>
+            <span class="value">{{ character?.biography?.name }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Level:</span>
+            <span class="value">{{ character?.level }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Class:</span>
+            <span class="value">{{ character?.currentClass?.name }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Race:</span>
+            <span class="value">{{ character?.biography?.raceChoice?.racialType }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Condition:</span>
+            <span class="value">{{ character?.condition?.currentCondition }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Experience:</span>
+            <span class="value">{{ character?.exp }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Gold:</span>
+            <span class="value">{{ character?.gold }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combat Stats -->
+      <div class="section-card">
+        <h2 class="section-title">Combat Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">HP</span>
+            <span class="stat-value">{{ character?.currentHP }}/{{ character?.currentStats?.hp }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Attack</span>
+            <span class="stat-value">{{ character?.attack }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Damage</span>
+            <span class="stat-value">{{ character?.damage }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Crit</span>
+            <span class="stat-value">{{ character?.crit }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Avoid</span>
+            <span class="stat-value">{{ character?.avoid }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Dodge</span>
+            <span class="stat-value">{{ character?.dodge }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Atk Speed</span>
+            <span class="stat-value">{{ character?.attackSpeed }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Dual Strike</span>
+            <span class="stat-value">{{ character?.dualStrike }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Dual Guard</span>
+            <span class="stat-value">{{ character?.dualGuard }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Base Stats -->
+      <div class="section-card">
+        <h2 class="section-title">Base Stats</h2>
+        <div class="stats-grid" *ngIf="character?.currentStats">
+          <div class="stat-box">
+            <span class="stat-label">STR</span>
+            <span class="stat-value">{{ character?.currentStats?.str }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">MAG</span>
+            <span class="stat-value">{{ character?.currentStats?.mag }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">SKL</span>
+            <span class="stat-value">{{ character?.currentStats?.skl }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">SPD</span>
+            <span class="stat-value">{{ character?.currentStats?.spd }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">LCK</span>
+            <span class="stat-value">{{ character?.currentStats?.lck }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">DEF</span>
+            <span class="stat-value">{{ character?.currentStats?.def }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">RES</span>
+            <span class="stat-value">{{ character?.currentStats?.res }}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">MOV</span>
+            <span class="stat-value">{{ character?.currentStats?.mov }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Abilities, Equipment, etc -->
+    <div class="detail-section">
+      
+      <!-- Abilities -->
+      <div class="section-card">
+        <h2 class="section-title">Abilities</h2>
+        
+        <!-- Personal Ability - Always displayed first -->
+        <div class="personal-ability-section" *ngIf="character?.personalAbility">
+          <div class="personal-ability-header">
+            <span class="personal-ability-badge">⭐ Personal Ability</span>
+          </div>
+          <div class="ability-item personal-ability"
+               (mouseenter)="showAbilityDetails(character.personalAbility, $event, true)"
+               (mouseleave)="hideAbilityDetails()">
+            <span class="ability-icon">⭐</span>
+            <div class="ability-content">
+              <span class="ability-name">{{ character.personalAbility.name }}</span>
+              <span class="ability-description-preview">{{ character.personalAbility.description | slice:0:60 }}...</span>
+            </div>
+            <span class="hover-hint">ℹ️</span>
+          </div>
+        </div>
+
+        <!-- Equipped Abilities (5 slots) -->
+        <div class="equipped-abilities-section">
+          <div class="abilities-header">
+            <span class="abilities-label">Equipped Abilities ({{ getEquippedAbilitiesCount(character) }}/5)</span>
+          </div>
+          <div class="abilities-box">
+            <div *ngFor="let ability of getAbilitySlots(character); let i = index"
+                 class="ability-item"
+                 [class.empty-slot]="!ability"
+                 (mouseenter)="ability && showAbilityDetails(ability, $event, false)"
+                 (mouseleave)="hideAbilityDetails()">
+              <span class="ability-icon">{{ ability ? '✨' : '📦' }}</span>
+              <div class="ability-content">
+                <span class="ability-name">{{ ability ? ability.name : 'Empty Slot' }}</span>
+                <span class="ability-type" *ngIf="ability">{{ ability.abilityType }}</span>
+              </div>
+              <span class="hover-hint" *ngIf="ability">ℹ️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equipment -->
+      <div class="section-card" *ngIf="character?.inventory?.equipment">
+        <h2 class="section-title">Inventory ({{ getInventoryCount(character) }}/5)</h2>
+        <div class="equipment-box">
+          <!-- Display up to 5 inventory slots -->
+          <div *ngFor="let item of getInventorySlots(character); let i = index" 
+               class="equipment-item"
+               [class.equipped]="item && isEquipped(item, character)"
+               [class.empty-slot]="!item"
+               [matTooltip]="item ? '' : 'Empty inventory slot'"
+               [matTooltipDisabled]="!item || item === null"
+               (mouseenter)="item && showItemDetails(item, $event)"
+               (mouseleave)="hideItemDetails()">
+            <span class="equipment-icon">{{ item ? getItemIcon(item) : '📦' }}</span>
+            <div class="equipment-details">
+              <span class="equipment-name">{{ item ? item.name : 'Empty Slot' }}</span>
+              <div class="equipment-meta">
+                <span class="equipment-type" *ngIf="item">{{ item.weaponType }}</span>
+                <span class="equipment-badge equipped-badge" *ngIf="item && isEquipped(item, character)">⚔ Equipped</span>
+                <span class="equipment-uses" *ngIf="item && item.uses">{{ item.uses }} uses</span>
+              </div>
+            </div>
+            <span class="hover-hint" *ngIf="item">ℹ️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="section-card" *ngIf="character?.skills && character?.skills.length > 0">
+        <h2 class="section-title">Skills</h2>
+        <div class="abilities-list">
+          <div class="ability-item" *ngFor="let skill of character?.skills">
+            <span class="ability-name">{{ skill?.skillType }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growth Rates -->
+      <div class="section-card" *ngIf="character?.totalGrowthRate">
+        <h2 class="section-title">Growth Rates</h2>
+        <div class="growth-grid">
+          <div class="growth-item">
+            <span class="growth-label">HP:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.hp }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">STR:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.str }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">MAG:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.mag }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">SKL:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.skl }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">SPD:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.spd }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">LCK:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.lck }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">DEF:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.def }}%</span>
+          </div>
+          <div class="growth-item">
+            <span class="growth-label">RES:</span>
+            <span class="growth-value">{{ character?.totalGrowthRate?.res }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="section-card">
+        <h2 class="section-title">Additional Information</h2>
+        <div class="info-grid">
+          <div class="info-item" *ngIf="character?.asset">
+            <span class="label">Asset:</span>
+            <span class="value positive">{{ character?.asset?.assetChoice }}</span>
+          </div>
+          <div class="info-item" *ngIf="character?.flaw">
+            <span class="label">Flaw:</span>
+            <span class="value negative">{{ character?.flaw?.flawChoice }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Starting Class:</span>
+            <span class="value">{{ character?.startingClass }}</span>
+          </div>
+          <div class="info-item" *ngIf="character?.heartSealClass">
+            <span class="label">Heart Seal Class:</span>
+            <span class="value">{{ character?.heartSealClass }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="loading-container" *ngIf="!(character$ | async)">
+  <div class="loading-spinner">Loading character details...</div>
+</div>
+
+<!-- Character Actions Dialog Template -->
+<ng-template #actionsDialog>
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="dialog-icon">⚙️</span>
+    Character Actions
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    
+    <!-- Switch Terrain -->
+    <div class="dialog-section">
+      <label class="dialog-label" for="terrain-select">Switch Terrain</label>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Terrain</mat-label>
+        <mat-select id="terrain-select" [(ngModel)]="selectedTerrain">
+          <mat-option *ngFor="let terrain of terrainOptions" [value]="terrain">
+            {{ terrain }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Gain Experience -->
+    <div class="dialog-section">
+      <label class="dialog-label" for="exp-input">Gain Experience</label>
+      <div class="exp-container">
+        <mat-form-field appearance="outline" class="exp-input">
+          <mat-label>Experience Points</mat-label>
+          <input matInput 
+                 type="number" 
+                 id="exp-input"
+                 [(ngModel)]="experienceToGain"
+                 placeholder="Enter XP amount"
+                 min="0">
+        </mat-form-field>
+        <button mat-raised-button 
+                color="primary" 
+                (click)="gainExperience()"
+                [disabled]="!experienceToGain || experienceToGain <= 0"
+                class="exp-button">
+          <span class="button-icon">⭐</span>
+          Gain Experience
+        </button>
+      </div>
+    </div>
+
+    <!-- Equip Abilities -->
+    <div class="dialog-section">
+      <label class="dialog-label">Manage Abilities</label>
+      <button mat-raised-button 
+              color="accent" 
+              (click)="openEquipAbilitiesModal()"
+              class="full-width-button">
+        <span class="button-icon">✨</span>
+        Equip Abilities
+      </button>
+    </div>
+
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button mat-dialog-close class="cancel-button">Close</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<!-- Item Details Tooltip -->
+<div class="item-details-tooltip" 
+     *ngIf="hoveredItem" 
+     [style.left.px]="tooltipPosition.x"
+     [style.top.px]="tooltipPosition.y"
+     [@fadeInOut]>
+  <div class="tooltip-header">
+    <span class="tooltip-icon">{{ getItemIcon(hoveredItem) }}</span>
+    <div class="tooltip-title-section">
+      <h3 class="tooltip-title">{{ hoveredItem.name }}</h3>
+      <span class="tooltip-weapon-type">{{ hoveredItem.weaponType }}</span>
+    </div>
+  </div>
+  
+  <div class="tooltip-body">
+    <!-- Stats Row -->
+    <div class="tooltip-stats">
+      <div class="tooltip-stat" *ngIf="hoveredItem.might !== null && hoveredItem.might !== undefined">
+        <span class="stat-label">Might:</span>
+        <span class="stat-value">{{ hoveredItem.might }}</span>
+      </div>
+      <div class="tooltip-stat" *ngIf="hoveredItem.hit !== null && hoveredItem.hit !== undefined">
+        <span class="stat-label">Hit:</span>
+        <span class="stat-value">{{ hoveredItem.hit }}%</span>
+      </div>
+      <div class="tooltip-stat" *ngIf="hoveredItem.crit !== null && hoveredItem.crit !== undefined">
+        <span class="stat-label">Crit:</span>
+        <span class="stat-value">{{ hoveredItem.crit }}%</span>
+      </div>
+      <div class="tooltip-stat" *ngIf="hoveredItem.range">
+        <span class="stat-label">Range:</span>
+        <span class="stat-value">{{ hoveredItem.range }}</span>
+      </div>
+    </div>
+
+    <!-- Additional Properties -->
+    <div class="tooltip-properties">
+      <div class="tooltip-property" *ngIf="hoveredItem.rank">
+        <span class="property-label">Rank:</span>
+        <span class="property-value rank-badge">{{ hoveredItem.rank }}</span>
+      </div>
+      <div class="tooltip-property" *ngIf="hoveredItem.uses">
+        <span class="property-label">Uses:</span>
+        <span class="property-value">{{ hoveredItem.uses }}</span>
+      </div>
+      <div class="tooltip-property" *ngIf="hoveredItem.worth">
+        <span class="property-label">Worth:</span>
+        <span class="property-value">{{ hoveredItem.worth }}G</span>
+      </div>
+      <div class="tooltip-property" *ngIf="hoveredItem.weaponExp">
+        <span class="property-label">Weapon EXP:</span>
+        <span class="property-value">{{ hoveredItem.weaponExp }}</span>
+      </div>
+    </div>
+
+    <!-- Special Properties -->
+    <div class="tooltip-tags" *ngIf="hasSpecialProperties(hoveredItem)">
+      <span class="tag tag-magical" *ngIf="hoveredItem.isMagical">✨ Magical</span>
+      <span class="tag tag-brave" *ngIf="hoveredItem.isBrave">⚡ Brave</span>
+      <span class="tag tag-effective" *ngIf="hoveredItem.doesEffectiveDamage">🎯 Effective</span>
+    </div>
+
+    <!-- Effective Against -->
+    <div class="tooltip-effective" *ngIf="hoveredItem.effectiveUnitTypes && hoveredItem.effectiveUnitTypes.length > 0">
+      <span class="effective-label">Effective against:</span>
+      <div class="effective-types">
+        <span class="effective-type" *ngFor="let type of hoveredItem.effectiveUnitTypes">{{ type }}</span>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="tooltip-description" *ngIf="hoveredItem.description">
+      <p>{{ hoveredItem.description }}</p>
+    </div>
+
+    <!-- Equipped Status -->
+    <div class="tooltip-equipped" *ngIf="hoveredItem.isEquipped">
+      <span class="equipped-indicator">⚔️ Currently Equipped</span>
+    </div>
+  </div>
+</div>
+
+<!-- Ability Details Tooltip -->
+<div class="ability-details-tooltip" 
+     *ngIf="hoveredAbility" 
+     [style.left.px]="tooltipPosition.x"
+     [style.top.px]="tooltipPosition.y"
+     [@fadeInOut]>
+  <div class="tooltip-header">
+    <span class="tooltip-icon">{{ isPersonalAbility ? '⭐' : '✨' }}</span>
+    <div class="tooltip-title-section">
+      <h3 class="tooltip-title">{{ hoveredAbility.name }}</h3>
+      <span class="tooltip-ability-type" *ngIf="!isPersonalAbility">{{ hoveredAbility.abilityType }}</span>
+      <span class="tooltip-ability-type personal-label" *ngIf="isPersonalAbility">Personal Ability</span>
+    </div>
+  </div>
+  
+  <div class="tooltip-body">
+    <!-- Ability Info -->
+    <div class="tooltip-properties">
+      <div class="tooltip-property" *ngIf="!isPersonalAbility && hoveredAbility.levelGained">
+        <span class="property-label">Gained at Level:</span>
+        <span class="property-value">{{ hoveredAbility.levelGained }}</span>
+      </div>
+      <div class="tooltip-property" *ngIf="!isPersonalAbility && hoveredAbility.needsToInitiateCombat !== null && hoveredAbility.needsToInitiateCombat !== undefined">
+        <span class="property-label">Initiate Combat:</span>
+        <span class="property-value">{{ hoveredAbility.needsToInitiateCombat ? 'Required' : 'Not Required' }}</span>
+      </div>
+    </div>
+
+    <!-- Stat Bonuses -->
+    <div class="tooltip-stat-bonuses" *ngIf="hoveredAbility.statBonus">
+      <span class="stat-bonus-label">Stat Bonuses:</span>
+      <div class="stat-bonus-grid">
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.hp">
+          <span class="bonus-stat">HP:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.hp }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.str">
+          <span class="bonus-stat">STR:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.str }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.mag">
+          <span class="bonus-stat">MAG:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.mag }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.skl">
+          <span class="bonus-stat">SKL:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.skl }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.spd">
+          <span class="bonus-stat">SPD:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.spd }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.lck">
+          <span class="bonus-stat">LCK:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.lck }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.def">
+          <span class="bonus-stat">DEF:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.def }}</span>
+        </div>
+        <div class="stat-bonus-item" *ngIf="hoveredAbility.statBonus.res">
+          <span class="bonus-stat">RES:</span>
+          <span class="bonus-value">+{{ hoveredAbility.statBonus.res }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="tooltip-description" *ngIf="hoveredAbility.description">
+      <p>{{ hoveredAbility.description }}</p>
+    </div>
+
+    <!-- Personal Ability Badge -->
+    <div class="tooltip-special-badge" *ngIf="isPersonalAbility">
+      <span class="special-indicator">⭐ Unique to this character</span>
+    </div>
+  </div>
+</div>

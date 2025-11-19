@@ -29,12 +29,65 @@
     background-image: var(--background-image);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    transition: background-image 0.3s ease;  
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Allow vertical scrolling */
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+h1,
+h2,
+h3 {
+  font: 400 1rem/2rem 'Segoe UI', "Helvetica Neue", sans-serif;
+  margin: 0 0px;
+}
+
+label {
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif !important;
+}
+
+span {
+  // font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  font-weight: normal;
+}
+
+// Disables background when a modal is open
+body:has(.cdk-global-overlay-wrapper)>app-root {
+  pointer-events: none;
+}
+
+.se-modal-json {
+  display: flex;
+  height: auto;
+  left: auto;
+  position: absolute !important;
+  max-width: auto;
+  font-size: 13px;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.cdk-drag-preview {
+  overflow: hidden !important;
+}
+
   /* Apply to Material and buttons */
   button {
     background-color: var(--button-bg);
@@ -66,8 +119,6 @@
     padding: 8px;
     border-radius: 5px;
   }  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .fe-card-border {
   background: white;

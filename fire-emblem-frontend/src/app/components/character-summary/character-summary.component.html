@@ -1,33 +1,62 @@
-<div class="character-summary-container">
-    <div class="character-link-wrapper"
-         (click)="onSelect($event)">
-      <span><b>{{character?.biography?.name}}</b></span>
-    </div>
+<div class="character-card" 
+     [class.character-card-selected]="(isSelected() | async)"
+     (click)="onSelect($event)">
   
-    <!-- -------------------------------- JOB SPECS --------------------------------- -->
-    <div class="job-summary-wrapper">
-      <div class="detail-grid">
-        <span class="detail-item-1 detail-item-a"><b>Class&nbsp;</b></span>
-        <span class="detail-item-1 detail-item-b">{{character?.currentClass?.name}}</span>
-  
-        <span class="detail-item-1"
-              class="detail-item-d"><b>Attack&nbsp;</b></span>
-        <span class="detail-item-1"
-              class="detail-item-e">{{ character?.attack }}</span>
-  
-        <span class="detail-item-2 detail-item-a"><b>Personal Ability&nbsp;</b></span>
-        <span class="detail-item-2 detail-item-b">{{ character?.personalAbility?.name }}</span>
-  
-        <span class="detail-item-2"
-              class="detail-item-d"><b>Crit&nbsp;</b></span>
-        <span class="detail-item-2"
-              class="detail-item-e">{{ character?.crit }}</span>
-  
-        <span class="detail-item-3 detail-item-a"><b>Equipped Weapon&nbsp;</b></span>
-        <span class="detail-item-3 detail-item-b">{{character?.equippedWeapon?.name}}</span>
-  
-        <span class="detail-item-3 detail-item-d"><b>Avoid&nbsp;</b></span>
-        <span class="detail-item-3 detail-item-e">{{character?.avoid}}</span>
-      </div>
-    </div>  
+  <!-- Card Header -->
+  <div class="card-header">
+    <h2 class="character-name">{{ character?.biography?.name }}</h2>
+    <div class="character-level">Lvl {{ character?.level }}</div>
   </div>
+
+  <!-- Card Body - Basic Info -->
+  <div class="card-body">
+    <div class="info-row">
+      <div class="info-item">
+        <span class="info-label">Class</span>
+        <span class="info-value">{{ character?.currentClass?.name }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Race</span>
+        <span class="info-value">{{ character?.biography?.raceChoice?.racialType }}</span>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <span class="info-label">HP</span>
+        <span class="info-value">{{ character?.currentHP }}/{{ character?.currentStats?.hp }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Condition</span>
+        <span class="info-value">{{ character?.condition?.currentCondition }}</span>
+      </div>
+    </div>
+
+    <!-- Combat Stats Preview -->
+    <div class="combat-stats">
+      <div class="stat-badge">
+        <span class="stat-label">ATK</span>
+        <span class="stat-value">{{ character?.attack }}</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-label">CRIT</span>
+        <span class="stat-value">{{ character?.crit }}</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-label">AVO</span>
+        <span class="stat-value">{{ character?.avoid }}</span>
+      </div>
+    </div>
+
+    <!-- Equipped Weapon -->
+    <div class="equipped-weapon" *ngIf="character?.equippedWeapon">
+      <span class="weapon-icon">⚔️</span>
+      <span class="weapon-name">{{ character?.equippedWeapon?.name }}</span>
+    </div>
+  </div>
+
+  <!-- Card Footer - Click Hint -->
+  <div class="card-footer">
+    <span class="click-hint">Click for full details</span>
+  </div>
+</div>

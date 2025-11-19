@@ -22,4 +22,8 @@ export class CharacterService {
       const url = 'https://localhost:7145/Characters/get-all-characters';
       return this.http.get<Character[]>(url);
   }
+  public getCharacterById(id: number): Observable<Character> {
+    const url = `https://localhost:7145/Characters/get-character/${id}`;
+    return this.http.get<Character>(url);
+  }
 }
