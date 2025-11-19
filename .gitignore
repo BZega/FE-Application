@@ -5,6 +5,10 @@ node_modules/
 *.log
 *.tsbuildinfo
 
+# Package lock files
+package-lock.json
+yarn.lock
+
 # Angular cache
 .angular/
 .angular/cache/
