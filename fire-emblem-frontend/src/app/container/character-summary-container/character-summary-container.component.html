@@ -1,25 +1,16 @@
-<div class="character-summaries style-2"
-         cdkScrollable
-         style="height: calc(100% - 100px);">
+<div class="character-summaries-grid style-2"
+     cdkScrollable
+     style="height: calc(100% - 100px);">
 
-<ng-container *ngIf="(characterList$ | async)?.length > 0; else noCharacters">
-    <cdk-virtual-scroll-viewport height="800px"
-                                 #cdkv
-                                 itemSize="92"
-                                 minBufferPx="1200"
-                                 maxBufferPx="1800"
-                                 class="vscroll-viewport style-2">
-      <character-summary class="vscroll-item"
-                   *cdkVirtualFor="let character of (characterList$ | async); trackBy: trackCharactersBy; templateCacheSize: 0"
-                   [character]="character"
-                   [id]="character?.id"></character-summary>
-    </cdk-virtual-scroll-viewport>
-  </ng-container>
-  <!-- <ng-container *ngIf="(characterList$ | async) as characters">
-    <div *ngFor="let character of characters">
-      <character-summary [character]="character"></character-summary>
+  <ng-container *ngIf="(characterList$ | async)?.length > 0; else noCharacters">
+    <div class="cards-container">
+      <character-summary
+        *ngFor="let character of (characterList$ | async); trackBy: trackCharactersBy"
+        [character]="character"
+        [id]="character?.id">
+      </character-summary>
     </div>
-  </ng-container> -->
+  </ng-container>
   
   <ng-template #noCharacters>
     <div class="fe-card fe-card-border"

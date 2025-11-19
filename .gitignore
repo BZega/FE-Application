@@ -5,6 +5,18 @@ node_modules/
 *.log
 *.tsbuildinfo
 
+# Angular cache
+.angular/
+.angular/cache/
+
+# Angular-specific temporary files
+.sass-cache/
+connect.lock
+coverage/
+libpeerconnection.log
+testem.log
+typings/
+
 # Ignore .NET build and dependency files
 bin/
 obj/

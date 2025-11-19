@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,7 +18,7 @@ namespace Fire_Emblem.Common.TypeCodes
         Sword = 6,
         Tome = 7,
         DarkTome = 8,
-        Cosumable = 9,
+        Consumable = 9,
         None = 10
     }
 }
