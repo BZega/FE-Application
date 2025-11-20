@@ -244,7 +244,7 @@ namespace Fire_Emblem.API.Controllers
         }
 
         [HttpPost]
-        [Route("update-support-character{characterId}/{supportId}")]
+        [Route("update-support-character/{characterId}/{supportId}")]
         public async Task<ActionResult<bool>> UpdateSupportCharacter(int characterId, string supportId, int supportPoints = 0, Stats levelUpStats = null, ClassType currentClass = ClassType.None, int level = 0, int internalLevel = 0, string equippedWeapon = null)
         {
             try
@@ -389,6 +389,55 @@ namespace Fire_Emblem.API.Controllers
             }
             catch (Exception ex)
             {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("upload-character-portrait/{characterId}")]
+        public async Task<ActionResult<string>> UploadCharacterPortrait(int characterId, IFormFile imageFile)
+        {
+            try
+            {
+                if (imageFile == null || imageFile.Length == 0)
+                    return BadRequest("No file uploaded");
+
+                // Validate file type
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                var extension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
+                
+                if (!allowedExtensions.Contains(extension))
+                    return BadRequest("Invalid file type. Only JPG, PNG, and GIF allowed.");
+
+                // Limit file size (e.g., 5MB)
+                if (imageFile.Length > 5 * 1024 * 1024)
+                    return BadRequest("File size cannot exceed 5MB");
+
+                // Create directory if it doesn't exist
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "characters");
+                Directory.CreateDirectory(uploadsFolder);
+
+                // Generate unique filename
+                var fileName = $"character_{characterId}_{Guid.NewGuid()}{extension}";
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                // Save file
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+
+                // Store relative path in database
+                var relativePath = $"/images/characters/{fileName}";
+                
+                // Update character with portrait path (you'll need to add this method)
+                // await _charactersContext.UpdateCharacterPortrait(characterId, relativePath);
+
+                return Ok(new { path = relativePath, message = "Portrait uploaded successfully" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error uploading character portrait");
                 return BadRequest(ex.Message);
             }
         }

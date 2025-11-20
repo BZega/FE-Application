@@ -3487,7 +3487,7 @@
           "statType": {
             "$ref": "#/components/schemas/StatType"
           },
-          "isProfecient": {
+          "isProficient": {
             "type": "boolean"
           },
           "attribute": {

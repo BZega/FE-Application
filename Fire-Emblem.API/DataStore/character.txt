@@ -529,7 +529,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -537,7 +537,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -545,7 +545,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -553,7 +553,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -561,7 +561,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -569,7 +569,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -577,7 +577,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -585,7 +585,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -593,7 +593,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -601,7 +601,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -609,7 +609,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -617,7 +617,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -625,7 +625,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -633,7 +633,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -641,7 +641,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -649,7 +649,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -657,7 +657,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -665,7 +665,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -673,7 +673,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -681,7 +681,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -689,7 +689,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -697,7 +697,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -705,7 +705,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -713,7 +713,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -1317,7 +1317,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 0,
         "Bonus": 1,
         "Score": 1
@@ -1325,7 +1325,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1333,7 +1333,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1341,7 +1341,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1349,7 +1349,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1357,7 +1357,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1365,7 +1365,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -1373,7 +1373,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 1,
         "Bonus": 1,
         "Score": 1
@@ -1381,7 +1381,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -1389,7 +1389,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 1,
         "Bonus": 1,
         "Score": 1
@@ -1397,7 +1397,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 3,
         "Bonus": 1,
         "Score": 1
@@ -1405,7 +1405,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -1413,7 +1413,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -1421,7 +1421,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1429,7 +1429,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1437,7 +1437,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1445,7 +1445,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1453,7 +1453,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1461,7 +1461,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -1469,7 +1469,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1477,7 +1477,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -1485,7 +1485,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -1493,7 +1493,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1501,7 +1501,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -1815,29 +1815,6 @@
     "Inventory": {
       "Equipment": [
         {
-          "Id": 151,
-          "EquipOid": "973c69e6-6ccf-4c69-88f7-7ae85f21963d",
-          "Name": "Bronze Sword",
-          "Rank": 1,
-          "WeaponType": 6,
-          "IsMagical": false,
-          "IsBrave": false,
-          "DoesEffectiveDamage": false,
-          "EffectiveUnitTypes": [],
-          "Might": 4,
-          "Hit": 100,
-          "Crit": 0,
-          "Range": "1",
-          "Uses": "Inf.",
-          "Worth": "500",
-          "WeaponExp": 2,
-          "BaseHP": null,
-          "Experience": null,
-          "IsEquipped": false,
-          "Description": "",
-          "StatBonus": null
-        },
-        {
           "Id": 166,
           "EquipOid": "5aa63620-0fcc-4fb9-a5ae-e5435aadd1f1",
           "Name": "Brave Sword",
@@ -1858,6 +1835,29 @@
           "Experience": null,
           "IsEquipped": true,
           "Description": "It allows two consecutive hits per attack. Sells for 2000 gold.",
+          "StatBonus": null
+        },
+        {
+          "Id": 151,
+          "EquipOid": "973c69e6-6ccf-4c69-88f7-7ae85f21963d",
+          "Name": "Bronze Sword",
+          "Rank": 1,
+          "WeaponType": 6,
+          "IsMagical": false,
+          "IsBrave": false,
+          "DoesEffectiveDamage": false,
+          "EffectiveUnitTypes": [],
+          "Might": 4,
+          "Hit": 100,
+          "Crit": 0,
+          "Range": "1",
+          "Uses": "Inf.",
+          "Worth": "500",
+          "WeaponExp": 2,
+          "BaseHP": null,
+          "Experience": null,
+          "IsEquipped": false,
+          "Description": "",
           "StatBonus": null
         }
       ]
@@ -2047,7 +2047,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 27,
         "Bonus": 4,
         "Score": 9
@@ -2055,7 +2055,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2063,7 +2063,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2071,7 +2071,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2079,7 +2079,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2087,7 +2087,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2095,7 +2095,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 11,
         "Bonus": 0,
         "Score": 2
@@ -2103,7 +2103,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 11,
         "Bonus": 4,
         "Score": 6
@@ -2111,7 +2111,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 11,
         "Bonus": 0,
         "Score": 2
@@ -2119,7 +2119,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 11,
         "Bonus": 0,
         "Score": 2
@@ -2127,7 +2127,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 17,
         "Bonus": 4,
         "Score": 7
@@ -2135,7 +2135,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 17,
         "Bonus": 0,
         "Score": 3
@@ -2143,7 +2143,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 17,
         "Bonus": 0,
         "Score": 3
@@ -2151,7 +2151,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -2159,7 +2159,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -2167,7 +2167,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -2175,7 +2175,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -2183,7 +2183,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -2191,7 +2191,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 27,
         "Bonus": 0,
         "Score": 5
@@ -2199,7 +2199,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -2207,7 +2207,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 11,
         "Bonus": 0,
         "Score": 2
@@ -2215,7 +2215,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 17,
         "Bonus": 0,
         "Score": 3
@@ -2223,7 +2223,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 19,
         "Bonus": 0,
         "Score": 3
@@ -2231,7 +2231,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3060,7 +3060,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 4,
         "Bonus": 1,
         "Score": 1
@@ -3068,7 +3068,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3076,7 +3076,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3084,7 +3084,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3092,7 +3092,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3100,7 +3100,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3108,7 +3108,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 9,
         "Bonus": 1,
         "Score": 2
@@ -3116,7 +3116,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -3124,7 +3124,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -3132,7 +3132,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -3140,7 +3140,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 12,
         "Bonus": 1,
         "Score": 3
@@ -3148,7 +3148,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 12,
         "Bonus": 0,
         "Score": 2
@@ -3156,7 +3156,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 12,
         "Bonus": 0,
         "Score": 2
@@ -3164,7 +3164,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3172,7 +3172,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3180,7 +3180,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3188,7 +3188,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3196,7 +3196,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3204,7 +3204,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -3212,7 +3212,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3220,7 +3220,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -3228,7 +3228,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 12,
         "Bonus": 0,
         "Score": 2
@@ -3236,7 +3236,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -3244,7 +3244,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -3775,7 +3775,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -3783,7 +3783,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 8,
         "Bonus": 1,
         "Score": 2
@@ -3791,7 +3791,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3799,7 +3799,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3807,7 +3807,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3815,7 +3815,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3823,7 +3823,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 3,
         "Bonus": 1,
         "Score": 1
@@ -3831,7 +3831,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3839,7 +3839,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3847,7 +3847,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3855,7 +3855,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3863,7 +3863,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3871,7 +3871,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3879,7 +3879,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -3887,7 +3887,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 5,
         "Bonus": 1,
         "Score": 2
@@ -3895,7 +3895,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -3903,7 +3903,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -3911,7 +3911,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -3919,7 +3919,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -3927,7 +3927,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -3935,7 +3935,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3943,7 +3943,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3951,7 +3951,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -3959,7 +3959,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -4467,7 +4467,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 8,
         "Bonus": 1,
         "Score": 2
@@ -4475,7 +4475,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4483,7 +4483,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4491,7 +4491,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4499,7 +4499,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4507,7 +4507,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4515,7 +4515,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 5,
         "Bonus": 1,
         "Score": 2
@@ -4523,7 +4523,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -4531,7 +4531,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 5,
         "Bonus": 1,
         "Score": 2
@@ -4539,7 +4539,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -4547,7 +4547,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -4555,7 +4555,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -4563,7 +4563,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -4571,7 +4571,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4579,7 +4579,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4587,7 +4587,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4595,7 +4595,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4603,7 +4603,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4611,7 +4611,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -4619,7 +4619,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4627,7 +4627,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -4635,7 +4635,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -4643,7 +4643,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -4651,7 +4651,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -4712,10 +4712,10 @@
       "Str": 6,
       "Mag": 0,
       "Skl": 5,
-      "Spd": 9,
+      "Spd": 10,
       "Lck": -2,
-      "Def": 7,
-      "Res": 0,
+      "Def": 6,
+      "Res": -1,
       "Mov": 5
     },
     "TotalGrowthRate": {
@@ -4729,27 +4729,41 @@
       "Res": 45
     },
     "EquippedWeapon": {
-      "Id": 0,
-      "EquipOid": null,
-      "Name": "Unarmed",
+      "Id": 155,
+      "EquipOid": "de3ec754-03dc-4e99-a2ec-ce7c067f97b3",
+      "Name": "Brass Katana",
       "Rank": 1,
-      "WeaponType": 10,
+      "WeaponType": 6,
       "IsMagical": false,
       "IsBrave": false,
       "DoesEffectiveDamage": false,
       "EffectiveUnitTypes": [],
-      "Might": 0,
-      "Hit": 75,
+      "Might": 4,
+      "Hit": 100,
       "Crit": 0,
       "Range": "1",
       "Uses": "Inf.",
-      "Worth": "-",
-      "WeaponExp": 0,
+      "Worth": "500",
+      "WeaponExp": 2,
       "BaseHP": null,
       "Experience": null,
       "IsEquipped": true,
       "Description": "",
-      "StatBonus": null
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": {
+          "HP": 0,
+          "Str": 0,
+          "Mag": 0,
+          "Skl": 0,
+          "Spd": 1,
+          "Lck": 0,
+          "Def": -1,
+          "Res": -1,
+          "Mov": 0
+        }
+      }
     },
     "EquippedAbilities": [
       {
@@ -4858,11 +4872,11 @@
       0
     ],
     "Gold": 1200,
-    "Attack": 83,
+    "Attack": 107,
     "Heal": 0,
-    "Damage": 6,
+    "Damage": 10,
     "Crit": 3,
-    "Avoid": 13,
+    "Avoid": 14,
     "Dodge": -2,
     "DamageReceived": 0,
     "AttackSpeed": 0,
@@ -4970,7 +4984,7 @@
           "WeaponExp": 2,
           "BaseHP": null,
           "Experience": null,
-          "IsEquipped": false,
+          "IsEquipped": true,
           "Description": "",
           "StatBonus": {
             "Growths": null,
@@ -5033,10 +5047,10 @@
       "Str": 0,
       "Mag": 0,
       "Skl": 0,
-      "Spd": 0,
+      "Spd": 1,
       "Lck": 0,
-      "Def": 0,
-      "Res": 0,
+      "Def": -1,
+      "Res": -1,
       "Mov": 0
     },
     "MaxStats": {
@@ -5173,7 +5187,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 6,
         "Bonus": 1,
         "Score": 2
@@ -5181,7 +5195,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5189,7 +5203,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5197,7 +5211,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5205,7 +5219,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5213,7 +5227,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5221,7 +5235,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 5,
         "Bonus": 1,
         "Score": 2
@@ -5229,7 +5243,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -5237,7 +5251,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -5245,7 +5259,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -5253,7 +5267,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 9,
         "Bonus": 1,
         "Score": 2
@@ -5261,7 +5275,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -5269,7 +5283,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -5277,7 +5291,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5285,7 +5299,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5293,7 +5307,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5301,7 +5315,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5309,7 +5323,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5317,7 +5331,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -5325,7 +5339,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5333,7 +5347,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -5341,7 +5355,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 9,
         "Bonus": 0,
         "Score": 1
@@ -5349,7 +5363,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 7,
         "Bonus": 0,
         "Score": 1
@@ -5357,7 +5371,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5889,7 +5903,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 8,
         "Bonus": 1,
         "Score": 2
@@ -5897,7 +5911,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5905,7 +5919,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5913,7 +5927,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5921,7 +5935,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5929,7 +5943,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -5937,7 +5951,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 4,
         "Bonus": 1,
         "Score": 1
@@ -5945,7 +5959,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -5953,7 +5967,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -5961,7 +5975,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -5969,7 +5983,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 8,
         "Bonus": 1,
         "Score": 2
@@ -5977,7 +5991,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -5985,7 +5999,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -5993,7 +6007,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6001,7 +6015,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6009,7 +6023,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6017,7 +6031,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6025,7 +6039,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6033,7 +6047,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -6041,7 +6055,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6049,7 +6063,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6057,7 +6071,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 8,
         "Bonus": 0,
         "Score": 1
@@ -6065,7 +6079,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6073,7 +6087,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6647,7 +6661,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6655,7 +6669,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6663,7 +6677,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 4,
         "Bonus": 1,
         "Score": 1
@@ -6671,7 +6685,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6679,7 +6693,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6687,7 +6701,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6695,7 +6709,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6703,7 +6717,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6711,7 +6725,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6719,7 +6733,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 1,
         "Bonus": 1,
         "Score": 1
@@ -6727,7 +6741,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 1,
         "Bonus": 1,
         "Score": 1
@@ -6735,7 +6749,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6743,7 +6757,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6751,7 +6765,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -6759,7 +6773,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -6767,7 +6781,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -6775,7 +6789,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -6783,7 +6797,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 2,
         "Bonus": 1,
         "Score": 1
@@ -6791,7 +6805,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -6799,7 +6813,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 4,
         "Bonus": 0,
         "Score": 0
@@ -6807,7 +6821,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6815,7 +6829,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 1,
         "Bonus": 0,
         "Score": 0
@@ -6823,7 +6837,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -6831,7 +6845,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 2,
         "Bonus": 0,
         "Score": 0
@@ -7361,7 +7375,7 @@
       {
         "SkillType": 0,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -7369,7 +7383,7 @@
       {
         "SkillType": 1,
         "StatType": 2,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 6,
         "Bonus": 1,
         "Score": 2
@@ -7377,7 +7391,7 @@
       {
         "SkillType": 2,
         "StatType": 2,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 6,
         "Bonus": 1,
         "Score": 2
@@ -7385,7 +7399,7 @@
       {
         "SkillType": 3,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -7393,7 +7407,7 @@
       {
         "SkillType": 4,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -7401,7 +7415,7 @@
       {
         "SkillType": 5,
         "StatType": 2,
-        "IsProfecient": true,
+        "IsProficient": true,
         "Attribute": 6,
         "Bonus": 1,
         "Score": 2
@@ -7409,7 +7423,7 @@
       {
         "SkillType": 6,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7417,7 +7431,7 @@
       {
         "SkillType": 7,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7425,7 +7439,7 @@
       {
         "SkillType": 8,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7433,7 +7447,7 @@
       {
         "SkillType": 9,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7441,7 +7455,7 @@
       {
         "SkillType": 10,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7449,7 +7463,7 @@
       {
         "SkillType": 11,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7457,7 +7471,7 @@
       {
         "SkillType": 12,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7465,7 +7479,7 @@
       {
         "SkillType": 13,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7473,7 +7487,7 @@
       {
         "SkillType": 14,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7481,7 +7495,7 @@
       {
         "SkillType": 15,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7489,7 +7503,7 @@
       {
         "SkillType": 16,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7497,7 +7511,7 @@
       {
         "SkillType": 17,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7505,7 +7519,7 @@
       {
         "SkillType": 18,
         "StatType": 1,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 0,
         "Bonus": 0,
         "Score": 0
@@ -7513,7 +7527,7 @@
       {
         "SkillType": 19,
         "StatType": 2,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 6,
         "Bonus": 0,
         "Score": 1
@@ -7521,7 +7535,7 @@
       {
         "SkillType": 20,
         "StatType": 3,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7529,7 +7543,7 @@
       {
         "SkillType": 21,
         "StatType": 4,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1
@@ -7537,7 +7551,7 @@
       {
         "SkillType": 22,
         "StatType": 6,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 3,
         "Bonus": 0,
         "Score": 0
@@ -7545,7 +7559,7 @@
       {
         "SkillType": 23,
         "StatType": 7,
-        "IsProfecient": false,
+        "IsProficient": false,
         "Attribute": 5,
         "Bonus": 0,
         "Score": 1

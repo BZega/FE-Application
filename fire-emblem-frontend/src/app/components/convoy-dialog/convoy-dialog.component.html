@@ -1,0 +1,160 @@
+<div class="convoy-dialog">
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="dialog-icon">📦</span>
+    Convoy
+  </h2>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="convoy-layout">
+      <!-- Left Sidebar -->
+      <div class="convoy-sidebar">
+        <div class="gold-display">
+          <span class="gold-icon">💰</span>
+          <div class="gold-info">
+            <span class="gold-label">Gold</span>
+            <span class="gold-amount">{{ character?.gold || 0 }}</span>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="action-button deposit-button" (click)="openDepositDialog()">
+            <span class="button-icon">📥</span>
+            <span class="button-text">Deposit</span>
+          </button>
+
+          <button class="action-button acquire-button" disabled>
+            <span class="button-icon">🎁</span>
+            <span class="button-text">Acquire</span>
+          </button>
+
+          <button class="action-button store-button" (click)="openStore()">
+            <span class="button-icon">🏪</span>
+            <span class="button-text">Store</span>
+          </button>
+
+          <button class="action-button forge-button" disabled>
+            <span class="button-icon">⚒️</span>
+            <span class="button-text">Forge</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="convoy-main">
+        <!-- Tab Navigation -->
+        <div class="convoy-tabs">
+          <button *ngFor="let type of weaponTypes"
+                  class="convoy-tab"
+                  [class.active]="selectedTab === type"
+                  (click)="selectTab(type)">
+            {{ type }}
+            <span class="tab-count">({{ getTabCount(type) }})</span>
+          </button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-message" *ngIf="loading">
+          <span class="loading-icon">⏳</span>
+          <p>Loading convoy...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-message" *ngIf="!loading && filteredItems.length === 0">
+          <span class="empty-icon">📭</span>
+          <p>No items in this category</p>
+        </div>
+
+        <!-- Convoy Items List -->
+        <div class="convoy-items-list" *ngIf="!loading && filteredItems.length > 0">
+          <div *ngFor="let item of filteredItems" class="convoy-item-wrapper">
+            <div class="convoy-item clickable"
+                 [class.expanded]="isItemExpanded(item.equipOid)"
+                 (click)="toggleItemExpansion(item.equipOid)">
+              <span class="item-icon">{{ getItemIcon(item) }}</span>
+              <div class="item-details">
+                <span class="item-name">{{ item.name }}</span>
+                <div class="item-meta">
+                  <span class="item-type">{{ item.weaponType }}</span>
+                  <span class="item-uses" *ngIf="item.uses">{{ item.uses }} uses</span>
+                </div>
+              </div>
+
+              <!-- Withdraw Button -->
+              <button class="withdraw-button"
+                      (click)="withdrawItem(item); $event.stopPropagation()"
+                      [disabled]="character?.inventory?.equipment?.length >= 5"
+                      title="Withdraw to inventory">
+                📤
+              </button>
+            </div>
+
+            <!-- Expanded Details -->
+            <div class="item-details-expanded" *ngIf="isItemExpanded(item.equipOid)">
+              <div class="detail-section-content">
+                <div class="item-stats-row">
+                  <div class="item-stat" *ngIf="item.might !== null && item.might !== undefined">
+                    <span class="stat-label">Might:</span>
+                    <span class="stat-value">{{ item.might }}</span>
+                  </div>
+                  <div class="item-stat" *ngIf="item.hit !== null && item.hit !== undefined">
+                    <span class="stat-label">Hit:</span>
+                    <span class="stat-value">{{ item.hit }}%</span>
+                  </div>
+                  <div class="item-stat" *ngIf="item.crit !== null && item.crit !== undefined">
+                    <span class="stat-label">Crit:</span>
+                    <span class="stat-value">{{ item.crit }}%</span>
+                  </div>
+                  <div class="item-stat" *ngIf="item.range">
+                    <span class="stat-label">Range:</span>
+                    <span class="stat-value">{{ item.range }}</span>
+                  </div>
+                </div>
+                <div class="item-description" *ngIf="item.description">
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-button class="cancel-button" (click)="close()">Close</button>
+  </mat-dialog-actions>
+</div>
+
+<!-- Deposit Dialog Overlay -->
+<div class="deposit-overlay" *ngIf="showDepositDialog" (click)="closeDepositDialog()">
+  <div class="deposit-dialog" (click)="$event.stopPropagation()">
+    <h3 class="deposit-title">
+      <span class="deposit-icon">📥</span>
+      Deposit Item
+    </h3>
+
+    <div class="deposit-content">
+      <p class="deposit-instructions">Select an item from your inventory to deposit into the convoy:</p>
+      
+      <div class="deposit-items-list">
+        <div *ngFor="let item of depositItems" class="deposit-item" (click)="depositItem(item)">
+          <span class="item-icon">{{ getItemIcon(item) }}</span>
+          <div class="item-info">
+            <span class="item-name">{{ item.name }}</span>
+            <span class="item-type">{{ item.weaponType }}</span>
+          </div>
+          <span class="deposit-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="empty-inventory" *ngIf="depositItems.length === 0">
+        <span class="empty-icon">📭</span>
+        <p>No items in inventory</p>
+      </div>
+    </div>
+
+    <div class="deposit-actions">
+      <button class="cancel-deposit-button" (click)="closeDepositDialog()">Cancel</button>
+    </div>
+  </div>
+</div>

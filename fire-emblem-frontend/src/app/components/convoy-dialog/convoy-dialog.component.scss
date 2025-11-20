@@ -1,0 +1,533 @@
+.convoy-dialog {
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+}
+
+.dialog-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  margin: 0;
+  border-bottom: 1px solid rgba(63, 81, 181, 0.3);
+
+  .dialog-icon {
+    font-size: 16px;
+  }
+}
+
+.dialog-content {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.convoy-layout {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  min-height: 500px;
+  max-height: calc(85vh - 150px);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.convoy-sidebar {
+  background: rgba(63, 81, 181, 0.03);
+  border-right: 1px solid rgba(63, 81, 181, 0.3);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 2px solid rgba(63, 81, 181, 0.2);
+  }
+}
+
+.gold-display {
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .gold-icon {
+    font-size: 18px;
+  }
+
+  .gold-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .gold-label {
+      font-size: 9px;
+      color: var(--text-color);
+      opacity: 0.6;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .gold-amount {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.action-button {
+  background: var(--card-bg);
+  border: none;
+  border-bottom: 1px solid rgba(63, 81, 181, 0.15);
+  border-radius: 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 11px;
+
+  .button-icon {
+    font-size: 14px;
+  }
+
+  .button-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  &:hover:not(:disabled) {
+    background: rgba(63, 81, 181, 0.08);
+    border-left: 2px solid rgba(63, 81, 181, 0.6);
+    padding-left: 10px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.deposit-button {
+    &:hover:not(:disabled) {
+      background: rgba(33, 150, 243, 0.06);
+      border-left-color: rgba(33, 150, 243, 0.8);
+    }
+  }
+
+  &.store-button {
+    &:hover:not(:disabled) {
+      background: rgba(76, 175, 80, 0.06);
+      border-left-color: rgba(76, 175, 80, 0.8);
+    }
+  }
+}
+
+.convoy-main {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.convoy-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(63, 81, 181, 0.3);
+  background: rgba(63, 81, 181, 0.02);
+  padding: 0;
+  gap: 0;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(63, 81, 181, 0.3);
+    border-radius: 3px;
+  }
+}
+
+.convoy-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid rgba(63, 81, 181, 0.1);
+  padding: 8px 12px;
+  color: var(--text-color);
+  opacity: 0.6;
+  font-weight: 600;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .tab-count {
+    font-size: 9px;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    background: rgba(63, 81, 181, 0.04);
+  }
+
+  &.active {
+    opacity: 1;
+    border-bottom-color: var(--primary-color, #3f51b5);
+    background: rgba(63, 81, 181, 0.06);
+  }
+}
+
+.convoy-items-list {
+  padding: 8px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.convoy-item-wrapper {
+  margin-bottom: 0;
+}
+
+.convoy-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1px solid rgba(63, 81, 181, 0.2);
+  border-radius: 0;
+  padding: 8px;
+  transition: all 0.15s ease;
+  position: relative;
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(63, 81, 181, 0.06);
+      border-left: 2px solid rgba(63, 81, 181, 0.6);
+      padding-left: 7px;
+
+      .withdraw-button {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &.expanded {
+    border-bottom: none;
+  }
+
+  .item-icon {
+    font-size: 20px;
+  }
+
+  .item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .item-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .item-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 9px;
+
+      .item-type {
+        color: var(--text-color);
+        opacity: 0.7;
+      }
+
+      .item-uses {
+        color: var(--primary-color, #3f51b5);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.withdraw-button {
+  background: var(--primary-color, #3f51b5);
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: darken(#3f51b5, 10%);
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.item-details-expanded {
+  background: rgba(63, 81, 181, 0.03);
+  padding: 8px;
+  border-radius: 0;
+  margin-top: 0;
+  border: 1px solid rgba(63, 81, 181, 0.2);
+  border-top: none;
+
+  .item-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .item-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .stat-label {
+        font-size: 8px;
+        color: var(--text-color);
+        opacity: 0.6;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .stat-value {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text-color);
+      }
+    }
+  }
+
+  .item-description {
+    font-size: 10px;
+    color: var(--text-color);
+    opacity: 0.7;
+    line-height: 1.4;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.loading-message,
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  color: var(--text-color);
+  opacity: 0.5;
+
+  .loading-icon,
+  .empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 11px;
+    margin: 0;
+  }
+}
+
+.dialog-actions {
+  padding: 8px 12px;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+  display: flex;
+  justify-content: flex-end;
+
+  .cancel-button {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 11px;
+  }
+}
+
+// Deposit Dialog Overlay
+.deposit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.deposit-dialog {
+  background: var(--card-bg);
+  border-radius: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(63, 81, 181, 0.3);
+}
+
+.deposit-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  margin: 0;
+  border-bottom: 1px solid rgba(63, 81, 181, 0.3);
+
+  .deposit-icon {
+    font-size: 14px;
+  }
+}
+
+.deposit-content {
+  padding: 12px;
+  overflow-y: auto;
+
+  .deposit-instructions {
+    font-size: 10px;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin: 0 0 10px 0;
+  }
+}
+
+.deposit-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deposit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(63, 81, 181, 0.03);
+  border: 1px solid rgba(63, 81, 181, 0.2);
+  border-radius: 0;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(63, 81, 181, 0.06);
+    border-left: 2px solid rgba(63, 81, 181, 0.6);
+    padding-left: 7px;
+  }
+
+  .item-icon {
+    font-size: 16px;
+  }
+
+  .item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .item-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .item-type {
+      font-size: 9px;
+      color: var(--text-color);
+      opacity: 0.6;
+    }
+  }
+
+  .deposit-arrow {
+    font-size: 14px;
+    color: var(--primary-color, #3f51b5);
+  }
+}
+
+.empty-inventory {
+  text-align: center;
+  padding: 30px 16px;
+  color: var(--text-color);
+  opacity: 0.5;
+
+  .empty-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 10px;
+  }
+}
+
+.deposit-actions {
+  padding: 8px 12px;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+  display: flex;
+  justify-content: flex-end;
+
+  .cancel-deposit-button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.15s ease;
+    font-size: 11px;
+
+    &:hover {
+      background: rgba(151, 151, 151, 0.08);
+    }
+  }
+}

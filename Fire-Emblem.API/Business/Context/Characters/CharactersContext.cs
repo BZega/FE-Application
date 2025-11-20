@@ -232,7 +232,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                     {
                         if (skillType == skillChoice)
                         {
-                            skill.IsProfecient = true;
+                            skill.IsProficient = true;
                         }
                     }
                     switch (skillType)
@@ -971,7 +971,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                         }
                         else if (updateType == UpdateTypeCode.SELL)
                         {
-                            convoy.ConvoyItems.Equipment.Remove(equipment);
+                            convoy.ConvoyItems.Equipment.RemoveAll(e => e.EquipOid == equipment.EquipOid);
                             character.Gold += sellPrice;
                             result = await _charactersRepository.UpdateConvoy(convoy);
                             if (result)
@@ -982,8 +982,8 @@ namespace Fire_Emblem.API.Business.Context.Characters
                         else if (updateType == UpdateTypeCode.USE)
                         {
                             if (hasUses)
-                            {       
-                                convoy.ConvoyItems.Equipment.Remove(equipment);
+                            {
+                                convoy.ConvoyItems.Equipment.RemoveAll(e => e.EquipOid == equipment.EquipOid);
                                 if (unitChoice != null)
                                 {
                                     var unitClass = await _unitClassesContext.GetClass(null, unitChoice);
@@ -1089,7 +1089,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             if (character.Inventory.Equipment.Count < 4)
                             {
                                 character.Inventory.Equipment.Add(equipment);
-                                convoy.ConvoyItems.Equipment.Remove(equipment);
+                                convoy.ConvoyItems.Equipment.RemoveAll(e => e.EquipOid == equipment.EquipOid);
                                 result = await _charactersRepository.UpdateCharacter(character);
                                 if (result)
                                 {
@@ -1135,32 +1135,32 @@ namespace Fire_Emblem.API.Business.Context.Characters
                             character.EquippedWeapon.IsEquipped = true;
                             result = await _charactersRepository.UpdateCharacter(character);
                         }
-                    }
-                }
-                else if (updateType == UpdateTypeCode.UNEQUIP)
-                {
-                    if (character.Inventory.Equipment.Any(equip => equip.EquipOid == character.EquippedWeapon.EquipOid))
-                    {
-                        character.Inventory.Equipment.Find(equip => equip.EquipOid == character.EquippedWeapon.EquipOid).IsEquipped = false;
+                      else if (updateType == UpdateTypeCode.UNEQUIP)
+                      {
+                          if (character.Inventory.Equipment.Any(equip => equip.EquipOid == character.EquippedWeapon.EquipOid))
+                          {
+                              character.Inventory.Equipment.Find(equip => equip.EquipOid == character.EquippedWeapon.EquipOid).IsEquipped = false;
 
-                        character.EquippedWeapon = new Equipment()
-                        {
-                            Id = 0,
-                            Name = "Unarmed",
-                            WeaponType = WeaponType.None,
-                            Rank = Rank.E,
-                            IsMagical = false,
-                            Might = 0,
-                            Hit = 75,
-                            Crit = 0,
-                            Range = "1",
-                            Uses = "Inf.",
-                            Worth = "-",
-                            WeaponExp = 0,
-                            IsEquipped = true,
-                            Description = ""
-                        };
-                        result = await _charactersRepository.UpdateCharacter(character);
+                              character.EquippedWeapon = new Equipment()
+                              {
+                                  Id = 0,
+                                  Name = "Unarmed",
+                                  WeaponType = WeaponType.None,
+                                  Rank = Rank.E,
+                                  IsMagical = false,
+                                  Might = 0,
+                                  Hit = 75,
+                                  Crit = 0,
+                                  Range = "1",
+                                  Uses = "Inf.",
+                                  Worth = "-",
+                                  WeaponExp = 0,
+                                  IsEquipped = true,
+                                  Description = ""
+                              };
+                              result = await _charactersRepository.UpdateCharacter(character);
+                          }
+                      }
                     }
                 }
                 return result;
@@ -1939,6 +1939,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                 character.DualStrike = character.GetDualStrikeRate(pairedUpSupport);
                                 var randomNumber = _random.Next(0, 101);
                                 var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                _logger.LogInformation($"Pair up Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
                                 if (supportAttack)
                                 {
                                     for (int s = 0; s < supportAttackCount; s++)
@@ -1968,6 +1969,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
                                 character.DualStrike = character.GetDualStrikeRate(highestRankSupport);
                                 var randomNumber = _random.Next(0, 101);
                                 var supportAttack = randomNumber < character.DualStrike ? true : false;
+                                _logger.LogInformation($"Adjacent Support Dual Strike chance: {character.DualStrike}, rol: {randomNumber}, action: {supportAttack}");
                                 if (supportAttack)
                                 {
                                     for (int s = 0; s < supportAttackCount; s++)
