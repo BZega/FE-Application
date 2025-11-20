@@ -1,32 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Character } from '../../core/models/Character';
 import { Observable, Subject } from 'rxjs';
 import { CharacterService } from '../../core/services/character.service';
-// import { CharacterSummaryComponent } from '../../components/character-summary/character-summary.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material/material.module';
 import { CharacterSummaryComponent } from '../../components/character-summary/character-summary.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CharacterCreatorComponent } from '../../components/character-creator/character-creator.component';
 
 @Component({
   selector: 'app-character-summary-container',
-  imports: [CommonModule, MaterialModule, CharacterSummaryComponent],
+  imports: [CommonModule, MaterialModule, CharacterSummaryComponent, MatDialogModule],
   templateUrl: './character-summary-container.component.html',
   styleUrl: './character-summary-container.component.scss'
 })
 export class CharacterSummaryContainerComponent {
+  private characterService = inject(CharacterService);
+  private dialog = inject(MatDialog);
+  
   trackCharactersBy(index: number, character: { id: number }): number {
     return character.id;
   }
-  selectedCharacter$ = null;
-  selectedCharacter: Character = null;
+  
   allCharacters: Character[] = [];
   characterList$: Observable<Character[]>;
 
   private ngUnsubscribe = new Subject();
 
-  constructor(
-      private characterService: CharacterService
-  ) { }
+  openCharacterCreator() {
+    const dialogRef = this.dialog.open(CharacterCreatorComponent, {
+      width: 'calc(95vw - 200px)',
+      maxWidth: '1000px',
+      height: '95vh',
+      maxHeight: '900px',
+      disableClose: false,
+      panelClass: 'character-creator-dialog'
+    });
+
+    dialogRef.backdropClick().subscribe(() => {
+      const component = dialogRef.componentInstance;
+      component.cancelCreation();
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'created') {
+        // Refresh the character list
+        this.ngOnInit();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.characterService.getAllCharacters().subscribe({

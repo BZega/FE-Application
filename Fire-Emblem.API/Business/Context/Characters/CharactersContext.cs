@@ -1,20 +1,12 @@
-﻿using Fire_Emblem.API.Business.Context.Abilities;
+using Fire_Emblem.API.Business.Context.Abilities;
 using Fire_Emblem.API.Business.Context.Equips;
 using Fire_Emblem.API.Business.Context.PersonalAbilities;
 using Fire_Emblem.API.Business.Context.UnitClasses;
-using Fire_Emblem.API.Business.Helper.FileReader;
 using Fire_Emblem.API.Business.Repository.Characters;
 using Fire_Emblem.API.Models.Character;
 using Fire_Emblem.Common.Models;
 using Fire_Emblem.Common.TypeCodes;
-using System.Text.RegularExpressions;
-using System;
-using System.Xml.Linq;
-using System.Reflection.PortableExecutable;
-using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using static Fire_Emblem.API.Models.Character.BattleResultDto;
-using Microsoft.AspNetCore.Identity.Data;
 using Fire_Emblem.API.Business.Helper.Combat;
 
 namespace Fire_Emblem.API.Business.Context.Characters
@@ -1208,13 +1200,20 @@ namespace Fire_Emblem.API.Business.Context.Characters
                 {
                     if (character.EquippedAbilities.Count < 5)
                     {
+                      if (!character.EquippedAbilities.Any(a => a.AbilityOid == ability.AbilityOid))
+                      {
                         character.EquippedAbilities.Add(ability);
+                      }
                     }
                     result = await _charactersRepository.UpdateCharacter(character);
                 }
                 else if (updateType == UpdateTypeCode.UNEQUIP)
                 {
-                    character.EquippedAbilities.Remove(ability);
+                    var abilityToRemove = character.EquippedAbilities.FirstOrDefault(a => a.AbilityOid == ability.AbilityOid);
+                    if (abilityToRemove != null)
+                    {
+                      character.EquippedAbilities.Remove(abilityToRemove);
+                    }
                     result = await _charactersRepository.UpdateCharacter(character);
                 }
                 return result;

@@ -1,1 +1,865 @@
-<p>character-creator works!</p>
+<div class="character-creator-container">
+  <div class="creator-header">
+    <h1 class="creator-title">⚔️ Create Your Character</h1>
+    <p class="creator-subtitle">Build your hero for battle</p>
+  </div>
+
+  <form (ngSubmit)="confirmCreateCharacter()" class="creator-form">
+    <!-- Basic Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">📜 Basic Information</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Name *</label>
+          <input type="text" class="form-input" [(ngModel)]="name" name="name" required placeholder="Enter character name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <input type="text" class="form-input" [(ngModel)]="gender" name="gender" placeholder="Male/Female">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Race</label>
+          <select class="form-select" [(ngModel)]="selectedRace" name="selectedRace" (change)="onRaceChange()">
+            <option value="">Select a race...</option>
+            <option *ngFor="let race of raceOptions" [value]="race.name">
+              {{ race.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Human Bonus Stats (only shown if Human is selected) -->
+        <div class="form-group" *ngIf="selectedRace === 'Human'">
+          <label class="form-label">Human Bonus Stat 1 *</label>
+          <select class="form-select" [(ngModel)]="humanBonusStat1" name="humanBonusStat1" (change)="onHumanBonusStat1Change()">
+            <option value="">Select stat...</option>
+            <option *ngFor="let stat of availableHumanStat1Options" [value]="stat">
+              {{ stat }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="selectedRace === 'Human'">
+          <label class="form-label">Human Bonus Stat 2 *</label>
+          <select class="form-select" [(ngModel)]="humanBonusStat2" name="humanBonusStat2" (change)="onHumanBonusStat2Change()">
+            <option value="">Select stat...</option>
+            <option *ngFor="let stat of availableHumanStat2Options" [value]="stat">
+              {{ stat }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Half-Race Selection (only shown for Half-Human) -->
+        <div class="form-group" *ngIf="selectedRace === 'Half-Human'">
+          <label class="form-label">Half-Race Type *</label>
+          <select class="form-select" [(ngModel)]="halfRaceChoice" name="halfRaceChoice" (change)="onHalfRaceChange()">
+            <option value="">Select half-race...</option>
+            <option *ngFor="let halfRace of halfRaceOptions" [value]="halfRace">
+              {{ halfRace }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" class="form-checkbox" [(ngModel)]="isNoble" name="isNoble" (change)="onNobleChange()">
+            <span class="checkbox-text">👑 Noble Birth</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group full-width">
+        <label class="form-label">Biography</label>
+        <textarea class="form-textarea" [(ngModel)]="biography" name="biography" rows="4" placeholder="Tell your character's story..."></textarea>
+      </div>
+    </div>
+
+    <!-- Class & Abilities Section -->
+    <div class="form-section">
+      <h2 class="section-title">🎖️ Class & Abilities</h2>
+      <div class="form-grid">
+        <div class="form-group" [class.full-width]="!getSelectedClass()?.hasWeaponChoice">
+          <label class="form-label">Starting Class *</label>
+          <select class="form-select" [(ngModel)]="selectedClassBase" name="selectedClassBase" (change)="onClassBaseChange()" required>
+            <option value="">Select a class...</option>
+            <option *ngFor="let classOption of filteredClasses" [value]="classOption.name">
+              {{ classOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Weapon Type Selection (only shown for classes with weapon choices) -->
+        <div class="form-group weapon-type-group" *ngIf="getSelectedClass()?.hasWeaponChoice">
+          <label class="form-label">Weapon Type *</label>
+          <div class="weapon-choice-container">
+            <label *ngFor="let weaponType of getSelectedClass()?.weaponTypes" class="weapon-radio-label">
+              <input type="radio" 
+                     class="weapon-radio" 
+                     [(ngModel)]="selectedWeaponType" 
+                     [value]="weaponType" 
+                     [name]="'weaponType'"
+                     (change)="onWeaponTypeChange()">
+              <span class="weapon-text">{{ weaponType }}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid" *ngIf="startingClass">
+        <div class="form-group" [class.full-width]="!getSelectedHeartSealClass()?.hasWeaponChoice">
+          <label class="form-label">Heart Seal Class</label>
+          <select class="form-select" [(ngModel)]="selectedHeartSealClassBase" name="selectedHeartSealClassBase" (change)="onHeartSealClassBaseChange()">
+            <option value="">Select a class...</option>
+            <option *ngFor="let classOption of filteredHeartSealClasses" [value]="classOption.name">
+              {{ classOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Heart Seal Weapon Type Selection (only shown for classes with weapon choices) -->
+        <div class="form-group weapon-type-group" *ngIf="getSelectedHeartSealClass()?.hasWeaponChoice">
+          <label class="form-label">Heart Seal Weapon Type *</label>
+          <div class="weapon-choice-container">
+            <label *ngFor="let weaponType of getSelectedHeartSealClass()?.weaponTypes" class="weapon-radio-label">
+              <input type="radio" 
+                     class="weapon-radio" 
+                     [(ngModel)]="selectedHeartSealWeaponType" 
+                     [value]="weaponType" 
+                     [name]="'heartSealWeaponType'"
+                     (change)="onHeartSealWeaponTypeChange()">
+              <span class="weapon-text">{{ weaponType }}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <!-- Level 1 Ability Selection (shown when class has multiple level 1 abilities) -->
+        <div class="form-group" *ngIf="hasMultipleAbilityChoices">
+          <label class="form-label">Level 1 Ability *</label>
+          <select class="form-select" [(ngModel)]="selectedAbilityChoice" name="selectedAbilityChoice" (change)="onAbilityChoiceChange()" required>
+            <option value="">Select ability...</option>
+            <option *ngFor="let ability of getLevel1Abilities()" [value]="ability.name">
+              {{ ability.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Auto-populated ability (shown when only one level 1 ability) -->
+        <div class="form-group" *ngIf="!hasMultipleAbilityChoices && firstAquiredAbility">
+          <label class="form-label">First Acquired Ability</label>
+          <input type="text" class="form-input" [(ngModel)]="firstAquiredAbility" name="firstAquiredAbility" readonly>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" class="form-checkbox" [(ngModel)]="isAquiredAbilityEquipped" name="isAquiredAbilityEquipped">
+            <span class="checkbox-text">✨ Equip Acquired Ability</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Acquired Ability Information Display -->
+      <div class="ability-info-section" *ngIf="acquiredAbilityData && !loadingAcquiredAbility">
+        <h4 class="ability-info-title">📜 {{ acquiredAbilityData.name }} Details</h4>
+        <div class="ability-info-card">
+          <p class="ability-description">{{ acquiredAbilityData.description }}</p>
+          
+          <!-- Display stat bonuses if they exist -->
+          <div class="stat-bonuses" *ngIf="acquiredAbilityData.statBonus">
+            <h5 class="stat-bonus-title">Stat Bonuses:</h5>
+            
+            <!-- Stats Bonuses -->
+            <div class="bonus-section" *ngIf="acquiredAbilityData.statBonus.stats">
+              <div class="stats-grid" *ngIf="acquiredAbilityData.statBonus.stats.hp || acquiredAbilityData.statBonus.stats.str || acquiredAbilityData.statBonus.stats.mag || acquiredAbilityData.statBonus.stats.skl || acquiredAbilityData.statBonus.stats.spd || acquiredAbilityData.statBonus.stats.lck || acquiredAbilityData.statBonus.stats.def || acquiredAbilityData.statBonus.stats.res || acquiredAbilityData.statBonus.stats.mov">
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.hp">
+                  <span class="stat-name">HP</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.hp }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.str">
+                  <span class="stat-name">STR</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.str }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.mag">
+                  <span class="stat-name">MAG</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.mag }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.skl">
+                  <span class="stat-name">SKL</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.skl }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.spd">
+                  <span class="stat-name">SPD</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.spd }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.lck">
+                  <span class="stat-name">LCK</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.lck }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.def">
+                  <span class="stat-name">DEF</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.def }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.res">
+                  <span class="stat-name">RES</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.res }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.stats.mov">
+                  <span class="stat-name">MOV</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.stats.mov }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Attribute Bonuses -->
+            <div class="bonus-section" *ngIf="acquiredAbilityData.statBonus.attributes">
+              <div class="attributes-grid" *ngIf="acquiredAbilityData.statBonus.attributes.hit || acquiredAbilityData.statBonus.attributes.crit || acquiredAbilityData.statBonus.attributes.avoid || acquiredAbilityData.statBonus.attributes.dodge || acquiredAbilityData.statBonus.attributes.heal || acquiredAbilityData.statBonus.attributes.damage || acquiredAbilityData.statBonus.attributes.damageReceived || acquiredAbilityData.statBonus.attributes.attackSpeed">
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.hit">
+                  <span class="stat-name">Hit</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.hit }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.crit">
+                  <span class="stat-name">Crit</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.crit }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.avoid">
+                  <span class="stat-name">Avoid</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.avoid }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.dodge">
+                  <span class="stat-name">Dodge</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.dodge }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.heal">
+                  <span class="stat-name">Heal</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.heal }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.damage">
+                  <span class="stat-name">Damage</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.damage }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.damageReceived">
+                  <span class="stat-name">Dmg Received</span>
+                  <span class="stat-value">{{ acquiredAbilityData.statBonus.attributes.damageReceived > 0 ? '+' : '' }}{{ acquiredAbilityData.statBonus.attributes.damageReceived }}</span>
+                </div>
+                <div class="stat-item" *ngIf="acquiredAbilityData.statBonus.attributes.attackSpeed">
+                  <span class="stat-name">Atk Speed</span>
+                  <span class="stat-value">+{{ acquiredAbilityData.statBonus.attributes.attackSpeed }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Personal Ability</label>
+          <select class="form-select" [(ngModel)]="personalAbility" name="personalAbility" (change)="onPersonalAbilityChange()">
+            <option value="">Select a personal ability...</option>
+            <option *ngFor="let ability of personalAbilityOptions" [value]="ability">
+              {{ ability }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Personal Ability Information Display -->
+      <div class="ability-info-section" *ngIf="personalAbilityData && !loadingPersonalAbility">
+        <h4 class="ability-info-title">⭐ {{ personalAbilityData.name }} Details</h4>
+        <div class="ability-info-card">
+          <p class="ability-description">{{ personalAbilityData.description }}</p>
+          
+          <!-- Display stat bonuses if they exist -->
+          <div class="stat-bonuses" *ngIf="personalAbilityData.statBonus">
+            <h5 class="stat-bonus-title">Stat Bonuses:</h5>
+            
+            <!-- Stats Bonuses -->
+            <div class="bonus-section" *ngIf="personalAbilityData.statBonus.stats">
+              <div class="stats-grid" *ngIf="personalAbilityData.statBonus.stats.hp || personalAbilityData.statBonus.stats.str || personalAbilityData.statBonus.stats.mag || personalAbilityData.statBonus.stats.skl || personalAbilityData.statBonus.stats.spd || personalAbilityData.statBonus.stats.lck || personalAbilityData.statBonus.stats.def || personalAbilityData.statBonus.stats.res || personalAbilityData.statBonus.stats.mov">
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.hp">
+                  <span class="stat-name">HP</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.hp }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.str">
+                  <span class="stat-name">STR</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.str }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.mag">
+                  <span class="stat-name">MAG</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.mag }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.skl">
+                  <span class="stat-name">SKL</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.skl }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.spd">
+                  <span class="stat-name">SPD</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.spd }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.lck">
+                  <span class="stat-name">LCK</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.lck }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.def">
+                  <span class="stat-name">DEF</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.def }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.res">
+                  <span class="stat-name">RES</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.res }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.stats.mov">
+                  <span class="stat-name">MOV</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.stats.mov }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Attribute Bonuses -->
+            <div class="bonus-section" *ngIf="personalAbilityData.statBonus.attributes">
+              <div class="attributes-grid" *ngIf="personalAbilityData.statBonus.attributes.hit || personalAbilityData.statBonus.attributes.crit || personalAbilityData.statBonus.attributes.avoid || personalAbilityData.statBonus.attributes.dodge || personalAbilityData.statBonus.attributes.heal || personalAbilityData.statBonus.attributes.damage || personalAbilityData.statBonus.attributes.damageReceived || personalAbilityData.statBonus.attributes.attackSpeed">
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.hit">
+                  <span class="stat-name">Hit</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.hit }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.crit">
+                  <span class="stat-name">Crit</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.crit }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.avoid">
+                  <span class="stat-name">Avoid</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.avoid }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.dodge">
+                  <span class="stat-name">Dodge</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.dodge }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.heal">
+                  <span class="stat-name">Heal</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.heal }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.damage">
+                  <span class="stat-name">Damage</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.damage }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.damageReceived">
+                  <span class="stat-name">Dmg Received</span>
+                  <span class="stat-value">{{ personalAbilityData.statBonus.attributes.damageReceived > 0 ? '+' : '' }}{{ personalAbilityData.statBonus.attributes.damageReceived }}</span>
+                </div>
+                <div class="stat-item" *ngIf="personalAbilityData.statBonus.attributes.attackSpeed">
+                  <span class="stat-name">Atk Speed</span>
+                  <span class="stat-value">+{{ personalAbilityData.statBonus.attributes.attackSpeed }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Class Information Display -->
+      <div class="class-info-section" *ngIf="selectedClassData && !loadingClassData">
+        <h3 class="class-info-title">📋 {{ startingClass }} Information</h3>
+        
+        <!-- Base Stats -->
+        <div class="class-info-card">
+          <h4 class="info-card-title">Base Stats</h4>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-name">HP</span>
+              <span class="stat-value">{{ getModifiedBaseStat('hp') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">STR</span>
+              <span class="stat-value">{{ getModifiedBaseStat('str') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">MAG</span>
+              <span class="stat-value">{{ getModifiedBaseStat('mag') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">SKL</span>
+              <span class="stat-value">{{ getModifiedBaseStat('skl') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">SPD</span>
+              <span class="stat-value">{{ getModifiedBaseStat('spd') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">LCK</span>
+              <span class="stat-value">{{ getModifiedBaseStat('lck') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">DEF</span>
+              <span class="stat-value">{{ getModifiedBaseStat('def') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">RES</span>
+              <span class="stat-value">{{ getModifiedBaseStat('res') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-name">MOV</span>
+              <span class="stat-value">{{ selectedClassData.baseStats.mov }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Growth Rates -->
+        <div class="class-info-card">
+          <h4 class="info-card-title">📈 Class Growth Rates</h4>
+          <div class="stats-grid">
+            <div class="stat-item growth">
+              <span class="stat-name">HP</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.hp }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">STR</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.str }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">MAG</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.mag }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">SKL</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.skl }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">SPD</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.spd }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">LCK</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.lck }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">DEF</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.def }}%</span>
+            </div>
+            <div class="stat-item growth">
+              <span class="stat-name">RES</span>
+              <span class="stat-value">{{ selectedClassData.growthRate.res }}%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usable Weapons -->
+        <div class="class-info-card">
+          <h4 class="info-card-title">⚔️ Usable Weapons</h4>
+          <div class="weapons-list">
+            <span *ngFor="let weapon of selectedClassData.usableWeapons" class="weapon-badge">
+              {{ weapon.weaponType }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Class Promotions -->
+        <div class="class-info-card" *ngIf="selectedClassData.classPromotions && selectedClassData.classPromotions.length > 0">
+          <h4 class="info-card-title">⬆️ Promotion Options</h4>
+          <div class="options-list">
+            <span *ngFor="let promotion of selectedClassData.classPromotions" class="option-badge promotion">
+              {{ promotion }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Reclass Options -->
+        <div class="class-info-card" *ngIf="selectedClassData.reclassOptions && selectedClassData.reclassOptions.length > 0">
+          <h4 class="info-card-title">🔄 Reclass Options</h4>
+          <div class="options-list">
+            <span *ngFor="let reclass of selectedClassData.reclassOptions" class="option-badge reclass">
+              {{ reclass }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div class="loading-indicator" *ngIf="loadingClassData">
+        <div class="spinner"></div>
+        <p>Loading class data...</p>
+      </div>
+    </div>
+
+    <!-- Stats & Growth Section -->
+    <div class="form-section">
+      <h2 class="section-title">📊 Stats & Attributes</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Asset (Strength)</label>
+          <select class="form-select" [(ngModel)]="assetChoice" name="assetChoice" (change)="onAssetChange()">
+            <option value="">Select an asset...</option>
+            <option *ngFor="let stat of statChoiceOptions" [value]="stat">
+              {{ stat }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Flaw (Weakness)</label>
+          <select class="form-select" [(ngModel)]="flawChoice" name="flawChoice" (change)="onFlawChange()">
+            <option value="">Select a flaw...</option>
+            <option *ngFor="let stat of statChoiceOptions" [value]="stat">
+              {{ stat }}
+            </option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="growth-rate-section">
+        <div class="growth-rate-header">
+          <h3 class="growth-rate-title">Personal Growth Rates</h3>
+          <div class="growth-rate-counter" [class.valid]="growthRateSum === 330" [class.invalid]="growthRateSum !== 330">
+            <span class="counter-label">Total:</span>
+            <span class="counter-value">{{ growthRateSum }}</span>
+            <span class="counter-divider">/</span>
+            <span class="counter-max">330</span>
+          </div>
+        </div>
+        <div class="growth-rate-grid">
+          <div class="stat-input">
+            <label class="stat-label">HP</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.hp" name="hp" min="0" max="80" step="5" (blur)="validateGrowthRate('hp')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">STR</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.str" name="str" min="0" max="80" step="5" (blur)="validateGrowthRate('str')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">MAG</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.mag" name="mag" min="0" max="80" step="5" (blur)="validateGrowthRate('mag')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">SKL</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.skl" name="skl" min="0" max="80" step="5" (blur)="validateGrowthRate('skl')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">SPD</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.spd" name="spd" min="0" max="80" step="5" (blur)="validateGrowthRate('spd')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">LCK</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.lck" name="lck" min="0" max="80" step="5" (blur)="validateGrowthRate('lck')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">DEF</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.def" name="def" min="0" max="80" step="5" (blur)="validateGrowthRate('def')">
+          </div>
+          <div class="stat-input">
+            <label class="stat-label">RES</label>
+            <input type="number" class="stat-input-field" [(ngModel)]="personalGrowthRate.res" name="res" min="0" max="80" step="5" (blur)="validateGrowthRate('res')">
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Growth Rates (only shown when class is selected) -->
+      <div class="total-growth-section" *ngIf="selectedClassData">
+        <div class="total-growth-header">
+          <h3 class="total-growth-title">🎯 Total Growth Rates (Class + Personal + Human + Race)</h3>
+          <div class="total-growth-sum">
+            <span class="sum-label">Combined Total:</span>
+            <span class="sum-value">{{ totalGrowthRateSum }}%</span>
+          </div>
+        </div>
+        <div class="growth-rate-grid">
+          <div class="total-stat-item">
+            <span class="stat-label">HP</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.hp }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.hp }}</span>
+              <ng-container *ngIf="getHumanBonus('hp') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('hp') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('hp') !== 0">
+                <span [class.plus]="getRaceModifier('hp') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('hp') > 0 ? '+' : '' }}{{ getRaceModifier('hp') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('hp') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">STR</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.str }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.str }}</span>
+              <ng-container *ngIf="getHumanBonus('str') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('str') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('str') !== 0">
+                <span [class.plus]="getRaceModifier('str') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('str') > 0 ? '+' : '' }}{{ getRaceModifier('str') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('str') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">MAG</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.mag }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.mag }}</span>
+              <ng-container *ngIf="getHumanBonus('mag') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('mag') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('mag') !== 0">
+                <span [class.plus]="getRaceModifier('mag') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('mag') > 0 ? '+' : '' }}{{ getRaceModifier('mag') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('mag') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">SKL</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.skl }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.skl }}</span>
+              <ng-container *ngIf="getHumanBonus('skl') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('skl') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('skl') !== 0">
+                <span [class.plus]="getRaceModifier('skl') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('skl') > 0 ? '+' : '' }}{{ getRaceModifier('skl') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('skl') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">SPD</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.spd }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.spd }}</span>
+              <ng-container *ngIf="getHumanBonus('spd') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('spd') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('spd') !== 0">
+                <span [class.plus]="getRaceModifier('spd') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('spd') > 0 ? '+' : '' }}{{ getRaceModifier('spd') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('spd') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">LCK</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.lck }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.lck }}</span>
+              <ng-container *ngIf="getHumanBonus('lck') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('lck') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('lck') !== 0">
+                <span [class.plus]="getRaceModifier('lck') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('lck') > 0 ? '+' : '' }}{{ getRaceModifier('lck') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('lck') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">DEF</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.def }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.def }}</span>
+              <ng-container *ngIf="getHumanBonus('def') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('def') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('def') !== 0">
+                <span [class.plus]="getRaceModifier('def') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('def') > 0 ? '+' : '' }}{{ getRaceModifier('def') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('def') }}%</span>
+            </div>
+          </div>
+          <div class="total-stat-item">
+            <span class="stat-label">RES</span>
+            <div class="stat-breakdown">
+              <span class="class-value" title="Class">{{ selectedClassData.growthRate.res }}</span>
+              <span class="plus">+</span>
+              <span class="personal-value" title="Personal">{{ personalGrowthRate.res }}</span>
+              <ng-container *ngIf="getHumanBonus('res') !== 0">
+                <span class="plus">+</span>
+                <span class="human-value" title="Human Bonus">{{ getHumanBonus('res') }}</span>
+              </ng-container>
+              <ng-container *ngIf="getRaceModifier('res') !== 0">
+                <span [class.plus]="getRaceModifier('res') > 0"></span>
+                <span class="race-value" [title]="getEffectiveRace()">{{ getRaceModifier('res') > 0 ? '+' : '' }}{{ getRaceModifier('res') }}</span>
+              </ng-container>
+              <span class="equals">=</span>
+              <span class="total-value">{{ getTotalGrowthRate('res') }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Equipment & Skills Section -->
+    <div class="form-section" *ngIf="selectedRace && startingClass">
+      <h2 class="section-title">⚔️ Equipment & Skills</h2>
+      
+      <!-- Pick Equipment Button -->
+      <div class="pick-equipment-section" *ngIf="canShowEquipmentButton && !useEquipmentStore">
+        <button type="button" 
+                class="pick-equipment-btn" 
+                (click)="openEquipmentStore()"
+                [disabled]="loadingStone">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-text">{{ loadingStone ? 'Loading...' : 'Pick Equipment' }}</span>
+        </button>
+        <p class="equipment-hint">
+          💰 Starting Gold: {{ initialGold }}
+          <span *ngIf="isNoble && isLordClass"> (Noble Lord Bonus)</span>
+        </p>
+      </div>
+
+      <!-- Equipment Summary (after using store) -->
+      <div class="equipment-summary" *ngIf="useEquipmentStore">
+        <h3 class="summary-title">📦 Purchased Equipment</h3>
+        <div class="summary-grid">
+          <div class="summary-item" *ngIf="purchasedEquipment.length > 0">
+            <div class="equipment-items-grid">
+              <div *ngFor="let item of purchasedEquipment" 
+                   class="equipment-item-card"
+                   [class.equipped]="item.isEquipped"
+                   [class.expanded]="isItemExpanded(item.id)">
+                
+                <!-- Item Header (always visible) -->
+                <div class="item-header" (click)="toggleItemExpansion(item.id)">
+                  <div class="item-main">
+                    <span class="item-name">{{ item.name }}</span>
+                    <span class="item-type">{{ item.weaponType }}</span>
+                  </div>
+                </div>
+
+                <!-- Item Details (expandable) -->
+                <div class="item-details" *ngIf="isItemExpanded(item.id)">
+                  <p class="item-description" *ngIf="item.description">{{ item.description }}</p>
+                  
+                  <!-- Stats Grid -->
+                  <div class="item-stats-grid">
+                    <div class="stat-row" *ngIf="item.might !== null && item.might !== undefined">
+                      <span class="stat-label">Might:</span>
+                      <span class="stat-value">{{ item.might }}</span>
+                    </div>
+                    <div class="stat-row" *ngIf="item.hit !== null && item.hit !== undefined">
+                      <span class="stat-label">Hit:</span>
+                      <span class="stat-value">{{ item.hit }}%</span>
+                    </div>
+                    <div class="stat-row" *ngIf="item.crit !== null && item.crit !== undefined">
+                      <span class="stat-label">Crit:</span>
+                      <span class="stat-value">{{ item.crit }}%</span>
+                    </div>
+                    <div class="stat-row" *ngIf="item.range">
+                      <span class="stat-label">Range:</span>
+                      <span class="stat-value">{{ item.range }}</span>
+                    </div>
+                    <div class="stat-row" *ngIf="item.uses">
+                      <span class="stat-label">Uses:</span>
+                      <span class="stat-value">{{ item.uses }}</span>
+                    </div>
+                    <div class="stat-row" *ngIf="item.rank">
+                      <span class="stat-label">Rank:</span>
+                      <span class="stat-value">{{ item.rank }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Properties -->
+                  <div class="item-properties" *ngIf="item.isMagical || item.isBrave || item.doesEffectiveDamage">
+                    <span class="property-badge" *ngIf="item.isMagical">🔮 Magical</span>
+                    <span class="property-badge" *ngIf="item.isBrave">⚡ Brave</span>
+                    <span class="property-badge" *ngIf="item.doesEffectiveDamage">💥 Effective</span>
+                  </div>
+
+                  <!-- Stat Bonuses -->
+                  <div class="item-stat-bonuses" *ngIf="item.statBonus && item.statBonus.stats">
+                    <h5 class="bonuses-title">Stat Bonuses:</h5>
+                    <div class="bonus-grid">
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.hp">HP: +{{ item.statBonus.stats.hp }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.str">STR: +{{ item.statBonus.stats.str }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.mag">MAG: +{{ item.statBonus.stats.mag }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.skl">SKL: +{{ item.statBonus.stats.skl }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.spd">SPD: +{{ item.statBonus.stats.spd }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.lck">LCK: +{{ item.statBonus.stats.lck }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.def">DEF: +{{ item.statBonus.stats.def }}</span>
+                      <span class="bonus-item" *ngIf="item.statBonus.stats.res">RES: +{{ item.statBonus.stats.res }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Equip Button (for weapons and stones, not staves/items) -->
+                <button type="button" 
+                        class="equip-btn"
+                        *ngIf="isEquippableType(item.weaponType)"
+                        (click)="toggleEquipItem(item)"
+                        [class.equipped]="item.isEquipped">
+                  {{ item.isEquipped ? '✓ Equipped' : 'Equip' }}
+                </button>
+                <span class="equipped-badge" *ngIf="item.isEquipped">⚔️ Equipped</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="change-equipment-btn" (click)="openEquipmentStore()">
+          Change Equipment
+        </button>
+      </div>
+
+
+
+      <!-- Skill Type Selection (populated from class data) -->
+      <div class="skill-selection-section" *ngIf="selectedClassData && skillTypeChoices.length > 0">
+        <h4 class="skill-selection-title">🎯 Choose Your Skill Types ({{ selectedSkillTypes.length }}/{{ maxSkillChoices }})</h4>
+        <div class="skill-choices-grid">
+          <label *ngFor="let skillType of skillTypeChoices" class="skill-checkbox-label" 
+                 [class.disabled]="!selectedSkillTypes.includes(skillType) && selectedSkillTypes.length >= maxSkillChoices">
+            <input type="checkbox" 
+                   class="skill-checkbox" 
+                   [value]="skillType"
+                   [checked]="selectedSkillTypes.includes(skillType)"
+                   [disabled]="!selectedSkillTypes.includes(skillType) && selectedSkillTypes.length >= maxSkillChoices"
+                   (change)="onSkillTypeToggle(skillType, $event)">
+            <span class="skill-checkbox-text">{{ skillType }}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-actions">
+      <button type="submit" class="submit-button" [disabled]="growthRateSum !== 330">
+        <span class="button-icon">✓</span>
+        Create Character
+      </button>
+      <button type="button" class="cancel-button" (click)="cancelCreation()">
+        <span class="button-icon">✕</span>
+        Cancel
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages">
+      <div *ngIf="errorMsg" class="error-msg">
+        <span class="msg-icon">⚠️</span>
+        {{ errorMsg }}
+      </div>
+      <div *ngIf="successMsg" class="success-msg">
+        <span class="msg-icon">✓</span>
+        {{ successMsg }}
+      </div>
+    </div>
+  </form>
+</div>
