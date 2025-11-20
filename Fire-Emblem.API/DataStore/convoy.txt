@@ -58,5 +58,35 @@
     "ConvoyItems": {
       "Equipment": []
     }
+  },
+  {
+    "Id": "f9c33e0e-cb84-4bbc-ae97-719e611c8d2d",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "6e21b905-f3c1-4da3-96f4-e1a4a69b622f",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "f4a433ad-da0f-4953-9b53-90a472283d4d",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "a8a81da6-affc-42f7-a576-da69a8d9f0c7",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "1c91f2ab-6779-4ca3-a722-43aa12ea05fc",
+    "ConvoyItems": {
+      "Equipment": []
+    }
   }
 ]

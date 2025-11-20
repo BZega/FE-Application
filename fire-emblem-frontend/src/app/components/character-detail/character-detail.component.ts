@@ -8,6 +8,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Character } from '../../core/models/Character';
 import { CharacterService } from '../../core/services/character.service';
 import { MaterialModule } from '../../material/material.module';
+import { Ability } from '../../core/models/Ability';
 
 @Component({
   selector: 'app-character-detail',
@@ -28,8 +29,11 @@ import { MaterialModule } from '../../material/material.module';
 })
 export class CharacterDetailComponent implements OnInit {
   @ViewChild('actionsDialog') actionsDialog!: TemplateRef<any>;
+  @ViewChild('biographyDialog') biographyDialog!: TemplateRef<any>;
+  @ViewChild('equipAbilitiesDialog') equipAbilitiesDialog!: TemplateRef<any>;
   
   character$: Observable<Character | null>;
+  currentCharacter: Character | null = null;
   characterId: number;
   
   // Dialog form fields
@@ -47,12 +51,11 @@ export class CharacterDetailComponent implements OnInit {
     'Village'
   ];
 
-  // Tooltip properties
-  hoveredItem: any = null;
-  hoveredAbility: any = null;
-  isPersonalAbility: boolean = false;
-  tooltipPosition = { x: 0, y: 0 };
-  private tooltipTimeout: any = null;
+  // Expanded item/ability tracking
+  expandedItemIndex: number | null = null;
+  expandedAbilityIndex: number | null = null;
+  expandedPersonalAbility: boolean = false;
+  expandedSkillIndex: number | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -65,6 +68,11 @@ export class CharacterDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.characterId = +params['id'];
       this.character$ = this.characterService.getCharacterById(this.characterId);
+      
+      // Subscribe to character changes to keep currentCharacter updated
+      this.character$.subscribe(char => {
+        this.currentCharacter = char;
+      });
     });
   }
 
@@ -80,6 +88,14 @@ export class CharacterDetailComponent implements OnInit {
     });
   }
 
+  openBiographyDialog(): void {
+    this.dialog.open(this.biographyDialog, {
+      width: '600px',
+      maxWidth: '90vw',
+      panelClass: 'character-biography-dialog'
+    });
+  }
+
   gainExperience(): void {
     if (this.experienceToGain && this.experienceToGain > 0) {
       console.log(`Gaining ${this.experienceToGain} experience points`);
@@ -92,9 +108,111 @@ export class CharacterDetailComponent implements OnInit {
   }
 
   openEquipAbilitiesModal(): void {
-    console.log('Opening Equip Abilities modal');
-    // TODO: Implement equip abilities modal
-    // This will open another dialog or modal for managing abilities
+    this.dialog.open(this.equipAbilitiesDialog, {
+      width: '700px',
+      maxWidth: '90vw',
+      panelClass: 'equip-abilities-dialog'
+    });
+  }
+
+  // Check if there are unequipped acquired abilities
+  hasUnequippedAbilities(character: Character | null): boolean {
+    if (!character?.acquiredAbilities || character.acquiredAbilities.length === 0) {
+      return false;
+    }
+
+    const equippedAbilityIds = (character.equippedAbilities || []).map(a => a.id);
+    const unequippedAbilities = character.acquiredAbilities.filter(
+      ability => !equippedAbilityIds.includes(ability.id)
+    );
+
+    return unequippedAbilities.length > 0;
+  }
+
+  // Get list of unequipped acquired abilities
+  getUnequippedAbilities(character: Character | null): any[] {
+    if (!character?.acquiredAbilities || character.acquiredAbilities.length === 0) {
+      return [];
+    }
+
+    const equippedAbilityIds = (character.equippedAbilities || []).map(a => a.id);
+    return character.acquiredAbilities.filter(
+      ability => !equippedAbilityIds.includes(ability.id)
+    );
+  }
+
+  // Check if character has available ability slots
+  hasAvailableAbilitySlots(character: Character | null): boolean {
+    if (!character) return false;
+    const equippedCount = character.equippedAbilities?.length || 0;
+    return equippedCount < 5;
+  }
+
+  // Equip an ability
+  equipAbility(ability: any): void {
+    if (!this.currentCharacter) return;
+
+    const equippedCount = this.currentCharacter.equippedAbilities?.length || 0;
+    if (equippedCount >= 5) {
+      console.log('Cannot equip more than 5 abilities');
+      return;
+    }
+
+    console.log(`Equipping ability: ${ability.name}`);
+
+    this.characterService.updateEquipedAbilities(this.currentCharacter.id, ability.abilityOid, 'EQUIP').subscribe({
+      next: () => {
+        // Refresh character data after successful equip
+        this.refreshCharacterData();
+      },
+      error: (err) => {
+        console.error('Error equipping ability:', err);
+      }
+    });
+  }
+
+  // Unequip an ability
+  unequipAbility(ability: any, event?: Event): void {
+    if (event) {
+      event.stopPropagation(); // Prevent tooltip from showing when clicking unequip
+    }
+
+    if (!this.currentCharacter?.equippedAbilities) return;
+
+    console.log(`Unequipping ability: ${ability.name}`);
+    
+    this.characterService.updateEquipedAbilities(this.currentCharacter.id, ability.abilityOid, 'UNEQUIP').subscribe({
+      next: () => {
+        // Refresh character data after successful unequip
+        this.refreshCharacterData();
+      },
+      error: (err) => {
+        console.error('Error unequipping ability:', err);
+      }
+    });
+  }
+
+  // Refresh character data from server
+  private refreshCharacterData(): void {
+    this.character$ = this.characterService.getCharacterById(this.characterId);
+    this.character$.subscribe(char => {
+      this.currentCharacter = char;
+    });
+  }
+
+  // Check if an ability is already equipped
+  isAbilityEquipped(ability: any, character: Character | null): boolean {
+    if (!character?.equippedAbilities) return false;
+    return character.equippedAbilities.some(a => a.id === ability.id);
+  }
+
+  // Check if this is the first empty slot (for showing equip button)
+  isFirstEmptySlot(character: Character | null, index: number): boolean {
+    if (!character) return false;
+    const slots = this.getAbilitySlots(character);
+    // Find the index of the first empty slot
+    const firstEmptyIndex = slots.findIndex(slot => slot === null);
+    return index === firstEmptyIndex;
   }
 
   // Inventory helper methods
@@ -164,66 +282,52 @@ export class CharacterDetailComponent implements OnInit {
     return '⚔️'; // Default weapon icon
   }
 
-  // Tooltip methods
-  showItemDetails(item: any, event: MouseEvent): void {
-    // Clear any existing timeout
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-    }
-
-    // Small delay before showing tooltip to avoid flickering
-    this.tooltipTimeout = setTimeout(() => {
-      this.hoveredItem = item;
-      this.updateTooltipPosition(event);
-    }, 300);
-  }
-
-  hideItemDetails(): void {
-    // Clear timeout if user leaves before tooltip shows
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-      this.tooltipTimeout = null;
-    }
-    
-    this.hoveredItem = null;
-  }
-
-  updateTooltipPosition(event: MouseEvent): void {
-    const offset = 20; // Distance from cursor
-    const tooltipWidth = 350; // Approximate tooltip width
-    const tooltipHeight = 400; // Approximate max tooltip height
-    
-    let x = event.clientX + offset;
-    let y = event.clientY + offset;
-
-    // Adjust if tooltip would go off right edge
-    if (x + tooltipWidth > window.innerWidth) {
-      x = event.clientX - tooltipWidth - offset;
-    }
-
-    // Adjust if tooltip would go off bottom edge
-    if (y + tooltipHeight > window.innerHeight) {
-      y = event.clientY - tooltipHeight - offset;
-    }
-
-    // Ensure tooltip doesn't go off left edge
-    if (x < 0) {
-      x = offset;
-    }
-
-    // Ensure tooltip doesn't go off top edge
-    if (y < 0) {
-      y = offset;
-    }
-
-    this.tooltipPosition = { x, y };
-  }
-
   hasSpecialProperties(item: any): boolean {
     return item.isMagical || item.isBrave || item.doesEffectiveDamage;
   }
 
-  // Ability helper methods
+  // Item expand/collapse methods
+  toggleItemExpansion(index: number): void {
+    if (this.expandedItemIndex === index) {
+      this.expandedItemIndex = null; // Collapse if already expanded
+    } else {
+      this.expandedItemIndex = index; // Expand this item
+    }
+  }
+
+  isItemExpanded(index: number): boolean {
+    return this.expandedItemIndex === index;
+  }
+
+  // Ability expand/collapse methods
+  toggleAbilityExpansion(index: number): void {
+    if (this.expandedAbilityIndex === index) {
+      this.expandedAbilityIndex = null; // Collapse if already expanded
+    } else {
+      this.expandedAbilityIndex = index; // Expand this ability
+      this.expandedPersonalAbility = false; // Collapse personal ability if open
+    }
+  }
+
+  togglePersonalAbilityExpansion(): void {
+    this.expandedPersonalAbility = !this.expandedPersonalAbility;
+    if (this.expandedPersonalAbility) {
+      this.expandedAbilityIndex = null; // Collapse any expanded equipped ability
+    }
+  }
+
+  isAbilityExpanded(index: number): boolean {
+    return this.expandedAbilityIndex === index;
+  }
+
+  toggleSkillExpansion(index: number): void {
+    this.expandedSkillIndex = this.expandedSkillIndex === index ? null : index;
+  }
+
+  isSkillExpanded(index: number): boolean {
+    return this.expandedSkillIndex === index;
+  }
+
   getAbilitySlots(character: Character | null): (any | null)[] {
     if (!character?.equippedAbilities) {
       return [null, null, null, null, null]; // 5 empty slots
@@ -245,31 +349,5 @@ export class CharacterDetailComponent implements OnInit {
       return 0;
     }
     return Math.min(character.equippedAbilities.length, 5);
-  }
-
-  // Ability tooltip methods
-  showAbilityDetails(ability: any, event: MouseEvent, isPersonal: boolean): void {
-    // Clear any existing timeout
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-    }
-
-    // Small delay before showing tooltip to avoid flickering
-    this.tooltipTimeout = setTimeout(() => {
-      this.hoveredAbility = ability;
-      this.isPersonalAbility = isPersonal;
-      this.updateTooltipPosition(event);
-    }, 300);
-  }
-
-  hideAbilityDetails(): void {
-    // Clear timeout if user leaves before tooltip shows
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-      this.tooltipTimeout = null;
-    }
-    
-    this.hoveredAbility = null;
-    this.isPersonalAbility = false;
   }
 }
