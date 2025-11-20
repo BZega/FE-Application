@@ -1,4 +1,4 @@
-﻿using Fire_Emblem.Common.TypeCodes;
+using Fire_Emblem.Common.TypeCodes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Fire_Emblem.Common.Models
     {
         public SkillType SkillType { get; set; }
         public StatType StatType { get; set; }
-        public bool IsProfecient { get; set; } = false;
+        public bool IsProficient { get; set; } = false;
         public int Attribute { get; set; } = 0;
         public int Bonus { get; set; } = 0;
         public int Score {  get; set; } = 0;
@@ -20,7 +20,7 @@ namespace Fire_Emblem.Common.Models
         {
             var score = 0;
             score += (int)Math.Ceiling((double)((Attribute / 5) + (luck / 10)));
-            if (IsProfecient)
+            if (IsProficient)
             {
                 score += Bonus;
             }
@@ -30,7 +30,7 @@ namespace Fire_Emblem.Common.Models
         public int GetBonus(int level)
         {
             var score = 0;
-            if (IsProfecient)
+            if (IsProficient)
             {
                 score = (int)Math.Ceiling((double)(level / 5));
                 if (score < 1)
