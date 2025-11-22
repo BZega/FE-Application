@@ -8,6 +8,7 @@ import { Equipment } from '../../core/models/Equipment';
 export interface EquipmentStoreData {
   initialGold: number;
   currentEquipment?: Equipment[];
+  weaponRanks?: any[];
 }
 
 export interface PurchasedEquipmentResult {
@@ -31,6 +32,7 @@ export class EquipmentStoreDialogComponent implements OnInit {
   filteredEquipment: Equipment[] = [];
   currentGold: number = 0;
   purchasedItems: Equipment[] = [];
+  activeWeaponTypes: Set<string> = new Set();
   expandedItemId: number | null = null;
   loading = true;
 
@@ -45,6 +47,15 @@ export class EquipmentStoreDialogComponent implements OnInit {
 
   ngOnInit() {
     this.currentGold = this.data.initialGold;
+    
+    // Initialize active weapon types from character's weapon ranks
+    if (this.data.weaponRanks) {
+      this.activeWeaponTypes = new Set(
+        this.data.weaponRanks
+          .filter(wr => wr.isActive)
+          .map(wr => wr.weaponType)
+      );
+    }
     
     // If reopening store, restore previous purchases
     if (this.data.currentEquipment && this.data.currentEquipment.length > 0) {
@@ -65,7 +76,15 @@ export class EquipmentStoreDialogComponent implements OnInit {
         this.allEquipment = equipment
           .filter(item => item.worth && item.worth !== '-' && item.worth !== '0' && item.worth.trim() !== '–')
           .sort((a, b) => {
-            // Sort by weapon type, then by worth
+            // First, prioritize active weapon types
+            const aIsActive = this.activeWeaponTypes.has(a.weaponType);
+            const bIsActive = this.activeWeaponTypes.has(b.weaponType);
+            
+            if (aIsActive !== bIsActive) {
+              return aIsActive ? -1 : 1;
+            }
+            
+            // Then sort by weapon type, then by worth
             if (a.weaponType !== b.weaponType) {
               return a.weaponType.localeCompare(b.weaponType);
             }

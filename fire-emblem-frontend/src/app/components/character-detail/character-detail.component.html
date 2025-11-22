@@ -277,7 +277,7 @@
           <!-- Column 2: Weapon Ranks -->
           <div class="weapon-ranks-column" *ngIf="character.weaponRanks && character.weaponRanks.length > 0">
             <h2 class="section-header">Weapon Ranks</h2>
-              <div class="weapon-rank-item" *ngFor="let weapon of character.weaponRanks" 
+              <div class="weapon-rank-item" *ngFor="let weapon of getSortedWeaponRanks(character)" 
                    [class.active]="weapon.isActive"
                    [matTooltip]="'Experience: ' + weapon.weaponExperience + ' / ' + getNextRankExp(weapon.weaponRank)"
                    matTooltipPosition="above">

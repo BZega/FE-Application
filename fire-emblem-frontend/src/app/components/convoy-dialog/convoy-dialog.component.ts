@@ -212,7 +212,8 @@ export class ConvoyDialogComponent implements OnInit, OnDestroy {
       maxWidth: '95vw',
       data: {
         initialGold: this.character.gold,
-        currentEquipment: this.character.inventory?.equipment || [],
+        currentEquipment: [], // Start with empty cart
+        weaponRanks: this.character.weaponRanks || [],
       },
       disableClose: false
     });
