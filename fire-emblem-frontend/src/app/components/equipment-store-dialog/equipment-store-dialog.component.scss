@@ -10,37 +10,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 24px;
-  border-bottom: 1px solid var(--input-border);
+  padding: 8px 16px;
+  border-bottom: 2px solid rgba(63, 81, 181, 0.3);
   background: linear-gradient(135deg, var(--primary-color), #6b21a8);
   color: white;
 
   .store-title {
     margin: 0;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 700;
   }
 
   .gold-display {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
+    gap: 6px;
+    padding: 6px 12px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 0;
     backdrop-filter: blur(10px);
 
     .gold-icon {
-      font-size: 13px;
+      font-size: 11px;
     }
 
     .gold-amount {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
     }
 
     .gold-label {
-      font-size: 12px;
+      font-size: 10px;
       opacity: 0.9;
     }
   }
@@ -49,72 +49,71 @@
 .store-content {
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  padding: 8px;
   background: var(--container-bg);
 }
 
 .equipment-tabs {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  padding: 8px;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 6px;
   background: var(--card-bg);
   border-radius: 0;
   overflow-x: auto;
   flex-wrap: wrap;
 
   .tab-button {
-    padding: 10px 16px;
+    padding: 6px 10px;
     background: var(--input-bg);
     color: var(--text-color);
     border: 1px solid transparent;
     border-radius: 0;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     white-space: nowrap;
 
     &:hover {
-      border-color: var(--primary-color);
-      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(63, 81, 181, 0.5);
+      background: rgba(63, 81, 181, 0.1);
     }
 
     &.active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      background: rgba(63, 81, 181, 0.2);
+      color: var(--text-color);
+      border-color: rgba(63, 81, 181, 0.5);
     }
 
     .tab-label {
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .tab-count {
-      opacity: 0.7;
-      font-size: 11px;
+      opacity: 0.6;
+      font-size: 9px;
     }
 
     &.active .tab-count {
-      opacity: 0.9;
+      opacity: 0.8;
     }
   }
 }
 
 .purchased-summary {
-  margin-bottom: 20px;
-  padding: 16px;
+  margin-bottom: 12px;
+  padding: 10px;
   background: var(--card-bg);
-  border: 1px solid #4caf50;
+  border: 2px solid rgba(76, 175, 80, 0.5);
   border-radius: 0;
 
   .summary-title {
-    margin: 0 0 12px 0;
-    font-size: 11px;
+    margin: 0 0 8px 0;
+    font-size: 10px;
     font-weight: 700;
     color: #4caf50;
   }
@@ -122,17 +121,17 @@
   .purchased-items-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   .purchased-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
+    padding: 6px 10px;
     background: var(--input-bg);
     border-radius: 0;
-    font-size: 10px;
+    font-size: 9px;
 
     .item-name {
       flex: 1;
@@ -140,52 +139,53 @@
     }
 
     .item-worth {
-      margin-right: 12px;
+      margin-right: 10px;
       color: #ffc107;
       font-weight: 600;
     }
 
     .remove-btn {
-      padding: 4px 8px;
+      padding: 3px 6px;
       background: #f44336;
       color: white;
       border: none;
       border-radius: 0;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 9px;
       transition: all 0.2s;
 
       &:hover {
         background: #d32f2f;
-        transform: scale(1.1);
       }
     }
   }
 }
 
 .equipment-grid {
-  column-count: 2;
-  column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   @media (max-width: 768px) {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
 
 .equipment-card {
   background: var(--card-bg);
-  border: 1px solid var(--input-border);
+  border: 1px solid rgba(63, 81, 181, 0.2);
   border-radius: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
-  break-inside: avoid;
-  margin-bottom: 16px;
-  display: inline-block;
-  width: 100%;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+    border-color: rgba(63, 81, 181, 0.5);
   }
 
   &.expanded {
@@ -193,8 +193,8 @@
   }
 
   &.purchased {
-    border-color: #4caf50;
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    border-color: rgba(76, 175, 80, 0.5);
+    background: rgba(76, 175, 80, 0.05);
   }
 }
 
@@ -202,43 +202,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 8px;
   cursor: pointer;
   transition: background 0.2s;
 
   &:hover {
-    background: rgba(139, 92, 246, 0.05);
+    background: rgba(63, 81, 181, 0.05);
   }
 
   .equipment-main {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     flex: 1;
 
     .equipment-icon {
-      font-size: 32px;
+      font-size: 24px;
     }
 
     .equipment-info {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
 
       .equipment-name {
         margin: 0;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 600;
         color: var(--text-color);
       }
 
       .equipment-type-badge {
         display: inline-block;
-        padding: 2px 8px;
-        font-size: 11px;
+        padding: 1px 6px;
+        font-size: 8px;
         font-weight: 600;
-        background: var(--primary-color);
-        color: white;
+        background: rgba(63, 81, 181, 0.2);
+        color: var(--text-color);
         border-radius: 0;
         text-transform: uppercase;
         align-self: flex-start;
@@ -249,16 +249,16 @@
   .equipment-price {
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 3px;
 
     .price-amount {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
       color: #ffc107;
     }
 
     .price-label {
-      font-size: 10px;
+      font-size: 8px;
       color: #ffc107;
       opacity: 0.8;
     }
@@ -266,42 +266,42 @@
 }
 
 .equipment-details {
-  padding: 0 16px 16px 16px;
-  border-top: 1px solid var(--input-border);
-  animation: slideDown 0.3s ease;
+  padding: 0 8px 8px 8px;
+  border-top: 1px solid rgba(63, 81, 181, 0.2);
+  animation: slideDown 0.2s ease;
 
   .equipment-description {
-    margin: 12px 0;
-    padding: 12px;
+    margin: 8px 0;
+    padding: 8px;
     background: var(--input-bg);
     border-radius: 0;
-    font-size: 13px;
+    font-size: 9px;
     color: var(--text-color);
     font-style: italic;
   }
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 8px;
-    margin: 12px 0;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 6px;
+    margin: 8px 0;
 
     .stat-item {
       display: flex;
       justify-content: space-between;
-      padding: 6px 10px;
+      padding: 4px 8px;
       background: var(--input-bg);
       border-radius: 0;
-      font-size: 13px;
+      font-size: 9px;
 
       .stat-label {
         color: var(--text-color);
-        opacity: 0.8;
+        opacity: 0.7;
       }
 
       .stat-value {
         font-weight: 600;
-        color: var(--primary-color);
+        color: rgba(63, 81, 181, 0.8);
       }
     }
   }
@@ -309,28 +309,28 @@
   .properties {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0;
+    gap: 6px;
+    margin: 8px 0;
 
     .property-badge {
-      padding: 4px 10px;
-      background: linear-gradient(135deg, #8b5cf6, #6b21a8);
-      color: white;
+      padding: 3px 8px;
+      background: rgba(63, 81, 181, 0.2);
+      color: var(--text-color);
       border-radius: 0;
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 600;
     }
   }
 
   .stat-bonuses {
-    margin: 12px 0;
-    padding: 12px;
+    margin: 8px 0;
+    padding: 8px;
     background: var(--input-bg);
     border-radius: 0;
 
     .bonuses-title {
-      margin: 0 0 8px 0;
-      font-size: 13px;
+      margin: 0 0 6px 0;
+      font-size: 9px;
       font-weight: 600;
       color: var(--text-color);
     }
@@ -338,14 +338,14 @@
     .bonus-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
 
       .bonus-item {
-        padding: 4px 8px;
-        background: #4caf50;
-        color: white;
+        padding: 3px 6px;
+        background: rgba(76, 175, 80, 0.2);
+        color: var(--text-color);
         border-radius: 0;
-        font-size: 12px;
+        font-size: 9px;
         font-weight: 600;
       }
     }
@@ -353,35 +353,35 @@
 
   .buy-btn {
     width: 100%;
-    margin-top: 12px;
-    padding: 10px;
+    margin-top: 8px;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #4caf50, #388e3c);
-    color: white;
-    border: none;
+    gap: 6px;
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--text-color);
+    border: 1px solid rgba(76, 175, 80, 0.5);
     border-radius: 0;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &:hover:not(:disabled) {
-      background: linear-gradient(135deg, #388e3c, #2e7d32);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+      background: rgba(76, 175, 80, 0.3);
+      border-color: rgba(76, 175, 80, 0.7);
     }
 
     &:disabled {
-      background: #ccc;
+      background: rgba(128, 128, 128, 0.2);
+      border-color: rgba(128, 128, 128, 0.3);
       cursor: not-allowed;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .btn-icon {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 }
@@ -408,22 +408,32 @@
 .store-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  padding: 16px 24px;
-  border-top: 2px solid var(--input-border);
+  gap: 10px;
+  padding: 10px 16px;
+  border-top: 2px solid rgba(63, 81, 181, 0.3);
   background: var(--card-bg);
 
   .cancel-btn {
     color: var(--text-color);
+    font-size: 10px;
+    padding: 6px 12px;
   }
 
   .confirm-btn {
-    background: var(--primary-color);
-    color: white;
+    background: rgba(63, 81, 181, 0.2);
+    color: var(--text-color);
+    border: 1px solid rgba(63, 81, 181, 0.5);
+    font-size: 10px;
+    padding: 6px 12px;
+
+    &:hover:not(:disabled) {
+      background: rgba(63, 81, 181, 0.3);
+    }
 
     &:disabled {
-      background: #ccc;
-      color: #666;
+      background: rgba(128, 128, 128, 0.2);
+      border-color: rgba(128, 128, 128, 0.3);
+      opacity: 0.5;
     }
   }
 }
@@ -449,34 +459,34 @@
   max-width: 400px;
   width: 90%;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  animation: scaleIn 0.3s ease;
+  animation: scaleIn 0.2s ease;
 
   .confirm-title {
-    margin: 0 0 16px 0;
-    font-size: 13px;
+    margin: 0 0 12px 0;
+    font-size: 11px;
     font-weight: 700;
     color: var(--text-color);
   }
 
   .confirm-content {
     .confirm-message {
-      margin: 0 0 16px 0;
-      font-size: 15px;
+      margin: 0 0 12px 0;
+      font-size: 10px;
       color: var(--text-color);
     }
 
     .confirm-details {
       display: flex;
       justify-content: space-between;
-      padding: 8px 12px;
-      margin-bottom: 8px;
+      padding: 6px 10px;
+      margin-bottom: 6px;
       background: var(--input-bg);
       border-radius: 0;
-      font-size: 10px;
+      font-size: 9px;
 
       .detail-label {
         color: var(--text-color);
-        opacity: 0.8;
+        opacity: 0.7;
       }
 
       .detail-value {
@@ -488,16 +498,16 @@
 
   .confirm-error {
     text-align: center;
-    padding: 10px 0;
+    padding: 8px 0;
 
     .error-icon {
-      font-size: 48px;
-      margin: 0 0 12px 0;
+      font-size: 36px;
+      margin: 0 0 8px 0;
     }
 
     .error-message {
       margin: 0;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 600;
       color: #f44336;
     }
@@ -506,16 +516,25 @@
   .confirm-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 12px;
 
     .confirm-cancel-btn {
       color: var(--text-color);
+      font-size: 10px;
+      padding: 6px 12px;
     }
 
     .confirm-ok-btn {
-      background: #4caf50;
-      color: white;
+      background: rgba(76, 175, 80, 0.2);
+      color: var(--text-color);
+      border: 1px solid rgba(76, 175, 80, 0.5);
+      font-size: 10px;
+      padding: 6px 12px;
+
+      &:hover {
+        background: rgba(76, 175, 80, 0.3);
+      }
     }
   }
 }

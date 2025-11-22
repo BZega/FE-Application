@@ -567,4 +567,17 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     }
     return Math.min(character.equippedAbilities.length, 5);
   }
+
+  // Sort weapon ranks with active weapons at the top
+  getSortedWeaponRanks(character: Character | null): any[] {
+    if (!character?.weaponRanks) {
+      return [];
+    }
+    
+    // Create a copy and sort: active weapons first, then inactive
+    return [...character.weaponRanks].sort((a, b) => {
+      if (a.isActive === b.isActive) return 0;
+      return a.isActive ? -1 : 1;
+    });
+  }
 }
