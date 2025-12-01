@@ -1,0 +1,1097 @@
+{
+  "Id": "CHA00000003",
+  "Biography": {
+    "Name": "Apotheosis",
+    "Gender": "Male",
+    "Background": "Scary chaos guy",
+    "IsNoble": true,
+    "RaceChoice": {
+      "RacialType": 2,
+      "HumanStatChoices": null,
+      "RacialGrowth": {
+        "HP": 20,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": -10,
+        "Spd": -10,
+        "Lck": 20,
+        "Def": 10,
+        "Res": 0
+      },
+      "UnitType": 5
+    }
+  },
+  "CurrentHP": 15,
+  "PersonalAbility": {
+    "Id": 1,
+    "Name": "Aching Blood",
+    "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  "CurrentStats": {
+    "HP": 39,
+    "Str": 28,
+    "Mag": 8,
+    "Skl": 14,
+    "Spd": 21,
+    "Lck": 2,
+    "Def": 21,
+    "Res": 16,
+    "Mov": 6
+  },
+  "TotalGrowthRate": {
+    "HP": 100,
+    "Str": 90,
+    "Mag": 40,
+    "Skl": 50,
+    "Spd": 70,
+    "Lck": 40,
+    "Def": 70,
+    "Res": 30
+  },
+  "EquippedWeapon": {
+    "Id": 166,
+    "EquipOid": "5aa63620-0fcc-4fb9-a5ae-e5435aadd1f1",
+    "Name": "Brave Sword",
+    "Rank": 5,
+    "WeaponType": 6,
+    "IsMagical": false,
+    "IsBrave": true,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 6,
+    "Hit": 75,
+    "Crit": 0,
+    "Range": "1",
+    "Uses": "Inf.",
+    "Worth": "8000",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "It allows two consecutive hits per attack. Sells for 2000 gold.",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 31,
+      "AbilityOid": "8389685c-338c-4d0f-974e-64b60fa2dabf",
+      "Name": "Nobility",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Grants this unit a 20% bonus to EXP",
+      "StatBonus": null
+    },
+    {
+      "Id": 32,
+      "AbilityOid": "9110eacc-e9bd-480e-9e1d-e5c5ba54ff12",
+      "Name": "Dragon Fang",
+      "LevelGained": 10,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+      "StatBonus": null
+    }
+  ],
+  "CurrentClass": {
+    "Id": 32,
+    "Name": "Tome Dread Fighter",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 22,
+      "Str": 8,
+      "Mag": 4,
+      "Skl": 7,
+      "Spd": 9,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 10,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 42,
+      "Mag": 38,
+      "Skl": 40,
+      "Spd": 41,
+      "Lck": 45,
+      "Def": 39,
+      "Res": 43,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 10,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 73,
+        "AbilityOid": null,
+        "Name": "Resistance +10",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases Resistance by 10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 10,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 74,
+        "AbilityOid": null,
+        "Name": "Iron Will",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": true,
+        "Description": "Takes 4 less damage from a magical attack when the user initiates the battle.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": -4,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 75,
+        "AbilityOid": null,
+        "Name": "Clarity",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "User recovers from status reduction effects twice as fast as normal.",
+        "StatBonus": null
+      },
+      {
+        "Id": 76,
+        "AbilityOid": null,
+        "Name": "Aggressor",
+        "LevelGained": 15,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "+10 damage during the unit's phase.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 0,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 10,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 1,
+        "MaxRank": 5
+      },
+      {
+        "WeaponType": 0,
+        "MinRank": 1,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": null,
+    "SkillTypeOptions": [
+      10,
+      1,
+      0,
+      6,
+      14,
+      7,
+      16,
+      12
+    ]
+  },
+  "Exp": 0,
+  "Level": 20,
+  "UnitTypes": [
+    0,
+    5
+  ],
+  "Gold": 500,
+  "Attack": 94,
+  "Heal": 0,
+  "Damage": 34,
+  "Crit": 17,
+  "Avoid": 33,
+  "Dodge": 2,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 24,
+  "DualGuard": 0,
+  "StartingClass": "Manakete Heir",
+  "HeartSealClass": "Wyvern Rider",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 20,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 1,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 2,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 4,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 6,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": -1,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -1,
+      "Def": -3,
+      "Res": -1,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 166,
+        "EquipOid": "5aa63620-0fcc-4fb9-a5ae-e5435aadd1f1",
+        "Name": "Brave Sword",
+        "Rank": 5,
+        "WeaponType": 6,
+        "IsMagical": false,
+        "IsBrave": true,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 6,
+        "Hit": 75,
+        "Crit": 0,
+        "Range": "1",
+        "Uses": "Inf.",
+        "Worth": "8000",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "It allows two consecutive hits per attack. Sells for 2000 gold.",
+        "StatBonus": null
+      },
+      {
+        "Id": 151,
+        "EquipOid": "973c69e6-6ccf-4c69-88f7-7ae85f21963d",
+        "Name": "Bronze Sword",
+        "Rank": 1,
+        "WeaponType": 6,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 4,
+        "Hit": 100,
+        "Crit": 0,
+        "Range": "1",
+        "Uses": "Inf.",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 261,
+        "EquipOid": "f7e0edd2-eb4d-453c-9c5f-13298bb7b8f4",
+        "Name": "Master Seal",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "1",
+        "Worth": "2000",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Initiates class change for every basic class capable of promotion when at Level 10 or higher.",
+        "StatBonus": null
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 39,
+    "Str": 28,
+    "Mag": 8,
+    "Skl": 14,
+    "Spd": 21,
+    "Lck": 2,
+    "Def": 21,
+    "Res": 16,
+    "Mov": 6
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 80,
+    "Str": 46,
+    "Mag": 38,
+    "Skl": 42,
+    "Spd": 41,
+    "Lck": 44,
+    "Def": 38,
+    "Res": 42,
+    "Mov": 8
+  },
+  "PersonalGrowthRate": {
+    "HP": 40,
+    "Str": 70,
+    "Mag": 30,
+    "Skl": 40,
+    "Spd": 60,
+    "Lck": 20,
+    "Def": 50,
+    "Res": 20
+  },
+  "ReclassOptions": [
+    "Manakete Heir",
+    "Manakete"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 4,
+      "WeaponExperience": 155,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": {
+          "Hit": 0,
+          "Crit": 0,
+          "Avoid": 0,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 2,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 5,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 31,
+      "AbilityOid": "8389685c-338c-4d0f-974e-64b60fa2dabf",
+      "Name": "Nobility",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Grants this unit a 20% bonus to EXP",
+      "StatBonus": null
+    },
+    {
+      "Id": 32,
+      "AbilityOid": "9110eacc-e9bd-480e-9e1d-e5c5ba54ff12",
+      "Name": "Dragon Fang",
+      "LevelGained": 10,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": true,
+      "Attribute": 27,
+      "Bonus": 4,
+      "Score": 9
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 11,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 11,
+      "Bonus": 4,
+      "Score": 6
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 11,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 11,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": true,
+      "Attribute": 17,
+      "Bonus": 4,
+      "Score": 7
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 17,
+      "Bonus": 0,
+      "Score": 3
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 17,
+      "Bonus": 0,
+      "Score": 3
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 27,
+      "Bonus": 0,
+      "Score": 5
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 11,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 17,
+      "Bonus": 0,
+      "Score": 3
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 19,
+      "Bonus": 0,
+      "Score": 3
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    }
+  ],
+  "LevelupStatIncreases": [
+    {
+      "Level": 2,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 3,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 4,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 5,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 6,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 7,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 8,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 9,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 10,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 11,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 0,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 12,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 13,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 14,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 15,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 16,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 17,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 18,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 19,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 20,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  ],
+  "ConvoyId": "f66ee5dc-0f3f-4da0-9232-b5b6e320fdc9"
+}

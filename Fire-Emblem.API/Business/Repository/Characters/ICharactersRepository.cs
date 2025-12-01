@@ -1,4 +1,4 @@
-﻿using Fire_Emblem.Common.Models;
+using Fire_Emblem.Common.Models;
 
 namespace Fire_Emblem.API.Business.Repository.Characters
 {
@@ -6,8 +6,8 @@ namespace Fire_Emblem.API.Business.Repository.Characters
     {
         Task<bool> AddNewCharacter(Character character);
         Task<List<Character>> GetAllCharacters();
-        Task<Character> GetCharacter(int id);
-        Task<bool> RemoveCharacterById(int id, bool shouldDeleteConvoy);
+        Task<Character> GetCharacter(string id);
+        Task<bool> RemoveCharacterById(string id, bool shouldDeleteConvoy);
         Task<bool> UpdateCharacter(Character character);
         Task<bool> AddNewConvoy(Convoy convoy); 
         Task<Inventory> GetConvoyInventory(string convoyId);
@@ -23,5 +23,6 @@ namespace Fire_Emblem.API.Business.Repository.Characters
         Task<Enemy> GetEnemyById(int id);
         Task<bool> UpdateEnemy(Enemy enemy);
         Task<bool> RemoveEnemy(int id);
+        Task<Tuple<bool, int>> ConvertCharacterFileToIndividualFiles();
     }
 }

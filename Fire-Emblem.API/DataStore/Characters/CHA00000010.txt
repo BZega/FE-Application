@@ -1,0 +1,715 @@
+{
+  "Id": "CHA00000010",
+  "Biography": {
+    "Name": "Daggon",
+    "Gender": "Male",
+    "Background": "Here is where the bio goes",
+    "IsNoble": false,
+    "RaceChoice": {
+      "RacialType": 1,
+      "HumanStatChoices": null,
+      "RacialGrowth": {
+        "HP": 0,
+        "Str": 10,
+        "Mag": -10,
+        "Skl": 0,
+        "Spd": 10,
+        "Lck": 20,
+        "Def": -10,
+        "Res": 10
+      },
+      "UnitType": 4
+    }
+  },
+  "CurrentHP": 16,
+  "PersonalAbility": {
+    "Id": 7,
+    "Name": "Chivalry",
+    "Description": "When enemy's HP is at maximum, damage +2 and damage received -2 during the battle.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 2,
+        "DamageReceived": -2,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  "CurrentStats": {
+    "HP": 16,
+    "Str": 0,
+    "Mag": 6,
+    "Skl": 3,
+    "Spd": 5,
+    "Lck": -1,
+    "Def": 3,
+    "Res": 5,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 80,
+    "Str": 55,
+    "Mag": 55,
+    "Skl": 55,
+    "Spd": 75,
+    "Lck": 50,
+    "Def": 40,
+    "Res": 70
+  },
+  "EquippedWeapon": {
+    "Id": 227,
+    "EquipOid": "7e04b2da-4ccf-405b-ac28-4da7abc17b2d",
+    "Name": "Flux",
+    "Rank": 1,
+    "WeaponType": 8,
+    "IsMagical": true,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 5,
+    "Hit": 70,
+    "Crit": 0,
+    "Range": "1-2",
+    "Uses": "Inf.",
+    "Worth": "540",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 13,
+      "AbilityOid": "781e1534-649e-4120-8a1c-da299cc90845",
+      "Name": "Hex",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Avoid -15 to all adjacent enemies.",
+      "StatBonus": null
+    }
+  ],
+  "CurrentClass": {
+    "Id": 5,
+    "Name": "Dark Mage",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 0,
+      "Mag": 6,
+      "Skl": 3,
+      "Spd": 3,
+      "Lck": 1,
+      "Def": 3,
+      "Res": 5,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 27,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 5,
+      "Mag": 15,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 13,
+        "AbilityOid": null,
+        "Name": "Hex",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid -15 to all adjacent enemies.",
+        "StatBonus": null
+      },
+      {
+        "Id": 14,
+        "AbilityOid": null,
+        "Name": "Heartseeker",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
+        "StatBonus": null
+      },
+      {
+        "Id": 15,
+        "AbilityOid": null,
+        "Name": "Anathema",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
+        "StatBonus": null
+      },
+      {
+        "Id": 16,
+        "AbilityOid": null,
+        "Name": "Malefic Aura",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 8,
+        "MinRank": 1,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Sorcerer",
+      "Dark Knight"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Thief"
+    ],
+    "SkillTypeOptions": [
+      1,
+      6,
+      2,
+      14,
+      7,
+      15,
+      9,
+      5
+    ]
+  },
+  "Exp": 0,
+  "Level": 1,
+  "UnitTypes": [
+    0,
+    4
+  ],
+  "Gold": 160,
+  "Attack": 77,
+  "Heal": 0,
+  "Damage": 11,
+  "Crit": 2,
+  "Avoid": 7,
+  "Dodge": -1,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Dark Mage",
+  "HeartSealClass": "Villager",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 1,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 4,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 5,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": -1,
+      "Mag": -1,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -3,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 227,
+        "EquipOid": "7e04b2da-4ccf-405b-ac28-4da7abc17b2d",
+        "Name": "Flux",
+        "Rank": 1,
+        "WeaponType": 8,
+        "IsMagical": true,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 5,
+        "Hit": 70,
+        "Crit": 0,
+        "Range": "1-2",
+        "Uses": "Inf.",
+        "Worth": "540",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 235,
+        "EquipOid": "6cd1ae05-4a27-4763-aa1f-f11a8ee48e42",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "3",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 16,
+    "Str": 0,
+    "Mag": 6,
+    "Skl": 3,
+    "Spd": 5,
+    "Lck": -1,
+    "Def": 3,
+    "Res": 5,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 19,
+    "Mag": 26,
+    "Skl": 27,
+    "Spd": 29,
+    "Lck": 29,
+    "Def": 25,
+    "Res": 27,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 30,
+    "Str": 40,
+    "Mag": 50,
+    "Skl": 40,
+    "Spd": 50,
+    "Lck": 30,
+    "Def": 40,
+    "Res": 50
+  },
+  "ReclassOptions": [
+    "Dark Mage",
+    "Kitsune",
+    "Archer",
+    "Thief"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 13,
+      "AbilityOid": "781e1534-649e-4120-8a1c-da299cc90845",
+      "Name": "Hex",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Avoid -15 to all adjacent enemies.",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "1c91f2ab-6779-4ca3-a722-43aa12ea05fc"
+}

@@ -90,7 +90,13 @@
           <div class="properties" *ngIf="item.isMagical || item.isBrave || item.doesEffectiveDamage">
             <span class="property-badge" *ngIf="item.isMagical">🔮 Magical</span>
             <span class="property-badge" *ngIf="item.isBrave">⚡ Brave</span>
-            <span class="property-badge" *ngIf="item.doesEffectiveDamage">💥 Effective</span>
+            <span class="property-badge" *ngIf="item.doesEffectiveDamage">
+              💥 Effective
+              <ng-container *ngIf="item.effectiveUnitTypes && item.effectiveUnitTypes.length > 0">
+                :
+                <span *ngFor="let type of item.effectiveUnitTypes">{{ type }} </span>
+              </ng-container>
+            </span>
           </div>
 
           <!-- Stat Bonuses -->

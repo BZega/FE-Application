@@ -3,11 +3,18 @@
     <span class="btn-icon">➕</span>
     <span class="btn-text">Create New Character</span>
   </button>
+  <button class="create-character-btn" style="margin-left: 30px;" (click)="openClassCreator()">
+    <span class="btn-icon">➕</span>
+    <span class="btn-text">Create New Class</span>
+  </button>
+  <button class="create-character-btn" style="margin-left: 30px;" (click)="openAbilityCreator()">
+    <span class="btn-icon">➕</span>
+    <span class="btn-text">Create New Ability</span>
+  </button>
 </div>
 
 <div class="character-summaries-grid style-2"
-     cdkScrollable
-     style="height: calc(100% - 100px);">
+     cdkScrollable>
 
   <ng-container *ngIf="(characterList$ | async)?.length > 0; else noCharacters">
     <div class="cards-container">

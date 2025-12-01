@@ -1,0 +1,96 @@
+<div class="ability-creator-container">
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="dialog-icon">✨</span>
+    Create New Ability
+  </h2>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="creator-form">
+      
+      <!-- Basic Info Section -->
+      <div class="form-section">
+        <h3 class="section-title">Basic Information</h3>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Ability Name</mat-label>
+          <input matInput [(ngModel)]="abilityName" placeholder="Enter ability name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="description" placeholder="Enter description" rows="3"></textarea>
+        </mat-form-field>
+
+        <div class="row-fields">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Level Acquired</mat-label>
+            <input matInput type="number" [(ngModel)]="levelAcquired" min="1">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Type</mat-label>
+            <mat-select [(ngModel)]="type">
+              <mat-option *ngFor="let abilityType of availableTypes" [value]="abilityType">
+                {{ abilityType }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox [(ngModel)]="combatCheck" class="combat-checkbox">Combat Check</mat-checkbox>
+      </div>
+
+      <!-- Stat Bonus Section -->
+      <div class="form-section">
+        <h3 class="section-title">Stat Bonus</h3>
+        <mat-checkbox [(ngModel)]="hasStatBonus" class="bonus-checkbox">Has Stat Bonus</mat-checkbox>
+        
+        <div class="innate-bonus-sections" *ngIf="hasStatBonus">
+          
+          <!-- Stats -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasStatBonusStats" class="subsection-checkbox">Stats</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasStatBonusStats">
+              <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res', 'mov']">
+                <label class="stat-label">{{ stat.toUpperCase() }}</label>
+                <input type="number" [(ngModel)]="statBonusStats[stat]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Growths -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasStatBonusGrowths" class="subsection-checkbox">Growths</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasStatBonusGrowths">
+              <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res']">
+                <label class="stat-label">{{ stat.toUpperCase() }}</label>
+                <input type="number" [(ngModel)]="statBonusGrowths[stat]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Attributes -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasStatBonusAttributes" class="subsection-checkbox">Attributes</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasStatBonusAttributes">
+              <div class="stat-control" *ngFor="let attr of ['hit', 'crit', 'avoid', 'dodge', 'heal', 'damage', 'damageReceived', 'attackSpeed']">
+                <label class="stat-label">{{ attr }}</label>
+                <input type="number" [(ngModel)]="statBonusAttributes[attr]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button (click)="cancel()" class="cancel-button">Cancel</button>
+    <button mat-raised-button (click)="saveAbility()" class="save-button" [disabled]="!abilityName || !type">
+      <span class="btn-icon">💾</span>
+      Create Ability
+    </button>
+  </mat-dialog-actions>
+</div>

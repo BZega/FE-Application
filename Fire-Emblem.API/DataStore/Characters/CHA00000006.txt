@@ -1,0 +1,692 @@
+{
+  "Id": "CHA00000006",
+  "Biography": {
+    "Name": "Zega",
+    "Gender": "Male",
+    "Background": "A lord of old",
+    "IsNoble": true,
+    "RaceChoice": {
+      "RacialType": 0,
+      "HumanStatChoices": [
+        8,
+        8
+      ],
+      "RacialGrowth": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0
+      },
+      "UnitType": 0
+    }
+  },
+  "CurrentHP": 18,
+  "PersonalAbility": {
+    "Id": 3,
+    "Name": "Bloodthirst",
+    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill and Speed +4 for one turn.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 4,
+        "Mag": 4,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  "CurrentStats": {
+    "HP": 18,
+    "Str": 8,
+    "Mag": 0,
+    "Skl": 5,
+    "Spd": 7,
+    "Lck": 0,
+    "Def": 6,
+    "Res": 0,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 65,
+    "Str": 60,
+    "Mag": 50,
+    "Skl": 55,
+    "Spd": 60,
+    "Lck": 35,
+    "Def": 65,
+    "Res": 55
+  },
+  "EquippedWeapon": {
+    "Id": 151,
+    "EquipOid": "ff2f25ac-873b-4d7d-a09c-dec66c2bfd58",
+    "Name": "Bronze Sword",
+    "Rank": 1,
+    "WeaponType": 6,
+    "IsMagical": false,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 4,
+    "Hit": 100,
+    "Crit": 0,
+    "Range": "1",
+    "Uses": "Inf.",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 26,
+      "AbilityOid": "852b544b-e087-4780-b7a3-2e5df06471ec",
+      "Name": "Dual Strike+",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increase the chance for a Dual Strike occurring by 10%",
+      "StatBonus": null
+    }
+  ],
+  "CurrentClass": {
+    "Id": 9,
+    "Name": "Sword Lord",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 7,
+      "Lck": 0,
+      "Def": 7,
+      "Res": 0,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 25,
+      "Mag": 20,
+      "Skl": 26,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 26,
+        "AbilityOid": null,
+        "Name": "Dual Strike+",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
+        "StatBonus": null
+      },
+      {
+        "Id": 27,
+        "AbilityOid": null,
+        "Name": "Charm",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Great Sword Lord with Lance",
+      "Great Sword Lord with Axe"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Cavalier"
+    ],
+    "SkillTypeOptions": [
+      0,
+      10,
+      6,
+      2,
+      7,
+      8,
+      9,
+      5
+    ]
+  },
+  "Exp": 0,
+  "Level": 1,
+  "UnitTypes": [
+    0
+  ],
+  "Gold": 1200,
+  "Attack": 108,
+  "Heal": 0,
+  "Damage": 12,
+  "Crit": 3,
+  "Avoid": 11,
+  "Dodge": 0,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Sword Lord",
+  "HeartSealClass": "Cavalier",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 1,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 1,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 2,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 4,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 6,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": -1,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -1,
+      "Def": -3,
+      "Res": -1,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 151,
+        "EquipOid": "ff2f25ac-873b-4d7d-a09c-dec66c2bfd58",
+        "Name": "Bronze Sword",
+        "Rank": 1,
+        "WeaponType": 6,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 4,
+        "Hit": 100,
+        "Crit": 0,
+        "Range": "1",
+        "Uses": "Inf.",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 235,
+        "EquipOid": "ef36b87d-1bb0-477d-85d1-b3b949ee49b7",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "3",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 18,
+    "Str": 8,
+    "Mag": 0,
+    "Skl": 5,
+    "Spd": 7,
+    "Lck": 0,
+    "Def": 6,
+    "Res": 0,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 29,
+    "Mag": 20,
+    "Skl": 28,
+    "Spd": 28,
+    "Lck": 29,
+    "Def": 24,
+    "Res": 24,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 25,
+    "Str": 40,
+    "Mag": 50,
+    "Skl": 35,
+    "Spd": 40,
+    "Lck": 35,
+    "Def": 55,
+    "Res": 50
+  },
+  "ReclassOptions": [
+    "Sword Lord",
+    "Archer",
+    "Cavalier"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 26,
+      "AbilityOid": "852b544b-e087-4780-b7a3-2e5df06471ec",
+      "Name": "Dual Strike+",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increase the chance for a Dual Strike occurring by 10%",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": true,
+      "Attribute": 8,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 5,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 5,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 7,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "f9c33e0e-cb84-4bbc-ae97-719e611c8d2d"
+}

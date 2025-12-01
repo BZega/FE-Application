@@ -100,8 +100,8 @@
         <h3 class="card-title">Combat</h3>
         <div class="combat-stats-grid">
           <div class="combat-stat-item">
-            <span class="stat-label">Atk</span>
-            <span class="stat-value">{{ character.attack }}</span>
+            <span class="stat-label">{{ character.equippedWeapon?.weaponType?.toLowerCase().includes('staff') ? 'Heal' : 'Atk' }}</span>
+            <span class="stat-value">{{ character.equippedWeapon?.weaponType?.toLowerCase().includes('staff') ? character.heal : character.attack }}</span>
           </div>
           <div class="combat-stat-item">
             <span class="stat-label">Dmg</span>
@@ -159,11 +159,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Str</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.str, 40)">
-                  {{ character.currentStats.str }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'str') ? 'Total: ' + character.currentStats.str : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.str, 40)">
+                    {{ getBaseStat(character, 'str') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'str')"
+                        [class.positive]="getStatBonus(character, 'str') > 0"
+                        [class.negative]="getStatBonus(character, 'str') < 0">
+                    {{ getStatBonus(character, 'str') > 0 ? '+' : '' }}{{ getStatBonus(character, 'str') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.str, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.str || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -174,11 +184,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Mag</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.mag, 40)">
-                  {{ character.currentStats.mag }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'mag') ? 'Total: ' + character.currentStats.mag : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.mag, 40)">
+                    {{ getBaseStat(character, 'mag') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'mag')"
+                        [class.positive]="getStatBonus(character, 'mag') > 0"
+                        [class.negative]="getStatBonus(character, 'mag') < 0">
+                    {{ getStatBonus(character, 'mag') > 0 ? '+' : '' }}{{ getStatBonus(character, 'mag') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.mag, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.mag || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -189,11 +209,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Skl</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.skl, 40)">
-                  {{ character.currentStats.skl }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'skl') ? 'Total: ' + character.currentStats.skl : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.skl, 40)">
+                    {{ getBaseStat(character, 'skl') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'skl')"
+                        [class.positive]="getStatBonus(character, 'skl') > 0"
+                        [class.negative]="getStatBonus(character, 'skl') < 0">
+                    {{ getStatBonus(character, 'skl') > 0 ? '+' : '' }}{{ getStatBonus(character, 'skl') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.skl, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.skl || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -204,11 +234,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Spd</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.spd, 40)">
-                  {{ character.currentStats.spd }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'spd') ? 'Total: ' + character.currentStats.spd : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.spd, 40)">
+                    {{ getBaseStat(character, 'spd') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'spd')"
+                        [class.positive]="getStatBonus(character, 'spd') > 0"
+                        [class.negative]="getStatBonus(character, 'spd') < 0">
+                    {{ getStatBonus(character, 'spd') > 0 ? '+' : '' }}{{ getStatBonus(character, 'spd') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.spd, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.spd || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -219,11 +259,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Lck</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.lck, 40)">
-                  {{ character.currentStats.lck }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'lck') ? 'Total: ' + character.currentStats.lck : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.lck, 40)">
+                    {{ getBaseStat(character, 'lck') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'lck')"
+                        [class.positive]="getStatBonus(character, 'lck') > 0"
+                        [class.negative]="getStatBonus(character, 'lck') < 0">
+                    {{ getStatBonus(character, 'lck') > 0 ? '+' : '' }}{{ getStatBonus(character, 'lck') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.lck, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.lck || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -234,11 +284,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Def</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.def, 40)">
-                  {{ character.currentStats.def }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'def') ? 'Total: ' + character.currentStats.def : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.def, 40)">
+                    {{ getBaseStat(character, 'def') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'def')"
+                        [class.positive]="getStatBonus(character, 'def') > 0"
+                        [class.negative]="getStatBonus(character, 'def') < 0">
+                    {{ getStatBonus(character, 'def') > 0 ? '+' : '' }}{{ getStatBonus(character, 'def') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.def, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.def || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -249,11 +309,21 @@
             <div class="stat-row" *ngIf="character.currentStats">
               <div class="stat-info">
                 <span class="stat-name">Res</span>
-                <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.res, 40)">
-                  {{ character.currentStats.res }}
-                </span>
+                <div class="stat-value-group"
+                     [matTooltip]="hasStatBonus(character, 'res') ? 'Total: ' + character.currentStats.res : ''"
+                     matTooltipPosition="above">
+                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.res, 40)">
+                    {{ getBaseStat(character, 'res') }}
+                  </span>
+                  <span class="stat-bonus" 
+                        *ngIf="hasStatBonus(character, 'res')"
+                        [class.positive]="getStatBonus(character, 'res') > 0"
+                        [class.negative]="getStatBonus(character, 'res') < 0">
+                    {{ getStatBonus(character, 'res') > 0 ? '+' : '' }}{{ getStatBonus(character, 'res') }}
+                  </span>
+                </div>
                 <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.res, 40)"></div>
+                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.res || 0, 40)"></div>
                 </div>
               </div>
               <div class="growth-info">
@@ -320,7 +390,7 @@
                   <span class="equipment-name">{{ character.equippedWeapon.name }}</span>
                   <div class="equipment-meta">
                     <span class="equipment-type">{{ character.equippedWeapon.weaponType }}</span>
-                    <span class="equipment-badge equipped-badge">⚔</span>
+                    <span class="equipment-badge equipped-badge">⚔ Equipped</span>
                     <span class="equipment-uses" *ngIf="character.equippedWeapon.uses">{{ character.equippedWeapon.uses }}</span>
                   </div>
                 </div>
@@ -328,6 +398,12 @@
               
               <div class="item-details-expanded" *ngIf="isSpecialWeaponExpanded" [@fadeInOut]>
                 <div class="detail-section-content">
+                  <!-- Description -->
+                  <p class="item-description" *ngIf="character.equippedWeapon.description">
+                    {{ character.equippedWeapon.description }}
+                  </p>
+
+                  <!-- Stats Grid -->
                   <div class="item-stats-row">
                     <div class="item-stat" *ngIf="character.equippedWeapon.might !== null && character.equippedWeapon.might !== undefined">
                       <span class="stat-label">Might:</span>
@@ -344,6 +420,49 @@
                     <div class="item-stat" *ngIf="character.equippedWeapon.range">
                       <span class="stat-label">Range:</span>
                       <span class="stat-value">{{ character.equippedWeapon.range }}</span>
+                    </div>
+                    <div class="item-stat" *ngIf="character.equippedWeapon.rank">
+                      <span class="stat-label">Rank:</span>
+                      <span class="stat-value">{{ character.equippedWeapon.rank }}</span>
+                    </div>
+                    <div class="item-stat" *ngIf="character.equippedWeapon.worth">
+                      <span class="stat-label">Worth:</span>
+                      <span class="stat-value">{{ character.equippedWeapon.worth }}G</span>
+                    </div>
+                    <div class="item-stat" *ngIf="character.equippedWeapon.baseHP !== null && character.equippedWeapon.baseHP !== undefined">
+                      <span class="stat-label">Base HP:</span>
+                      <span class="stat-value">{{ character.equippedWeapon.baseHP }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Properties -->
+                  <div class="item-properties" *ngIf="character.equippedWeapon.isMagical || character.equippedWeapon.isBrave || character.equippedWeapon.doesEffectiveDamage">
+                    <span class="property-badge" *ngIf="character.equippedWeapon.isMagical">🔮 Magical</span>
+                    <span class="property-badge" *ngIf="character.equippedWeapon.isBrave">⚡ Brave</span>
+                    <span class="property-badge" *ngIf="character.equippedWeapon.doesEffectiveDamage">💥 Effective</span>
+                  </div>
+
+                  <!-- Effective Against -->
+                  <div class="item-effective" *ngIf="character.equippedWeapon.effectiveUnitTypes && character.equippedWeapon.effectiveUnitTypes.length > 0">
+                    <div class="effective-title">Effective Against:</div>
+                    <div class="effective-types">
+                      <span class="effective-type" *ngFor="let type of character.equippedWeapon.effectiveUnitTypes">{{ type }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Stat Bonuses -->
+                  <div class="item-stat-bonuses" *ngIf="character.equippedWeapon.statBonus?.stats">
+                    <div class="bonuses-title">Stat Bonuses:</div>
+                    <div class="bonus-grid">
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.hp">HP: {{ character.equippedWeapon.statBonus.stats.hp > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.hp }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.str">Str: {{ character.equippedWeapon.statBonus.stats.str > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.str }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.mag">Mag: {{ character.equippedWeapon.statBonus.stats.mag > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.mag }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.skl">Skl: {{ character.equippedWeapon.statBonus.stats.skl > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.skl }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.spd">Spd: {{ character.equippedWeapon.statBonus.stats.spd > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.spd }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.lck">Lck: {{ character.equippedWeapon.statBonus.stats.lck > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.lck }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.def">Def: {{ character.equippedWeapon.statBonus.stats.def > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.def }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.res">Res: {{ character.equippedWeapon.statBonus.stats.res > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.res }}</span>
+                      <span class="bonus-item" *ngIf="character.equippedWeapon.statBonus.stats.mov">Mov: {{ character.equippedWeapon.statBonus.stats.mov > 0 ? '+' : '' }}{{ character.equippedWeapon.statBonus.stats.mov }}</span>
                     </div>
                   </div>
                 </div>
@@ -364,7 +483,7 @@
                     <span class="equipment-name">{{ item ? item.name : 'Empty' }}</span>
                     <div class="equipment-meta" *ngIf="item">
                       <span class="equipment-type">{{ item.weaponType }}</span>
-                      <span class="equipment-badge equipped-badge" *ngIf="isEquipped(item, character)">⚔</span>
+                      <span class="equipment-badge equipped-badge" *ngIf="isEquipped(item, character)">⚔ Equipped</span>
                       <span class="equipment-uses" *ngIf="item.uses">{{ item.uses }}</span>
                     </div>
                   </div>
@@ -381,10 +500,22 @@
                           title="Unequip">
                     ✖
                   </button>
+                  <button *ngIf="item && isConsumable(item) && canUseItem(item)"
+                          class="use-item-button"
+                          (click)="openUseItemDialog(item, $event)"
+                          title="Use Item">
+                    ✨
+                  </button>
                 </div>
                 
                 <div class="item-details-expanded" *ngIf="item && isItemExpanded(i)" [@fadeInOut]>
                   <div class="detail-section-content">
+                    <!-- Description -->
+                    <p class="item-description" *ngIf="item.description">
+                      {{ item.description }}
+                    </p>
+
+                    <!-- Stats Grid -->
                     <div class="item-stats-row">
                       <div class="item-stat" *ngIf="item.might !== null && item.might !== undefined">
                         <span class="stat-label">Might:</span>
@@ -402,9 +533,54 @@
                         <span class="stat-label">Range:</span>
                         <span class="stat-value">{{ item.range }}</span>
                       </div>
-                      <div class="item-stat" *ngIf="item.weight !== null && item.weight !== undefined">
-                        <span class="stat-label">Weight:</span>
-                        <span class="stat-value">{{ item.weight }}</span>
+                      <div class="item-stat" *ngIf="item.rank">
+                        <span class="stat-label">Rank:</span>
+                        <span class="stat-value">{{ item.rank }}</span>
+                      </div>
+                      <div class="item-stat" *ngIf="item.worth">
+                        <span class="stat-label">Worth:</span>
+                        <span class="stat-value">{{ item.worth }}G</span>
+                      </div>
+                      <div class="item-stat" *ngIf="item.baseHP !== null && item.baseHP !== undefined">
+                        <span class="stat-label">Base HP:</span>
+                        <span class="stat-value">{{ item.baseHP }}</span>
+                      </div>
+                    </div>
+
+                    <!-- Properties -->
+                    <div class="item-properties" *ngIf="item.isMagical || item.isBrave || item.doesEffectiveDamage">
+                      <span class="property-badge" *ngIf="item.isMagical">🔮 Magical</span>
+                      <span class="property-badge" *ngIf="item.isBrave">⚡ Brave</span>
+                      <span class="property-badge" *ngIf="item.doesEffectiveDamage">
+                        💥 Effective
+                        <ng-container *ngIf="item.effectiveUnitTypes && item.effectiveUnitTypes.length > 0">
+                          :
+                          <span *ngFor="let type of item.effectiveUnitTypes">{{ type }} |</span>
+                        </ng-container>
+                      </span>
+                    </div>
+
+                    <!-- Effective Against -->
+                    <div class="item-effective" *ngIf="item.effectiveUnitTypes && item.effectiveUnitTypes.length > 0">
+                      <div class="effective-title">Effective Against:</div>
+                      <div class="effective-types">
+                        <span class="effective-type" *ngFor="let type of item.effectiveUnitTypes">{{ type }}</span>
+                      </div>
+                    </div>
+
+                    <!-- Stat Bonuses -->
+                    <div class="item-stat-bonuses" *ngIf="item.statBonus?.stats">
+                      <div class="bonuses-title">Stat Bonuses:</div>
+                      <div class="bonus-grid">
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.hp">HP: {{ item.statBonus.stats.hp > 0 ? '+' : '' }}{{ item.statBonus.stats.hp }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.str">Str: {{ item.statBonus.stats.str > 0 ? '+' : '' }}{{ item.statBonus.stats.str }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.mag">Mag: {{ item.statBonus.stats.mag > 0 ? '+' : '' }}{{ item.statBonus.stats.mag }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.skl">Skl: {{ item.statBonus.stats.skl > 0 ? '+' : '' }}{{ item.statBonus.stats.skl }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.spd">Spd: {{ item.statBonus.stats.spd > 0 ? '+' : '' }}{{ item.statBonus.stats.spd }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.lck">Lck: {{ item.statBonus.stats.lck > 0 ? '+' : '' }}{{ item.statBonus.stats.lck }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.def">Def: {{ item.statBonus.stats.def > 0 ? '+' : '' }}{{ item.statBonus.stats.def }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.res">Res: {{ item.statBonus.stats.res > 0 ? '+' : '' }}{{ item.statBonus.stats.res }}</span>
+                        <span class="bonus-item" *ngIf="item.statBonus.stats.mov">Mov: {{ item.statBonus.stats.mov > 0 ? '+' : '' }}{{ item.statBonus.stats.mov }}</span>
                       </div>
                     </div>
                   </div>
@@ -663,5 +839,94 @@
   
   <mat-dialog-actions align="end" class="dialog-actions">
     <button mat-button mat-dialog-close class="cancel-button">Close</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<!-- Use Item Dialog Template -->
+<ng-template #useItemDialog>
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="dialog-icon">✨</span>
+    Use Item
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    <div class="use-item-content" *ngIf="itemToUse">
+      
+      <!-- Item Name -->
+      <h3 class="item-title">{{ itemToUse.name }}</h3>
+      
+      <!-- Item Description -->
+      <p class="item-description" *ngIf="itemToUse.description">
+        {{ itemToUse.description }}
+      </p>
+
+      <!-- Temporary Items Warning -->
+      <div class="warning-message" *ngIf="getItemType(itemToUse) === 'temporary'">
+        <span class="warning-icon">⚠️</span>
+        <p>Temporary items cannot be used directly. They provide passive bonuses when in your inventory.</p>
+      </div>
+
+      <!-- Permanent/Healing Items Confirmation -->
+      <div class="confirmation-section" *ngIf="getItemType(itemToUse) === 'permanent' || getItemType(itemToUse) === 'healing'">
+        <p class="confirmation-text">Would you like to use this item?</p>
+        <p class="warning-note" *ngIf="getItemType(itemToUse) === 'permanent'">
+          ⚠️ This is a permanent effect and cannot be undone.
+        </p>
+      </div>
+
+      <!-- Promotion Items Class Selection -->
+      <div class="promotion-section" *ngIf="getItemType(itemToUse) === 'promotion'">
+        <p class="promotion-instruction">Select a class to promote/reclass to:</p>
+        
+        <div class="level-requirement" *ngIf="currentCharacter && currentCharacter.level < 10">
+          <span class="error-icon">❌</span>
+          <p>Promotion items can only be used at level 10 or higher.</p>
+          <p>Current Level: {{ currentCharacter.level }}</p>
+        </div>
+
+        <div class="class-selection" *ngIf="currentCharacter && currentCharacter.level >= 10">
+          <mat-form-field appearance="outline" class="class-dropdown">
+            <mat-label>Choose Class</mat-label>
+            <mat-select [(value)]="selectedPromotionClass">
+              <mat-option *ngFor="let className of availablePromotionClasses" [value]="className">
+                {{ className }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="no-classes-warning" *ngIf="availablePromotionClasses.length === 0">
+            <span class="warning-icon">⚠️</span>
+            <p>No available classes for this promotion item.</p>
+          </div>
+
+          <!-- Weapon Type Selection for Dread Fighter -->
+          <div class="weapon-type-selection" *ngIf="selectedPromotionClass === 'Dread Fighter'">
+            <p class="weapon-instruction">Choose Weapon Type:</p>
+            <mat-radio-group [(ngModel)]="selectedWeaponType" class="weapon-radio-group">
+              <mat-radio-button value="Tome" class="weapon-radio">
+                <span class="weapon-icon">📖</span>
+                Tome
+              </mat-radio-button>
+              <mat-radio-button value="Shuriken" class="weapon-radio">
+                <span class="weapon-icon">🗡️</span>
+                Shuriken
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button (click)="cancelUseItem()" class="cancel-button">Cancel</button>
+    <button mat-raised-button 
+            (click)="confirmUseItem()" 
+            class="confirm-button"
+            [disabled]="getItemType(itemToUse) === 'promotion' && (!selectedPromotionClass || (isDreadScroll(itemToUse) && !selectedWeaponType))">
+      <span class="button-icon">✨</span>
+      Use Item
+    </button>
   </mat-dialog-actions>
 </ng-template>

@@ -7,6 +7,8 @@ import { MaterialModule } from '../../material/material.module';
 import { CharacterSummaryComponent } from '../../components/character-summary/character-summary.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CharacterCreatorComponent } from '../../components/character-creator/character-creator.component';
+import { ClassCreatorComponent } from '../../components/class-creator/class-creator.component';
+import { AbilityCreatorComponent } from '../../components/ability-creator/ability-creator.component';
 
 @Component({
   selector: 'app-character-summary-container',
@@ -18,7 +20,7 @@ export class CharacterSummaryContainerComponent {
   private characterService = inject(CharacterService);
   private dialog = inject(MatDialog);
   
-  trackCharactersBy(index: number, character: { id: number }): number {
+  trackCharactersBy(index: number, character: { id: string }): string {
     return character.id;
   }
   
@@ -46,6 +48,39 @@ export class CharacterSummaryContainerComponent {
       if (result === 'created') {
         // Refresh the character list
         this.ngOnInit();
+      }
+    });
+  }
+
+  openClassCreator() {
+    const dialogRef = this.dialog.open(ClassCreatorComponent, {
+      width: 'calc(95vw - 200px)',
+      maxWidth: '1200px',
+      height: '95vh',
+      maxHeight: '900px',
+      disableClose: false,
+      panelClass: 'class-creator-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Class created:', result);
+        // Optionally refresh data if needed
+      }
+    });
+  }
+
+  openAbilityCreator() {
+    const dialogRef = this.dialog.open(AbilityCreatorComponent, {
+      width: '800px',
+      maxWidth: '90vw',
+      disableClose: false,
+      panelClass: 'ability-creator-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Ability created:', result);
       }
     });
   }

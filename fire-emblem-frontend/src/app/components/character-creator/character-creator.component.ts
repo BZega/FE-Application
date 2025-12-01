@@ -217,7 +217,7 @@ export class CharacterCreatorComponent {
   humanBonusStat2 = '';
   personalAbility = '';
   firstAquiredAbility = '';
-  isAquiredAbilityEquipped = false;
+  isAquiredAbilityEquipped = true;
 
   // Class data
   selectedClassData: UnitClass | null = null;
@@ -890,5 +890,4 @@ export class CharacterCreatorComponent {
       }
     });
   }
-
 }

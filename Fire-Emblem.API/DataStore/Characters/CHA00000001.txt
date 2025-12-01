@@ -1,0 +1,894 @@
+{
+  "Id": "CHA00000001",
+  "Biography": {
+    "Name": "Rissa",
+    "Gender": "Female",
+    "Background": "Rissa is a beautiful manakete lord",
+    "IsNoble": true,
+    "RaceChoice": {
+      "RacialType": 2,
+      "HumanStatChoices": null,
+      "RacialGrowth": {
+        "HP": 20,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": -10,
+        "Spd": -10,
+        "Lck": 20,
+        "Def": 10,
+        "Res": 0
+      },
+      "UnitType": 5
+    }
+  },
+  "CurrentHP": 19,
+  "PersonalAbility": {
+    "Id": 1,
+    "Name": "Aching Blood",
+    "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  "CurrentStats": {
+    "HP": 19,
+    "Str": 8,
+    "Mag": 4,
+    "Skl": 4,
+    "Spd": 8,
+    "Lck": 2,
+    "Def": 6,
+    "Res": 3,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 100,
+    "Str": 65,
+    "Mag": 50,
+    "Skl": 40,
+    "Spd": 60,
+    "Lck": 60,
+    "Def": 60,
+    "Res": 35
+  },
+  "EquippedWeapon": {
+    "Id": 151,
+    "EquipOid": "2ef8c058-48b4-4566-800c-6f501d71ab5c",
+    "Name": "Bronze Sword",
+    "Rank": 1,
+    "WeaponType": 6,
+    "IsMagical": false,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 4,
+    "Hit": 100,
+    "Crit": 0,
+    "Range": "1",
+    "Uses": "Inf.",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 31,
+      "AbilityOid": "3644801f-a68b-47c6-9888-99cc344263e7",
+      "Name": "Nobility",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Grants this unit a 20% bonus to EXP",
+      "StatBonus": null
+    }
+  ],
+  "CurrentClass": {
+    "Id": 13,
+    "Name": "Manakete Heir",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 7,
+      "Mag": 3,
+      "Skl": 4,
+      "Spd": 5,
+      "Lck": 2,
+      "Def": 5,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 28,
+      "Mag": 23,
+      "Skl": 24,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 26,
+      "Res": 24,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 15,
+      "Mag": 10,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 10,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      5
+    ],
+    "Abilities": [
+      {
+        "Id": 31,
+        "AbilityOid": null,
+        "Name": "Nobility",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Grants this unit a 20% bonus to EXP",
+        "StatBonus": null
+      },
+      {
+        "Id": 32,
+        "AbilityOid": null,
+        "Name": "Dragon Fang",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 1,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 5,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Dawn Noble",
+      "Dusk Noble"
+    ],
+    "ReclassOptions": [
+      "Myrmidon",
+      "Manakete"
+    ],
+    "SkillTypeOptions": null
+  },
+  "Exp": 0,
+  "Level": 3,
+  "UnitTypes": [
+    0,
+    5
+  ],
+  "Gold": 200,
+  "Attack": 108,
+  "Heal": 0,
+  "Damage": 12,
+  "Crit": 12,
+  "Avoid": 13,
+  "Dodge": 2,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Manakete Heir",
+  "HeartSealClass": "Wyvern Rider",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 3,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 4,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 5,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": -1,
+      "Mag": -1,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -3,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 151,
+        "EquipOid": "2ef8c058-48b4-4566-800c-6f501d71ab5c",
+        "Name": "Bronze Sword",
+        "Rank": 1,
+        "WeaponType": 6,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 4,
+        "Hit": 100,
+        "Crit": 0,
+        "Range": "1",
+        "Uses": "Inf.",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 235,
+        "EquipOid": "b6a96393-fcbc-4b81-929d-085b3b343581",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "3",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 235,
+        "EquipOid": "c231bbec-8848-471f-97cb-1053390b94bd",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "1",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 19,
+    "Str": 8,
+    "Mag": 4,
+    "Skl": 4,
+    "Spd": 8,
+    "Lck": 2,
+    "Def": 6,
+    "Res": 3,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 27,
+    "Mag": 22,
+    "Skl": 26,
+    "Spd": 30,
+    "Lck": 29,
+    "Def": 26,
+    "Res": 24,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 40,
+    "Str": 50,
+    "Mag": 40,
+    "Skl": 40,
+    "Spd": 60,
+    "Lck": 30,
+    "Def": 40,
+    "Res": 30
+  },
+  "ReclassOptions": [
+    "Manakete Heir",
+    "Manakete",
+    "Myrmidon"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 11,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 5,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": [
+    {
+      "Id": "949bb0bd-22ef-4be7-a12e-eff6cb590709",
+      "Name": "Isolde",
+      "Gender": "string",
+      "Level": 0,
+      "InternalLevel": 0,
+      "CurrentClassType": 0,
+      "CurrentClass": {
+        "Id": 2,
+        "Name": "Apothecary",
+        "IsPromoted": false,
+        "IsSpecialClass": false,
+        "BaseStats": {
+          "HP": 18,
+          "Str": 6,
+          "Mag": 0,
+          "Skl": 4,
+          "Spd": 4,
+          "Lck": 2,
+          "Def": 6,
+          "Res": 2,
+          "Mov": 5
+        },
+        "MaxStats": {
+          "HP": 60,
+          "Str": 29,
+          "Mag": 20,
+          "Skl": 24,
+          "Spd": 24,
+          "Lck": 30,
+          "Def": 28,
+          "Res": 25,
+          "Mov": 7
+        },
+        "GrowthRate": {
+          "HP": 45,
+          "Str": 20,
+          "Mag": 0,
+          "Skl": 10,
+          "Spd": 10,
+          "Lck": 5,
+          "Def": 10,
+          "Res": 5
+        },
+        "InnateBonus": null,
+        "UnitTypes": [
+          0
+        ],
+        "Abilities": [
+          {
+            "Id": 4,
+            "AbilityOid": null,
+            "Name": "Potent Potion",
+            "LevelGained": 1,
+            "AbilityType": 0,
+            "NeedsToInitiateCombat": false,
+            "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+            "StatBonus": null
+          },
+          {
+            "Id": 5,
+            "AbilityOid": null,
+            "Name": "Quick Salve",
+            "LevelGained": 10,
+            "AbilityType": 0,
+            "NeedsToInitiateCombat": false,
+            "Description": "After consuming an item that restores HP or a tonic user can perform another action.",
+            "StatBonus": null
+          }
+        ],
+        "UsableWeapons": [
+          {
+            "WeaponType": 1,
+            "MinRank": 1,
+            "MaxRank": 4
+          }
+        ],
+        "ClassPromotions": [
+          "Merchant",
+          "Mechanist"
+        ],
+        "ReclassOptions": [
+          "Archer",
+          "Ninja"
+        ],
+        "SkillTypeOptions": [
+          0,
+          14,
+          15,
+          4,
+          16,
+          9,
+          5,
+          17
+        ]
+      },
+      "EquippedWeapon": null,
+      "StartingClass": "Apothecary",
+      "IsPairedUp": false,
+      "IsClose": false,
+      "LevelUpStats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      },
+      "CurrentStats": {
+        "HP": 18,
+        "Str": 6,
+        "Mag": 0,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 2,
+        "Def": 6,
+        "Res": 2,
+        "Mov": 5
+      },
+      "PairedUpBonus": {
+        "HP": 0,
+        "Str": 2,
+        "Mag": 0,
+        "Skl": 2,
+        "Spd": 2,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      },
+      "SupportRank": 0,
+      "Crit": 2,
+      "SupportPoints": 0,
+      "PersonalAbility": null
+    }
+  ],
+  "AcquiredAbilities": [
+    {
+      "Id": 31,
+      "AbilityOid": "3644801f-a68b-47c6-9888-99cc344263e7",
+      "Name": "Nobility",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Grants this unit a 20% bonus to EXP",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 8,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    }
+  ],
+  "LevelupStatIncreases": [
+    {
+      "Level": 2,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 0,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 3,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 1,
+        "Mov": 0
+      }
+    }
+  ],
+  "ConvoyId": "68622c60-0446-4c54-ab2f-7a6590a17472"
+}
