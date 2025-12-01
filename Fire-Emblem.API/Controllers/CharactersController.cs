@@ -42,7 +42,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpGet]
         [Route("get-character/{id}")]
-        public async Task<ActionResult<Character>> GetCharacterById(int id)
+        public async Task<ActionResult<Character>> GetCharacterById(string id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("remove-character/{id}")]
-        public async Task<ActionResult<bool>> RemoveCharacterById(int id, bool shouldDeleteConvoy)
+        public async Task<ActionResult<bool>> RemoveCharacterById(string id, bool shouldDeleteConvoy)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("level-up-character/{characterId}/{manual}")]
-        public async Task<ActionResult> LevelUpCharacter(int characterId, bool manual, Stats manualStats = null)
+        public async Task<ActionResult> LevelUpCharacter(string characterId, bool manual, Stats manualStats = null)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("modify-character-equipment/{characterId}/{updateType}")]
-        public async Task<ActionResult<bool>> ModifyCharacterEquipment(int characterId, UpdateType updateType, LocationType location, string equipOid = null, int equipId = 0, int sellPrice = 0, string unitChoice = null)
+        public async Task<ActionResult<bool>> ModifyCharacterEquipment(string characterId, UpdateType updateType, LocationType location, string equipOid = null, int equipId = 0, int sellPrice = 0, string unitChoice = null)
         {
             try
             {
@@ -155,7 +155,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("switch-terrain")]
-        public async Task<ActionResult<bool>> SwitchTerrain(int characterId, TerrainType type)
+        public async Task<ActionResult<bool>> SwitchTerrain(string characterId, TerrainType type)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("acquire-ability/{abilityId}")]
-        public async Task<ActionResult<bool>> AcquireAbility(int characterId, int abilityId, bool equip)
+        public async Task<ActionResult<bool>> AcquireAbility(string characterId, int abilityId, bool equip)
         {
             try
             {
@@ -185,7 +185,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("update-equipped-abilities/{abilityOid}")]
-        public async Task<ActionResult<bool>> UpdateEquippedAbilities(int characterId, UpdateType updateType, string abilityOid)
+        public async Task<ActionResult<bool>> UpdateEquippedAbilities(string characterId, UpdateType updateType, string abilityOid)
         {
             try
             {
@@ -200,7 +200,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("create-support-character/{characterId}/{name}")]
-        public async Task<ActionResult<bool>> CreateSupportCharacter(int characterId, string name, SupportCharacterDto support)
+        public async Task<ActionResult<bool>> CreateSupportCharacter(string characterId, string name, SupportCharacterDto support)
         {
             try
             {
@@ -245,7 +245,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("update-support-character/{characterId}/{supportId}")]
-        public async Task<ActionResult<bool>> UpdateSupportCharacter(int characterId, string supportId, int supportPoints = 0, Stats levelUpStats = null, ClassType currentClass = ClassType.None, int level = 0, int internalLevel = 0, string equippedWeapon = null)
+        public async Task<ActionResult<bool>> UpdateSupportCharacter(string characterId, string supportId, int supportPoints = 0, Stats levelUpStats = null, ClassType currentClass = ClassType.None, int level = 0, int internalLevel = 0, string equippedWeapon = null)
         {
             try
             {
@@ -260,7 +260,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("toggle-paired-and-close-status/{characterId}/{supportId}")]
-        public async Task<ActionResult<bool>> TogglePairedAndCloseToggle(int characterId, string supportId, bool isPaired, bool isClose)
+        public async Task<ActionResult<bool>> TogglePairedAndCloseToggle(string characterId, string supportId, bool isPaired, bool isClose)
         {
             try
             {
@@ -275,7 +275,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpGet]
         [Route("get-total-level-up/{characterId}")]
-        public async Task<ActionResult<Stats>> GetTotalLevelUpStats(int characterId)
+        public async Task<ActionResult<Stats>> GetTotalLevelUpStats(string characterId)
         {
             try
             {
@@ -290,7 +290,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("change-condition/{characterId}")]
-        public async Task<ActionResult<bool>> ChangeCondition(int characterId, int trackerChange)
+        public async Task<ActionResult<bool>> ChangeCondition(string characterId, int trackerChange)
         {
             try
             {
@@ -305,7 +305,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("revive-fallen-character")]
-        public async Task<ActionResult<bool>> ReviveFallenCharacter(int characterId)
+        public async Task<ActionResult<bool>> ReviveFallenCharacter(string characterId)
         {
             try
             {
@@ -320,7 +320,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("gain-weapon-exp/{characterId}")]
-        public async Task<ActionResult<bool>> GainWeaponExp(int characterId, bool isDoubleAttack)
+        public async Task<ActionResult<bool>> GainWeaponExp(string characterId, bool isDoubleAttack)
         {
             try
             {
@@ -380,7 +380,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("auto-battle/{characterId}/{enemyId}")]
-        public async Task<ActionResult<BattleResultDto>> AutomaticBattleOpponent(int characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
+        public async Task<ActionResult<BattleResultDto>> AutomaticBattleOpponent(string characterId, int enemyId, bool canOpponentCounter, bool isCharacterAttacking, bool gainExp)
         {
             try
             {
@@ -395,7 +395,7 @@ namespace Fire_Emblem.API.Controllers
 
         [HttpPost]
         [Route("upload-character-portrait/{characterId}")]
-        public async Task<ActionResult<string>> UploadCharacterPortrait(int characterId, IFormFile imageFile)
+        public async Task<ActionResult<string>> UploadCharacterPortrait(string characterId, IFormFile imageFile)
         {
             try
             {
@@ -439,6 +439,48 @@ namespace Fire_Emblem.API.Controllers
             {
                 _logger.LogError(ex, "Error uploading character portrait");
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("convert-character-file")]
+        public async Task<ActionResult<object>> ConvertCharacterFileToIndividualFiles()
+        {
+            try
+            {
+                _logger.LogInformation("Attempting to convert character.txt to individual files");
+                var result = await _charactersContext.ConvertCharacterFileToIndividualFiles();
+                
+                if (result.Item1)
+                {
+                    _logger.LogInformation($"Successfully converted {result.Item2} characters to individual files");
+                    return Ok(new 
+                    { 
+                        success = true, 
+                        count = result.Item2, 
+                        message = $"Successfully converted {result.Item2} characters to individual files. A backup was created at character.txt.backup" 
+                    });
+                }
+                else
+                {
+                    _logger.LogWarning("Failed to convert character file");
+                    return BadRequest(new 
+                    { 
+                        success = false, 
+                        count = 0, 
+                        message = "Failed to convert character file. Please check if the file exists and contains valid data." 
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error converting character file");
+                return BadRequest(new 
+                { 
+                    success = false, 
+                    count = 0, 
+                    message = ex.Message 
+                });
             }
         }
     }

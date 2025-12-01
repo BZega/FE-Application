@@ -25,11 +25,11 @@ export class CharacterService {
       const url = 'https://localhost:7145/Characters/get-all-characters';
       return this.http.get<Character[]>(url);
   }
-  public getCharacterById(id: number): Observable<Character> {
+  public getCharacterById(id: string): Observable<Character> {
     const url = `https://localhost:7145/Characters/get-character/${id}`;
     return this.http.get<Character>(url);
   }
-  public updateEquipedAbilities(characterId: number, abilityOid: string, equipType: string): Observable<any> {
+  public updateEquipedAbilities(characterId: string, abilityOid: string, equipType: string): Observable<any> {
     const url = `https://localhost:7145/Characters/update-equipped-abilities/${abilityOid}?characterId=${characterId}&updateType=${equipType}`;
     return this.http.post(url, {});
   }
@@ -57,7 +57,7 @@ export class CharacterService {
     const url = `https://localhost:7145/Equipment/get-equipment-by-name/${name}`;
     return this.http.get<Equipment>(url);
   }
-  public updateConvoyItems(characterId: number, updateType: string, locationType: string, equipOid: string, equipId: number, sellPrice: number, unitChoice: string): Observable<any> {
+  public updateConvoyItems(characterId: string, updateType: string, locationType: string, equipOid: string, equipId: number, sellPrice: number, unitChoice: string): Observable<any> {
     // updateType types: NONE, EQUIP, UNEQUIP, BUY, SELL, WITHDRAW, DEPOSIT, USE, ACQUIRE
     // locationType types: NONE, CONVOY, INVENTORY
     const url = `https://localhost:7145/Characters/modify-character-equipment/${characterId}/${updateType}`;
@@ -76,5 +76,23 @@ export class CharacterService {
   public getConvoy(convoyOid: string): Observable<Convoy> {
     const url = `https://localhost:7145/Characters/get-convoy/${convoyOid}`;
     return this.http.get<Convoy>(url);
+  }
+
+  public addClass(unitClass: UnitClass): Observable<UnitClass> {
+    const url = `https://localhost:7145/UnitClasses/add-new-class`;
+    return this.http.post<UnitClass>(url, unitClass);
+  }
+
+  public addAbility(name: string, description: string, levelAcquired: number, type: string, combatCheck: boolean, statBonus: any): Observable<Ability> {
+    const url = `https://localhost:7145/Abilities/add-new-ability/${encodeURIComponent(name)}`;
+    
+    // Build query parameters
+    let params = new HttpParams();
+    if (description) params = params.set('description', description);
+    if (levelAcquired !== null && levelAcquired !== undefined) params = params.set('levelAcquired', levelAcquired.toString());
+    if (type) params = params.set('type', type);
+    if (combatCheck !== null && combatCheck !== undefined) params = params.set('combatCheck', combatCheck.toString());
+
+    return this.http.post<Ability>(url, statBonus, { params });
   }
 }

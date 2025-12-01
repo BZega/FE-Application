@@ -1,0 +1,693 @@
+{
+  "Id": "CHA00000011",
+  "Biography": {
+    "Name": "Cleric",
+    "Gender": "Female",
+    "Background": "A cleric",
+    "IsNoble": false,
+    "RaceChoice": {
+      "RacialType": 0,
+      "HumanStatChoices": [
+        8,
+        8
+      ],
+      "RacialGrowth": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0
+      },
+      "UnitType": 0
+    }
+  },
+  "CurrentHP": 16,
+  "PersonalAbility": {
+    "Id": 25,
+    "Name": "Healing Descant",
+    "Description": "Allies within a 2 tile radius recover 10% HP at the start of the user's Turn.",
+    "StatBonus": null
+  },
+  "CurrentStats": {
+    "HP": 16,
+    "Str": 0,
+    "Mag": 6,
+    "Skl": 3,
+    "Spd": 6,
+    "Lck": 4,
+    "Def": 0,
+    "Res": 6,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 65,
+    "Str": 15,
+    "Mag": 65,
+    "Skl": 50,
+    "Spd": 70,
+    "Lck": 95,
+    "Def": 15,
+    "Res": 60
+  },
+  "EquippedWeapon": {
+    "Id": 118,
+    "EquipOid": "79dd2318-ee98-431f-ba8a-e71381f9f462",
+    "Name": "Heal",
+    "Rank": 1,
+    "WeaponType": 4,
+    "IsMagical": true,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": null,
+    "Hit": null,
+    "Crit": null,
+    "Range": "1",
+    "Uses": "20",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": 10,
+    "Experience": 25,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 10,
+      "AbilityOid": "098ead2a-6498-473e-9f3f-91bb7b6fdb78",
+      "Name": "Miracle",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Allows the unit to survive with 1 HP when aattacked with a fatal strike. The chance is (Luck)% if HP>1.",
+      "StatBonus": null
+    }
+  ],
+  "CurrentClass": {
+    "Id": 4,
+    "Name": "Cleric",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 0,
+      "Mag": 4,
+      "Skl": 3,
+      "Spd": 6,
+      "Lck": 4,
+      "Def": 1,
+      "Res": 6,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 22,
+      "Mag": 25,
+      "Skl": 24,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 22,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 35,
+      "Str": 5,
+      "Mag": 15,
+      "Skl": 0,
+      "Spd": 15,
+      "Lck": 15,
+      "Def": 0,
+      "Res": 20
+    },
+    "InnateBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": null
+    },
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 10,
+        "AbilityOid": null,
+        "Name": "Miracle",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Allows the unit to survive with 1 HP when aattacked with a fatal strike. The chance is (Luck)% if HP>1.",
+        "StatBonus": null
+      },
+      {
+        "Id": 11,
+        "AbilityOid": null,
+        "Name": "Healtouch",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When the user is healing an ally, an extra 5 HP will be restored for the unit.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      },
+      {
+        "Id": 12,
+        "AbilityOid": null,
+        "Name": "Rally Luck",
+        "LevelGained": 10,
+        "AbilityType": 1,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the Luck of all allies within a 3 tile radius by 8 points for one turn.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 4,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "War Cleric",
+      "Sage",
+      "Great Master"
+    ],
+    "ReclassOptions": [
+      "Mage",
+      "Troubadour"
+    ],
+    "SkillTypeOptions": [
+      0,
+      1,
+      2,
+      14,
+      15,
+      8,
+      9,
+      5
+    ]
+  },
+  "Exp": 0,
+  "Level": 1,
+  "UnitTypes": [
+    0
+  ],
+  "Gold": 0,
+  "Attack": 8,
+  "Heal": 10,
+  "Damage": 6,
+  "Crit": 2,
+  "Avoid": 11,
+  "Dodge": 4,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Cleric",
+  "HeartSealClass": "Troubadour",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 1,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 2,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 4,
+      "Skl": 0,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 2,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 6,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": -1,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -1,
+      "Def": -3,
+      "Res": -1,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 118,
+        "EquipOid": "79dd2318-ee98-431f-ba8a-e71381f9f462",
+        "Name": "Heal",
+        "Rank": 1,
+        "WeaponType": 4,
+        "IsMagical": true,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": "1",
+        "Uses": "20",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": 10,
+        "Experience": 25,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 118,
+        "EquipOid": "bfb21846-8d32-4d6d-9b86-9557c565f88e",
+        "Name": "Heal",
+        "Rank": 1,
+        "WeaponType": 4,
+        "IsMagical": true,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": "1",
+        "Uses": "20",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": 10,
+        "Experience": 25,
+        "IsEquipped": false,
+        "Description": "",
+        "StatBonus": null
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 16,
+    "Str": 0,
+    "Mag": 6,
+    "Skl": 3,
+    "Spd": 6,
+    "Lck": 4,
+    "Def": 0,
+    "Res": 6,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 22,
+    "Mag": 29,
+    "Skl": 24,
+    "Spd": 27,
+    "Lck": 29,
+    "Def": 19,
+    "Res": 28,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 30,
+    "Str": 10,
+    "Mag": 50,
+    "Skl": 50,
+    "Spd": 55,
+    "Lck": 80,
+    "Def": 15,
+    "Res": 40
+  },
+  "ReclassOptions": [
+    "Cleric",
+    "Mage",
+    "Troubadour"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 10,
+      "AbilityOid": "098ead2a-6498-473e-9f3f-91bb7b6fdb78",
+      "Name": "Miracle",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Allows the unit to survive with 1 HP when aattacked with a fatal strike. The chance is (Luck)% if HP>1.",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": true,
+      "Attribute": 6,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 3,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "4e3bbf36-0c62-4c6c-a077-ec26ca2a76cc"
+}

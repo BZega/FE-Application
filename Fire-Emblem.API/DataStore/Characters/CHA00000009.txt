@@ -1,0 +1,759 @@
+{
+  "Id": "CHA00000009",
+  "Biography": {
+    "Name": "Fafnir",
+    "Gender": "Male",
+    "Background": "King of the Manaketes",
+    "IsNoble": false,
+    "RaceChoice": {
+      "RacialType": 2,
+      "HumanStatChoices": null,
+      "RacialGrowth": {
+        "HP": 20,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": -10,
+        "Spd": -10,
+        "Lck": 20,
+        "Def": 10,
+        "Res": 0
+      },
+      "UnitType": 5
+    }
+  },
+  "CurrentHP": 18,
+  "PersonalAbility": {
+    "Id": 3,
+    "Name": "Bloodthirst",
+    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill and Speed +4 for one turn.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 4,
+        "Mag": 4,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  "CurrentStats": {
+    "HP": 18,
+    "Str": 5,
+    "Mag": 12,
+    "Skl": 4,
+    "Spd": 3,
+    "Lck": -2,
+    "Def": 12,
+    "Res": 9,
+    "Mov": 6
+  },
+  "TotalGrowthRate": {
+    "HP": 100,
+    "Str": 35,
+    "Mag": 65,
+    "Skl": 50,
+    "Spd": 50,
+    "Lck": 70,
+    "Def": 70,
+    "Res": 65
+  },
+  "EquippedWeapon": {
+    "Id": 148,
+    "EquipOid": "23db77e6-0e22-401b-86b6-c0a23133eef9",
+    "Name": "Dragonstone (manakete)",
+    "Rank": 1,
+    "WeaponType": 5,
+    "IsMagical": true,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 8,
+    "Hit": 80,
+    "Crit": 0,
+    "Range": "1-2",
+    "Uses": "Inf.",
+    "Worth": "2000",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "+5 Strength, +8 Magic, +3 Skill, +2 Speed, +10 Defense and +7 Resistance when equipped.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 5,
+        "Mag": 8,
+        "Skl": 3,
+        "Spd": 2,
+        "Lck": 0,
+        "Def": 10,
+        "Res": 7,
+        "Mov": 0
+      }
+    }
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 59,
+      "AbilityOid": "8e7fa92f-cd55-4425-aef4-e69480cc24bb",
+      "Name": "Odd Rhythm",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "+10 Hit rate and Avoid on odd-numbered turns",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": {
+          "Hit": 10,
+          "Crit": 0,
+          "Avoid": 10,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 0,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
+        "Stats": null
+      }
+    }
+  ],
+  "CurrentClass": {
+    "Id": 27,
+    "Name": "Manakete",
+    "IsPromoted": false,
+    "IsSpecialClass": true,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 1,
+      "Spd": 1,
+      "Lck": 0,
+      "Def": 2,
+      "Res": 2,
+      "Mov": 6
+    },
+    "MaxStats": {
+      "HP": 80,
+      "Str": 35,
+      "Mag": 40,
+      "Skl": 35,
+      "Spd": 35,
+      "Lck": 45,
+      "Def": 40,
+      "Res": 40,
+      "Mov": 8
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 5,
+      "Mag": 20,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 15,
+      "Res": 15
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      5,
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 59,
+        "AbilityOid": null,
+        "Name": "Odd Rhythm",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "+10 Hit rate and Avoid on odd-numbered turns",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 10,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 60,
+        "AbilityOid": null,
+        "Name": "Wyrmsbane",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Damage dealt by manaketes to dragon units is now effective damage. Only usable in the Manakete class.",
+        "StatBonus": null
+      },
+      {
+        "Id": 61,
+        "AbilityOid": null,
+        "Name": "Better Odds",
+        "LevelGained": 5,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Restores 40% maximum HP at the start of an odd-numbered turn.",
+        "StatBonus": null
+      },
+      {
+        "Id": 62,
+        "AbilityOid": null,
+        "Name": "Grisly Wound",
+        "LevelGained": 15,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Prrovided the user didn't already defeat the enemy, the enemy loses 20% of their maximum HP at the end of the battle.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 5,
+        "MinRank": 1,
+        "MaxRank": 6
+      }
+    ],
+    "ClassPromotions": null,
+    "ReclassOptions": [
+      "Mage",
+      "Wyvern Rider"
+    ],
+    "SkillTypeOptions": [
+      10,
+      0,
+      2,
+      7,
+      4,
+      9,
+      5,
+      17
+    ]
+  },
+  "Exp": 0,
+  "Level": 1,
+  "UnitTypes": [
+    0,
+    5
+  ],
+  "Gold": 0,
+  "Attack": 91,
+  "Heal": 0,
+  "Damage": 20,
+  "Crit": 2,
+  "Avoid": 4,
+  "Dodge": -2,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Manakete",
+  "HeartSealClass": "Dark Mage",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 1,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 2,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 2,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 4,
+      "Skl": 0,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 2,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 5,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": -1,
+      "Mag": -1,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -3,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 148,
+        "EquipOid": "23db77e6-0e22-401b-86b6-c0a23133eef9",
+        "Name": "Dragonstone (manakete)",
+        "Rank": 1,
+        "WeaponType": 5,
+        "IsMagical": true,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 8,
+        "Hit": 80,
+        "Crit": 0,
+        "Range": "1-2",
+        "Uses": "Inf.",
+        "Worth": "2000",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "+5 Strength, +8 Magic, +3 Skill, +2 Speed, +10 Defense and +7 Resistance when equipped.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 5,
+            "Mag": 8,
+            "Skl": 3,
+            "Spd": 2,
+            "Lck": 0,
+            "Def": 10,
+            "Res": 7,
+            "Mov": 0
+          }
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 18,
+    "Str": 0,
+    "Mag": 4,
+    "Skl": 1,
+    "Spd": 1,
+    "Lck": -2,
+    "Def": 2,
+    "Res": 2,
+    "Mov": 6
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 5,
+    "Mag": 8,
+    "Skl": 3,
+    "Spd": 2,
+    "Lck": 0,
+    "Def": 10,
+    "Res": 7,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 80,
+    "Str": 34,
+    "Mag": 43,
+    "Skl": 35,
+    "Spd": 37,
+    "Lck": 42,
+    "Def": 40,
+    "Res": 42,
+    "Mov": 8
+  },
+  "PersonalGrowthRate": {
+    "HP": 30,
+    "Str": 30,
+    "Mag": 45,
+    "Skl": 40,
+    "Spd": 40,
+    "Lck": 50,
+    "Def": 45,
+    "Res": 50
+  },
+  "ReclassOptions": [
+    "Manakete",
+    "Mage",
+    "Wyvern Rider"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 5,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 59,
+      "AbilityOid": "8e7fa92f-cd55-4425-aef4-e69480cc24bb",
+      "Name": "Odd Rhythm",
+      "LevelGained": 1,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "+10 Hit rate and Avoid on odd-numbered turns",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": {
+          "Hit": 10,
+          "Crit": 0,
+          "Avoid": 10,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 0,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
+        "Stats": null
+      }
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": true,
+      "Attribute": 4,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 1,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": true,
+      "Attribute": 1,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": true,
+      "Attribute": 2,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "a8a81da6-affc-42f7-a576-da69a8d9f0c7"
+}

@@ -16,7 +16,7 @@ import { UnitClass } from "./UnitClass";
 import { Weapon } from "./Weapon";
 
 export class Character {
-    id: number;
+    id: string;
     biography: Biography;
     currentHP: number;
     personalAbility: PersonalAbility;

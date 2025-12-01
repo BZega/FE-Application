@@ -1,4 +1,4 @@
-﻿using Fire_Emblem.Common.TypeCodes;
+using Fire_Emblem.Common.TypeCodes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +60,7 @@ namespace Fire_Emblem.Common.Models
             currentStats.Add(CurrentClass.BaseStats);
             currentStats.Add(LevelUpStats);
             currentStats.MaximumCheck(CurrentClass.MaxStats);
-            if (EquippedWeapon.StatBonus?.Stats != null)
+            if (EquippedWeapon?.StatBonus?.Stats != null)
             {
                 currentStats.Add(EquippedWeapon.StatBonus.Stats);
             }

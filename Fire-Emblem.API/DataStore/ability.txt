@@ -1409,5 +1409,125 @@
     "NeedsToInitiateCombat": false,
     "Description": "When user triggers the battle, Skill x 1.5% chance of reducing the enemy's Movement to 0 and Avoid by 20 after the battle (until the next turn).",
     "StatBonus": null
+  },
+  {
+    "Id": 91,
+    "AbilityOid": null,
+    "Name": "Lethality",
+    "LevelGained": 5,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "Instantly defeats the enemy. The chance to activate is (Skill/4)%.",
+    "StatBonus": null
+  },
+  {
+    "Id": 92,
+    "AbilityOid": null,
+    "Name": "Pass",
+    "LevelGained": 15,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "Allows unit to pass through enemy-occupied spaces.",
+    "StatBonus": null
+  },
+  {
+    "Id": 93,
+    "AbilityOid": null,
+    "Name": "Rend Heaven",
+    "LevelGained": 5,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "When attacking with a physical weapon, it adds (Target's Str / 2) to the damage dealt. When attacking with a magical weapon, it adds (Target's Mag / 2) to the damage dealt. (Skill x 1.5)%",
+    "StatBonus": null
+  },
+  {
+    "Id": 94,
+    "AbilityOid": null,
+    "Name": "Quixotic",
+    "LevelGained": 15,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+30 hit rate and +15 ability activation rate for both the user and their target.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 30,
+        "Crit": 0,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 95,
+    "AbilityOid": null,
+    "Name": "Wrath",
+    "LevelGained": 5,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "+20 to the user's critical rate when the unit's HP is at or below 50% of Max HP.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 20,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  {
+    "Id": 96,
+    "AbilityOid": null,
+    "Name": "Rally Strength",
+    "LevelGained": 5,
+    "AbilityType": 1,
+    "NeedsToInitiateCombat": false,
+    "Description": "+4 Strength to all allied units in a 3-tile radius of the user for one turn.",
+    "StatBonus": null
+  },
+  {
+    "Id": 97,
+    "AbilityOid": null,
+    "Name": "Axefaire",
+    "LevelGained": 15,
+    "AbilityType": 0,
+    "NeedsToInitiateCombat": false,
+    "Description": "+5 Strength in battle when the unit is using an axe. Instead gives +5 Magic if the user has the Bolt Axe, or similar weapon, equipped.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 5,
+        "Mag": 5,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
+  },
+  {
+    "Id": 98,
+    "AbilityOid": null,
+    "Name": "Salvage Blow",
+    "LevelGained": 5,
+    "AbilityType": 2,
+    "NeedsToInitiateCombat": true,
+    "Description": "May reward the user with a random katana, naginata, club, yumi, or shuriken upon defeating the enemy. (Luck)%, if the user initiated the battle.",
+    "StatBonus": null
   }
 ]

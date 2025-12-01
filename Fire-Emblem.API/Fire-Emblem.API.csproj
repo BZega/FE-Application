@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Fire-Emblem.Common\Fire-Emblem.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataStore\Characters\" />
+  </ItemGroup>
+
 </Project>

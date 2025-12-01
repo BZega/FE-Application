@@ -14,7 +14,7 @@ import { CharacterService } from '../../core/services/character.service';
 export class CharacterSummaryComponent {
   @Input() character: Character;
   @Input() index: number;
-  selectedCharacterNumber$: Observable<number | null>;
+  selectedCharacterNumber$: Observable<string | null>;
   
   
   constructor(

@@ -138,7 +138,7 @@ export class EquipmentStoreDialogComponent implements OnInit {
 
   getItemIcon(item: Equipment): string {
     const weaponType = item.weaponType?.toLowerCase() || '';
-    if (weaponType.includes('sword')) return '⚔️';
+    if (weaponType.includes('sword')) return '🗡️';
     if (weaponType.includes('axe')) return '🪓';
     if (weaponType.includes('lance') || weaponType.includes('spear')) return '🔱';
     if (weaponType.includes('bow')) return '🏹';
@@ -146,7 +146,7 @@ export class EquipmentStoreDialogComponent implements OnInit {
     if (weaponType.includes('staff')) return '🪄';
     if (weaponType.includes('stone')) return '💎';
     if (weaponType.includes('consumable')) return '🧪';
-    return '⚔️';
+    return '𖣘';
   }
 
   initiratePurchase(item: Equipment) {

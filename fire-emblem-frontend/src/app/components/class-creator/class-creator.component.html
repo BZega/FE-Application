@@ -1,0 +1,244 @@
+<div class="class-creator-container">
+  <h2 mat-dialog-title class="dialog-title">
+    <span class="dialog-icon">⚔️</span>
+    Create New Class
+  </h2>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="creator-form">
+      
+      <!-- Basic Info Section -->
+      <div class="form-section">
+        <h3 class="section-title">Basic Information</h3>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Class Name</mat-label>
+          <input matInput [(ngModel)]="className" placeholder="Enter class name">
+        </mat-form-field>
+
+        <div class="checkbox-row">
+          <mat-checkbox [(ngModel)]="isPromoted">Is Promoted</mat-checkbox>
+          <mat-checkbox [(ngModel)]="isSpecialClass">Is Special Class</mat-checkbox>
+        </div>
+      </div>
+
+      <!-- Base Stats Section -->
+      <div class="form-section">
+        <h3 class="section-title">Base Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res', 'mov']">
+            <label class="stat-label">{{ stat.toUpperCase() }}</label>
+            <div class="stat-input-group">
+              <button mat-icon-button (click)="decrementStat(baseStats, stat)" class="stat-btn">−</button>
+              <input type="number" [(ngModel)]="baseStats[stat]" class="stat-input" min="0">
+              <button mat-icon-button (click)="incrementStat(baseStats, stat)" class="stat-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Max Stats Section -->
+      <div class="form-section">
+        <h3 class="section-title">Max Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res', 'mov']">
+            <label class="stat-label">{{ stat.toUpperCase() }}</label>
+            <div class="stat-input-group">
+              <button mat-icon-button (click)="decrementStat(maxStats, stat)" class="stat-btn">−</button>
+              <input type="number" [(ngModel)]="maxStats[stat]" class="stat-input" min="0">
+              <button mat-icon-button (click)="incrementStat(maxStats, stat)" class="stat-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growth Rates Section -->
+      <div class="form-section">
+        <h3 class="section-title">Growth Rates (%)</h3>
+        <div class="stats-grid">
+          <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res']">
+            <label class="stat-label">{{ stat.toUpperCase() }}</label>
+            <div class="stat-input-group">
+              <button mat-icon-button (click)="decrementStat(growthRates, stat)" class="stat-btn">−</button>
+              <input type="number" [(ngModel)]="growthRates[stat]" class="stat-input" min="0">
+              <button mat-icon-button (click)="incrementStat(growthRates, stat)" class="stat-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Innate Bonus Section -->
+      <div class="form-section">
+        <h3 class="section-title">Innate Bonus</h3>
+        <mat-checkbox [(ngModel)]="hasInnateBonus" class="bonus-checkbox">Has Innate Bonus</mat-checkbox>
+        
+        <div class="innate-bonus-sections" *ngIf="hasInnateBonus">
+          
+          <!-- Stats -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasInnateBonusStats" class="subsection-checkbox">Stats</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasInnateBonusStats">
+              <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res', 'mov']">
+                <label class="stat-label">{{ stat.toUpperCase() }}</label>
+                <input type="number" [(ngModel)]="innateBonusStats[stat]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Growths -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasInnateBonusGrowths" class="subsection-checkbox">Growths</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasInnateBonusGrowths">
+              <div class="stat-control" *ngFor="let stat of ['hp', 'str', 'mag', 'skl', 'spd', 'lck', 'def', 'res']">
+                <label class="stat-label">{{ stat.toUpperCase() }}</label>
+                <input type="number" [(ngModel)]="innateBonusGrowths[stat]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Attributes -->
+          <div class="innate-subsection">
+            <mat-checkbox [(ngModel)]="hasInnateBonusAttributes" class="subsection-checkbox">Attributes</mat-checkbox>
+            <div class="stats-grid" *ngIf="hasInnateBonusAttributes">
+              <div class="stat-control" *ngFor="let attr of ['hit', 'crit', 'avoid', 'dodge', 'heal', 'damage', 'damageReceived', 'attackSpeed']">
+                <label class="stat-label">{{ attr }}</label>
+                <input type="number" [(ngModel)]="innateBonusAttributes[attr]" class="stat-input-full" min="0">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Unit Types Section -->
+      <div class="form-section">
+        <h3 class="section-title">Unit Types</h3>
+        <div class="dynamic-list">
+          <div class="dynamic-item" *ngFor="let unitType of unitTypes; let i = index">
+            <mat-form-field appearance="outline" class="flex-grow">
+              <mat-label>Unit Type {{ i + 1 }}</mat-label>
+              <mat-select [(ngModel)]="unitTypes[i]">
+                <mat-option *ngFor="let type of availableUnitTypes" [value]="type">
+                  {{ type }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-icon-button (click)="removeUnitType(i)" *ngIf="unitTypes.length > 1" class="remove-btn">
+              <span>✖</span>
+            </button>
+          </div>
+          <button mat-raised-button (click)="addUnitType()" class="add-btn">
+            <span class="btn-icon">+</span>
+            Add Unit Type
+          </button>
+        </div>
+      </div>
+
+      <!-- Abilities Section -->
+      <div class="form-section">
+        <h3 class="section-title">Abilities</h3>
+        <div class="dynamic-list">
+          <div class="dynamic-item" *ngFor="let ability of abilities; let i = index">
+            <mat-form-field appearance="outline" class="flex-grow">
+              <mat-label>Ability {{ i + 1 }}</mat-label>
+              <input matInput [(ngModel)]="abilities[i]" placeholder="Enter ability name">
+            </mat-form-field>
+            <button mat-icon-button (click)="removeAbility(i)" *ngIf="abilities.length > 2" class="remove-btn">
+              <span>✖</span>
+            </button>
+          </div>
+          <button mat-raised-button (click)="addAbility()" class="add-btn">
+            <span class="btn-icon">+</span>
+            Add Ability
+          </button>
+        </div>
+      </div>
+
+      <!-- Usable Weapons Section -->
+      <div class="form-section">
+        <h3 class="section-title">Usable Weapons</h3>
+        <div class="dynamic-list">
+          <div class="weapon-item" *ngFor="let weapon of usableWeapons; let i = index">
+            <mat-form-field appearance="outline" class="weapon-type">
+              <mat-label>Weapon Type</mat-label>
+              <mat-select [(ngModel)]="weapon.weaponType">
+                <mat-option *ngFor="let type of availableWeaponTypes" [value]="type">
+                  {{ type }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="weapon-rank">
+              <mat-label>Min Rank</mat-label>
+              <mat-select [(ngModel)]="weapon.minRank">
+                <mat-option *ngFor="let rank of availableRanks" [value]="rank">
+                  {{ rank }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="weapon-rank">
+              <mat-label>Max Rank</mat-label>
+              <mat-select [(ngModel)]="weapon.maxRank">
+                <mat-option *ngFor="let rank of availableRanks" [value]="rank">
+                  {{ rank }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-icon-button (click)="removeWeapon(i)" *ngIf="usableWeapons.length > 1" class="remove-btn">
+              <span>✖</span>
+            </button>
+          </div>
+          <button mat-raised-button (click)="addWeapon()" class="add-btn">
+            <span class="btn-icon">+</span>
+            Add Weapon
+          </button>
+        </div>
+      </div>
+
+      <!-- Class Promotions Section -->
+      <div class="form-section">
+        <h3 class="section-title">Class Promotions</h3>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Class Promotions (comma separated, leave blank for null)</mat-label>
+          <input matInput [(ngModel)]="classPromotions" placeholder="e.g. Paladin, Great Knight">
+        </mat-form-field>
+      </div>
+
+      <!-- Reclass Options Section -->
+      <div class="form-section">
+        <h3 class="section-title">Reclass Options</h3>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Reclass Options (comma separated, leave blank for null)</mat-label>
+          <input matInput [(ngModel)]="reclassOptions" placeholder="e.g. Mercenary, Myrmidon">
+        </mat-form-field>
+      </div>
+
+      <!-- Skill Type Options Section -->
+      <div class="form-section">
+        <h3 class="section-title">Skill Type Options</h3>
+        <div class="skills-grid">
+          <mat-form-field appearance="outline" *ngFor="let skillOption of skillTypeOptions; let i = index">
+            <mat-label>Skill {{ i + 1 }}</mat-label>
+            <mat-select [(ngModel)]="skillTypeOptions[i]">
+              <mat-option value="">None</mat-option>
+              <mat-option *ngFor="let skill of availableSkillTypes" [value]="skill">
+                {{ skill }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button (click)="cancel()" class="cancel-button">Cancel</button>
+    <button mat-raised-button (click)="saveClass()" class="save-button" [disabled]="!className">
+      <span class="btn-icon">💾</span>
+      Create Class
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,177 +1,103 @@
 [
   {
-    "Id": null,
+    "Id": "949bb0bd-22ef-4be7-a12e-eff6cb590709",
     "Name": "Isolde",
-    "Gender": "Female",
-    "Level": 2,
-    "InternalLevel": 2,
-    "CurrentClassType": 33,
-    "CurrentClassBaseStats": {
-      "HP": 18,
-      "Str": 0,
-      "Mag": 2,
-      "Skl": 1,
-      "Spd": 1,
-      "Lck": 0,
-      "Def": 2,
-      "Res": 2,
-      "Mov": 6
-    },
-    "CurrentClassMaxStats": {
-      "HP": 80,
-      "Str": 35,
-      "Mag": 40,
-      "Skl": 35,
-      "Spd": 35,
-      "Lck": 45,
-      "Def": 40,
-      "Res": 40,
-      "Mov": 8
-    },
-    "EquippedWeapon": {
-      "Id": 148,
-      "EquipOid": null,
-      "Name": "Dragonstone (manakete)",
-      "Rank": 2,
-      "WeaponType": 5,
-      "IsMagical": true,
-      "IsBrave": false,
-      "DoesEffectiveDamage": false,
-      "EffectiveUnitTypes": [],
-      "Might": 8,
-      "Hit": 80,
-      "Crit": 0,
-      "Range": "1-2",
-      "Uses": "Inf.",
-      "Worth": "2000",
-      "WeaponExp": 2,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "+5 Strength, +8 Magic, +3 Skill, +2 Speed, +10 Defense and +7 Resistance when equipped.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": {
-          "HP": 0,
-          "Str": 5,
-          "Mag": 8,
-          "Skl": 3,
-          "Spd": 2,
-          "Lck": 0,
-          "Def": 10,
-          "Res": 7,
-          "Mov": 0
+    "Gender": "string",
+    "Level": 0,
+    "InternalLevel": 0,
+    "CurrentClassType": 0,
+    "CurrentClass": {
+      "Id": 2,
+      "Name": "Apothecary",
+      "IsPromoted": false,
+      "IsSpecialClass": false,
+      "BaseStats": {
+        "HP": 18,
+        "Str": 6,
+        "Mag": 0,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 2,
+        "Def": 6,
+        "Res": 2,
+        "Mov": 5
+      },
+      "MaxStats": {
+        "HP": 60,
+        "Str": 29,
+        "Mag": 20,
+        "Skl": 24,
+        "Spd": 24,
+        "Lck": 30,
+        "Def": 28,
+        "Res": 25,
+        "Mov": 7
+      },
+      "GrowthRate": {
+        "HP": 45,
+        "Str": 20,
+        "Mag": 0,
+        "Skl": 10,
+        "Spd": 10,
+        "Lck": 5,
+        "Def": 10,
+        "Res": 5
+      },
+      "InnateBonus": null,
+      "UnitTypes": [
+        0
+      ],
+      "Abilities": [
+        {
+          "Id": 4,
+          "AbilityOid": null,
+          "Name": "Potent Potion",
+          "LevelGained": 1,
+          "AbilityType": 0,
+          "NeedsToInitiateCombat": false,
+          "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+          "StatBonus": null
+        },
+        {
+          "Id": 5,
+          "AbilityOid": null,
+          "Name": "Quick Salve",
+          "LevelGained": 10,
+          "AbilityType": 0,
+          "NeedsToInitiateCombat": false,
+          "Description": "After consuming an item that restores HP or a tonic user can perform another action.",
+          "StatBonus": null
         }
-      }
+      ],
+      "UsableWeapons": [
+        {
+          "WeaponType": 1,
+          "MinRank": 1,
+          "MaxRank": 4
+        }
+      ],
+      "ClassPromotions": [
+        "Merchant",
+        "Mechanist"
+      ],
+      "ReclassOptions": [
+        "Archer",
+        "Ninja"
+      ],
+      "SkillTypeOptions": [
+        0,
+        14,
+        15,
+        4,
+        16,
+        9,
+        5,
+        17
+      ]
     },
-    "StartingClass": "Manakete",
+    "EquippedWeapon": null,
+    "StartingClass": "Apothecary",
     "IsPairedUp": false,
-    "IsClose": false,
-    "LevelUpStats": {
-      "HP": 1,
-      "Str": 0,
-      "Mag": 1,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 1,
-      "Def": 1,
-      "Res": 0,
-      "Mov": 0
-    },
-    "CurrentStats": {
-      "HP": 19,
-      "Str": 5,
-      "Mag": 11,
-      "Skl": 4,
-      "Spd": 3,
-      "Lck": 1,
-      "Def": 13,
-      "Res": 9,
-      "Mov": 6
-    },
-    "PairedUpBonus": {
-      "HP": 0,
-      "Str": 2,
-      "Mag": 3,
-      "Skl": 0,
-      "Spd": 0,
-      "Lck": 0,
-      "Def": 3,
-      "Res": 2,
-      "Mov": 0
-    },
-    "SupportRank": 0,
-    "SupportPoints": 9
-  },
-  {
-    "Id": "de7cd9f9-d376-4422-b518-dd9f0362cbdc",
-    "Name": "Isolde",
-    "Gender": "Female",
-    "Level": 1,
-    "InternalLevel": 1,
-    "CurrentClassType": 33,
-    "CurrentClassBaseStats": {
-      "HP": 18,
-      "Str": 0,
-      "Mag": 2,
-      "Skl": 1,
-      "Spd": 1,
-      "Lck": 0,
-      "Def": 2,
-      "Res": 2,
-      "Mov": 6
-    },
-    "CurrentClassMaxStats": {
-      "HP": 80,
-      "Str": 35,
-      "Mag": 40,
-      "Skl": 35,
-      "Spd": 35,
-      "Lck": 45,
-      "Def": 40,
-      "Res": 40,
-      "Mov": 8
-    },
-    "EquippedWeapon": {
-      "Id": 150,
-      "EquipOid": null,
-      "Name": "Dragonstone+ (manakete)",
-      "Rank": 3,
-      "WeaponType": 5,
-      "IsMagical": true,
-      "IsBrave": false,
-      "DoesEffectiveDamage": false,
-      "EffectiveUnitTypes": [],
-      "Might": 12,
-      "Hit": 70,
-      "Crit": 0,
-      "Range": "1-2",
-      "Uses": "Inf.",
-      "Worth": "8000",
-      "WeaponExp": 2,
-      "BaseHP": null,
-      "Experience": null,
-      "IsEquipped": false,
-      "Description": "+6 Strength, +11 Magic, +5 Skill, +4 Speed, +13 Defense, +9 Resistance when equipped.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": null,
-        "Stats": {
-          "HP": 0,
-          "Str": 6,
-          "Mag": 11,
-          "Skl": 5,
-          "Spd": 4,
-          "Lck": 0,
-          "Def": 13,
-          "Res": 9,
-          "Mov": 0
-        }
-      }
-    },
-    "StartingClass": "Manakete",
-    "IsPairedUp": true,
     "IsClose": false,
     "LevelUpStats": {
       "HP": 0,
@@ -187,26 +113,28 @@
     "CurrentStats": {
       "HP": 18,
       "Str": 6,
-      "Mag": 13,
-      "Skl": 6,
-      "Spd": 5,
-      "Lck": 0,
-      "Def": 15,
-      "Res": 11,
-      "Mov": 6
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 6,
+      "Res": 2,
+      "Mov": 5
     },
     "PairedUpBonus": {
       "HP": 0,
       "Str": 2,
-      "Mag": 3,
-      "Skl": 0,
-      "Spd": 0,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 2,
       "Lck": 0,
-      "Def": 3,
-      "Res": 3,
+      "Def": 0,
+      "Res": 0,
       "Mov": 0
     },
     "SupportRank": 0,
-    "SupportPoints": 0
+    "Crit": 2,
+    "SupportPoints": 0,
+    "PersonalAbility": null
   }
 ]

@@ -1,0 +1,757 @@
+{
+  "Id": "CHA00000004",
+  "Biography": {
+    "Name": "Sword Guy",
+    "Gender": "Male",
+    "Background": "Just Testing",
+    "IsNoble": true,
+    "RaceChoice": {
+      "RacialType": 0,
+      "HumanStatChoices": [
+        1,
+        4
+      ],
+      "RacialGrowth": {
+        "HP": 0,
+        "Str": 10,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 10,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0
+      },
+      "UnitType": 0
+    }
+  },
+  "CurrentHP": 16,
+  "PersonalAbility": {
+    "Id": 1,
+    "Name": "Aching Blood",
+    "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": {
+        "Hit": 0,
+        "Crit": 10,
+        "Avoid": 0,
+        "Dodge": 0,
+        "Heal": 0,
+        "Damage": 0,
+        "DamageReceived": 0,
+        "AttackSpeed": 0
+      },
+      "Stats": null
+    }
+  },
+  "CurrentStats": {
+    "HP": 16,
+    "Str": 4,
+    "Mag": 1,
+    "Skl": 9,
+    "Spd": 12,
+    "Lck": -2,
+    "Def": 4,
+    "Res": 1,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 70,
+    "Str": 90,
+    "Mag": 40,
+    "Skl": 65,
+    "Spd": 105,
+    "Lck": 35,
+    "Def": 55,
+    "Res": 15
+  },
+  "EquippedWeapon": {
+    "Id": 151,
+    "EquipOid": "94a80c0e-be9e-46e5-a213-9c33bcc2e862",
+    "Name": "Bronze Sword",
+    "Rank": 1,
+    "WeaponType": 6,
+    "IsMagical": false,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 4,
+    "Hit": 100,
+    "Crit": 0,
+    "Range": "1",
+    "Uses": "Inf.",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 36,
+      "AbilityOid": "568f18bb-04fa-4c79-ae79-c29945a3beaf",
+      "Name": "Avoid +10",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increase Avoid by 10.",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": {
+          "Hit": 0,
+          "Crit": 0,
+          "Avoid": 10,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 0,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
+        "Stats": null
+      }
+    }
+  ],
+  "CurrentClass": {
+    "Id": 15,
+    "Name": "Myrmidon",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 4,
+      "Mag": 1,
+      "Skl": 9,
+      "Spd": 10,
+      "Lck": 0,
+      "Def": 4,
+      "Res": 1,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 24,
+      "Mag": 22,
+      "Skl": 27,
+      "Spd": 28,
+      "Lck": 30,
+      "Def": 22,
+      "Res": 24,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 15,
+      "Spd": 25,
+      "Lck": 15,
+      "Def": 5,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 36,
+        "AbilityOid": null,
+        "Name": "Avoid +10",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase Avoid by 10.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 10,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 37,
+        "AbilityOid": null,
+        "Name": "Duelist's Blow",
+        "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": true,
+        "Description": "Increases the unit's avoid by 30 whenever the user initiates a battle",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": {
+            "Hit": 0,
+            "Crit": 0,
+            "Avoid": 30,
+            "Dodge": 0,
+            "Heal": 0,
+            "Damage": 0,
+            "DamageReceived": 0,
+            "AttackSpeed": 0
+          },
+          "Stats": null
+        }
+      },
+      {
+        "Id": 38,
+        "AbilityOid": null,
+        "Name": "Vantage",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Swordmaster",
+      "Sword Assassin",
+      "Master of Arms"
+    ],
+    "ReclassOptions": [
+      "Thief",
+      "Oni Savage"
+    ],
+    "SkillTypeOptions": [
+      10,
+      13,
+      0,
+      6,
+      2,
+      14,
+      7,
+      9
+    ]
+  },
+  "Exp": 0,
+  "Level": 1,
+  "UnitTypes": [
+    0
+  ],
+  "Gold": 500,
+  "Attack": 114,
+  "Heal": 0,
+  "Damage": 8,
+  "Crit": 15,
+  "Avoid": 27,
+  "Dodge": -2,
+  "DamageReceived": 0,
+  "AttackSpeed": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Myrmidon",
+  "HeartSealClass": "Ninja",
+  "PermanentReclassOptions": [],
+  "InternalLevel": 1,
+  "IsInCombat": false,
+  "IsAttacking": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Asset": {
+    "AssetChoice": 4,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 2,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 2,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 5,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -2,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": -1,
+      "Mag": -1,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -3,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 151,
+        "EquipOid": "94a80c0e-be9e-46e5-a213-9c33bcc2e862",
+        "Name": "Bronze Sword",
+        "Rank": 1,
+        "WeaponType": 6,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": 4,
+        "Hit": 100,
+        "Crit": 0,
+        "Range": "1",
+        "Uses": "Inf.",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": null
+      },
+      {
+        "Id": 235,
+        "EquipOid": "a860ce9b-3fb5-4b41-923b-2b19c29250a0",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "1",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 16,
+    "Str": 4,
+    "Mag": 1,
+    "Skl": 9,
+    "Spd": 12,
+    "Lck": -2,
+    "Def": 4,
+    "Res": 1,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 0,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 23,
+    "Mag": 21,
+    "Skl": 29,
+    "Spd": 32,
+    "Lck": 29,
+    "Def": 22,
+    "Res": 24,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 30,
+    "Str": 60,
+    "Mag": 40,
+    "Skl": 50,
+    "Spd": 70,
+    "Lck": 20,
+    "Def": 50,
+    "Res": 10
+  },
+  "ReclassOptions": [
+    "Myrmidon",
+    "Sword Lord",
+    "Axe Lord",
+    "Lance Lord",
+    "Thief",
+    "Oni Savage"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 36,
+      "AbilityOid": "568f18bb-04fa-4c79-ae79-c29945a3beaf",
+      "Name": "Avoid +10",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increase Avoid by 10.",
+      "StatBonus": {
+        "Growths": null,
+        "Attributes": {
+          "Hit": 0,
+          "Crit": 0,
+          "Avoid": 10,
+          "Dodge": 0,
+          "Heal": 0,
+          "Damage": 0,
+          "DamageReceived": 0,
+          "AttackSpeed": 0
+        },
+        "Stats": null
+      }
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": true,
+      "Attribute": 4,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 9,
+      "Bonus": 1,
+      "Score": 2
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 9,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 9,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 9,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": true,
+      "Attribute": 12,
+      "Bonus": 1,
+      "Score": 3
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 12,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 12,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 9,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 12,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 1,
+      "Bonus": 0,
+      "Score": 0
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "a6486ac7-3301-4ce9-80f2-d6946bf729d4"
+}

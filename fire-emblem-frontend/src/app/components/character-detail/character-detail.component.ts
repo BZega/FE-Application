@@ -10,6 +10,7 @@ import { Character } from '../../core/models/Character';
 import { CharacterService } from '../../core/services/character.service';
 import { MaterialModule } from '../../material/material.module';
 import { Ability } from '../../core/models/Ability';
+import { Stats } from '../../core/models/Stats';
 import { ConvoyDialogComponent } from '../convoy-dialog/convoy-dialog.component';
 
 @Component({
@@ -30,13 +31,38 @@ import { ConvoyDialogComponent } from '../convoy-dialog/convoy-dialog.component'
   ]
 })
 export class CharacterDetailComponent implements OnInit, OnDestroy {
-  @ViewChild('actionsDialog') actionsDialog!: TemplateRef<any>;
-  @ViewChild('biographyDialog') biographyDialog!: TemplateRef<any>;
   @ViewChild('abilityManagementDialog') abilityManagementDialog!: TemplateRef<any>;
+  @ViewChild('useItemDialog') useItemDialog!: TemplateRef<any>;
+
+  // Consumable type constants
+  private readonly permanentItems = [
+    'Boots', 'Dracoshield', 'EnergyDrop', 'GoddessIcon', 'SecretBook',
+    'SeraphRope', 'Speedwing', 'SpiritDust', 'Talisman', 'NagasTear', 'DefenseTonic'
+  ];
+  
+  private readonly temporaryItems = [
+    'HPTonic', 'LuckTonic', 'MagicTonic', 'ResistanceTonic', 'SkillTonic',
+    'SpeedTonic', 'StrengthTonic', 'PureWater', 'RainbowTonic'
+  ];
+  
+  private readonly healingItems = [
+    'Vulnerary', 'Concoction', 'Elixir', 'SweetTincture'
+  ];
+  
+  private readonly promotionItems = [
+    'MasterSeal', 'SecondSeal', 'HeartSeal', 'FriendshipSeal', 'PartnerSeal',
+    'DreadScroll', 'HerosBrand', 'SightingLens', 'VanguardBrand', 'WitchsMark'
+  ];
+
+  // Use item dialog state
+  itemToUse: any = null;
+  selectedPromotionClass: string = '';
+  availablePromotionClasses: string[] = [];
+  selectedWeaponType: string = '';
   
   character$: Observable<Character | null>;
   currentCharacter: Character | null = null;
-  characterId: number;
+  characterId: string;
   private destroy$ = new Subject<void>();
   private characterSubject = new BehaviorSubject<Character | null>(null);
   
@@ -46,21 +72,6 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   // Editable HP
   editableCurrentHP: number = 0;
   isEditingHP: boolean = false;
-  
-  // Dialog form fields
-  selectedTerrain: string = '';
-  experienceToGain: number | null = null;
-  terrainOptions: string[] = [
-    'Normal',
-    'Forest',
-    'Mountain',
-    'Desert',
-    'Water',
-    'Fort',
-    'Throne',
-    'Gate',
-    'Village'
-  ];
 
   // Expanded item/ability tracking
   expandedItemIndex: number | null = null;
@@ -80,7 +91,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
-      this.characterId = +params['id'];
+      this.characterId = params['id'];
       this.loadCharacterData();
     });
   }
@@ -189,53 +200,12 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/character-summary-container']);
   }
 
-  openActionsDialog(): void {
-    this.dialog.open(this.actionsDialog, {
-      width: '500px',
-      maxWidth: '90vw',
-      panelClass: 'character-actions-dialog'
-    });
-  }
-
-  openBiographyDialog(): void {
-    this.dialog.open(this.biographyDialog, {
-      width: '600px',
-      maxWidth: '90vw',
-      panelClass: 'character-biography-dialog'
-    });
-  }
-
-  gainExperience(): void {
-    if (this.experienceToGain && this.experienceToGain > 0) {
-      console.log(`Gaining ${this.experienceToGain} experience points`);
-      // TODO: Implement experience gain logic here
-      // You can call a service method to update the character's experience
-      
-      // Reset the input after gaining experience
-      this.experienceToGain = null;
-    }
-  }
-
   openAbilityManagementModal(): void {
     this.dialog.open(this.abilityManagementDialog, {
       width: '800px',
       maxWidth: '90vw',
       panelClass: 'ability-management-dialog'
     });
-  }
-
-  // Check if there are unequipped acquired abilities
-  hasUnequippedAbilities(character: Character | null): boolean {
-    if (!character?.acquiredAbilities || character.acquiredAbilities.length === 0) {
-      return false;
-    }
-
-    const equippedAbilityIds = (character.equippedAbilities || []).map(a => a.id);
-    const unequippedAbilities = character.acquiredAbilities.filter(
-      ability => !equippedAbilityIds.includes(ability.id)
-    );
-
-    return unequippedAbilities.length > 0;
   }
 
   // Get list of unequipped acquired abilities
@@ -300,21 +270,6 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   // Refresh character data from server
   private refreshCharacterData(): void {
     this.loadCharacterData();
-  }
-
-  // Check if an ability is already equipped
-  isAbilityEquipped(ability: any, character: Character | null): boolean {
-    if (!character?.equippedAbilities) return false;
-    return character.equippedAbilities.some(a => a.id === ability.id);
-  }
-
-  // Check if this is the first empty slot (for showing equip button)
-  isFirstEmptySlot(character: Character | null, index: number): boolean {
-    if (!character) return false;
-    const slots = this.getAbilitySlots(character);
-    // Find the index of the first empty slot
-    const firstEmptyIndex = slots.findIndex(slot => slot === null);
-    return index === firstEmptyIndex;
   }
 
   // Inventory helper methods
@@ -386,9 +341,12 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     if (!item || !character?.equippedWeapon) {
       return false;
     }
-    // Check if this item matches the equipped weapon (by id or name)
-    return item.id === character.equippedWeapon.id || 
-           item.name === character.equippedWeapon.name;
+    // Check if this item matches the equipped weapon by equipOid (unique identifier)
+    if (item.equipOid && character.equippedWeapon.equipOid) {
+      return item.equipOid === character.equippedWeapon.equipOid;
+    }
+    // Fallback to id comparison if equipOid is not available
+    return item.id === character.equippedWeapon.id;
   }
 
   // Equip a weapon from inventory
@@ -499,10 +457,6 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     return '⚔️'; // Default weapon icon
   }
 
-  hasSpecialProperties(item: any): boolean {
-    return item.isMagical || item.isBrave || item.doesEffectiveDamage;
-  }
-
   // Item expand/collapse methods
   toggleItemExpansion(index: number): void {
     if (this.expandedItemIndex === index) {
@@ -579,5 +533,284 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
       if (a.isActive === b.isActive) return 0;
       return a.isActive ? -1 : 1;
     });
+  }
+
+  // Calculate total stat bonuses from equipment and abilities
+  getStatBonus(character: Character | null, stat: keyof Stats): number {
+    if (!character) return 0;
+    
+    let bonus = 0;
+    
+    // Add bonus from equipped weapon
+    if (character.equippedWeapon?.statBonus?.stats?.[stat]) {
+      bonus += character.equippedWeapon.statBonus.stats[stat];
+    }
+    
+    // Add bonuses from equipped abilities
+    if (character.equippedAbilities) {
+      for (const ability of character.equippedAbilities) {
+        if (ability.statBonus?.stats?.[stat]) {
+          bonus += ability.statBonus.stats[stat];
+        }
+      }
+    }
+    
+    return bonus;
+  }
+
+  // Get base stat (current stat minus bonuses)
+  getBaseStat(character: Character | null, stat: keyof Stats): number {
+    if (!character?.currentStats) return 0;
+    
+    const currentValue = character.currentStats[stat] || 0;
+    const bonus = this.getStatBonus(character, stat);
+    
+    return currentValue - bonus;
+  }
+
+  // Check if stat has any bonuses
+  hasStatBonus(character: Character | null, stat: keyof Stats): boolean {
+    return this.getStatBonus(character, stat) !== 0;
+  }
+
+  // Consumable item methods
+  isConsumable(item: any): boolean {
+    if (!item?.weaponType) return false;
+    const itemName = this.extractItemName(item.name);
+    return this.permanentItems.includes(itemName) ||
+           this.temporaryItems.includes(itemName) ||
+           this.healingItems.includes(itemName) ||
+           this.promotionItems.includes(itemName);
+  }
+
+  private extractItemName(fullName: string): string {
+    // Remove any prefixes or suffixes (e.g., "Iron Sword" -> "Sword")
+    // For consumables, the name should match exactly
+    return fullName.replace(/\s+/g, '');
+  }
+
+  canUseItem(item: any): boolean {
+    if (!item) return false;
+    const itemName = this.extractItemName(item.name);
+    
+    // Temporary items cannot be used
+    if (this.temporaryItems.includes(itemName)) {
+      return false;
+    }
+    
+    // Promotion items can only be used at level 10+
+    if (this.promotionItems.includes(itemName)) {
+      return this.currentCharacter && this.currentCharacter.level >= 10;
+    }
+    
+    return this.isConsumable(item);
+  }
+
+  openUseItemDialog(item: any, event: Event): void {
+    event.stopPropagation();
+    
+    if (!this.canUseItem(item)) {
+      return;
+    }
+
+    this.itemToUse = item;
+    const itemName = this.extractItemName(item.name);
+    
+    // If it's a promotion item, calculate available classes
+    if (this.promotionItems.includes(itemName)) {
+      this.calculateAvailablePromotionClasses(itemName);
+    }
+    
+    this.selectedPromotionClass = '';
+    this.selectedWeaponType = '';
+    
+    this.dialog.open(this.useItemDialog, {
+      width: '600px',
+      maxWidth: '90vw',
+      panelClass: 'use-item-dialog'
+    });
+  }
+
+  private calculateAvailablePromotionClasses(itemName: string): void {
+    this.availablePromotionClasses = [];
+    
+    if (!this.currentCharacter) return;
+
+    const level = this.currentCharacter.level;
+    const isPromoted = this.currentCharacter.currentClass?.isPromoted || false;
+
+    switch (itemName) {
+      case 'MasterSeal':
+        // Can only be used if not promoted
+        if (!isPromoted && this.currentCharacter.currentClass?.classPromotions) {
+          this.availablePromotionClasses = [...this.currentCharacter.currentClass.classPromotions];
+        } else if (!isPromoted && !this.currentCharacter.currentClass?.classPromotions) {
+          // Fetch starting class promotions
+          this.fetchStartingClassOptions('promotions');
+        }
+        break;
+
+      case 'SecondSeal':
+        // At level 10-19: reclass options only
+        // At level 20+: reclass options + current class + promotions (if not promoted)
+        if (level >= 10 && level < 20) {
+          if (this.currentCharacter.reclassOptions) {
+            this.availablePromotionClasses = [...this.currentCharacter.reclassOptions];
+          } else {
+            this.fetchStartingClassOptions('reclass');
+          }
+        } else if (level >= 20) {
+          const classes: string[] = [];
+          
+          // Add current class
+          if (this.currentCharacter.currentClass?.name) {
+            classes.push(this.currentCharacter.currentClass.name);
+          }
+          
+          // Add reclass options
+          if (this.currentCharacter.reclassOptions) {
+            classes.push(...this.currentCharacter.reclassOptions);
+          } else {
+            this.fetchStartingClassOptions('reclass');
+            return;
+          }
+          
+          // Add promotions if not promoted
+          if (!isPromoted && this.currentCharacter.currentClass?.classPromotions) {
+            classes.push(...this.currentCharacter.currentClass.classPromotions);
+          } else if (!isPromoted && !this.currentCharacter.currentClass?.classPromotions) {
+            this.fetchStartingClassOptions('both');
+            return;
+          }
+          
+          this.availablePromotionClasses = classes;
+        }
+        break;
+
+      case 'HeartSeal':
+        if (this.currentCharacter.heartSealClass) {
+          this.availablePromotionClasses = [this.currentCharacter.heartSealClass];
+        }
+        break;
+
+      case 'DreadScroll':
+        this.availablePromotionClasses = ['Dread Fighter'];
+        break;
+
+      case 'HerosBrand':
+        this.availablePromotionClasses = ['Lodestar'];
+        break;
+
+      case 'SightingLens':
+        this.availablePromotionClasses = ['Ballistician'];
+        break;
+
+      case 'VanguardBrand':
+        this.availablePromotionClasses = ['Vanguard'];
+        break;
+
+      case 'WitchsMark':
+        this.availablePromotionClasses = ['Witch'];
+        break;
+
+      case 'FriendshipSeal':
+      case 'PartnerSeal':
+        // TODO: Implement later
+        this.availablePromotionClasses = [];
+        break;
+    }
+  }
+
+  private fetchStartingClassOptions(type: 'promotions' | 'reclass' | 'both'): void {
+    if (!this.currentCharacter?.startingClass) return;
+
+    this.characterService.getClass(this.currentCharacter.startingClass)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(startingClass => {
+        const classes: string[] = [];
+        
+        if ((type === 'promotions' || type === 'both') && startingClass.classPromotions) {
+          classes.push(...startingClass.classPromotions);
+        }
+        
+        if ((type === 'reclass' || type === 'both') && startingClass.reclassOptions) {
+          classes.push(...startingClass.reclassOptions);
+        }
+        
+        if (type === 'both' && this.currentCharacter?.currentClass?.name) {
+          classes.unshift(this.currentCharacter.currentClass.name);
+        }
+        
+        this.availablePromotionClasses = classes;
+      });
+  }
+
+  getItemType(item: any): 'permanent' | 'temporary' | 'healing' | 'promotion' | 'unknown' {
+    if (!item) return 'unknown';
+    const itemName = this.extractItemName(item.name);
+    
+    if (this.permanentItems.includes(itemName)) return 'permanent';
+    if (this.temporaryItems.includes(itemName)) return 'temporary';
+    if (this.healingItems.includes(itemName)) return 'healing';
+    if (this.promotionItems.includes(itemName)) return 'promotion';
+    
+    return 'unknown';
+  }
+
+  isDreadScroll(item: any): boolean {
+    if (!item) return false;
+    return this.extractItemName(item.name) === 'DreadScroll';
+  }
+
+  confirmUseItem(): void {
+    if (!this.itemToUse || !this.currentCharacter) return;
+
+    const itemType = this.getItemType(this.itemToUse);
+    
+    // For promotion items, require a class selection
+    if (itemType === 'promotion' && !this.selectedPromotionClass) {
+      return;
+    }
+
+    // For Dread Scroll, require weapon type selection
+    if (this.isDreadScroll(this.itemToUse) && !this.selectedWeaponType) {
+      return;
+    }
+
+    let unitChoice = itemType === 'promotion' ? this.selectedPromotionClass : '';
+    
+    // If Dread Fighter, append weapon type
+    if (this.selectedPromotionClass === 'Dread Fighter' && this.selectedWeaponType) {
+      unitChoice = `${this.selectedWeaponType} Dread Fighter`;
+    }
+
+    // Call the service to use the item
+    this.characterService.updateConvoyItems(
+      this.currentCharacter.id,
+      'USE',
+      'INVENTORY',
+      this.itemToUse.equipOid || '',
+      this.itemToUse.id || 0,
+      0,
+      unitChoice
+    ).pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: () => {
+          console.log('Item used successfully');
+          this.dialog.closeAll();
+          this.loadCharacterData(); // Reload character data
+        },
+        error: (error) => {
+          console.error('Error using item:', error);
+        }
+      });
+  }
+
+  cancelUseItem(): void {
+    this.itemToUse = null;
+    this.selectedPromotionClass = '';
+    this.availablePromotionClasses = [];
+    this.selectedWeaponType = '';
+    this.dialog.closeAll();
   }
 }
