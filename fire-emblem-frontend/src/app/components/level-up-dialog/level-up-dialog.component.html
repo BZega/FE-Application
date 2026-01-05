@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Level Up!</h2>
+<mat-dialog-content>
+  <div class="level-up-container">
+    <div *ngFor="let levelUp of data.levelUps" class="level-up-card">
+      <div class="level-header">
+        <span class="level-label">Level {{ levelUp.level }}</span>
+        <span class="level-type" *ngIf="levelUp.levelUpType !== 'Normal'">({{ levelUp.levelUpType }})</span>
+      </div>
+      
+      <div class="stat-increases">
+        <div *ngFor="let inc of getStatIncreases(levelUp)" class="stat-increase">
+          <span class="stat-name">{{ inc.stat }}</span>
+          <span class="stat-value">+{{ inc.value }}</span>
+        </div>
+        <div *ngIf="getStatIncreases(levelUp).length === 0" class="no-stats">
+          No stats increased.
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onClose()">Close</button>
+</mat-dialog-actions>

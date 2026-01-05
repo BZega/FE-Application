@@ -187,7 +187,7 @@ namespace Fire_Emblem.API.Business.Context.Characters
           WeaponRanks = new List<Weapon>(),
           PermanentReclassOptions = new List<string>(),
           Skills = new List<Skill>(),
-          ConvoyId = Guid.NewGuid().ToString(),
+          ConvoyId = Guid.NewGuid().ToString()
         };
         var ability = await _abilitiesContext.GetAbility(null, newCharacter.FirstAquiredAbility);
         ability.AbilityOid = Guid.NewGuid().ToString();
@@ -332,32 +332,18 @@ namespace Fire_Emblem.API.Business.Context.Characters
         }
         else if (newCharacter.RaceChoice == RacialType.Human && newCharacter.IsNoble)
         {
-          if (newCharacter.StartingClass == ClassTypeCode.SwordLord && !character.PermanentReclassOptions.Contains(ClassTypeCode.SwordLord))
+          var lordOptions = new[] { ClassTypeCode.SwordLord, ClassTypeCode.AxeLord, ClassTypeCode.LanceLord };
+          if (lordOptions.Contains(newCharacter.StartingClass))
           {
-            character.PermanentReclassOptions.Add(ClassTypeCode.SwordLord);
-          }
-          else if (newCharacter.StartingClass != ClassTypeCode.AxeLord && !character.PermanentReclassOptions.Contains(ClassTypeCode.AxeLord))
-          {
-            character.PermanentReclassOptions.Add(ClassTypeCode.AxeLord);
-          }
-          else if (newCharacter.StartingClass == ClassTypeCode.LanceLord && !character.PermanentReclassOptions.Contains(ClassTypeCode.LanceLord))
-          {
-            character.PermanentReclassOptions.Add(ClassTypeCode.LanceLord);
+            if (!character.PermanentReclassOptions.Contains(newCharacter.StartingClass))
+              character.PermanentReclassOptions.Add(newCharacter.StartingClass);
           }
           else
           {
-            character.PermanentReclassOptions.Add(ClassTypeCode.SwordLord);
-            character.PermanentReclassOptions.Add(ClassTypeCode.AxeLord);
-            character.PermanentReclassOptions.Add(ClassTypeCode.LanceLord);
-          }
-        }
-        if (character.CurrentClass.ReclassOptions != null && character.CurrentClass.ReclassOptions.Count > 0)
-        {
-          foreach (var reclassOption in character.CurrentClass.ReclassOptions)
-          {
-            if (!character.PermanentReclassOptions.Contains(reclassOption))
+            foreach (var lordOption in lordOptions)
             {
-              character.PermanentReclassOptions.Add(reclassOption);
+              if (!character.PermanentReclassOptions.Contains(lordOption))
+                character.PermanentReclassOptions.Add(lordOption);
             }
           }
         }
@@ -421,6 +407,81 @@ namespace Fire_Emblem.API.Business.Context.Characters
       }
     }
 
+    public async Task<Tuple<bool, List<LevelUp>>> UpdateCharacterById(string id, UpdateCharacterDto updateCharacter)
+    {
+      try
+      {
+        var character = await GetCharacter(id);
+        var levelUpResults = new List<LevelUp>();
+
+        if (updateCharacter.ExperiencePoints > 0)
+        {
+          character.Exp += updateCharacter.ExperiencePoints;
+
+          // While there is at least 100 EXP, consume 100 and perform a level up
+          while (character.Exp >= 100)
+          {
+            // Subtract 100 EXP and persist before calling the level-up routine
+            character.Exp -= 100;
+            var persisted = await _charactersRepository.UpdateCharacter(character);
+            if (!persisted)
+            {
+              return new Tuple<bool, List<LevelUp>>(false, null);
+            }
+
+            // Perform the level up (random or manual). The level-up methods will
+            // update the character record as part of their logic.
+            Tuple<bool, LevelUp> levelUpResult;
+            if (updateCharacter.ManualLevelUps == null)
+            {
+              levelUpResult = await LevelUpCharacterRandomly(id);
+
+              if (!levelUpResult.Item1)
+              {
+                // If a level up failed, return failure.
+                return new Tuple<bool, List<LevelUp>>(false, null);
+              }
+
+              if (levelUpResult.Item2 != null)
+                levelUpResults.Add(levelUpResult.Item2);
+              // Refresh the character state for the next iteration (levels, caps, etc.)
+              character = await GetCharacter(id);
+
+              // If character becomes null for some reason, abort.
+              if (character == null)
+                return new Tuple<bool, List<LevelUp>>(false, null);
+            }
+          }
+          if (updateCharacter.ManualLevelUps != null)
+          {
+            // Apply any remaining manual level up after exhausting EXP
+            foreach (var levelUp in updateCharacter.ManualLevelUps)
+            {
+              var manualLevelUpResult = await LevelUpCharacterManually(id, levelUp.StatIncrease);
+              if (!manualLevelUpResult.Item1)
+              {
+                return new Tuple<bool, List<LevelUp>>(false, null);
+              }
+              if (manualLevelUpResult.Item2 != null)
+                levelUpResults.Add(manualLevelUpResult.Item2);
+            }
+          }
+        }
+
+        if (updateCharacter.Gold != 0)
+        {
+          character.Gold += updateCharacter.Gold;
+        }
+
+        // Persist any remaining changes (e.g. leftover EXP / gold)
+        var finalUpdate = await _charactersRepository.UpdateCharacter(character);
+        return new Tuple<bool, List<LevelUp>>(finalUpdate, levelUpResults);
+      }
+      catch (Exception)
+      {
+        return new Tuple<bool, List<LevelUp>>(false, null);
+      }
+    }
     public async Task<Tuple<bool, LevelUp>> LevelUpCharacterManually(string id, Stats statIncrease)
     {
       try
@@ -433,7 +494,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
         if (character.CurrentClass.IsSpecialClass && character.Level < 40 || !character.CurrentClass.IsSpecialClass && character.Level < 20)
         {
           character.Level += 1;
-          character.InternalLevel += 1;
           LevelUp level = new LevelUp()
           {
             Level = character.InternalLevel,
@@ -441,9 +501,17 @@ namespace Fire_Emblem.API.Business.Context.Characters
             StatIncrease = statIncrease
           };
           level.StatIncrease.MaxLevelCheck(character.BaseStats, character.MaxStats);
-          if (character.CurrentStats.Mag > 10 && character.WeaponRanks.Find(weapon => weapon.WeaponType == WeaponType.Sword).WeaponExperience > 70)
+          if (character.CurrentStats.Mag > 10 && character.WeaponRanks.Find(weapon => weapon.WeaponType == WeaponType.Sword).WeaponExperience > 70 && !character.PermanentReclassOptions.Contains(ClassTypeCode.Tactician))
           {
             character.PermanentReclassOptions.Add(ClassTypeCode.Tactician);
+          }
+          if (character.Level == 20)
+          {
+            character.ReclassOptions.Add(character.CurrentClass.Name);
+          }
+          if (statIncrease.HP > 0)
+          {
+            character.CurrentHP += statIncrease.HP;
           }
           var result = await _charactersRepository.UpdateCharacter(character);
           return new Tuple<bool, LevelUp>(result, level);
@@ -496,7 +564,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
         if (character.CurrentClass.IsSpecialClass && character.Level < 40 || !character.CurrentClass.IsSpecialClass && character.Level < 20)
         {
           character.Level += 1;
-          character.InternalLevel += 1;
           LevelUp level = new LevelUp()
           {
             Level = character.InternalLevel,
@@ -507,6 +574,18 @@ namespace Fire_Emblem.API.Business.Context.Characters
           level.StatIncrease.MaxLevelCheck(character.BaseStats, character.MaxStats);
           character.LevelupStatIncreases.Add(level);
           character.Skills = UpdateSkills(character.Skills, character.CurrentStats, character.InternalLevel);
+          if (character.CurrentStats.Mag > 10 && character.WeaponRanks.Find(weapon => weapon.WeaponType == WeaponType.Sword).WeaponExperience > 70 && !character.PermanentReclassOptions.Contains(ClassTypeCode.Tactician))
+          {
+            character.PermanentReclassOptions.Add(ClassTypeCode.Tactician);
+          }
+          if (character.Level == 20)
+          {
+            character.ReclassOptions.Add(character.CurrentClass.Name);
+          }
+          if (level.StatIncrease.HP > 0)
+          {
+            character.CurrentHP += level.StatIncrease.HP;
+          }
           var result = await _charactersRepository.UpdateCharacter(character);
           return new Tuple<bool, LevelUp>(result, level);
         }
@@ -866,15 +945,15 @@ namespace Fire_Emblem.API.Business.Context.Characters
             case UpdateTypeCode.BUY:
               equipment.EquipOid = Guid.NewGuid().ToString();
               character.Gold -= cost;
-              if (cost > 0 && character.Gold > 0)
+              if (cost >= 0 && character.Gold > 0)
               {
-                if (character.Inventory.Equipment.Count < 4)
-                  character.Inventory.Equipment.Add(equipment);
-                else if (convoy.ConvoyItems.Equipment.Count < 501)
-                  convoy.ConvoyItems.Equipment.Add(equipment);
-                else
-                  return false;
-                return await _charactersRepository.UpdateCharacter(character);
+              if (character.Inventory.Equipment.Count < 4)
+                character.Inventory.Equipment.Add(equipment);
+              else if (convoy.ConvoyItems.Equipment.Count < 501)
+                convoy.ConvoyItems.Equipment.Add(equipment);
+              else
+                return false;
+              return await _charactersRepository.UpdateCharacter(character);
               }
               break;
 
@@ -909,9 +988,11 @@ namespace Fire_Emblem.API.Business.Context.Characters
           switch (updateType)
           {
             case UpdateTypeCode.BUY:
-              if (cost > 0 && character.Gold > 0 && convoy.ConvoyItems.Equipment.Count < 501)
+              character.Gold -= cost;
+              if (cost > 0 && character.Gold >= 0 && convoy.ConvoyItems.Equipment.Count < 501)
               {
                 convoy.ConvoyItems.Equipment.Add(equipment);
+                await _charactersRepository.UpdateCharacter(character);
                 return await _charactersRepository.UpdateConvoy(convoy);
               }
               break;
@@ -1011,7 +1092,33 @@ namespace Fire_Emblem.API.Business.Context.Characters
           if (unitChoice != null)
           {
             var unitClass = await _unitClassesContext.GetClass(null, unitChoice);
+            var lordOptions = new[] { ClassTypeCode.SwordLord, ClassTypeCode.AxeLord, ClassTypeCode.LanceLord };
+            if (character.Biography.IsNoble && character.Biography.RaceChoice.RacialType == RacialType.Human && lordOptions.Contains(unitChoice))
+            {
+              foreach (var lordOption in lordOptions)
+              {
+                if (character.PermanentReclassOptions.Contains(lordOption) && lordOption != unitChoice)
+                {
+                  character.PermanentReclassOptions.Remove(lordOption);
+                }
+              }
+            }
+
             character.CurrentClass = unitClass;
+            if (equipment.Name == ConsumableTypeCode.MasterSeal || equipment.Name == ConsumableTypeCode.SecondSeal)
+            {
+              var promotionBonus = unitClass.IsPromoted ? 20 : 0;
+              var cumulativeLevel = Math.Min((character.Level + promotionBonus - 1) / 2, 20);
+              character.CumulativeLevel = cumulativeLevel;
+            }
+            if (equipment.Name != ConsumableTypeCode.HeartSeal)
+            {
+              character.Level = 1;
+            }
+            foreach (var weapon in character.WeaponRanks)
+            {
+              weapon.IsActive = unitClass.UsableWeapons.Any(w => w.WeaponType == weapon.WeaponType);
+            }
           }
           if (equipment.StatBonus?.Stats != null)
           {
@@ -1374,7 +1481,6 @@ namespace Fire_Emblem.API.Business.Context.Characters
         {
           Id = maxId + 1,
           Level = enemyDto.Level,
-          InternalLevel = enemyDto.Level,
           CurrentClass = await _unitClassesContext.GetClass(null, enemyDto.CurrentClass),
           EquippedWeapon = await _equipmentContext.GetEquipment(null, enemyDto.EquippedWeapon),
           DifficultySetting = enemyDto.Difficulty,

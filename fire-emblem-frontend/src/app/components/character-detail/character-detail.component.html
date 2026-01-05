@@ -1,5 +1,13 @@
 <div class="character-detail-wrapper" *ngIf="character$ | async as character">
   
+  <!-- Mobile Back Button (visible on mobile only) -->
+  <div class="mobile-back-button-wrapper">
+    <button class="mobile-back-button" (click)="goBack()" title="Back to Characters">
+      <span class="back-icon">←</span>
+      <span class="back-text">Back</span>
+    </button>
+  </div>
+
   <!-- Tab Navigation Bar -->
   <div class="tab-navigation">
     <button class="back-button-tab" (click)="goBack()" title="Back to Characters">
@@ -49,13 +57,15 @@
 
       <!-- Class & Level Info -->
       <div class="class-info-card">
-        <div class="class-name">{{ character.currentClass?.name }}</div>
-        <div class="level-exp-row">
+        <div class="class-name clickable" (click)="openClassDetailModal()" title="View Class Details">
+          {{ character.currentClass?.name }}
+        </div>
+        <div class="level-exp-row" [title]="'Internal Level: ' + character.internalLevel">
           <div class="level-info">
             <span class="label">LV</span>
             <span class="value">{{ character.level }}</span>
           </div>
-          <div class="exp-info">
+          <div class="exp-info" (click)="openExpDialog()" style="cursor: pointer;" title="Update Experience">
             <span class="label">Exp</span>
             <span class="value">{{ character.exp }}</span>
           </div>
@@ -89,7 +99,7 @@
           </div>
         </div>
 
-        <div class="gold-row">
+        <div class="gold-row" (click)="openGoldDialog()" style="cursor: pointer;" title="Update Gold">
           <span class="gold-label">Gold</span>
           <span class="gold-value">{{ character.gold }}</span>
         </div>
@@ -156,24 +166,41 @@
               <h2 class="section-header growth-header">Growth</h2>
             </div>
             
+            <div class="stats-subheader-row">
+              <span class="stat-label-header"></span>
+              <div class="stat-data-headers">
+                <span>Current</span>
+                <span>Base</span>
+                <span>Max</span>
+              </div>
+            </div>
+            
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Str</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'str') ? 'Total: ' + character.currentStats.str : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.str, 40)">
-                    {{ getBaseStat(character, 'str') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'str')"
-                        [class.positive]="getStatBonus(character, 'str') > 0"
-                        [class.negative]="getStatBonus(character, 'str') < 0">
-                    {{ getStatBonus(character, 'str') > 0 ? '+' : '' }}{{ getStatBonus(character, 'str') }}
+              <span class="stat-name">Str</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'str')">
+                    {{ character.currentStats?.str || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.str || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'str')">
+                      {{ character.baseStats?.str || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'str')"
+                          [class.positive]="getStatChange(character, 'str') > 0"
+                          [class.negative]="getStatChange(character, 'str') < 0">
+                      {{ getStatChange(character, 'str') > 0 ? '+' : '' }}{{ getStatChange(character, 'str') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'str')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.str || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -182,23 +209,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Mag</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'mag') ? 'Total: ' + character.currentStats.mag : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.mag, 40)">
-                    {{ getBaseStat(character, 'mag') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'mag')"
-                        [class.positive]="getStatBonus(character, 'mag') > 0"
-                        [class.negative]="getStatBonus(character, 'mag') < 0">
-                    {{ getStatBonus(character, 'mag') > 0 ? '+' : '' }}{{ getStatBonus(character, 'mag') }}
+              <span class="stat-name">Mag</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'mag')">
+                    {{ character.currentStats?.mag || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.mag || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'mag')">
+                      {{ character.baseStats?.mag || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'mag')"
+                          [class.positive]="getStatChange(character, 'mag') > 0"
+                          [class.negative]="getStatChange(character, 'mag') < 0">
+                      {{ getStatChange(character, 'mag') > 0 ? '+' : '' }}{{ getStatChange(character, 'mag') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'mag')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.mag || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -207,23 +242,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Skl</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'skl') ? 'Total: ' + character.currentStats.skl : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.skl, 40)">
-                    {{ getBaseStat(character, 'skl') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'skl')"
-                        [class.positive]="getStatBonus(character, 'skl') > 0"
-                        [class.negative]="getStatBonus(character, 'skl') < 0">
-                    {{ getStatBonus(character, 'skl') > 0 ? '+' : '' }}{{ getStatBonus(character, 'skl') }}
+              <span class="stat-name">Skl</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'skl')">
+                    {{ character.currentStats?.skl || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.skl || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'skl')">
+                      {{ character.baseStats?.skl || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'skl')"
+                          [class.positive]="getStatChange(character, 'skl') > 0"
+                          [class.negative]="getStatChange(character, 'skl') < 0">
+                      {{ getStatChange(character, 'skl') > 0 ? '+' : '' }}{{ getStatChange(character, 'skl') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'skl')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.skl || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -232,23 +275,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Spd</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'spd') ? 'Total: ' + character.currentStats.spd : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.spd, 40)">
-                    {{ getBaseStat(character, 'spd') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'spd')"
-                        [class.positive]="getStatBonus(character, 'spd') > 0"
-                        [class.negative]="getStatBonus(character, 'spd') < 0">
-                    {{ getStatBonus(character, 'spd') > 0 ? '+' : '' }}{{ getStatBonus(character, 'spd') }}
+              <span class="stat-name">Spd</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'spd')">
+                    {{ character.currentStats?.spd || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.spd || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'spd')">
+                      {{ character.baseStats?.spd || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'spd')"
+                          [class.positive]="getStatChange(character, 'spd') > 0"
+                          [class.negative]="getStatChange(character, 'spd') < 0">
+                      {{ getStatChange(character, 'spd') > 0 ? '+' : '' }}{{ getStatChange(character, 'spd') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'spd')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.spd || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -257,23 +308,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Lck</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'lck') ? 'Total: ' + character.currentStats.lck : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.lck, 40)">
-                    {{ getBaseStat(character, 'lck') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'lck')"
-                        [class.positive]="getStatBonus(character, 'lck') > 0"
-                        [class.negative]="getStatBonus(character, 'lck') < 0">
-                    {{ getStatBonus(character, 'lck') > 0 ? '+' : '' }}{{ getStatBonus(character, 'lck') }}
+              <span class="stat-name">Lck</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'lck')">
+                    {{ character.currentStats?.lck || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.lck || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'lck')">
+                      {{ character.baseStats?.lck || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'lck')"
+                          [class.positive]="getStatChange(character, 'lck') > 0"
+                          [class.negative]="getStatChange(character, 'lck') < 0">
+                      {{ getStatChange(character, 'lck') > 0 ? '+' : '' }}{{ getStatChange(character, 'lck') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'lck')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.lck || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -282,23 +341,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Def</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'def') ? 'Total: ' + character.currentStats.def : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.def, 40)">
-                    {{ getBaseStat(character, 'def') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'def')"
-                        [class.positive]="getStatBonus(character, 'def') > 0"
-                        [class.negative]="getStatBonus(character, 'def') < 0">
-                    {{ getStatBonus(character, 'def') > 0 ? '+' : '' }}{{ getStatBonus(character, 'def') }}
+              <span class="stat-name">Def</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'def')">
+                    {{ character.currentStats?.def || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.def || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'def')">
+                      {{ character.baseStats?.def || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'def')"
+                          [class.positive]="getStatChange(character, 'def') > 0"
+                          [class.negative]="getStatChange(character, 'def') < 0">
+                      {{ getStatChange(character, 'def') > 0 ? '+' : '' }}{{ getStatChange(character, 'def') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'def')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.def || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -307,23 +374,31 @@
             </div>
 
             <div class="stat-row" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Res</span>
-                <div class="stat-value-group"
-                     [matTooltip]="hasStatBonus(character, 'res') ? 'Total: ' + character.currentStats.res : ''"
-                     matTooltipPosition="above">
-                  <span class="stat-current" [class.maxed]="isStatMaxed(character.currentStats.res, 40)">
-                    {{ getBaseStat(character, 'res') }}
-                  </span>
-                  <span class="stat-bonus" 
-                        *ngIf="hasStatBonus(character, 'res')"
-                        [class.positive]="getStatBonus(character, 'res') > 0"
-                        [class.negative]="getStatBonus(character, 'res') < 0">
-                    {{ getStatBonus(character, 'res') > 0 ? '+' : '' }}{{ getStatBonus(character, 'res') }}
+              <span class="stat-name">Res</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value" [class.maxed]="isBaseStatMaxed(character, 'res')">
+                    {{ character.currentStats?.res || 0 }}
                   </span>
                 </div>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.baseStats?.res || 0, 40)"></div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base" [class.maxed]="isBaseStatMaxed(character, 'res')">
+                      {{ character.baseStats?.res || 0 }}
+                    </span>
+                    <span class="stat-bonus" 
+                          *ngIf="hasStatChange(character, 'res')"
+                          [class.positive]="getStatChange(character, 'res') > 0"
+                          [class.negative]="getStatChange(character, 'res') < 0">
+                      {{ getStatChange(character, 'res') > 0 ? '+' : '' }}{{ getStatChange(character, 'res') }}
+                    </span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getBaseStatPercentage(character, 'res')"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">{{ character.maxStats?.res || 40 }}</span>
                 </div>
               </div>
               <div class="growth-info">
@@ -332,13 +407,21 @@
             </div>
 
             <div class="stat-row stat-row-no-growth" *ngIf="character.currentStats">
-              <div class="stat-info">
-                <span class="stat-name">Mov</span>
-                <span class="stat-current">
-                  {{ character.currentStats.mov }}
-                </span>
-                <div class="stat-bar">
-                  <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.mov, 10)"></div>
+              <span class="stat-name">Mov</span>
+              <div class="stat-data">
+                <div class="stat-current-col">
+                  <span class="stat-value">{{ character.currentStats.mov }}</span>
+                </div>
+                <div class="stat-base-col">
+                  <div class="stat-value-group">
+                    <span class="stat-base">{{ character.currentStats.mov }}</span>
+                  </div>
+                  <div class="stat-bar">
+                    <div class="stat-bar-fill" [style.width.%]="getStatPercentage(character.currentStats.mov, 10)"></div>
+                  </div>
+                </div>
+                <div class="stat-max-col">
+                  <span class="stat-value">10</span>
                 </div>
               </div>
             </div>

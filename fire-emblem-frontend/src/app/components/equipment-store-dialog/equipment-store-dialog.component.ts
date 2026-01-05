@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { CharacterService } from '../../core/services/character.service';
@@ -14,12 +15,13 @@ export interface EquipmentStoreData {
 export interface PurchasedEquipmentResult {
   equipment: Equipment[];
   remainingGold: number;
+  destination: 'INVENTORY' | 'CONVOY';
 }
 
 @Component({
   selector: 'app-equipment-store-dialog',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule, FormsModule, MatDialogModule, MatButtonModule],
   templateUrl: './equipment-store-dialog.component.html',
   styleUrl: './equipment-store-dialog.component.scss'
 })
@@ -44,6 +46,10 @@ export class EquipmentStoreDialogComponent implements OnInit {
   showConfirmDialog = false;
   confirmingItem: Equipment | null = null;
   confirmError = '';
+  
+  // For destination selection
+  showDestinationDialog = false;
+  selectedDestination: 'INVENTORY' | 'CONVOY' = 'INVENTORY';
 
   ngOnInit() {
     this.currentGold = this.data.initialGold;
@@ -202,12 +208,21 @@ export class EquipmentStoreDialogComponent implements OnInit {
   }
 
   finalizePurchases() {
+    this.showDestinationDialog = true;
+  }
+  
+  confirmDestination() {
     const result: PurchasedEquipmentResult = {
       equipment: this.purchasedItems.map(item => ({ ...item, isEquipped: item.isEquipped || false })),
-      remainingGold: this.currentGold
+      remainingGold: this.currentGold,
+      destination: this.selectedDestination
     };
 
     this.dialogRef.close(result);
+  }
+  
+  cancelDestination() {
+    this.showDestinationDialog = false;
   }
 
   close() {

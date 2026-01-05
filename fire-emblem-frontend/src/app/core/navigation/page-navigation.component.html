@@ -18,6 +18,37 @@
         </a>
       </li>
       
+      <!-- Character Detail Tabs (only show on character detail page in mobile) -->
+      <li class="nav-item character-detail-section" *ngIf="isCharacterDetailPage$ | async">
+        <div class="nav-section-header">Character Details</div>
+        <ul class="nav-submenu">
+          <li class="nav-subitem">
+            <button class="nav-link-button" (click)="navigateToCharacterTab('personal')">
+              <span class="nav-icon">👤</span>
+              Overview
+            </button>
+          </li>
+          <li class="nav-subitem">
+            <button class="nav-link-button" (click)="navigateToCharacterTab('biography')">
+              <span class="nav-icon">📖</span>
+              Biography
+            </button>
+          </li>
+          <li class="nav-subitem">
+            <button class="nav-link-button" (click)="navigateToCharacterTab('supports')">
+              <span class="nav-icon">💬</span>
+              Supports
+            </button>
+          </li>
+          <li class="nav-subitem">
+            <button class="nav-link-button" (click)="navigateToCharacterTab('skills')">
+              <span class="nav-icon">⭐</span>
+              Skills
+            </button>
+          </li>
+        </ul>
+      </li>
+      
       <!-- Theme Toggle -->
       <li class="nav-item theme-toggle-item">
         <button class="theme-toggle" (click)="toggleTheme()" [title]="(isDarkMode$ | async) ? 'Switch to Light Mode' : 'Switch to Dark Mode'">

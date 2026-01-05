@@ -95,4 +95,14 @@ export class CharacterService {
 
     return this.http.post<Ability>(url, statBonus, { params });
   }
+
+  public updateCharacter(characterId: string, updatePayload: any): Observable<any> {
+    const url = `https://localhost:7145/Characters/update-character/${characterId}`;
+    return this.http.post<any>(url, updatePayload);
+  }
+
+  public acquireAbility(characterId: string, abilityId: number, equip: boolean): Observable<any> {
+    const url = `https://localhost:7145/Characters/acquire-ability/${abilityId}?characterId=${characterId}&equip=${equip}`;
+    return this.http.post<any>(url, {});
+  }
 }

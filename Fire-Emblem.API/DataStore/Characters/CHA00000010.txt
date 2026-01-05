@@ -21,7 +21,6 @@
       "UnitType": 4
     }
   },
-  "CurrentHP": 16,
   "PersonalAbility": {
     "Id": 7,
     "Name": "Chivalry",
@@ -62,182 +61,14 @@
     "Def": 40,
     "Res": 70
   },
-  "EquippedWeapon": {
-    "Id": 227,
-    "EquipOid": "7e04b2da-4ccf-405b-ac28-4da7abc17b2d",
-    "Name": "Flux",
-    "Rank": 1,
-    "WeaponType": 8,
-    "IsMagical": true,
-    "IsBrave": false,
-    "DoesEffectiveDamage": false,
-    "EffectiveUnitTypes": [],
-    "Might": 5,
-    "Hit": 70,
-    "Crit": 0,
-    "Range": "1-2",
-    "Uses": "Inf.",
-    "Worth": "540",
-    "WeaponExp": 2,
-    "BaseHP": null,
-    "Experience": null,
-    "IsEquipped": true,
-    "Description": "",
-    "StatBonus": null
-  },
-  "EquippedAbilities": [
-    {
-      "Id": 13,
-      "AbilityOid": "781e1534-649e-4120-8a1c-da299cc90845",
-      "Name": "Hex",
-      "LevelGained": 1,
-      "AbilityType": 0,
-      "NeedsToInitiateCombat": false,
-      "Description": "Avoid -15 to all adjacent enemies.",
-      "StatBonus": null
-    }
-  ],
-  "CurrentClass": {
-    "Id": 5,
-    "Name": "Dark Mage",
-    "IsPromoted": false,
-    "IsSpecialClass": false,
-    "BaseStats": {
-      "HP": 16,
-      "Str": 0,
-      "Mag": 6,
-      "Skl": 3,
-      "Spd": 3,
-      "Lck": 1,
-      "Def": 3,
-      "Res": 5,
-      "Mov": 5
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 20,
-      "Mag": 27,
-      "Skl": 25,
-      "Spd": 25,
-      "Lck": 30,
-      "Def": 25,
-      "Res": 27,
-      "Mov": 7
-    },
-    "GrowthRate": {
-      "HP": 50,
-      "Str": 5,
-      "Mag": 15,
-      "Skl": 15,
-      "Spd": 15,
-      "Lck": 0,
-      "Def": 10,
-      "Res": 10
-    },
-    "InnateBonus": null,
-    "UnitTypes": [
-      0
-    ],
-    "Abilities": [
-      {
-        "Id": 13,
-        "AbilityOid": null,
-        "Name": "Hex",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid -15 to all adjacent enemies.",
-        "StatBonus": null
-      },
-      {
-        "Id": 14,
-        "AbilityOid": null,
-        "Name": "Heartseeker",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
-        "StatBonus": null
-      },
-      {
-        "Id": 15,
-        "AbilityOid": null,
-        "Name": "Anathema",
-        "LevelGained": 10,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
-        "StatBonus": null
-      },
-      {
-        "Id": 16,
-        "AbilityOid": null,
-        "Name": "Malefic Aura",
-        "LevelGained": 10,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
-        "StatBonus": null
-      }
-    ],
-    "UsableWeapons": [
-      {
-        "WeaponType": 8,
-        "MinRank": 1,
-        "MaxRank": 4
-      },
-      {
-        "WeaponType": 7,
-        "MinRank": 1,
-        "MaxRank": 4
-      }
-    ],
-    "ClassPromotions": [
-      "Sorcerer",
-      "Dark Knight"
-    ],
-    "ReclassOptions": [
-      "Archer",
-      "Thief"
-    ],
-    "SkillTypeOptions": [
-      1,
-      6,
-      2,
-      14,
-      7,
-      15,
-      9,
-      5
-    ]
-  },
   "Exp": 0,
-  "Level": 1,
-  "UnitTypes": [
-    0,
-    4
-  ],
-  "Gold": 160,
-  "Attack": 77,
+  "Gold": 0,
   "Heal": 0,
-  "Damage": 11,
-  "Crit": 2,
-  "Avoid": 7,
-  "Dodge": -1,
-  "DamageReceived": 0,
-  "AttackSpeed": 0,
   "DualStrike": 0,
   "DualGuard": 0,
   "StartingClass": "Dark Mage",
   "HeartSealClass": "Villager",
   "PermanentReclassOptions": [],
-  "InternalLevel": 1,
-  "IsInCombat": false,
-  "IsAttacking": false,
-  "IsWeaponTriangleAdvantage": false,
-  "IsWeaponTriangleDisadvantage": false,
-  "DealsEffectiveDamage": false,
-  "EffectiveDamageUnitTypes": [],
   "Asset": {
     "AssetChoice": 4,
     "BaseStatBonus": {
@@ -302,14 +133,6 @@
       "Mov": 0
     }
   },
-  "Terrain": {
-    "TerrainType": 0,
-    "DefBonus": "-",
-    "AvoidBonus": "-",
-    "HealPercent": "-",
-    "MoveCost": "0",
-    "OtherData": "-"
-  },
   "Inventory": {
     "Equipment": [
       {
@@ -361,6 +184,29 @@
           "Attributes": null,
           "Stats": null
         }
+      },
+      {
+        "Id": 262,
+        "EquipOid": "376d2100-9c9d-4151-86ad-77997a977de9",
+        "Name": "Second Seal",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "1",
+        "Worth": "2000",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Initiates reclassing for the unit using it, dependent on their current level and class-tier status.",
+        "StatBonus": null
       }
     ]
   },
@@ -711,5 +557,183 @@
     }
   ],
   "LevelupStatIncreases": null,
-  "ConvoyId": "1c91f2ab-6779-4ca3-a722-43aa12ea05fc"
+  "ConvoyId": "1c91f2ab-6779-4ca3-a722-43aa12ea05fc",
+  "UnitTypes": [
+    0,
+    4
+  ],
+  "Level": 1,
+  "CumulativeLevel": 0,
+  "CurrentHP": 16,
+  "EquippedWeapon": {
+    "Id": 227,
+    "EquipOid": "7e04b2da-4ccf-405b-ac28-4da7abc17b2d",
+    "Name": "Flux",
+    "Rank": 1,
+    "WeaponType": 8,
+    "IsMagical": true,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 5,
+    "Hit": 70,
+    "Crit": 0,
+    "Range": "1-2",
+    "Uses": "Inf.",
+    "Worth": "540",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "CurrentClass": {
+    "Id": 5,
+    "Name": "Dark Mage",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 16,
+      "Str": 0,
+      "Mag": 6,
+      "Skl": 3,
+      "Spd": 3,
+      "Lck": 1,
+      "Def": 3,
+      "Res": 5,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 20,
+      "Mag": 27,
+      "Skl": 25,
+      "Spd": 25,
+      "Lck": 30,
+      "Def": 25,
+      "Res": 27,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 50,
+      "Str": 5,
+      "Mag": 15,
+      "Skl": 15,
+      "Spd": 15,
+      "Lck": 0,
+      "Def": 10,
+      "Res": 10
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 13,
+        "AbilityOid": null,
+        "Name": "Hex",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid -15 to all adjacent enemies.",
+        "StatBonus": null
+      },
+      {
+        "Id": 14,
+        "AbilityOid": null,
+        "Name": "Heartseeker",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "When fighting adjacent to an enemy, enemy's Avoid -20.",
+        "StatBonus": null
+      },
+      {
+        "Id": 15,
+        "AbilityOid": null,
+        "Name": "Anathema",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Avoid and Critical Avoid -10 to all enemies within a 3 tile radius.",
+        "StatBonus": null
+      },
+      {
+        "Id": 16,
+        "AbilityOid": null,
+        "Name": "Malefic Aura",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Enemies with a 2 tile radius receive 2 extra damage from magical attacks.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 8,
+        "MinRank": 1,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 7,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Sorcerer",
+      "Dark Knight"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Thief"
+    ],
+    "SkillTypeOptions": [
+      1,
+      6,
+      2,
+      14,
+      7,
+      15,
+      9,
+      5
+    ]
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 13,
+      "AbilityOid": "781e1534-649e-4120-8a1c-da299cc90845",
+      "Name": "Hex",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Avoid -15 to all adjacent enemies.",
+      "StatBonus": null
+    }
+  ],
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "IsAttacking": false,
+  "IsInCombat": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "InternalLevel": 1,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Attack": 77,
+  "Damage": 11,
+  "Crit": 2,
+  "Avoid": 7,
+  "Dodge": -1,
+  "AttackSpeed": 0,
+  "DamageReceived": 0
 }

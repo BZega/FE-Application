@@ -21,7 +21,6 @@
       "UnitType": 5
     }
   },
-  "CurrentHP": 19,
   "PersonalAbility": {
     "Id": 1,
     "Name": "Aching Blood",
@@ -42,14 +41,14 @@
     }
   },
   "CurrentStats": {
-    "HP": 19,
-    "Str": 8,
-    "Mag": 4,
-    "Skl": 4,
-    "Spd": 8,
-    "Lck": 2,
-    "Def": 6,
-    "Res": 3,
+    "HP": 36,
+    "Str": 21,
+    "Mag": 9,
+    "Skl": 12,
+    "Spd": 18,
+    "Lck": 9,
+    "Def": 19,
+    "Res": 5,
     "Mov": 5
   },
   "TotalGrowthRate": {
@@ -62,154 +61,14 @@
     "Def": 60,
     "Res": 35
   },
-  "EquippedWeapon": {
-    "Id": 151,
-    "EquipOid": "2ef8c058-48b4-4566-800c-6f501d71ab5c",
-    "Name": "Bronze Sword",
-    "Rank": 1,
-    "WeaponType": 6,
-    "IsMagical": false,
-    "IsBrave": false,
-    "DoesEffectiveDamage": false,
-    "EffectiveUnitTypes": [],
-    "Might": 4,
-    "Hit": 100,
-    "Crit": 0,
-    "Range": "1",
-    "Uses": "Inf.",
-    "Worth": "500",
-    "WeaponExp": 2,
-    "BaseHP": null,
-    "Experience": null,
-    "IsEquipped": true,
-    "Description": "",
-    "StatBonus": null
-  },
-  "EquippedAbilities": [
-    {
-      "Id": 31,
-      "AbilityOid": "3644801f-a68b-47c6-9888-99cc344263e7",
-      "Name": "Nobility",
-      "LevelGained": 1,
-      "AbilityType": 0,
-      "NeedsToInitiateCombat": false,
-      "Description": "Grants this unit a 20% bonus to EXP",
-      "StatBonus": null
-    }
-  ],
-  "CurrentClass": {
-    "Id": 13,
-    "Name": "Manakete Heir",
-    "IsPromoted": false,
-    "IsSpecialClass": false,
-    "BaseStats": {
-      "HP": 17,
-      "Str": 7,
-      "Mag": 3,
-      "Skl": 4,
-      "Spd": 5,
-      "Lck": 2,
-      "Def": 5,
-      "Res": 2,
-      "Mov": 5
-    },
-    "MaxStats": {
-      "HP": 60,
-      "Str": 28,
-      "Mag": 23,
-      "Skl": 24,
-      "Spd": 26,
-      "Lck": 30,
-      "Def": 26,
-      "Res": 24,
-      "Mov": 7
-    },
-    "GrowthRate": {
-      "HP": 40,
-      "Str": 15,
-      "Mag": 10,
-      "Skl": 10,
-      "Spd": 10,
-      "Lck": 10,
-      "Def": 10,
-      "Res": 5
-    },
-    "InnateBonus": null,
-    "UnitTypes": [
-      0,
-      5
-    ],
-    "Abilities": [
-      {
-        "Id": 31,
-        "AbilityOid": null,
-        "Name": "Nobility",
-        "LevelGained": 1,
-        "AbilityType": 0,
-        "NeedsToInitiateCombat": false,
-        "Description": "Grants this unit a 20% bonus to EXP",
-        "StatBonus": null
-      },
-      {
-        "Id": 32,
-        "AbilityOid": null,
-        "Name": "Dragon Fang",
-        "LevelGained": 10,
-        "AbilityType": 2,
-        "NeedsToInitiateCombat": false,
-        "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
-        "StatBonus": null
-      }
-    ],
-    "UsableWeapons": [
-      {
-        "WeaponType": 6,
-        "MinRank": 1,
-        "MaxRank": 4
-      },
-      {
-        "WeaponType": 5,
-        "MinRank": 1,
-        "MaxRank": 4
-      }
-    ],
-    "ClassPromotions": [
-      "Dawn Noble",
-      "Dusk Noble"
-    ],
-    "ReclassOptions": [
-      "Myrmidon",
-      "Manakete"
-    ],
-    "SkillTypeOptions": null
-  },
   "Exp": 0,
-  "Level": 3,
-  "UnitTypes": [
-    0,
-    5
-  ],
-  "Gold": 200,
-  "Attack": 108,
+  "Gold": 4200,
   "Heal": 0,
-  "Damage": 12,
-  "Crit": 12,
-  "Avoid": 13,
-  "Dodge": 2,
-  "DamageReceived": 0,
-  "AttackSpeed": 0,
   "DualStrike": 0,
   "DualGuard": 0,
   "StartingClass": "Manakete Heir",
   "HeartSealClass": "Wyvern Rider",
   "PermanentReclassOptions": [],
-  "InternalLevel": 3,
-  "IsInCombat": false,
-  "IsAttacking": false,
-  "IsWeaponTriangleAdvantage": false,
-  "IsWeaponTriangleDisadvantage": false,
-  "DealsEffectiveDamage": false,
-  "EffectiveDamageUnitTypes": [],
   "Asset": {
     "AssetChoice": 4,
     "BaseStatBonus": {
@@ -273,14 +132,6 @@
       "Res": 0,
       "Mov": 0
     }
-  },
-  "Terrain": {
-    "TerrainType": 0,
-    "DefBonus": "-",
-    "AvoidBonus": "-",
-    "HealPercent": "-",
-    "MoveCost": "0",
-    "OtherData": "-"
   },
   "Inventory": {
     "Equipment": [
@@ -364,14 +215,14 @@
     ]
   },
   "BaseStats": {
-    "HP": 19,
-    "Str": 8,
-    "Mag": 4,
-    "Skl": 4,
-    "Spd": 8,
-    "Lck": 2,
-    "Def": 6,
-    "Res": 3,
+    "HP": 36,
+    "Str": 21,
+    "Mag": 9,
+    "Skl": 12,
+    "Spd": 18,
+    "Lck": 9,
+    "Def": 19,
+    "Res": 5,
     "Mov": 5
   },
   "StatChangeAmount": {
@@ -406,11 +257,7 @@
     "Def": 40,
     "Res": 30
   },
-  "ReclassOptions": [
-    "Manakete Heir",
-    "Manakete",
-    "Myrmidon"
-  ],
+  "ReclassOptions": [],
   "WeaponRanks": [
     {
       "WeaponType": 0,
@@ -662,6 +509,16 @@
       "NeedsToInitiateCombat": false,
       "Description": "Grants this unit a 20% bonus to EXP",
       "StatBonus": null
+    },
+    {
+      "Id": 32,
+      "AbilityOid": "74a7ee1f-ce1d-4411-8a2f-f494ddd6a5fb",
+      "Name": "Dragon Fang",
+      "LevelGained": 10,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+      "StatBonus": null
     }
   ],
   "Skills": [
@@ -669,193 +526,193 @@
       "SkillType": 0,
       "StatType": 1,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 21,
       "Bonus": 0,
-      "Score": 1
+      "Score": 4
     },
     {
       "SkillType": 1,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 2,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 3,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 4,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 5,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 6,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 12,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     },
     {
       "SkillType": 7,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 12,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     },
     {
       "SkillType": 8,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 12,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     },
     {
       "SkillType": 9,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 12,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     },
     {
       "SkillType": 10,
       "StatType": 4,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 18,
       "Bonus": 0,
-      "Score": 1
+      "Score": 3
     },
     {
       "SkillType": 11,
       "StatType": 4,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 18,
       "Bonus": 0,
-      "Score": 1
+      "Score": 3
     },
     {
       "SkillType": 12,
       "StatType": 4,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 18,
       "Bonus": 0,
-      "Score": 1
+      "Score": 3
     },
     {
       "SkillType": 13,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 14,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 15,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 16,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 17,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 18,
       "StatType": 1,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 21,
       "Bonus": 0,
-      "Score": 1
+      "Score": 4
     },
     {
       "SkillType": 19,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 9,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     },
     {
       "SkillType": 20,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 4,
+      "Attribute": 12,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     },
     {
       "SkillType": 21,
       "StatType": 4,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 18,
       "Bonus": 0,
-      "Score": 1
+      "Score": 3
     },
     {
       "SkillType": 22,
       "StatType": 6,
       "IsProficient": false,
-      "Attribute": 6,
+      "Attribute": 19,
       "Bonus": 0,
-      "Score": 1
+      "Score": 3
     },
     {
       "SkillType": 23,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 0
+      "Score": 1
     }
   ],
   "LevelupStatIncreases": [
@@ -888,7 +745,422 @@
         "Res": 1,
         "Mov": 0
       }
+    },
+    {
+      "Level": 4,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 5,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 6,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 7,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 8,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 9,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 10,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 11,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 12,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 13,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 0,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 14,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 15,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 16,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 17,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 18,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 19,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
+    },
+    {
+      "Level": 20,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 1,
+        "Str": 1,
+        "Mag": 0,
+        "Skl": 1,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 1,
+        "Res": 0,
+        "Mov": 0
+      }
     }
   ],
-  "ConvoyId": "68622c60-0446-4c54-ab2f-7a6590a17472"
+  "ConvoyId": "68622c60-0446-4c54-ab2f-7a6590a17472",
+  "UnitTypes": [
+    0,
+    5
+  ],
+  "Level": 20,
+  "CumulativeLevel": 0,
+  "CurrentHP": 19,
+  "EquippedWeapon": {
+    "Id": 151,
+    "EquipOid": "2ef8c058-48b4-4566-800c-6f501d71ab5c",
+    "Name": "Bronze Sword",
+    "Rank": 1,
+    "WeaponType": 6,
+    "IsMagical": false,
+    "IsBrave": false,
+    "DoesEffectiveDamage": false,
+    "EffectiveUnitTypes": [],
+    "Might": 4,
+    "Hit": 100,
+    "Crit": 0,
+    "Range": "1",
+    "Uses": "Inf.",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": null
+  },
+  "CurrentClass": {
+    "Id": 13,
+    "Name": "Manakete Heir",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 17,
+      "Str": 7,
+      "Mag": 3,
+      "Skl": 4,
+      "Spd": 5,
+      "Lck": 2,
+      "Def": 5,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 28,
+      "Mag": 23,
+      "Skl": 24,
+      "Spd": 26,
+      "Lck": 30,
+      "Def": 26,
+      "Res": 24,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 40,
+      "Str": 15,
+      "Mag": 10,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 10,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0,
+      5
+    ],
+    "Abilities": [
+      {
+        "Id": 31,
+        "AbilityOid": null,
+        "Name": "Nobility",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Grants this unit a 20% bonus to EXP",
+        "StatBonus": null
+      },
+      {
+        "Id": 32,
+        "AbilityOid": null,
+        "Name": "Dragon Fang",
+        "LevelGained": 10,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 6,
+        "MinRank": 1,
+        "MaxRank": 4
+      },
+      {
+        "WeaponType": 5,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Dawn Noble",
+      "Dusk Noble"
+    ],
+    "ReclassOptions": [
+      "Myrmidon",
+      "Manakete"
+    ],
+    "SkillTypeOptions": null
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 31,
+      "AbilityOid": "3644801f-a68b-47c6-9888-99cc344263e7",
+      "Name": "Nobility",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Grants this unit a 20% bonus to EXP",
+      "StatBonus": null
+    },
+    {
+      "Id": 32,
+      "AbilityOid": "74a7ee1f-ce1d-4411-8a2f-f494ddd6a5fb",
+      "Name": "Dragon Fang",
+      "LevelGained": 10,
+      "AbilityType": 2,
+      "NeedsToInitiateCombat": false,
+      "Description": "Inflicts half of damage as extra damage. Trigger %= (Skill stat x 0.75)",
+      "StatBonus": null
+    }
+  ],
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "IsAttacking": false,
+  "IsInCombat": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "InternalLevel": 20,
+  "DealsEffectiveDamage": false,
+  "EffectiveDamageUnitTypes": [],
+  "Attack": 121,
+  "Damage": 25,
+  "Crit": 16,
+  "Avoid": 32,
+  "Dodge": 9,
+  "AttackSpeed": 0,
+  "DamageReceived": 0
 }

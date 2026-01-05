@@ -38,7 +38,54 @@
   {
     "Id": "af151478-edac-4c2b-90e2-7afa4d91beac",
     "ConvoyItems": {
-      "Equipment": []
+      "Equipment": [
+        {
+          "Id": 262,
+          "EquipOid": "a209da9c-6f1d-4dc0-8fe6-a44162cf887d",
+          "Name": "Second Seal",
+          "Rank": 1,
+          "WeaponType": 9,
+          "IsMagical": false,
+          "IsBrave": false,
+          "DoesEffectiveDamage": false,
+          "EffectiveUnitTypes": [],
+          "Might": null,
+          "Hit": null,
+          "Crit": null,
+          "Range": null,
+          "Uses": "1",
+          "Worth": "2000",
+          "WeaponExp": null,
+          "BaseHP": null,
+          "Experience": null,
+          "IsEquipped": false,
+          "Description": "Initiates reclassing for the unit using it, dependent on their current level and class-tier status.",
+          "StatBonus": null
+        },
+        {
+          "Id": 262,
+          "EquipOid": "38458cd9-5ba8-4bb5-aa8b-c7a10e382976",
+          "Name": "Second Seal",
+          "Rank": 1,
+          "WeaponType": 9,
+          "IsMagical": false,
+          "IsBrave": false,
+          "DoesEffectiveDamage": false,
+          "EffectiveUnitTypes": [],
+          "Might": null,
+          "Hit": null,
+          "Crit": null,
+          "Range": null,
+          "Uses": "1",
+          "Worth": "2000",
+          "WeaponExp": null,
+          "BaseHP": null,
+          "Experience": null,
+          "IsEquipped": false,
+          "Description": "Initiates reclassing for the unit using it, dependent on their current level and class-tier status.",
+          "StatBonus": null
+        }
+      ]
     }
   },
   {
@@ -103,6 +150,18 @@
   },
   {
     "Id": "88fcf557-ed70-441e-bf7e-8625d8195d16",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "e5c31aa1-5227-4f7d-96dd-8f92319cc82d",
+    "ConvoyItems": {
+      "Equipment": []
+    }
+  },
+  {
+    "Id": "9db0c009-5ce1-4dde-a7c3-425d875aa86d",
     "ConvoyItems": {
       "Equipment": []
     }

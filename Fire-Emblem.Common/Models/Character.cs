@@ -11,45 +11,24 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Fire_Emblem.Common.Models
 {
-  public class Character
+  public class Character : CombatUnit
   {
     public string Id { get; set; }
     public Biography Biography { get; set; }
-    public int CurrentHP { get; set; } = 0;
     public PersonalAbility PersonalAbility { get; set; }
-    public Stats CurrentStats => GetCurrentStats();
+    public override Stats CurrentStats => GetCurrentStats();
     public GrowthRate TotalGrowthRate => GetTotalGrowthRate();
-    public Equipment EquippedWeapon { get; set; }
-    public List<Ability> EquippedAbilities { get; set; }
-    public UnitClass CurrentClass { get; set; }
     public int Exp { get; set; } = 0;
-    public int Level { get; set; } = 1;
-    public List<UnitType> UnitTypes => GetUnitTypes();
     public int Gold { get; set; } = 1000;
-    public int Attack => GetAttack();
     public int Heal => GetHeal();
-    public int Damage => GetDamage();
-    public int Crit => GetCrit();
-    public int Avoid => GetAvoid();
-    public int Dodge => GetDodge();
-    public int DamageReceived => GetDamageReceived();
-    public int AttackSpeed => GetAttackSpeed();
     public int DualStrike { get; set; } = 0;
     public int DualGuard { get; set; } = 0;
     public string StartingClass { get; set; }
     public string HeartSealClass { get; set; }
     public List<string> PermanentReclassOptions { get; set; }
-    public int InternalLevel { get; set; } = 1;
-    public bool IsInCombat { get; set; } = false;
-    public bool IsAttacking { get; set; } = false;
-    public bool IsWeaponTriangleAdvantage { get; set; } = false;
-    public bool IsWeaponTriangleDisadvantage { get; set; } = false;
-    public bool DealsEffectiveDamage => CheckForEffectiveDamage();
-    public List<UnitType> EffectiveDamageUnitTypes => CheckEffectiveType();
     public Asset Asset { get; set; }
     public Flaw Flaw { get; set; }
     public Condition Condition { get; set; }
-    public Terrain Terrain { get; set; }
     public Inventory Inventory { get; set; }
     public Stats BaseStats => GetBaseStats();
     public Stats StatChangeAmount => GetStatChangeAmount();
@@ -62,6 +41,9 @@ namespace Fire_Emblem.Common.Models
     public List<Skill> Skills { get; set; }
     public List<LevelUp>? LevelupStatIncreases { get; set; }
     public string ConvoyId { get; set; }
+
+    // Override UnitTypes to use Character-specific logic
+    public new List<UnitType> UnitTypes => GetUnitTypes();
 
     public GrowthRate GetTotalGrowthRate()
     {
@@ -83,6 +65,8 @@ namespace Fire_Emblem.Common.Models
     {
       var baseStats = new Stats();
       baseStats.Add(CurrentClass.BaseStats);
+      baseStats.Add(Asset.BaseStatBonus);
+      baseStats.Add(Flaw.BaseStatBonus);
       if (LevelupStatIncreases != null && LevelupStatIncreases.Count > 0)
       {
         foreach (var levelup in LevelupStatIncreases)
@@ -91,8 +75,6 @@ namespace Fire_Emblem.Common.Models
         }
         baseStats.MaximumCheck(MaxStats);
       }
-      baseStats.Add(Asset.BaseStatBonus);
-      baseStats.Add(Flaw.BaseStatBonus);
       return baseStats;
     }
 
@@ -108,7 +90,6 @@ namespace Fire_Emblem.Common.Models
     public Stats GetCurrentStats()
     {
       var currentStats = BaseStats;
-      currentStats.Add(Condition.StatChange);
       if (Terrain.TerrainType != TerrainType.None)
       {
         int.TryParse(Terrain.DefBonus, out var defBonus);
@@ -170,7 +151,9 @@ namespace Fire_Emblem.Common.Models
       unitTypes.Add(Biography.RaceChoice.UnitType);
       return unitTypes;
     }
-    public int GetAttack()
+
+    // Override GetAttack with Character-specific logic
+    protected override int GetAttack()
     {
       var attack = 0;
       attack += (int)Math.Ceiling((CurrentStats.Skl * 3 + CurrentStats.Res) / 2.0);
@@ -470,7 +453,9 @@ namespace Fire_Emblem.Common.Models
       }
       return heal;
     }
-    public int GetDamage()
+
+    // Override GetDamage with Character-specific logic
+    protected override int GetDamage()
     {
       var damage = 0;
       if (EquippedWeapon != null)
@@ -538,7 +523,9 @@ namespace Fire_Emblem.Common.Models
       }
       return damage;
     }
-    public int GetCrit()
+
+    // Override GetCrit with Character-specific logic
+    protected override int GetCrit()
     {
       var crit = 0;
       crit += (int)Math.Ceiling(CurrentStats.Skl / 2.0);
@@ -621,7 +608,9 @@ namespace Fire_Emblem.Common.Models
       }
       return crit;
     }
-    public int GetAvoid()
+
+    // Override GetAvoid with Character-specific logic
+    protected override int GetAvoid()
     {
       var avoid = 0;
       avoid += (int)Math.Ceiling((CurrentStats.Spd * 3 + CurrentStats.Lck) / 2.0);
@@ -711,7 +700,9 @@ namespace Fire_Emblem.Common.Models
       }
       return avoid;
     }
-    public int GetDodge()
+
+    // Override GetDodge with Character-specific logic
+    protected override int GetDodge()
     {
       var dodge = 0;
       dodge += CurrentStats.Lck;
@@ -848,47 +839,9 @@ namespace Fire_Emblem.Common.Models
       }
       return dualGuard;
     }
-    public int GetDamageReceived()
-    {
-      var damageReceived = 0;
-      if (EquippedAbilities != null)
-      {
-        foreach (var ability in EquippedAbilities)
-        {
-          if (ability.StatBonus != null && ability.StatBonus.Attributes != null && ability.StatBonus.Attributes.AttackSpeed != 0)
-          {
-            damageReceived += ability.StatBonus.Attributes.AttackSpeed;
-          }
-        }
-      }
-      if (EquippedWeapon.StatBonus != null && EquippedWeapon.StatBonus.Attributes != null && EquippedWeapon.StatBonus.Attributes.AttackSpeed != 0)
-      {
-        damageReceived += EquippedWeapon.StatBonus.Attributes.AttackSpeed;
-      }
-      return damageReceived;
-    }
 
-    public int GetAttackSpeed()
-    {
-      var attackSpeed = 0;
-      if (EquippedAbilities != null)
-      {
-        foreach (var ability in EquippedAbilities)
-        {
-          if (ability.StatBonus != null && ability.StatBonus.Attributes != null && ability.StatBonus.Attributes.AttackSpeed != 0)
-          {
-            attackSpeed += ability.StatBonus.Attributes.AttackSpeed;
-          }
-        }
-      }
-      if (EquippedWeapon.StatBonus != null && EquippedWeapon.StatBonus.Attributes != null && EquippedWeapon.StatBonus.Attributes.AttackSpeed != 0)
-      {
-        attackSpeed += EquippedWeapon.StatBonus.Attributes.AttackSpeed;
-      }
-      return attackSpeed;
-    }
-
-    public StatBonus GetHitWeaponTriangleDisadvantage(Rank advantageWeaponRank)
+    // Override GetHitWeaponTriangleDisadvantage with Character-specific logic
+    public override StatBonus GetHitWeaponTriangleDisadvantage(Rank advantageWeaponRank)
     {
       var attribute = new StatBonus() { Attributes = new Attributes() };
       var hit = 0;
@@ -921,61 +874,6 @@ namespace Fire_Emblem.Common.Models
       return attribute;
     }
 
-    public bool CheckForEffectiveDamage()
-    {
-      var effective = false;
-      if (EquippedAbilities != null && EquippedAbilities.Count > 0)
-      {
-        foreach (var ability in EquippedAbilities)
-        {
-          if (ability.Name == "Beastbane" || ability.Name == "Wyrmsbane" || ability.Name == "Golembane")
-          {
-            effective = true;
-          }
-        }
-      }
-      if (EquippedWeapon.DoesEffectiveDamage)
-      {
-        effective = true;
-      }
-      return effective;
-    }
-
-    public List<UnitType> CheckEffectiveType()
-    {
-      var units = new HashSet<UnitType>();
-      if (EquippedAbilities != null && EquippedAbilities.Count > 0)
-      {
-        foreach (var ability in EquippedAbilities)
-        {
-          switch (ability.Name)
-          {
-            case "Beastbane":
-              units.Add(UnitType.Beast);
-              break;
-
-            case "Wyrmsbane":
-              units.Add(UnitType.Dragon);
-              break;
-
-            case "Golembane":
-              units.Add(UnitType.Mechanists);
-              units.Add(UnitType.Puppets);
-              units.Add(UnitType.Golems);
-              break;
-          }
-        }
-      }
-      if (EquippedWeapon != null && EquippedWeapon.DoesEffectiveDamage && EquippedWeapon.EffectiveUnitTypes.Any())
-      {
-        foreach (var unitType in EquippedWeapon.EffectiveUnitTypes)
-        {
-          units.Add(unitType);
-        }
-      }
-      return units.ToList();
-    }
-
     public List<string> GetReclassOptions()
     {
       var reclassOptions = new List<string>();
@@ -985,66 +883,66 @@ namespace Fire_Emblem.Common.Models
         reclassOptions.AddRange(PermanentReclassOptions);
       }
 
-      if (!string.IsNullOrEmpty(StartingClass) && !reclassOptions.Contains(StartingClass))
-        reclassOptions.Add(StartingClass);
+      //if (!string.IsNullOrEmpty(StartingClass) && !reclassOptions.Contains(StartingClass))
+      //  reclassOptions.Add(StartingClass);
 
-      var race = Biography.RaceChoice.RacialType;
+      //var race = Biography.RaceChoice.RacialType;
 
-      // Taguel
-      if ((race == RacialType.Taguel || race == RacialType.HalfHumanTaguel) && !reclassOptions.Contains(ClassTypeCode.Taguel))
-      {
-        reclassOptions.Add(ClassTypeCode.Taguel);
-      }
-      // Kitsune
-      if ((race == RacialType.Kitsune || race == RacialType.HalfHumanKitsune) && !reclassOptions.Contains(ClassTypeCode.Kitsune))
-      {
-        reclassOptions.Add(ClassTypeCode.Kitsune);
-      }
-      // Wolfskin
-      if ((race == RacialType.Wolfskin || race == RacialType.HalfHumanWolfskin) && !reclassOptions.Contains(ClassTypeCode.Wolfskin))
-      {
-        reclassOptions.Add(ClassTypeCode.Wolfskin);
-      }
-      // Manakete
-      if (race == RacialType.Manakete || race == RacialType.HalfHumanManakete)
-      {
-        if (!reclassOptions.Contains(ClassTypeCode.Manakete))
-          reclassOptions.Add(ClassTypeCode.Manakete);
-        if (Biography.IsNoble && !reclassOptions.Contains(ClassTypeCode.ManaketeHeir))
-          reclassOptions.Add(ClassTypeCode.ManaketeHeir);
-      }
+      //// Taguel
+      //if ((race == RacialType.Taguel || race == RacialType.HalfHumanTaguel) && !reclassOptions.Contains(ClassTypeCode.Taguel))
+      //{
+      //  reclassOptions.Add(ClassTypeCode.Taguel);
+      //}
+      //// Kitsune
+      //if ((race == RacialType.Kitsune || race == RacialType.HalfHumanKitsune) && !reclassOptions.Contains(ClassTypeCode.Kitsune))
+      //{
+      //  reclassOptions.Add(ClassTypeCode.Kitsune);
+      //}
+      //// Wolfskin
+      //if ((race == RacialType.Wolfskin || race == RacialType.HalfHumanWolfskin) && !reclassOptions.Contains(ClassTypeCode.Wolfskin))
+      //{
+      //  reclassOptions.Add(ClassTypeCode.Wolfskin);
+      //}
+      //// Manakete
+      //if (race == RacialType.Manakete || race == RacialType.HalfHumanManakete)
+      //{
+      //  if (!reclassOptions.Contains(ClassTypeCode.Manakete))
+      //    reclassOptions.Add(ClassTypeCode.Manakete);
+      //  if (Biography.IsNoble && !reclassOptions.Contains(ClassTypeCode.ManaketeHeir))
+      //    reclassOptions.Add(ClassTypeCode.ManaketeHeir);
+      //}
       // Human Nobles
-      if (race == RacialType.Human && Biography.IsNoble)
-      {
-        if (StartingClass == ClassTypeCode.SwordLord && !reclassOptions.Contains(ClassTypeCode.SwordLord))
-          reclassOptions.Add(ClassTypeCode.SwordLord);
-        if (StartingClass == ClassTypeCode.AxeLord && !reclassOptions.Contains(ClassTypeCode.AxeLord))
-          reclassOptions.Add(ClassTypeCode.AxeLord);
-        if (StartingClass == ClassTypeCode.LanceLord && !reclassOptions.Contains(ClassTypeCode.LanceLord))
-          reclassOptions.Add(ClassTypeCode.LanceLord);
-        // If one of the above already exists I don't want to add all three
-        var hasLordClass = reclassOptions.Contains(ClassTypeCode.SwordLord) ||
-                          reclassOptions.Contains(ClassTypeCode.AxeLord) ||
-                          reclassOptions.Contains(ClassTypeCode.LanceLord);
+      //if (race == RacialType.Human && Biography.IsNoble)
+      //{
+      //  if (StartingClass == ClassTypeCode.SwordLord && !reclassOptions.Contains(ClassTypeCode.SwordLord))
+      //    reclassOptions.Add(ClassTypeCode.SwordLord);
+      //  if (StartingClass == ClassTypeCode.AxeLord && !reclassOptions.Contains(ClassTypeCode.AxeLord))
+      //    reclassOptions.Add(ClassTypeCode.AxeLord);
+      //  if (StartingClass == ClassTypeCode.LanceLord && !reclassOptions.Contains(ClassTypeCode.LanceLord))
+      //    reclassOptions.Add(ClassTypeCode.LanceLord);
+      //  // If one of the above already exists I don't want to add all three
+      //  var hasLordClass = reclassOptions.Contains(ClassTypeCode.SwordLord) ||
+      //                    reclassOptions.Contains(ClassTypeCode.AxeLord) ||
+      //                    reclassOptions.Contains(ClassTypeCode.LanceLord);
 
-        // Only add lord options if no lord class exists yet
-        if (!hasLordClass)
-        {
-          reclassOptions.Add(ClassTypeCode.SwordLord);
-          reclassOptions.Add(ClassTypeCode.AxeLord);
-          reclassOptions.Add(ClassTypeCode.LanceLord);
-        }
-      }
+      //  // Only add lord options if no lord class exists yet
+      //  if (!hasLordClass)
+      //  {
+      //    reclassOptions.Add(ClassTypeCode.SwordLord);
+      //    reclassOptions.Add(ClassTypeCode.AxeLord);
+      //    reclassOptions.Add(ClassTypeCode.LanceLord);
+      //  }
+      //}
 
       // Add class-specific reclass options
-      if (CurrentClass.ReclassOptions != null)
-      {
-        foreach (var option in CurrentClass.ReclassOptions)
-        {
-          if (!reclassOptions.Contains(option))
-            reclassOptions.Add(option);
-        }
-      }
+      //if (CurrentClass.ReclassOptions != null)
+      //{
+      //  foreach (var option in CurrentClass.ReclassOptions)
+      //  {
+      //    if (!reclassOptions.Contains(option))
+      //      reclassOptions.Add(option);
+      //  }
+      //}
 
       return reclassOptions;
     }

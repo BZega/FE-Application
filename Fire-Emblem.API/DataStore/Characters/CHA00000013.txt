@@ -1,0 +1,717 @@
+{
+  "Id": "CHA00000013",
+  "Biography": {
+    "Name": "Tori",
+    "Gender": "Female",
+    "Background": "This is the story of Tori",
+    "IsNoble": true,
+    "RaceChoice": {
+      "RacialType": 1,
+      "HumanStatChoices": null,
+      "RacialGrowth": {
+        "HP": 0,
+        "Str": 10,
+        "Mag": -10,
+        "Skl": 0,
+        "Spd": 10,
+        "Lck": 20,
+        "Def": -10,
+        "Res": 10
+      },
+      "UnitType": 4
+    }
+  },
+  "PersonalAbility": {
+    "Id": 40,
+    "Name": "Peacebringer",
+    "Description": "Allies and enemies within a 2 tile radius receive 2 less damage.",
+    "StatBonus": null
+  },
+  "CurrentStats": {
+    "HP": 18,
+    "Str": 6,
+    "Mag": 0,
+    "Skl": 4,
+    "Spd": 4,
+    "Lck": 6,
+    "Def": 5,
+    "Res": 4,
+    "Mov": 5
+  },
+  "TotalGrowthRate": {
+    "HP": 85,
+    "Str": 60,
+    "Mag": 20,
+    "Skl": 70,
+    "Spd": 65,
+    "Lck": 100,
+    "Def": 25,
+    "Res": 40
+  },
+  "Exp": 0,
+  "Gold": 200,
+  "Heal": 0,
+  "DualStrike": 0,
+  "DualGuard": 0,
+  "StartingClass": "Apothecary",
+  "HeartSealClass": "Cleric",
+  "PermanentReclassOptions": [
+    "Apothecary",
+    "Kitsune",
+    "Archer",
+    "Ninja"
+  ],
+  "Asset": {
+    "AssetChoice": 5,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 4,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 2,
+      "Mag": 2,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 4,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Flaw": {
+    "FlawChoice": 6,
+    "BaseStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": -1,
+      "Res": 0,
+      "Mov": 0
+    },
+    "MaxStatBonus": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": -1,
+      "Def": -3,
+      "Res": -1,
+      "Mov": 0
+    }
+  },
+  "Condition": {
+    "CurrentCondition": 0,
+    "StatChange": {
+      "HP": 0,
+      "Str": 0,
+      "Mag": 0,
+      "Skl": 0,
+      "Spd": 0,
+      "Lck": 0,
+      "Def": 0,
+      "Res": 0,
+      "Mov": 0
+    }
+  },
+  "Inventory": {
+    "Equipment": [
+      {
+        "Id": 36,
+        "EquipOid": "bf1b8924-a989-4543-bae1-2089ddfd1da4",
+        "Name": "Brass Yumi",
+        "Rank": 1,
+        "WeaponType": 1,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": true,
+        "EffectiveUnitTypes": [
+          3
+        ],
+        "Might": 7,
+        "Hit": 80,
+        "Crit": 0,
+        "Range": "2",
+        "Uses": "Inf.",
+        "Worth": "500",
+        "WeaponExp": 2,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": true,
+        "Description": "",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 0,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 2,
+            "Mov": 0
+          }
+        }
+      },
+      {
+        "Id": 235,
+        "EquipOid": "7c65b25b-63c1-4821-9d01-3c253200ca76",
+        "Name": "Vulnerary",
+        "Rank": 1,
+        "WeaponType": 9,
+        "IsMagical": false,
+        "IsBrave": false,
+        "DoesEffectiveDamage": false,
+        "EffectiveUnitTypes": [],
+        "Might": null,
+        "Hit": null,
+        "Crit": null,
+        "Range": null,
+        "Uses": "3",
+        "Worth": "300",
+        "WeaponExp": null,
+        "BaseHP": null,
+        "Experience": null,
+        "IsEquipped": false,
+        "Description": "Restores 10 HP to its user.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": null
+        }
+      }
+    ]
+  },
+  "BaseStats": {
+    "HP": 18,
+    "Str": 6,
+    "Mag": 0,
+    "Skl": 4,
+    "Spd": 4,
+    "Lck": 6,
+    "Def": 5,
+    "Res": 2,
+    "Mov": 5
+  },
+  "StatChangeAmount": {
+    "HP": 0,
+    "Str": 0,
+    "Mag": 0,
+    "Skl": 0,
+    "Spd": 0,
+    "Lck": 0,
+    "Def": 0,
+    "Res": 2,
+    "Mov": 0
+  },
+  "MaxStats": {
+    "HP": 60,
+    "Str": 31,
+    "Mag": 22,
+    "Skl": 24,
+    "Spd": 24,
+    "Lck": 33,
+    "Def": 25,
+    "Res": 24,
+    "Mov": 7
+  },
+  "PersonalGrowthRate": {
+    "HP": 40,
+    "Str": 30,
+    "Mag": 30,
+    "Skl": 60,
+    "Spd": 45,
+    "Lck": 75,
+    "Def": 25,
+    "Res": 25
+  },
+  "ReclassOptions": [
+    "Apothecary",
+    "Kitsune",
+    "Archer",
+    "Ninja"
+  ],
+  "WeaponRanks": [
+    {
+      "WeaponType": 0,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 1,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": true,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 2,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 3,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 4,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 6,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 7,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    },
+    {
+      "WeaponType": 8,
+      "WeaponRank": 1,
+      "WeaponExperience": 1,
+      "IsActive": false,
+      "WeaponRankBonus": {
+        "Growths": null,
+        "Attributes": null,
+        "Stats": null
+      }
+    }
+  ],
+  "Supports": null,
+  "AcquiredAbilities": [
+    {
+      "Id": 4,
+      "AbilityOid": "c4a6f87d-dc65-4c9c-91e0-bdf7ce0902c0",
+      "Name": "Potent Potion",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+      "StatBonus": null
+    }
+  ],
+  "Skills": [
+    {
+      "SkillType": 0,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 1,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 2,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 3,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 4,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 5,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 6,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 7,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 8,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 9,
+      "StatType": 3,
+      "IsProficient": true,
+      "Attribute": 4,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 10,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 11,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": true,
+      "Attribute": 2,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": true,
+      "Attribute": 2,
+      "Bonus": 1,
+      "Score": 1
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 6,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 19,
+      "StatType": 2,
+      "IsProficient": false,
+      "Attribute": 0,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 20,
+      "StatType": 3,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 21,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 4,
+      "Bonus": 0,
+      "Score": 0
+    },
+    {
+      "SkillType": 22,
+      "StatType": 6,
+      "IsProficient": false,
+      "Attribute": 5,
+      "Bonus": 0,
+      "Score": 1
+    },
+    {
+      "SkillType": 23,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 2,
+      "Bonus": 0,
+      "Score": 0
+    }
+  ],
+  "LevelupStatIncreases": null,
+  "ConvoyId": "9db0c009-5ce1-4dde-a7c3-425d875aa86d",
+  "UnitTypes": [
+    0,
+    4
+  ],
+  "Level": 0,
+  "CumulativeLevel": 0,
+  "CurrentHP": 18,
+  "EquippedWeapon": {
+    "Id": 36,
+    "EquipOid": "bf1b8924-a989-4543-bae1-2089ddfd1da4",
+    "Name": "Brass Yumi",
+    "Rank": 1,
+    "WeaponType": 1,
+    "IsMagical": false,
+    "IsBrave": false,
+    "DoesEffectiveDamage": true,
+    "EffectiveUnitTypes": [
+      3
+    ],
+    "Might": 7,
+    "Hit": 80,
+    "Crit": 0,
+    "Range": "2",
+    "Uses": "Inf.",
+    "Worth": "500",
+    "WeaponExp": 2,
+    "BaseHP": null,
+    "Experience": null,
+    "IsEquipped": true,
+    "Description": "",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 0,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 2,
+        "Mov": 0
+      }
+    }
+  },
+  "CurrentClass": {
+    "Id": 2,
+    "Name": "Apothecary",
+    "IsPromoted": false,
+    "IsSpecialClass": false,
+    "BaseStats": {
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 4,
+      "Spd": 4,
+      "Lck": 2,
+      "Def": 6,
+      "Res": 2,
+      "Mov": 5
+    },
+    "MaxStats": {
+      "HP": 60,
+      "Str": 29,
+      "Mag": 20,
+      "Skl": 24,
+      "Spd": 24,
+      "Lck": 30,
+      "Def": 28,
+      "Res": 25,
+      "Mov": 7
+    },
+    "GrowthRate": {
+      "HP": 45,
+      "Str": 20,
+      "Mag": 0,
+      "Skl": 10,
+      "Spd": 10,
+      "Lck": 5,
+      "Def": 10,
+      "Res": 5
+    },
+    "InnateBonus": null,
+    "UnitTypes": [
+      0
+    ],
+    "Abilities": [
+      {
+        "Id": 4,
+        "AbilityOid": null,
+        "Name": "Potent Potion",
+        "LevelGained": 1,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+        "StatBonus": null
+      },
+      {
+        "Id": 5,
+        "AbilityOid": null,
+        "Name": "Quick Salve",
+        "LevelGained": 10,
+        "AbilityType": 0,
+        "NeedsToInitiateCombat": false,
+        "Description": "After consuming an item that restores HP or a tonic user can perform another action.",
+        "StatBonus": null
+      }
+    ],
+    "UsableWeapons": [
+      {
+        "WeaponType": 1,
+        "MinRank": 1,
+        "MaxRank": 4
+      }
+    ],
+    "ClassPromotions": [
+      "Merchant",
+      "Mechanist"
+    ],
+    "ReclassOptions": [
+      "Archer",
+      "Ninja"
+    ],
+    "SkillTypeOptions": [
+      0,
+      14,
+      15,
+      4,
+      16,
+      9,
+      5,
+      17
+    ]
+  },
+  "EquippedAbilities": [
+    {
+      "Id": 4,
+      "AbilityOid": "c4a6f87d-dc65-4c9c-91e0-bdf7ce0902c0",
+      "Name": "Potent Potion",
+      "LevelGained": 1,
+      "AbilityType": 0,
+      "NeedsToInitiateCombat": false,
+      "Description": "Increases the effect of HP-restoration items and tonic items by x1.5.",
+      "StatBonus": null
+    }
+  ],
+  "Terrain": {
+    "TerrainType": 0,
+    "DefBonus": "-",
+    "AvoidBonus": "-",
+    "HealPercent": "-",
+    "MoveCost": "0",
+    "OtherData": "-"
+  },
+  "IsAttacking": false,
+  "IsInCombat": false,
+  "IsWeaponTriangleAdvantage": false,
+  "IsWeaponTriangleDisadvantage": false,
+  "InternalLevel": 0,
+  "DealsEffectiveDamage": true,
+  "EffectiveDamageUnitTypes": [
+    3
+  ],
+  "Attack": 88,
+  "Damage": 13,
+  "Crit": 2,
+  "Avoid": 9,
+  "Dodge": 6,
+  "AttackSpeed": 0,
+  "DamageReceived": 0
+}

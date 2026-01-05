@@ -42,5 +42,13 @@
   {
     "Id": "CHA00000011",
     "Name": "Cleric"
+  },
+  {
+    "Id": "CHA00000012",
+    "Name": "Angelica"
+  },
+  {
+    "Id": "CHA00000013",
+    "Name": "Tori"
   }
 ]
