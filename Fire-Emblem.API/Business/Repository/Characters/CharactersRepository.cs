@@ -125,8 +125,43 @@ namespace Fire_Emblem.API.Business.Repository.Characters
     {
       try
       {
-        var result = await FileHelper.UpdateFileAsync(character, character.Id, _characterFilePath);
-        return result;
+        if (character == null)
+          return false;
+
+        // Ensure characters directory exists
+        if (!Directory.Exists(_characterFilePath))
+          Directory.CreateDirectory(_characterFilePath);
+
+        // Write/overwrite the per-character file
+        var individualFilePath = Path.Combine(_characterFilePath, $"{character.Id}.txt");
+        var options = new JsonSerializerOptions
+        {
+          WriteIndented = true,
+          Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        };
+        var characterJson = JsonSerializer.Serialize(character, options);
+        await File.WriteAllTextAsync(individualFilePath, characterJson);
+
+        // Ensure character index (character.txt) contains an entry for this character
+        var indexJson = await FileHelper.ReadFromFileAsync<CharacterIndex>(_filePath);
+        var characterIndexes = string.IsNullOrWhiteSpace(indexJson)
+          ? new List<CharacterIndex>()
+          : JsonSerializer.Deserialize<List<CharacterIndex>>(indexJson) ?? new List<CharacterIndex>();
+
+        var existingIndex = characterIndexes.FirstOrDefault(ci => ci.Id == character.Id);
+        if (existingIndex != null)
+        {
+          existingIndex.Name = character.Biography?.Name ?? existingIndex.Name;
+        }
+        else
+        {
+          characterIndexes.Add(new CharacterIndex { Id = character.Id, Name = character.Biography?.Name ?? string.Empty });
+        }
+
+        var indexesJson = JsonSerializer.Serialize(characterIndexes, options);
+        await File.WriteAllTextAsync(_filePath, indexesJson);
+
+        return true;
       }
       catch (Exception)
       {

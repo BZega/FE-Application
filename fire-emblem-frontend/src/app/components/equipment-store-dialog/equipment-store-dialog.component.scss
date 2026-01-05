@@ -576,4 +576,48 @@
   }
 }
 
+.destination-dialog {
+  .destination-options {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+  }
 
+  .destination-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+      background-color: var(--container-bg);
+    }
+
+    &.selected {
+      border-color: var(--primary-color);
+      background-color: var(--container-bg);
+      box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.2);
+    }
+
+    input[type="radio"] {
+      margin: 0;
+    }
+
+    .option-icon {
+      font-size: 32px;
+    }
+
+    .option-label {
+      font-weight: 500;
+      color: var(--text-color);
+    }
+  }
+}

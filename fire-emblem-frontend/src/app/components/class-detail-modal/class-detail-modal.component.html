@@ -1,0 +1,270 @@
+<div class="class-detail-modal">
+  <div class="modal-header">
+    <h2 class="modal-title">{{ unitClass.name }}</h2>
+    <button class="close-button" (click)="close()" title="Close">✖</button>
+  </div>
+
+  <div class="modal-content">
+    <!-- Class Type Info -->
+    <div class="class-type-section">
+      <div class="class-type-badge" [class.promoted]="unitClass.isPromoted" [class.special]="unitClass.isSpecialClass">
+        {{ unitClass.isPromoted ? 'Promoted' : 'Base' }}
+        {{ unitClass.isSpecialClass ? '• Special' : '' }}
+      </div>
+      <div class="unit-types">{{ unitClass.unitTypes }}</div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <h3 class="section-title">Stats</h3>
+      
+      <!-- Stats Header -->
+      <div class="stats-header">
+        <div class="stat-header-name">Stat</div>
+        <div class="stat-header-data">
+          <div class="stat-header-col">Base</div>
+          <div class="stat-header-col">Max</div>
+          <div class="stat-header-col">Growth</div>
+        </div>
+      </div>
+
+      <!-- Stat Rows -->
+      <div class="stat-row">
+        <span class="stat-name">HP</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('hp')">
+                {{ unitClass.baseStats?.hp || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.hp || 0, unitClass.maxStats?.hp || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.hp || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.hp || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Str</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('str')">
+                {{ unitClass.baseStats?.str || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.str || 0, unitClass.maxStats?.str || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.str || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.str || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Mag</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('mag')">
+                {{ unitClass.baseStats?.mag || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.mag || 0, unitClass.maxStats?.mag || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.mag || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.mag || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Skl</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('skl')">
+                {{ unitClass.baseStats?.skl || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.skl || 0, unitClass.maxStats?.skl || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.skl || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.skl || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Spd</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('spd')">
+                {{ unitClass.baseStats?.spd || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.spd || 0, unitClass.maxStats?.spd || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.spd || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.spd || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Lck</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('lck')">
+                {{ unitClass.baseStats?.lck || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.lck || 0, unitClass.maxStats?.lck || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.lck || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.lck || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Def</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('def')">
+                {{ unitClass.baseStats?.def || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.def || 0, unitClass.maxStats?.def || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.def || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.def || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Res</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('res')">
+                {{ unitClass.baseStats?.res || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.res || 0, unitClass.maxStats?.res || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.res || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">{{ unitClass.growthRate?.res || 0 }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-name">Mov</span>
+        <div class="stat-data">
+          <div class="stat-base-col">
+            <div class="stat-value-group">
+              <span class="stat-base" [class.maxed]="isBaseStatMaxed('mov')">
+                {{ unitClass.baseStats?.mov || 0 }}
+              </span>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" [style.width.%]="getStatPercentage(unitClass.baseStats?.mov || 0, unitClass.maxStats?.mov || 0)"></div>
+            </div>
+          </div>
+          <div class="stat-max-col">
+            <span class="stat-value">{{ unitClass.maxStats?.mov || 0 }}</span>
+          </div>
+          <div class="stat-growth-col">
+            <span class="growth-value">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usable Weapons Section -->
+    <div class="weapons-section" *ngIf="unitClass.usableWeapons && unitClass.usableWeapons.length > 0">
+      <h3 class="section-title">Usable Weapons</h3>
+      <div class="weapons-list">
+        <div class="weapon-item" *ngFor="let weapon of unitClass.usableWeapons">
+          {{ weapon.weaponType }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Abilities Section -->
+    <div class="abilities-section" *ngIf="classAbilities && classAbilities.length > 0">
+      <h3 class="section-title">Class Abilities</h3>
+      <div class="ability-card" *ngFor="let ability of classAbilities">
+        <div class="ability-name">{{ ability.name }}</div>
+        <div class="ability-description">{{ ability.description }}</div>
+      </div>
+    </div>
+
+    <!-- Promotions Section -->
+    <div class="promotions-section" *ngIf="unitClass.classPromotions && unitClass.classPromotions.length > 0">
+      <h3 class="section-title">Promotions</h3>
+      <div class="options-list">
+        <div class="option-item" *ngFor="let promo of unitClass.classPromotions">
+          {{ promo }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Reclass Options Section -->
+    <div class="reclass-section" *ngIf="unitClass.reclassOptions && unitClass.reclassOptions.length > 0">
+      <h3 class="section-title">Reclass Options</h3>
+      <div class="options-list">
+        <div class="option-item" *ngFor="let option of unitClass.reclassOptions">
+          {{ option }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

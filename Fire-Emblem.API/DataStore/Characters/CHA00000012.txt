@@ -1,22 +1,22 @@
 {
-  "Id": "CHA00000004",
+  "Id": "CHA00000012",
   "Biography": {
-    "Name": "Sword Guy",
-    "Gender": "Male",
-    "Background": "Just Testing",
+    "Name": "Angelica",
+    "Gender": "Female",
+    "Background": "Noble Angelica will rule the world",
     "IsNoble": true,
     "RaceChoice": {
       "RacialType": 0,
       "HumanStatChoices": [
-        1,
-        4
+        8,
+        8
       ],
       "RacialGrowth": {
         "HP": 0,
-        "Str": 10,
+        "Str": 0,
         "Mag": 0,
         "Skl": 0,
-        "Spd": 10,
+        "Spd": 0,
         "Lck": 0,
         "Def": 0,
         "Res": 0
@@ -25,53 +25,59 @@
     }
   },
   "PersonalAbility": {
-    "Id": 1,
-    "Name": "Aching Blood",
-    "Description": "Increases critical rate by 10% if using a forged weapon whose name is 12 or more characters long.",
+    "Id": 3,
+    "Name": "Bloodthirst",
+    "Description": "If this unit initiates the battle and KOs an enemy with their attack, Strength, Magic, Skill and Speed +4 for one turn.",
     "StatBonus": {
       "Growths": null,
-      "Attributes": {
-        "Hit": 0,
-        "Crit": 10,
-        "Avoid": 0,
-        "Dodge": 0,
-        "Heal": 0,
-        "Damage": 0,
-        "DamageReceived": 0,
-        "AttackSpeed": 0
-      },
-      "Stats": null
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 4,
+        "Mag": 4,
+        "Skl": 4,
+        "Spd": 4,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
     }
   },
   "CurrentStats": {
-    "HP": 29,
-    "Str": 22,
-    "Mag": 8,
-    "Skl": 24,
-    "Spd": 32,
+    "HP": 26,
+    "Str": 15,
+    "Mag": 7,
+    "Skl": 10,
+    "Spd": 21,
     "Lck": 5,
-    "Def": 15,
-    "Res": 3,
+    "Def": 9,
+    "Res": 7,
     "Mov": 5
   },
   "TotalGrowthRate": {
-    "HP": 70,
-    "Str": 90,
-    "Mag": 40,
-    "Skl": 65,
-    "Spd": 105,
-    "Lck": 35,
-    "Def": 55,
-    "Res": 15
+    "HP": 80,
+    "Str": 75,
+    "Mag": 45,
+    "Skl": 70,
+    "Spd": 75,
+    "Lck": 30,
+    "Def": 35,
+    "Res": 35
   },
   "Exp": 0,
-  "Gold": 16500,
+  "Gold": 500,
   "Heal": 0,
   "DualStrike": 0,
   "DualGuard": 0,
-  "StartingClass": "Myrmidon",
-  "HeartSealClass": "Ninja",
-  "PermanentReclassOptions": [],
+  "StartingClass": "Ninja",
+  "HeartSealClass": "Sword Performer",
+  "PermanentReclassOptions": [
+    "Ninja",
+    "Sword Lord",
+    "Myrmidon",
+    "Mage"
+  ],
   "Asset": {
     "AssetChoice": 4,
     "BaseStatBonus": {
@@ -139,32 +145,46 @@
   "Inventory": {
     "Equipment": [
       {
-        "Id": 151,
-        "EquipOid": "94a80c0e-be9e-46e5-a213-9c33bcc2e862",
-        "Name": "Bronze Sword",
+        "Id": 71,
+        "EquipOid": "bd36d250-1297-4a78-ae83-f094f520d663",
+        "Name": "Brass Shuriken",
         "Rank": 1,
-        "WeaponType": 6,
+        "WeaponType": 2,
         "IsMagical": false,
         "IsBrave": false,
         "DoesEffectiveDamage": false,
         "EffectiveUnitTypes": [],
-        "Might": 4,
-        "Hit": 100,
+        "Might": 2,
+        "Hit": 95,
         "Crit": 0,
-        "Range": "1",
+        "Range": "1-2",
         "Uses": "Inf.",
         "Worth": "500",
         "WeaponExp": 2,
         "BaseHP": null,
         "Experience": null,
         "IsEquipped": true,
-        "Description": "",
-        "StatBonus": null
+        "Description": "Enemy's Skill and Speed -1 each, Defense and Resistance -2 each upon a successful strike.",
+        "StatBonus": {
+          "Growths": null,
+          "Attributes": null,
+          "Stats": {
+            "HP": 0,
+            "Str": 0,
+            "Mag": 0,
+            "Skl": 0,
+            "Spd": 2,
+            "Lck": 0,
+            "Def": 0,
+            "Res": 0,
+            "Mov": 0
+          }
+        }
       },
       {
-        "Id": 235,
-        "EquipOid": "a860ce9b-3fb5-4b41-923b-2b19c29250a0",
-        "Name": "Vulnerary",
+        "Id": 262,
+        "EquipOid": "9d56db12-b4c2-42dd-bbbe-b7f509879d08",
+        "Name": "Second Seal",
         "Rank": 1,
         "WeaponType": 9,
         "IsMagical": false,
@@ -176,29 +196,25 @@
         "Crit": null,
         "Range": null,
         "Uses": "1",
-        "Worth": "300",
+        "Worth": "2000",
         "WeaponExp": null,
         "BaseHP": null,
         "Experience": null,
         "IsEquipped": false,
-        "Description": "Restores 10 HP to its user.",
-        "StatBonus": {
-          "Growths": null,
-          "Attributes": null,
-          "Stats": null
-        }
+        "Description": "Initiates reclassing for the unit using it, dependent on their current level and class-tier status.",
+        "StatBonus": null
       }
     ]
   },
   "BaseStats": {
-    "HP": 29,
-    "Str": 22,
-    "Mag": 8,
-    "Skl": 24,
-    "Spd": 32,
+    "HP": 26,
+    "Str": 15,
+    "Mag": 7,
+    "Skl": 10,
+    "Spd": 19,
     "Lck": 5,
-    "Def": 15,
-    "Res": 3,
+    "Def": 9,
+    "Res": 7,
     "Mov": 5
   },
   "StatChangeAmount": {
@@ -206,7 +222,7 @@
     "Str": 0,
     "Mag": 0,
     "Skl": 0,
-    "Spd": 0,
+    "Spd": 2,
     "Lck": 0,
     "Def": 0,
     "Res": 0,
@@ -214,32 +230,32 @@
   },
   "MaxStats": {
     "HP": 60,
-    "Str": 23,
-    "Mag": 21,
-    "Skl": 29,
+    "Str": 24,
+    "Mag": 19,
+    "Skl": 28,
     "Spd": 32,
     "Lck": 29,
-    "Def": 22,
-    "Res": 24,
+    "Def": 25,
+    "Res": 25,
     "Mov": 7
   },
   "PersonalGrowthRate": {
-    "HP": 30,
-    "Str": 60,
-    "Mag": 40,
+    "HP": 40,
+    "Str": 55,
+    "Mag": 45,
     "Skl": 50,
-    "Spd": 70,
-    "Lck": 20,
-    "Def": 50,
-    "Res": 10
+    "Spd": 55,
+    "Lck": 30,
+    "Def": 25,
+    "Res": 30
   },
   "ReclassOptions": [
-    "Myrmidon",
+    "Ninja",
     "Sword Lord",
-    "Axe Lord",
-    "Lance Lord",
-    "Thief",
-    "Oni Savage"
+    "Myrmidon",
+    "Mage",
+    "Archer",
+    "Cavalier"
   ],
   "WeaponRanks": [
     {
@@ -334,36 +350,23 @@
   "Supports": null,
   "AcquiredAbilities": [
     {
-      "Id": 36,
-      "AbilityOid": "568f18bb-04fa-4c79-ae79-c29945a3beaf",
-      "Name": "Avoid +10",
+      "Id": 39,
+      "AbilityOid": "70c8c6a8-6e56-4490-81a5-b606398a7abe",
+      "Name": "Locktouch",
       "LevelGained": 1,
-      "AbilityType": 0,
+      "AbilityType": 1,
       "NeedsToInitiateCombat": false,
-      "Description": "Increase Avoid by 10.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": {
-          "Hit": 0,
-          "Crit": 0,
-          "Avoid": 10,
-          "Dodge": 0,
-          "Heal": 0,
-          "Damage": 0,
-          "DamageReceived": 0,
-          "AttackSpeed": 0
-        },
-        "Stats": null
-      }
+      "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+      "StatBonus": null
     },
     {
-      "Id": 38,
-      "AbilityOid": "0fdf79fc-7f64-4fee-b762-8bf5a077f74b",
-      "Name": "Vantage",
+      "Id": 40,
+      "AbilityOid": "457ce900-d6eb-4110-807c-ad9b53970e93",
+      "Name": "Poison Strike",
       "LevelGained": 10,
-      "AbilityType": 2,
+      "AbilityType": 0,
       "NeedsToInitiateCombat": false,
-      "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+      "Description": "If the user initiated the battle and the enemy survives, enemy loses 20% current HP after the battle.",
       "StatBonus": null
     }
   ],
@@ -371,16 +374,16 @@
     {
       "SkillType": 0,
       "StatType": 1,
-      "IsProficient": true,
-      "Attribute": 22,
-      "Bonus": 4,
-      "Score": 8
+      "IsProficient": false,
+      "Attribute": 12,
+      "Bonus": 0,
+      "Score": 2
     },
     {
       "SkillType": 1,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 7,
       "Bonus": 0,
       "Score": 1
     },
@@ -388,23 +391,23 @@
       "SkillType": 2,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 7,
       "Bonus": 0,
       "Score": 1
     },
     {
       "SkillType": 3,
       "StatType": 2,
-      "IsProficient": false,
-      "Attribute": 8,
-      "Bonus": 0,
-      "Score": 1
+      "IsProficient": true,
+      "Attribute": 7,
+      "Bonus": 2,
+      "Score": 3
     },
     {
       "SkillType": 4,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 7,
       "Bonus": 0,
       "Score": 1
     },
@@ -412,7 +415,7 @@
       "SkillType": 5,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 7,
       "Bonus": 0,
       "Score": 1
     },
@@ -420,111 +423,111 @@
       "SkillType": 6,
       "StatType": 3,
       "IsProficient": true,
-      "Attribute": 24,
-      "Bonus": 4,
-      "Score": 8
+      "Attribute": 13,
+      "Bonus": 2,
+      "Score": 4
     },
     {
       "SkillType": 7,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 24,
+      "Attribute": 13,
       "Bonus": 0,
-      "Score": 4
+      "Score": 2
     },
     {
       "SkillType": 8,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 24,
+      "Attribute": 13,
       "Bonus": 0,
-      "Score": 4
+      "Score": 2
     },
     {
       "SkillType": 9,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 24,
+      "Attribute": 13,
       "Bonus": 0,
-      "Score": 4
+      "Score": 2
     },
     {
       "SkillType": 10,
       "StatType": 4,
       "IsProficient": true,
-      "Attribute": 32,
-      "Bonus": 4,
-      "Score": 10
+      "Attribute": 22,
+      "Bonus": 2,
+      "Score": 6
     },
     {
       "SkillType": 11,
       "StatType": 4,
-      "IsProficient": false,
-      "Attribute": 32,
-      "Bonus": 0,
-      "Score": 6
-    },
-    {
-      "SkillType": 12,
-      "StatType": 4,
-      "IsProficient": false,
-      "Attribute": 32,
-      "Bonus": 0,
-      "Score": 6
-    },
-    {
-      "SkillType": 13,
-      "StatType": 7,
-      "IsProficient": false,
-      "Attribute": 3,
-      "Bonus": 0,
-      "Score": 0
-    },
-    {
-      "SkillType": 14,
-      "StatType": 7,
-      "IsProficient": false,
-      "Attribute": 3,
-      "Bonus": 0,
-      "Score": 0
-    },
-    {
-      "SkillType": 15,
-      "StatType": 7,
-      "IsProficient": false,
-      "Attribute": 3,
-      "Bonus": 0,
-      "Score": 0
-    },
-    {
-      "SkillType": 16,
-      "StatType": 7,
-      "IsProficient": false,
-      "Attribute": 3,
-      "Bonus": 0,
-      "Score": 0
-    },
-    {
-      "SkillType": 17,
-      "StatType": 7,
-      "IsProficient": false,
-      "Attribute": 3,
-      "Bonus": 0,
-      "Score": 0
-    },
-    {
-      "SkillType": 18,
-      "StatType": 1,
       "IsProficient": false,
       "Attribute": 22,
       "Bonus": 0,
       "Score": 4
     },
     {
+      "SkillType": 12,
+      "StatType": 4,
+      "IsProficient": false,
+      "Attribute": 22,
+      "Bonus": 0,
+      "Score": 4
+    },
+    {
+      "SkillType": 13,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 10,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 14,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 10,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 15,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 10,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 16,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 10,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 17,
+      "StatType": 7,
+      "IsProficient": false,
+      "Attribute": 10,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
+      "SkillType": 18,
+      "StatType": 1,
+      "IsProficient": false,
+      "Attribute": 12,
+      "Bonus": 0,
+      "Score": 2
+    },
+    {
       "SkillType": 19,
       "StatType": 2,
       "IsProficient": false,
-      "Attribute": 8,
+      "Attribute": 7,
       "Bonus": 0,
       "Score": 1
     },
@@ -532,36 +535,51 @@
       "SkillType": 20,
       "StatType": 3,
       "IsProficient": false,
-      "Attribute": 24,
+      "Attribute": 13,
       "Bonus": 0,
-      "Score": 4
+      "Score": 2
     },
     {
       "SkillType": 21,
       "StatType": 4,
       "IsProficient": false,
-      "Attribute": 32,
+      "Attribute": 22,
       "Bonus": 0,
-      "Score": 6
+      "Score": 4
     },
     {
       "SkillType": 22,
       "StatType": 6,
       "IsProficient": false,
-      "Attribute": 15,
+      "Attribute": 5,
       "Bonus": 0,
-      "Score": 3
+      "Score": 1
     },
     {
       "SkillType": 23,
       "StatType": 7,
       "IsProficient": false,
-      "Attribute": 3,
+      "Attribute": 10,
       "Bonus": 0,
-      "Score": 0
+      "Score": 2
     }
   ],
   "LevelupStatIncreases": [
+    {
+      "Level": 1,
+      "LevelUpType": "RANDOM LEVEL UP",
+      "StatIncrease": {
+        "HP": 0,
+        "Str": 1,
+        "Mag": 1,
+        "Skl": 1,
+        "Spd": 1,
+        "Lck": 0,
+        "Def": 1,
+        "Res": 1,
+        "Mov": 0
+      }
+    },
     {
       "Level": 2,
       "LevelUpType": "RANDOM LEVEL UP",
@@ -569,11 +587,11 @@
         "HP": 1,
         "Str": 1,
         "Mag": 0,
-        "Skl": 1,
-        "Spd": 2,
+        "Skl": 0,
+        "Spd": 1,
         "Lck": 1,
         "Def": 1,
-        "Res": 0,
+        "Res": 1,
         "Mov": 0
       }
     },
@@ -584,11 +602,11 @@
         "HP": 0,
         "Str": 1,
         "Mag": 1,
-        "Skl": 1,
+        "Skl": 0,
         "Spd": 1,
         "Lck": 1,
-        "Def": 1,
-        "Res": 1,
+        "Def": 0,
+        "Res": 0,
         "Mov": 0
       }
     },
@@ -596,14 +614,14 @@
       "Level": 4,
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
-        "HP": 1,
+        "HP": 0,
         "Str": 1,
-        "Mag": 0,
-        "Skl": 0,
+        "Mag": 1,
+        "Skl": 1,
         "Spd": 1,
-        "Lck": 0,
-        "Def": 1,
-        "Res": 0,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 1,
         "Mov": 0
       }
     },
@@ -612,9 +630,9 @@
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
         "HP": 1,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
+        "Str": 0,
+        "Mag": 1,
+        "Skl": 0,
         "Spd": 1,
         "Lck": 0,
         "Def": 0,
@@ -626,13 +644,13 @@
       "Level": 6,
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
-        "HP": 0,
+        "HP": 1,
         "Str": 1,
         "Mag": 1,
-        "Skl": 0,
+        "Skl": 1,
         "Spd": 1,
         "Lck": 0,
-        "Def": 1,
+        "Def": 0,
         "Res": 0,
         "Mov": 0
       }
@@ -641,13 +659,13 @@
       "Level": 7,
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
-        "HP": 0,
+        "HP": 1,
         "Str": 1,
-        "Mag": 1,
+        "Mag": 0,
         "Skl": 1,
         "Spd": 1,
-        "Lck": 0,
-        "Def": 1,
+        "Lck": 1,
+        "Def": 0,
         "Res": 0,
         "Mov": 0
       }
@@ -657,13 +675,13 @@
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
         "HP": 1,
-        "Str": 1,
-        "Mag": 1,
+        "Str": 0,
+        "Mag": 0,
         "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 1,
-        "Res": 0,
+        "Spd": 0,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 1,
         "Mov": 0
       }
     },
@@ -673,12 +691,12 @@
       "StatIncrease": {
         "HP": 1,
         "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
-        "Spd": 2,
-        "Lck": 1,
+        "Mag": 1,
+        "Skl": 0,
+        "Spd": 1,
+        "Lck": 0,
         "Def": 0,
-        "Res": 0,
+        "Res": 1,
         "Mov": 0
       }
     },
@@ -688,12 +706,12 @@
       "StatIncrease": {
         "HP": 1,
         "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
+        "Mag": 1,
+        "Skl": 0,
         "Spd": 1,
-        "Lck": 0,
-        "Def": 1,
-        "Res": 0,
+        "Lck": 1,
+        "Def": 0,
+        "Res": 1,
         "Mov": 0
       }
     },
@@ -701,218 +719,97 @@
       "Level": 11,
       "LevelUpType": "RANDOM LEVEL UP",
       "StatIncrease": {
-        "HP": 0,
+        "HP": 1,
         "Str": 1,
         "Mag": 0,
-        "Skl": 1,
+        "Skl": 0,
         "Spd": 1,
         "Lck": 1,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 12,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 1,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 1,
-        "Def": 1,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 13,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 1,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 14,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 0,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 15,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 1,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
         "Def": 0,
         "Res": 1,
         "Mov": 0
       }
-    },
-    {
-      "Level": 16,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 0,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 17,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 18,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 1,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 0,
-        "Def": 0,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 19,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 1,
-        "Mag": 0,
-        "Skl": 1,
-        "Spd": 1,
-        "Lck": 1,
-        "Def": 1,
-        "Res": 0,
-        "Mov": 0
-      }
-    },
-    {
-      "Level": 20,
-      "LevelUpType": "RANDOM LEVEL UP",
-      "StatIncrease": {
-        "HP": 1,
-        "Str": 0,
-        "Mag": 0,
-        "Skl": 0,
-        "Spd": 0,
-        "Lck": 1,
-        "Def": 1,
-        "Res": 0,
-        "Mov": 0
-      }
     }
   ],
-  "ConvoyId": "a6486ac7-3301-4ce9-80f2-d6946bf729d4",
+  "ConvoyId": "e5c31aa1-5227-4f7d-96dd-8f92319cc82d",
   "UnitTypes": [
     0
   ],
-  "Level": 20,
-  "InternalLevel": 20,
-  "CurrentHP": 23,
+  "Level": 1,
+  "CumulativeLevel": 5,
+  "CurrentHP": 24,
   "EquippedWeapon": {
-    "Id": 151,
-    "EquipOid": "94a80c0e-be9e-46e5-a213-9c33bcc2e862",
-    "Name": "Bronze Sword",
+    "Id": 71,
+    "EquipOid": "bd36d250-1297-4a78-ae83-f094f520d663",
+    "Name": "Brass Shuriken",
     "Rank": 1,
-    "WeaponType": 6,
+    "WeaponType": 2,
     "IsMagical": false,
     "IsBrave": false,
     "DoesEffectiveDamage": false,
     "EffectiveUnitTypes": [],
-    "Might": 4,
-    "Hit": 100,
+    "Might": 2,
+    "Hit": 95,
     "Crit": 0,
-    "Range": "1",
+    "Range": "1-2",
     "Uses": "Inf.",
     "Worth": "500",
     "WeaponExp": 2,
     "BaseHP": null,
     "Experience": null,
     "IsEquipped": true,
-    "Description": "",
-    "StatBonus": null
+    "Description": "Enemy's Skill and Speed -1 each, Defense and Resistance -2 each upon a successful strike.",
+    "StatBonus": {
+      "Growths": null,
+      "Attributes": null,
+      "Stats": {
+        "HP": 0,
+        "Str": 0,
+        "Mag": 0,
+        "Skl": 0,
+        "Spd": 2,
+        "Lck": 0,
+        "Def": 0,
+        "Res": 0,
+        "Mov": 0
+      }
+    }
   },
   "CurrentClass": {
-    "Id": 15,
-    "Name": "Myrmidon",
+    "Id": 9,
+    "Name": "Sword Lord",
     "IsPromoted": false,
     "IsSpecialClass": false,
     "BaseStats": {
-      "HP": 16,
-      "Str": 4,
-      "Mag": 1,
-      "Skl": 9,
-      "Spd": 10,
+      "HP": 18,
+      "Str": 6,
+      "Mag": 0,
+      "Skl": 5,
+      "Spd": 7,
       "Lck": 0,
-      "Def": 4,
-      "Res": 1,
+      "Def": 7,
+      "Res": 0,
       "Mov": 5
     },
     "MaxStats": {
       "HP": 60,
-      "Str": 24,
-      "Mag": 22,
-      "Skl": 27,
+      "Str": 25,
+      "Mag": 20,
+      "Skl": 26,
       "Spd": 28,
       "Lck": 30,
-      "Def": 22,
-      "Res": 24,
+      "Def": 25,
+      "Res": 25,
       "Mov": 7
     },
     "GrowthRate": {
       "HP": 40,
       "Str": 20,
       "Mag": 0,
-      "Skl": 15,
-      "Spd": 25,
-      "Lck": 15,
-      "Def": 5,
+      "Skl": 20,
+      "Spd": 20,
+      "Lck": 0,
+      "Def": 10,
       "Res": 5
     },
     "InnateBonus": null,
@@ -921,59 +818,23 @@
     ],
     "Abilities": [
       {
-        "Id": 36,
+        "Id": 26,
         "AbilityOid": null,
-        "Name": "Avoid +10",
+        "Name": "Dual Strike+",
         "LevelGained": 1,
+        "AbilityType": 2,
+        "NeedsToInitiateCombat": false,
+        "Description": "Increase the chance for a Dual Strike occurring by 10%",
+        "StatBonus": null
+      },
+      {
+        "Id": 27,
+        "AbilityOid": null,
+        "Name": "Charm",
+        "LevelGained": 10,
         "AbilityType": 0,
         "NeedsToInitiateCombat": false,
-        "Description": "Increase Avoid by 10.",
-        "StatBonus": {
-          "Growths": null,
-          "Attributes": {
-            "Hit": 0,
-            "Crit": 0,
-            "Avoid": 10,
-            "Dodge": 0,
-            "Heal": 0,
-            "Damage": 0,
-            "DamageReceived": 0,
-            "AttackSpeed": 0
-          },
-          "Stats": null
-        }
-      },
-      {
-        "Id": 37,
-        "AbilityOid": null,
-        "Name": "Duelist's Blow",
-        "LevelGained": 1,
-        "AbilityType": 2,
-        "NeedsToInitiateCombat": true,
-        "Description": "Increases the unit's avoid by 30 whenever the user initiates a battle",
-        "StatBonus": {
-          "Growths": null,
-          "Attributes": {
-            "Hit": 0,
-            "Crit": 0,
-            "Avoid": 30,
-            "Dodge": 0,
-            "Heal": 0,
-            "Damage": 0,
-            "DamageReceived": 0,
-            "AttackSpeed": 0
-          },
-          "Stats": null
-        }
-      },
-      {
-        "Id": 38,
-        "AbilityOid": null,
-        "Name": "Vantage",
-        "LevelGained": 10,
-        "AbilityType": 2,
-        "NeedsToInitiateCombat": false,
-        "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+        "Description": "All units with a 3 square radius receive a +5 support bonus to Attack and Avoid from the user.",
         "StatBonus": null
       }
     ],
@@ -985,57 +846,43 @@
       }
     ],
     "ClassPromotions": [
-      "Swordmaster",
-      "Sword Assassin",
-      "Master of Arms"
+      "Great Sword Lord with Lance",
+      "Great Sword Lord with Axe"
     ],
     "ReclassOptions": [
-      "Thief",
-      "Oni Savage"
+      "Archer",
+      "Cavalier"
     ],
     "SkillTypeOptions": [
-      10,
-      13,
       0,
+      10,
       6,
       2,
-      14,
       7,
-      9
+      8,
+      9,
+      5
     ]
   },
   "EquippedAbilities": [
     {
-      "Id": 36,
-      "AbilityOid": "568f18bb-04fa-4c79-ae79-c29945a3beaf",
-      "Name": "Avoid +10",
+      "Id": 39,
+      "AbilityOid": "70c8c6a8-6e56-4490-81a5-b606398a7abe",
+      "Name": "Locktouch",
       "LevelGained": 1,
-      "AbilityType": 0,
+      "AbilityType": 1,
       "NeedsToInitiateCombat": false,
-      "Description": "Increase Avoid by 10.",
-      "StatBonus": {
-        "Growths": null,
-        "Attributes": {
-          "Hit": 0,
-          "Crit": 0,
-          "Avoid": 10,
-          "Dodge": 0,
-          "Heal": 0,
-          "Damage": 0,
-          "DamageReceived": 0,
-          "AttackSpeed": 0
-        },
-        "Stats": null
-      }
+      "Description": "Opens doors and chests without the use of a key. Always succeeds and does not require a Disable Device check.",
+      "StatBonus": null
     },
     {
-      "Id": 38,
-      "AbilityOid": "0fdf79fc-7f64-4fee-b762-8bf5a077f74b",
-      "Name": "Vantage",
+      "Id": 40,
+      "AbilityOid": "457ce900-d6eb-4110-807c-ad9b53970e93",
+      "Name": "Poison Strike",
       "LevelGained": 10,
-      "AbilityType": 2,
+      "AbilityType": 0,
       "NeedsToInitiateCombat": false,
-      "Description": "When the user's HP is reduced to below half, he/she will always be able to attack first during the enemy's turn.",
+      "Description": "If the user initiated the battle and the enemy survives, enemy loses 20% current HP after the battle.",
       "StatBonus": null
     }
   ],
@@ -1051,12 +898,13 @@
   "IsInCombat": false,
   "IsWeaponTriangleAdvantage": false,
   "IsWeaponTriangleDisadvantage": false,
+  "InternalLevel": 6,
   "DealsEffectiveDamage": false,
   "EffectiveDamageUnitTypes": [],
-  "Attack": 138,
-  "Damage": 26,
-  "Crit": 22,
-  "Avoid": 61,
+  "Attack": 94,
+  "Damage": 14,
+  "Crit": 5,
+  "Avoid": 34,
   "Dodge": 5,
   "AttackSpeed": 0,
   "DamageReceived": 0

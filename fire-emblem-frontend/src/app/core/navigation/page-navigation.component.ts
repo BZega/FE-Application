@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { ThemeService } from '../services/theme.service';
 
 @Component({
@@ -13,9 +14,19 @@ import { ThemeService } from '../services/theme.service';
 export class PageNavigationComponent {
   isMenuOpen = false;
   isDarkMode$: Observable<boolean>;
+  isCharacterDetailPage$: Observable<boolean>;
 
-  constructor(private themeService: ThemeService) {
+  constructor(
+    private themeService: ThemeService,
+    private router: Router
+  ) {
     this.isDarkMode$ = this.themeService.darkMode$;
+    
+    // Check if we're on character detail page
+    this.isCharacterDetailPage$ = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.router.url.includes('/character-detail/'))
+    );
   }
 
   toggleMenu(): void {
@@ -28,5 +39,11 @@ export class PageNavigationComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  navigateToCharacterTab(tab: string): void {
+    // Emit event or use a service to communicate with character detail component
+    window.dispatchEvent(new CustomEvent('characterTabChange', { detail: tab }));
+    this.closeMenu();
   }
 }

@@ -1,0 +1,68 @@
+.level-up-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 300px;
+}
+
+.level-up-card {
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+  .level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--input-border);
+    padding-bottom: 8px;
+
+    .level-label {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .level-type {
+      font-size: 0.9em;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+  }
+
+  .stat-increases {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+
+    .stat-increase {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 8px;
+      background-color: var(--container-bg);
+      border-radius: 4px;
+      border: 1px solid var(--input-border);
+      
+      .stat-name {
+        font-weight: 500;
+        color: var(--text-color);
+      }
+
+      .stat-value {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+    }
+
+    .no-stats {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--text-color);
+      opacity: 0.6;
+      font-style: italic;
+    }
+  }
+}

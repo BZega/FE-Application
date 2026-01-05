@@ -220,19 +220,19 @@ export class ConvoyDialogComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe((result: PurchasedEquipmentResult) => {
       if (result && result.equipment && result.equipment.length > 0) {
-        // Purchase items using the service
-        this.purchaseItems(result.equipment);
+        // Purchase items using the service with selected destination
+        this.purchaseItems(result.equipment, result.destination);
       }
     });
   }
 
-  purchaseItems(equipment: Equipment[]) {
-    // For each purchased item, call the BUY endpoint
+  purchaseItems(equipment: Equipment[], destination: 'INVENTORY' | 'CONVOY') {
+    // For each purchased item, call the BUY endpoint with the selected destination
     const purchasePromises = equipment.map(item => 
       this.characterService.updateConvoyItems(
         this.character.id,
         'BUY',
-        'CONVOY',
+        destination,
         null,
         item.id,
         null,

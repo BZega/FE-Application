@@ -10,6 +10,9 @@
     --input-bg: #ffffff;
     --input-border: #cccccc;
     --background-image: url('/assets/light-parchment-paper.jpg');
+    --stat-bar-color-start: #f4e6a8;
+    --stat-bar-color-end: #e6d78a;
+    --stat-bar-border-color: rgba(230, 215, 138, 0.5);
   }
   
   [data-theme="dark"] {
@@ -24,6 +27,9 @@
     --input-bg: #333333;
     --input-border: #777777;
     --background-image: url('/assets/dark-parchment-paper.jpg');
+    --stat-bar-color-start: #818cf8;
+    --stat-bar-color-end: #6366f1;
+    --stat-bar-border-color: rgba(99, 102, 241, 0.3);
   }
   
   /* Apply to body */
@@ -174,5 +180,70 @@ body:has(.cdk-global-overlay-wrapper)>app-root {
     margin: 0 !important;
     max-height: none !important;
     overflow: hidden !important;
+  }
+}
+
+// Global Dialog Theme Styles
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: var(--card-bg);
+  --mdc-dialog-supporting-text-color: var(--text-color);
+  
+  .mdc-dialog__surface {
+    background-color: var(--card-bg) !important;
+  }
+}
+
+.mat-mdc-dialog-title {
+  color: var(--text-color) !important;
+}
+
+.mat-mdc-dialog-content {
+  color: var(--text-color) !important;
+}
+
+// Material Form Field Theme Overrides
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: var(--input-bg);
+  --mdc-filled-text-field-label-text-color: var(--text-color);
+  --mdc-filled-text-field-input-text-color: var(--text-color);
+  --mdc-outlined-text-field-label-text-color: var(--text-color);
+  --mdc-outlined-text-field-input-text-color: var(--text-color);
+  --mdc-outlined-text-field-outline-color: var(--input-border);
+  
+  .mat-mdc-input-element {
+    color: var(--text-color) !important;
+    caret-color: var(--primary-color);
+  }
+  
+  .mat-mdc-form-field-focus-overlay {
+    background-color: transparent;
+  }
+}
+
+// Checkbox Theme Overrides
+.mat-mdc-checkbox {
+  --mdc-checkbox-selected-icon-color: var(--primary-color);
+  --mdc-checkbox-selected-hover-icon-color: var(--primary-color);
+  --mdc-checkbox-selected-pressed-icon-color: var(--primary-color);
+  --mdc-checkbox-unselected-icon-color: var(--text-color);
+  --mdc-checkbox-unselected-hover-icon-color: var(--text-color);
+  
+  label {
+    color: var(--text-color) !important;
+  }
+}
+
+// Button Theme Overrides for Dialogs
+.mat-mdc-dialog-actions {
+  button.mat-mdc-button, button.mat-mdc-raised-button {
+    &:not([color]) {
+      --mdc-text-button-label-text-color: var(--button-text);
+      --mdc-protected-button-label-text-color: var(--button-text);
+    }
+    
+    &[color="primary"] {
+      --mdc-protected-button-container-color: var(--primary-color);
+      --mdc-protected-button-label-text-color: var(--bg-color);
+    }
   }
 }

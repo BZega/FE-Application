@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild, TemplateRef, OnDestroy } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable, Subject, BehaviorSubject, forkJoin, of } from 'rxjs';
+import { takeUntil, map, catchError } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Character } from '../../core/models/Character';
@@ -12,6 +12,10 @@ import { MaterialModule } from '../../material/material.module';
 import { Ability } from '../../core/models/Ability';
 import { Stats } from '../../core/models/Stats';
 import { ConvoyDialogComponent } from '../convoy-dialog/convoy-dialog.component';
+import { UpdateResourceDialogComponent } from '../update-resource-dialog/update-resource-dialog.component';
+import { LevelUpDialogComponent } from '../level-up-dialog/level-up-dialog.component';
+import { ClassDetailModalComponent } from '../class-detail-modal/class-detail-modal.component';
+import { LevelUp } from '../../core/models/LevelUp';
 
 @Component({
   selector: 'app-character-detail',
@@ -36,7 +40,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
 
   // Consumable type constants
   private readonly permanentItems = [
-    'Boots', 'Dracoshield', 'EnergyDrop', 'GoddessIcon', 'SecretBook',
+    'Boots', 'ArmsScroll', 'Dracoshield', 'EnergyDrop', 'GoddessIcon', 'SecretBook',
     'SeraphRope', 'Speedwing', 'SpiritDust', 'Talisman', 'NagasTear', 'DefenseTonic'
   ];
   
@@ -94,12 +98,18 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
       this.characterId = params['id'];
       this.loadCharacterData();
     });
+
+    // Listen for tab changes from navbar
+    window.addEventListener('characterTabChange', this.handleTabChange);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
     this.characterSubject.complete();
+    
+    // Remove event listener
+    window.removeEventListener('characterTabChange', this.handleTabChange);
   }
 
   // Load character data from server
@@ -118,6 +128,14 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   // Tab navigation methods
   selectTab(tab: 'personal' | 'biography' | 'supports' | 'skills'): void {
     this.selectedTab = tab;
+  }
+
+  // Handle tab change from navbar
+  private handleTabChange = (event: Event): void => {
+    const customEvent = event as CustomEvent<string>;
+    if (customEvent.detail) {
+      this.selectTab(customEvent.detail as 'personal' | 'biography' | 'supports' | 'skills');
+    }
   }
 
   // HP editing methods
@@ -140,6 +158,105 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
       this.editableCurrentHP = this.currentCharacter.currentHP || 0;
     }
     this.isEditingHP = false;
+  }
+
+  openGoldDialog() {
+    if (!this.currentCharacter) return;
+
+    const dialogRef = this.dialog.open(UpdateResourceDialogComponent, {
+      width: '400px',
+      data: {
+        type: 'gold',
+        currentGold: this.currentCharacter.gold,
+        currentExp: this.currentCharacter.exp
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.submitCharacterUpdate(result);
+      }
+    });
+  }
+
+  openExpDialog() {
+    if (!this.currentCharacter) return;
+
+    const dialogRef = this.dialog.open(UpdateResourceDialogComponent, {
+      width: '500px',
+      data: {
+        type: 'exp',
+        currentGold: this.currentCharacter.gold,
+        currentExp: this.currentCharacter.exp,
+        characterLevel: this.currentCharacter.level,
+        isSpecialClass: this.currentCharacter.currentClass?.isSpecialClass || false,
+        classAbilities: this.currentCharacter.currentClass?.abilities ? 
+          (Array.isArray(this.currentCharacter.currentClass.abilities) 
+            ? this.currentCharacter.currentClass.abilities 
+            : [this.currentCharacter.currentClass.abilities]) 
+          : [],
+        equippedAbilityCount: this.currentCharacter.equippedAbilities?.length || 0
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.submitCharacterUpdate(result);
+      }
+    });
+  }
+
+  submitCharacterUpdate(payload: any) {
+    if (!this.characterId) return;
+    
+    // First handle ability acquisition if present
+    if (payload.abilityToAcquire) {
+      this.characterService.acquireAbility(
+        this.characterId, 
+        payload.abilityToAcquire, 
+        payload.equipAcquiredAbility || false
+      ).subscribe({
+        next: () => {
+          // After acquiring ability, proceed with character update
+          this.performCharacterUpdate(payload);
+        },
+        error: (err) => {
+          console.error('Error acquiring ability:', err);
+        }
+      });
+    } else {
+      // No ability to acquire, just update character
+      this.performCharacterUpdate(payload);
+    }
+  }
+
+  private performCharacterUpdate(payload: any) {
+    this.characterService.updateCharacter(this.characterId, payload).subscribe({
+      next: (response: any) => {
+        // Response is Tuple<bool, List<LevelUp>>
+        // Assuming serialization is { item1: boolean, item2: LevelUp[] }
+        const success = response.item1;
+        const levelUps = response.item2;
+
+        if (success) {
+          // Refresh character data since the response doesn't contain the full character anymore
+          this.loadCharacterData();
+
+          // Show level up dialog if there are level ups
+          if (levelUps && levelUps.length > 0) {
+            this.dialog.open(LevelUpDialogComponent, {
+              width: '400px',
+              data: { levelUps: levelUps }
+            });
+          }
+        } else {
+          console.error('Update failed according to backend response');
+        }
+      },
+      error: (err) => {
+        console.error('Error updating character:', err);
+      }
+    });
   }
 
   // Stat helper methods
@@ -535,42 +652,35 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  // Calculate total stat bonuses from equipment and abilities
-  getStatBonus(character: Character | null, stat: keyof Stats): number {
-    if (!character) return 0;
-    
-    let bonus = 0;
-    
-    // Add bonus from equipped weapon
-    if (character.equippedWeapon?.statBonus?.stats?.[stat]) {
-      bonus += character.equippedWeapon.statBonus.stats[stat];
-    }
-    
-    // Add bonuses from equipped abilities
-    if (character.equippedAbilities) {
-      for (const ability of character.equippedAbilities) {
-        if (ability.statBonus?.stats?.[stat]) {
-          bonus += ability.statBonus.stats[stat];
-        }
-      }
-    }
-    
-    return bonus;
+  // Get stat change amount from statChangeAmount property
+  getStatChange(character: Character | null, stat: keyof Stats): number {
+    if (!character?.statChangeAmount) return 0;
+    return character.statChangeAmount[stat] || 0;
   }
 
-  // Get base stat (current stat minus bonuses)
-  getBaseStat(character: Character | null, stat: keyof Stats): number {
-    if (!character?.currentStats) return 0;
-    
-    const currentValue = character.currentStats[stat] || 0;
-    const bonus = this.getStatBonus(character, stat);
-    
-    return currentValue - bonus;
+  // Check if stat has any changes from statChangeAmount
+  hasStatChange(character: Character | null, stat: keyof Stats): boolean {
+    return this.getStatChange(character, stat) !== 0;
   }
 
-  // Check if stat has any bonuses
-  hasStatBonus(character: Character | null, stat: keyof Stats): boolean {
-    return this.getStatBonus(character, stat) !== 0;
+  // Check if base stat equals max stat (green indicator)
+  isBaseStatMaxed(character: Character | null, stat: keyof Stats): boolean {
+    if (!character?.baseStats || !character?.maxStats) return false;
+    const baseStat = character.baseStats[stat] || 0;
+    const maxStat = character.maxStats[stat] || 40;
+    return baseStat === maxStat;
+  }
+
+  // Get percentage for stat bar based on base stat vs max stat
+  getBaseStatPercentage(character: Character | null, stat: keyof Stats): number {
+    if (!character?.baseStats || !character?.maxStats) return 0;
+    const baseStat = character.baseStats[stat] || 0;
+    const maxStat = character.maxStats[stat] || 40;
+    
+    // If stat is negative or zero, return 0%
+    if (baseStat <= 0) return 0;
+    
+    return Math.min((baseStat / maxStat) * 100, 100);
   }
 
   // Consumable item methods
@@ -651,39 +761,19 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
         break;
 
       case 'SecondSeal':
-        // At level 10-19: reclass options only
-        // At level 20+: reclass options + current class + promotions (if not promoted)
-        if (level >= 10 && level < 20) {
+        // For special classes: level 10-39 uses reclassOptions, level 40+ uses reclassOptions + promotions
+        // For normal classes: level 10-19 uses reclassOptions, level 20+ uses reclassOptions + promotions
+        const isSpecialClass = this.currentCharacter.currentClass?.isSpecialClass || false;
+        const threshold = isSpecialClass ? 40 : 20;
+        
+        if (level >= 10 && level < threshold) {
           if (this.currentCharacter.reclassOptions) {
             this.availablePromotionClasses = [...this.currentCharacter.reclassOptions];
-          } else {
-            this.fetchStartingClassOptions('reclass');
           }
-        } else if (level >= 20) {
-          const classes: string[] = [];
-          
-          // Add current class
-          if (this.currentCharacter.currentClass?.name) {
-            classes.push(this.currentCharacter.currentClass.name);
-          }
-          
-          // Add reclass options
+        } else if (level >= threshold) {
           if (this.currentCharacter.reclassOptions) {
-            classes.push(...this.currentCharacter.reclassOptions);
-          } else {
-            this.fetchStartingClassOptions('reclass');
-            return;
+            this.fetchReclassPromotions(this.currentCharacter.reclassOptions);
           }
-          
-          // Add promotions if not promoted
-          if (!isPromoted && this.currentCharacter.currentClass?.classPromotions) {
-            classes.push(...this.currentCharacter.currentClass.classPromotions);
-          } else if (!isPromoted && !this.currentCharacter.currentClass?.classPromotions) {
-            this.fetchStartingClassOptions('both');
-            return;
-          }
-          
-          this.availablePromotionClasses = classes;
         }
         break;
 
@@ -742,6 +832,36 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
         }
         
         this.availablePromotionClasses = classes;
+      });
+  }
+
+  private fetchReclassPromotions(reclassOptions: string[]): void {
+    // Create an array of observables to fetch each reclass option's class data
+    const classObservables = reclassOptions.map(className => 
+      this.characterService.getClass(className).pipe(
+        map(classData => ({ className, classData })),
+        catchError(() => of({ className, classData: null }))
+      )
+    );
+
+    forkJoin(classObservables)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(results => {
+        const allClasses: string[] = [];
+
+        // For each reclass option, add the class and its promotions
+        results.forEach(result => {
+          // Add the reclass option itself
+          allClasses.push(result.className);
+          
+          // Add its promotion options if available
+          if (result.classData?.classPromotions && result.classData.classPromotions.length > 0) {
+            allClasses.push(...result.classData.classPromotions);
+          }
+        });
+
+        // Remove duplicates
+        this.availablePromotionClasses = [...new Set(allClasses)];
       });
   }
 
@@ -812,5 +932,20 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     this.availablePromotionClasses = [];
     this.selectedWeaponType = '';
     this.dialog.closeAll();
+  }
+
+  openClassDetailModal(): void {
+    if (!this.currentCharacter?.currentClass) {
+      console.error('No current class available');
+      return;
+    }
+
+    this.dialog.open(ClassDetailModalComponent, {
+      width: '700px',
+      maxWidth: '95vw',
+      data: {
+        unitClass: this.currentCharacter.currentClass
+      }
+    });
   }
 }

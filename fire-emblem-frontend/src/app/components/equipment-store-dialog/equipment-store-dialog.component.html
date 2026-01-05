@@ -172,3 +172,39 @@
     </div>
   </div>
 </div>
+
+<!-- Destination Selection Dialog -->
+<div class="confirmation-overlay" *ngIf="showDestinationDialog" (click)="cancelDestination()">
+  <div class="confirmation-dialog destination-dialog" (click)="$event.stopPropagation()">
+    <h3 class="confirm-title">Select Destination</h3>
+    
+    <div class="confirm-content">
+      <p class="confirm-message">Where should the purchased items be sent?</p>
+      
+      <div class="destination-options">
+        <label class="destination-option" [class.selected]="selectedDestination === 'INVENTORY'">
+          <input type="radio" 
+                 name="destination" 
+                 value="INVENTORY" 
+                 [(ngModel)]="selectedDestination">
+          <span class="option-icon">🎒</span>
+          <span class="option-label">Inventory</span>
+        </label>
+        
+        <label class="destination-option" [class.selected]="selectedDestination === 'CONVOY'">
+          <input type="radio" 
+                 name="destination" 
+                 value="CONVOY" 
+                 [(ngModel)]="selectedDestination">
+          <span class="option-icon">🏰</span>
+          <span class="option-label">Convoy</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="confirm-actions">
+      <button mat-button (click)="cancelDestination()" class="confirm-cancel-btn">Cancel</button>
+      <button mat-raised-button (click)="confirmDestination()" class="confirm-ok-btn">Confirm</button>
+    </div>
+  </div>
+</div>
